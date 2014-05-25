@@ -9,14 +9,28 @@ body {
 
 }
 
-.makemeet h1 {
+h1 {
+	max-width:80%;
+	text-align: center;
+}
+.makemeet {
 
 	color: #141F1F;
 	font-size: 48px;
 	font-family: Arial, sans-serif;
 	font-variant: small-caps;
 	font-weight: bold;
+	max-width:100%;
+	margin-left: auto;
+	margin-right: auto;
 	
+}
+
+.login {
+	max-width:100%;
+	margin-left: auto;
+	margin-right: auto;
+
 }
 
 #mapcanvas {
