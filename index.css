@@ -9,28 +9,35 @@ body {
 
 }
 
-h1 {
-	max-width:80%;
+#bodydiv{
+	width: 100%;
+}
+
+.makemeet h1 {
+	width:90%;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
 }
+
+
+
 .makemeet {
 
 	color: #141F1F;
-	font-size: 48px;
+	font-size: 38px;
 	font-family: Arial, sans-serif;
 	font-variant: small-caps;
 	font-weight: bold;
-	max-width:100%;
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 	
 }
 
 .login {
-	max-width:100%;
-	margin-left: auto;
-	margin-right: auto;
-
+	text-align: center;
 }
 
 #mapcanvas {
