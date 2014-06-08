@@ -1,21 +1,7 @@
 function initialize() {
 
   // Create an array of styles.
-  var styles = [
-    {
-      stylers: [
-        { hue: "#3FA9F5" },
-        { saturation: -10 }
-      ]
-    },{
-      featureType: "road",
-      elementType: "geometry",
-      stylers: [
-        { lightness: 100 },
-        { visibility: "simplified" }
-      ]
-    }
-  ];
+  var styles = [{"featureType":"administrative","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"simplified"}]},{"featureType":"water","stylers":[{"visibility":"simplified"}]},{"featureType":"transit","stylers":[{"visibility":"simplified"}]},{"featureType":"landscape","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"visibility":"off"}]},{"featureType":"road.local","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"water","stylers":[{"color":"#84afa3"},{"lightness":52}]},{"stylers":[{"saturation":-17},{"gamma":0.36}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"color":"#3f518c"}]}];
 
   // Create a new StyledMapType object, passing it the array of styles,
   // as well as the name to be displayed on the map type control.
@@ -38,7 +24,7 @@ function initialize() {
   map.mapTypes.set('map_style', styledMap);
   map.setMapTypeId('map_style');
 
-  
+
 }
       
  google.maps.event.addDomListener(window, 'load', initialize);
