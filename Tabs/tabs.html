@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title> Find Me </title>
+<meta charset="utf-8">
+<style>
+@font-face
+{
+font-family: Terminal;
+src: url(Terminal.ttf);
+}
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  font-family: 'Terminal', sans-serif;
+}
+#cssmenu:before,
+#cssmenu:after,
+#cssmenu > ul:before,
+#cssmenu > ul:after {
+  content: '';
+  display: table;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  clear: both;
+}
+#cssmenu {
+  zoom: 1;
+  height: 69px;
+  background: url(bottom-bg.png) repeat-x center bottom;
+  border-radius: 2px;
+  width: auto;
+}
+#cssmenu ul {
+  background: url(nav-bg.png) repeat-x 0px 4px;
+  height: 69px;
+}
+#cssmenu ul li {
+  float: left;
+  list-style: none;
+}
+#cssmenu ul li a {
+  display: block;
+  height: 37px;
+  padding: 22px 30px 0;
+  margin: 2px 2px 0px;
+  border-radius: 2px 2px 0 0;
+  text-decoration: none;
+  font-size: 1.8em;
+  color: #75A7D7;
+  text-shadow: 0 1px 1px #476888;
+  font-weight: 400;
+  opacity: .9;
+}
+#cssmenu ul li:first-child a {
+  margin: 4px 2px 0 0;
+}
+#cssmenu ul li a:hover,
+#cssmenu ul li.active a {
+  background: url(color.png) center bottom;
+  display: block;
+  height: 37px;
+  margin-top: 0px;
+  padding-top: 26px;
+  color: #F2F9C5;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.55);
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='tabs.html'><span>Home</span></a></li>
+   <li><a href='#'><span>Map</span></a></li>
+   <li><a href='#'><span>Chat</span></a></li>
+   <li><a href='#'><span>Games</span></a></li>
+   <li class='last'><a href='#'><span>Settings</span></a></li>
+</ul>
+</div>
+</nav>
+
+</body>
+</html>
