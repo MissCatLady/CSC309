@@ -116,8 +116,12 @@ src: url(Terminal.ttf);
       $("#test").swipe( {
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-          //$(this).text("You swiped " + direction );
-          $(this).load("../Popup/popup.html");  
+          
+          if (direction == "left") {
+            $(this).load("1.html");}
+          else {
+            (this).text("You swiped " + direction );
+          } 
         },
         //Default is 75px, set to 0 for demo so any distance triggers swipe
          threshold:0
