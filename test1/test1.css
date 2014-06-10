@@ -1,13 +1,13 @@
 @font-face
 {
 font-family: Cousine;
-src: url(Cousine.ttf);
+src: url(../fonts/Cousine.ttf);
 }
 
 @font-face
 {
 font-family: Questrian;
-src: url(Questrian.otf);
+src: url(../fonts/Questrian.otf);
 }
 .logo {
 	text-align: center;

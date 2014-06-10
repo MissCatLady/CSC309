@@ -1,13 +1,13 @@
 @font-face
 {
 font-family: Seriffic;
-src: url(Seriffic.otf);
+src: url(../fonts/Seriffic.otf);
 }
 
 @font-face
 {
 font-family: Shoecard;
-src: url(Shoecard.ttf);
+src: url(../fonts/Shoecard.ttf);
 }
 
 

@@ -1,0 +1,93 @@
+@font-face
+{
+font-family: Questrian;
+src: url(../fonts/Questrian.otf);
+}
+
+@font-face
+{
+font-family: Cousine;
+src: url(../fonts/Cousine.ttf);
+}
+
+
+body {
+	background-color: #ADD8E6;
+	background-image: url(../imgs/bg1.png);
+}
+
+a {
+	text-decoration: none;
+}
+
+.logo {
+	text-align: center;
+	font-family: "Black Ops One";
+	font-size: 5em;
+	margin-top: 65px;
+	color: #2F2F4F;
+	text-transform: uppercase;
+	line-height: 1.2em;
+	text-shadow: 2px 2px 2px #6C7B8B;
+}
+
+
+
+.content {
+	background-color: #fafaf0;
+	border: 10px dotted #ffa500;
+	width: 77%;
+	height: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	margin-top: -80px;
+	text-align: center;
+	box-shadow: 
+	0 0 0 10px rgba(255,255,255,0.2), 
+	inset 0 0 0px rgba(115,114, 23, 0.8);
+}
+
+
+
+.text {
+	width: 90%;
+	height: 90%;
+	text-align: justify;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 15px;
+	font-family: Cousine, sans-serif;
+	line-height: 2em;
+
+}
+
+.login {
+	text-align: center;
+}
+
+.ch-grid {
+	margin: 5px 0 0 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+
+.ch-grid:after,
+.ch-item:before {
+	content: '';
+    display: table;
+}
+
+.ch-grid:after {
+	clear: both;
+}
+
+.ch-grid li {
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	margin: 10px;
+}
