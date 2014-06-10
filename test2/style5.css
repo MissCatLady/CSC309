@@ -10,8 +10,8 @@
 .ch-info-wrap, 
 .ch-info{
 	position: absolute;
-	width: 90px;
-	height: 90px;
+	width: 50px;
+	height: 50px;
 	border-radius: 30%;
 }
 
@@ -81,13 +81,13 @@
 
 .ch-img-3 { 
 	background-image: url(../imgs/game.png);
-	background-size: 200%;
+	background-size: 100%;
 	background-position: center;
 	background-repeat:no-repeat;
 }
 
 .ch-info h3 {
-	color: #fff;
+	color: #333;
 	text-transform: uppercase;
 	letter-spacing: 2px;
 	font-size: 18px;
@@ -96,12 +96,12 @@
 	height: 80px;
 	font-family: 'Open Sans', Arial, sans-serif;
 	text-shadow: 
-		0 0 1px #fff, 
+		0 0 1px #333, 
 		0 1px 2px rgba(0,0,0,0.3);
 }
 
 .ch-info p {
-	color: #fff;
+	color: #333;
 	padding: 10px 5px 0;
 	font-style: italic;
 	margin: 0 30px;
@@ -122,7 +122,7 @@
 }
 
 .ch-info p a:hover {
-	color: #fff;
+	color: #333333;
 }
 
 .ch-item:hover .ch-info-front {
