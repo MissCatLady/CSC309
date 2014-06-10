@@ -1,8 +1,4 @@
-@font-face
-{
-font-family: Questrian;
-src: url(../fonts/Questrian.otf);
-}
+
 
 @font-face
 {
@@ -14,11 +10,11 @@ src: url(../fonts/Cousine.ttf);
 body {
 	background-color: #ADD8E6;
 	background-image: url(../imgs/cartographer.png);
-	font-family: Cousine;
 }
 
 a {
 	text-decoration: none;
+	font-family: "Open Sans";
 }
 
 header {
