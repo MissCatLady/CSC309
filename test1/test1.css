@@ -1,3 +1,7 @@
+html {
+	height:100%;
+}
+
 @font-face
 {
 font-family: Cousine;
@@ -80,6 +84,9 @@ src: url(Questrian.otf);
 
 body  {
 	background: #75A7D7;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 .container {
