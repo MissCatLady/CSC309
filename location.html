@@ -11,27 +11,38 @@
     </script>
     <script src="js/geolocation.js"></script>
     <script src="js/detectbrowser.js"></script>
-
-
+    <link rel="stylesheet" type="text/css" href="test1/test1.css">
 </head>
 
 <body>
-    <header>
-        <h1> Find Me</h1>
-    </header>
+    <div class="content">
+    <div class="logo">
+        Find Me
+    </div>
 
-<nav>
-    <a href="#"> Link 1</a>
-    <a href="#"> Link 2</a>
-    <a href="#"> Link 3</a>
-
-</nav>
 
     <div id="box1">
-	 <div id="mapcanvas"/>
-</div>
-     <div id="paragraph">
+	<div id="mapcanvas"/>
+    </div>
+    <div id="text">
         random words here blahblahbskjdskadjskadsm xsadnsmadssdkjsakldjsakldsa
      </div>
+    
+
+<nav id="bt-menu" class="bt-menu">
+  <a href="#" class="bt-menu-trigger"><span>Menu</span></a>
+  <ul>
+   
+    <li><a href="#">Meet</a></li>
+    <li><a href="#">Chat</a></li>
+    <li><a href="#">Settings</a></li>
+    <li><a href="#">About</a></li>
+
+  </ul>
+</nav>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 </body>
+<script src="test1/borderMenu.js"></script>
+<script src="test1/classie.js"></script>
 </html>
