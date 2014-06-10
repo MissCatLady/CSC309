@@ -1,7 +1,3 @@
-html {
-	height:100%;
-}
-
 @font-face
 {
 font-family: Cousine;
@@ -50,28 +46,8 @@ src: url(Questrian.otf);
 
 }
 
-
-
 .login {
 	text-align: center;
-}
-
-#box1 {
-	width:80%;
-	height:80%;
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#mapcanvas {
-	position: relative;
-	text-align: center;
-	height: 80%;
-	width: 80%;  	
-	margin-left: auto;
-	margin-right: auto;
-
 }
 
 *,
@@ -84,8 +60,6 @@ src: url(Questrian.otf);
 
 body  {
 	background: #75A7D7;
-	height: 100%;
-
 }
 
 .container {
