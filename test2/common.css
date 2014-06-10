@@ -82,6 +82,7 @@ header {
 	text-align: justify;
 	margin-right: auto;
 	margin-left: auto;
+	margin-top: 3px;
 	margin-bottom: 15px;
 	font-family: 'Open Sans', sans-serif;
 	line-height: 1.5em;
@@ -105,6 +106,7 @@ header {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 5px;
+	margin-bottom: -10px;
 	padding: 0;
 	list-style: none;
 	display: block;
