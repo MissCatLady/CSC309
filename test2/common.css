@@ -34,8 +34,8 @@ label {
     float: left;
     width: 25%;
     text-align: right;
-    margin-right: -13%;
-    padding-left: 8%;
+    margin-right: -14%;
+    padding-left: 13%;
 }
 
 
@@ -142,6 +142,7 @@ label {
 footer {
 	text-align: center;
 	font-size: 0.9em
+	font-color: #1abc9c;
 }
 
 footer li {
