@@ -8,12 +8,13 @@ src: url(../fonts/Cousine.ttf);
 
 
 body {
-	background-color: #ADD8E6;
+	background-color: #545454;
 	background-image: url(../imgs/cartographer.png);
 	font-family: "Open Sans";
 }
 
 a {
+	color: #1bc6a4;
 	text-decoration: none;
 	
 }

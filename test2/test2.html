@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false">
 <title> Find Me | Where are you? </title>
 <link rel="stylesheet" type="text/css" href="common.css" />
 <link rel="stylesheet" type="text/css" href="style5.css" />
@@ -10,6 +10,7 @@
 <link href='http://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <link rel="shortcut icon" href="../imgs/pin.ico"> 
+<link rel="stylesheet" href="style.css" media="screen" type="text/css" />
 </head>
 
 <body>
@@ -78,8 +79,31 @@
  
   <br><label for="email">Email</label><input type="email" placeholder="ben.smith@mail.com" required></br>
   <br><label for="password">Password</label><input type="password" placeholder="******" required> </br>
-  <p class="submit"><input type="submit" value="Sign In" /> <small><small>Need an account? <a href="#"> Register</a></small></p>
+  <p class="submit"><input type="submit" value="Sign In" /> <small><small>Need an account? <a href="#reg" id="regform"> Register</a></small></p>
+ 
+    <a id="reg"><div class="register">
+      <div class="arrow-up"></div>
+      <div class="formholder">
+        <div class="randompad">
+           <fieldset>
+            <label name="name">Name</label>
+             <input type="text" placeholder="Ben Smith" />
+             <label name="email">Email</label>
+             <input type="email" placeholder="ben.smith@mail.com" />
+             <label name="password">Password</label>
+             <input type="password" placeholder="******" />
+              <label name="password">Confirm Password</label>
+             <input type="password" placeholder="******" />
+             <input type="submit" value="Register" />
+
+           </fieldset>
+        </div>
+      </div>
+    </div></a>
+
 </form>
+
+
  Sign up with an existing account:</small>
   <div class="login">
 
@@ -94,6 +118,8 @@
 
 </div>
 
+
+
 <footer>
   <ul>
     <li> <a href="#"> About</a></li>
@@ -107,6 +133,7 @@
 <script src="../js/fb.js"></script>
 <script src="../js/gplus.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="test2.js"></script>
 
 </body>
 
