@@ -74,11 +74,19 @@
 <div class="col-r">
     
 <form>
-  <h2> Sign In</h2>
- 
-  <br><label for="email">Email</label><input type="email" placeholder="ben.smith@mail.com" required></br>
-  <br><label for="password">Password</label><input type="password" placeholder="******" required> </br>
-  <p class="submit"><input type="submit" value="Sign In" /> <small><small>Need an account? <a href="#reg" id="regform"> Register</a></small></p>
+
+        <div class="formholder">
+        <div class="randompad">
+             <label name="email">Email</label>
+             <input type="email" placeholder="ben.smith@mail.com" required/>
+             <label name="password">Password</label>
+             <input type="password" placeholder="******" required/>
+             <input type="submit" value="Sign In" />
+
+           </fieldset>
+        </div>
+      </div>
+ <small><small>Need an account? <a href="#reg" id="regform"> Register</a></small></p>
  
     <a id="reg"><div class="register"></a>
       <div class="arrow-up"></div>
@@ -86,13 +94,13 @@
         <div class="randompad">
            <fieldset>
             <label name="name">Name</label>
-             <input type="text" placeholder="Ben Smith" />
+             <input type="text" placeholder="Ben Smith" required/>
              <label name="email">Email</label>
-             <input type="email" placeholder="ben.smith@mail.com" />
+             <input type="email" placeholder="ben.smith@mail.com" required/>
              <label name="password">Password</label>
-             <input type="password" placeholder="******" />
+             <input type="password" placeholder="******" required/>
               <label name="password">Confirm Password</label>
-             <input type="password" placeholder="******" />
+             <input type="password" placeholder="******" required/>
              <input type="submit" value="Register" />
 
            </fieldset>
@@ -125,7 +133,7 @@
     <li> <a href="#"> Meet</a></li>
     <li> <a href="#"> Chat</a></li>
     <li> <a href="#"> Games</a></li>
-    <li> <font color=#1abc9c>2014 Find Me </font></li>
+    <li> 2014 Find Me </li>
   </ul>
     </footer>
 

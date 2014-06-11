@@ -34,7 +34,7 @@ fieldset {
 .formholder label {
   width: 100%;
   text-align: left;
-  margin-left: -1.5em;
+
 }
 .formholder input[type="email"], .formholder input[type="password"], .formholder input[type="text"] {
   padding: 7px 5px;

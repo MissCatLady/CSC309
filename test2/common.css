@@ -30,12 +30,10 @@ header {
 }
 
 
-label {
-    float: left;
-    width: 25%;
-    text-align: right;
-    margin-right: -14%;
-    padding-left: 13%;
+form {
+	height: 100%;
+	width: 100%;
+	margin-top: 3%;
 }
 
 
