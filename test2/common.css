@@ -10,16 +10,16 @@ src: url(../fonts/Cousine.ttf);
 body {
 	background-color: #ADD8E6;
 	background-image: url(../imgs/cartographer.png);
+	font-family: "Open Sans";
 }
 
 a {
 	text-decoration: none;
-	font-family: "Open Sans";
+	
 }
 
 header {
 	text-align: center;
-	font-family: "Open Sans";
 	font-size: 30px;
 	margin-top: 10px;
 	color: #333333;
@@ -27,6 +27,16 @@ header {
 	line-height: 1.2em;
 	text-shadow: 1px 1px 1px #6C7B8B;
 }
+
+
+label {
+    float: left;
+    width: 25%;
+    text-align: right;
+    margin-right: -13%;
+    padding-left: 8%;
+}
+
 
 .link {
 	text-align: center;
@@ -52,7 +62,7 @@ header {
   clear: both;
 }
 
-@media only screen and (min-width: 700px){
+@media only screen and (min-width: 800px){
 [class*='col-'] {
   float: left;
 }
@@ -63,12 +73,12 @@ header {
 }
 
 .col-l {
-	width: 38%;
+	width: 50%;
 
 }
 
 .col-r {
-	width: 62%;
+	width: 50%;
 	margin-top: 25px;
 
 }}
@@ -127,3 +137,5 @@ header {
 	display: inline-block;
 	margin: 10px;
 }
+
+
