@@ -3,7 +3,7 @@
 
 $(function() {      
   //Enable swiping...
-  $(".navbar1").swipe( {
+  $(".content").swipe( {
   //Generic swipe handler for all directions
   swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
           
@@ -14,8 +14,11 @@ $(function() {
       window.location="#";
     }
  
-  } 
-
+  } else if (window.location.pathname.indexOf("test2.html")>0 {
+  	if (direction=="right") {
+  		window.location="../test4.html";
+  	}
+  }
   },
   //Default is 75px, set to 0 for demo so any distance triggers swipe
   threshold:5
