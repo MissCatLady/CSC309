@@ -6,17 +6,46 @@ $(function() {
   $(".content").swipe( {
   //Generic swipe handler for all directions
   swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-          
-  if (window.location.pathname.indexOf("chat")>0) {
-    if (direction=="left") {
-      window.location="index.html";
-    } else if (direction=="right"){
-      window.location="#";
-    }
- 
+
+  var page = window.location.pathname;
+  page = location.substring(location.lastIndexOf("/")+1);
+  if (direction == "left") {
+
+    switch (page) {
+      case "meet.html":
+        window.location = "chat.html";
+        break;
+      case "chat.html":
+        window.location = "games.html";
+        break;
+      case "games.html":
+        window.location = "settings.html";
+        break;
+      default:
+        break;
+    } 
+
   } 
+
+  if (direction == "right") {
+    switch(page) {
+      case "settings.html":
+        window.location = "games.html";
+        break;
+      case "games.html":
+        window.location = "chat.html";
+        break;
+      case "chat.html":
+        window.location = "meet.html";
+        break;
+      default:
+        break;
+    } 
+
+  }
   
   },
+
   //Default is 75px, set to 0 for demo so any distance triggers swipe
   threshold:5
   });
