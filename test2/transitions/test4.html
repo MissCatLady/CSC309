@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false">
 <link rel="shortcut icon" href="../imgs/pin.ico"> 
 
-<title> Find Me | Where are you? </title>
+<title> Find Me | Chat </title>
 
 <!--CSS Styles-->
 <link rel="stylesheet" type="text/css" href="../common.css" />
@@ -15,6 +15,7 @@
 <!--Fonts-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+<!--Scripts-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="touchSwipe.js"></script>
 
@@ -102,55 +103,33 @@
 
 </div>
 
-<style>
-  .box
-{
-  margin-top:20px;
-  margin-bottom:20px;
-  max-width:768px;
-  height:300px;
 
-  padding: 10px;
-  background-color: #EEE;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-
-  text-align:center;
-  font-weight: 300;
-  font-family: 'Terminal';
-  font-size: 20px;
-  line-height: 36px;
-
-  overflow:hidden;
-
-}
-
-</style>
 
 <script>
  $(function() {      
       //Enable swiping...
-      $("#test").swipe( {
+      $("#content").swipe( {
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
           
-          if (direction == "left") {
-            window.location="../test2.html";}
-          else {
-            (this).text("You swiped " + direction );
-          } 
+          switch(direction) {
+            case "left":
+              window.location="../test2.html";
+              break;
+            case "right":
+              window.location="#";
+              break;
+            default:
+              break;
+
+          }
+
         },
         //Default is 75px, set to 0 for demo so any distance triggers swipe
-         threshold:0
+         threshold:5
       });
     });
  </script>
-
-<div id="test" class="box">
-  Swipe Me
-</div>
-
 
 <footer>
   <ul>
