@@ -14,11 +14,8 @@ $(function() {
       window.location="#";
     }
  
-  } else if (window.location.pathname.indexOf("test2")>0 {
-  	if (direction=="right") {
-  		window.location="test4.html";
-  	}
-  }
+  } 
+  
   },
   //Default is 75px, set to 0 for demo so any distance triggers swipe
   threshold:5
