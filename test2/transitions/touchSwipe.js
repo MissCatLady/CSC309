@@ -14,13 +14,7 @@ $(function() {
       window.location="#";
     }
  
-  } else if (window.location.pathname.indexOf("games")>0) {
-    break;
-  } else if (window.location.pathname.indexOf("settings")>0) {
-    break;
-  } else {
-    break;
-  }
+  } 
 
   },
   //Default is 75px, set to 0 for demo so any distance triggers swipe
