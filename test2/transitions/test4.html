@@ -9,8 +9,8 @@
 <title> Find Me | Where are you? </title>
 
 <!--CSS Styles-->
-<link rel="stylesheet" type="text/css" href="common.css" />
-<link rel="stylesheet" href="signup.css" media="screen" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../common.css" />
+<link rel="stylesheet" href="../signup.css" media="screen" type="text/css" />
 
 <!--Fonts-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -96,6 +96,29 @@
 
 </div>
 
+<script>
+ $(function() {      
+      //Enable swiping...
+      $("#test").swipe( {
+        //Generic swipe handler for all directions
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+          
+          if (direction == "left") {
+            window.location='../test2.html';}
+          else {
+            (this).text("You swiped " + direction );
+          } 
+        },
+        //Default is 75px, set to 0 for demo so any distance triggers swipe
+         threshold:0
+      });
+    });
+ </script>
+
+<div id="test">
+  Swipe Me
+</div>
+
 </div>
 
 
@@ -113,7 +136,8 @@
 <script src="../js/fb.js"></script>
 <script src="../js/gplus.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="test2.js"></script>
+<script src="../test2.js"></script>
+<script src="touchSwipe.js"></script>
 
 </body>
 

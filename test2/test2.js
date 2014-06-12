@@ -5,9 +5,17 @@ $('input[type="submit"]').mouseup(function(){
   $(this).css('background', '#1abc9c');
 });
 
+var regform_flag = false;
 $('#regform').click(function(){
-  $('.register').fadeToggle('slow');
-  $(this).toggleClass('green');
+  if (!regform_flag) {
+    $('.register').fadeToggle('slow');
+    $(this).toggleClass('green');
+    regform_flag = true;
+  } else {
+    $(".register").hide();
+    $('#regform').removeClass('green');
+    regform_flag = false;
+  }
 });
 
 
