@@ -1,3 +1,8 @@
+/*<!--Drop down registration code-->
+<!--Attribution: Miro Karilahti-->
+<!--Found: http://codepen.io/miroot/details/qwIgC-->
+<!--Status: Edited-->*/
+
 $('input[type="submit"]').mousedown(function(){
   $(this).css('background', '#2ecc71');
 });
