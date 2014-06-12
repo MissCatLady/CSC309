@@ -13,7 +13,7 @@ $(function() {
  
   } else if (window.location.pathname.indexOf("games")>0) {
 
-  } else if (window.location.pathname.indexOf("settings")>0)
+  } else if (window.location.pathname.indexOf("settings")>0) {
 
   } else {
 
