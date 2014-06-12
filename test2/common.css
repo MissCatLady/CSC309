@@ -42,7 +42,7 @@ form {
 	height: 50px;
 	margin: -3.5% -7% 0px;
 	overflow: hidden;
-	background-color: #1bc6a4;
+	background-color: #333;
 	text-align: center;
 	line-height: 250%;
 	font-weight: 300;
@@ -61,21 +61,20 @@ form {
 }
 
 .navbar1 a {
-			color: #333;
+			color: #fff;
 			display: block;
 			line-height: 50px;
 			padding: 0 24px;
-			font-weight: bolder;
 			text-decoration: none;
 			text-transform: uppercase;
 		}
 
 .navbar1 > ul > li:hover {
-          background-color: #333;
+          background-color: #1bc6a4;
         }
 
         .navbar1 > ul > li:hover > a {
-          color: #fff;
+          color: #333;
         }
 
         .navbar1 > ul > li:hover > a > .caret {
