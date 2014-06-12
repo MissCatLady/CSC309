@@ -37,6 +37,52 @@ form {
 }
 
 
+.navbar1 {
+	width: 110%;
+	height: 8.5%;
+	margin: -3.5% -7% 0px;
+	overflow: hidden;
+	background-color: #222;
+	text-align: center;
+	line-height: 250%;
+	font-weight: 300;
+	position: fixed;
+	z-index: 1;
+}
+
+.navbar1 ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+.navbar1 ul li {
+	display: inline-block;
+	list-style-type: none;
+}
+
+.navbar1 a {
+			color: #aaa;
+			display: block;
+			line-height: 50px;
+			padding: 0 24px;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
+.navbar1 > ul > li:hover {
+          background-color: rgb( 40, 44, 47 );
+        }
+
+        .navbar1 > ul > li:hover > a {
+          color: #fff;
+        }
+
+        .navbar1 > ul > li:hover > a > .caret {
+          border-top-color: #fff;
+        }
+
+
+
 .link {
 	text-align: center;
 }
@@ -48,11 +94,14 @@ form {
 	height: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	margin-bottom: 30px;
+	margin-bottom: 25px;
+	margin-top: 3%;
+	padding-top: 25px;
 	text-align: center;
 	box-shadow: 
 	0 0 0 10px rgba(255,255,255,0.2), 
 	inset 0 0 0px rgba(115,114, 23, 0.8);
+	z-index: 2;
 }
 
 .content:after {
@@ -61,15 +110,26 @@ form {
   clear: both;
 }
 
-@media only screen and (min-width: 800px){
+
+@media only screen and (min-width:800px) {
+
+.content {
+	width: 77%;
+	margin-top: 25px;
+}
+
+.navbar1 {
+	position: relative;
+	margin-top: -0.8%;
+
+}
+}
+
+@media only screen and (min-width: 540px){
 [class*='col-'] {
   float: left;
 }
 
-.content {
-	width: 77%;
-	margin-top: 30px;
-}
 
 .col-l {
 	width: 50%;
