@@ -1,6 +1,6 @@
 $(function() {      
   //Enable swiping...
-  $(".navbar1").swipe( {
+  $(".content").swipe( {
   //Generic swipe handler for all directions
   swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
           
@@ -12,11 +12,11 @@ $(function() {
     }
  
   } else if (window.location.pathname.indexOf("games")>0) {
-
+    break;
   } else if (window.location.pathname.indexOf("settings")>0) {
-
+    break;
   } else {
-
+    break;
   }
 
   },
