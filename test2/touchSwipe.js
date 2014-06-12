@@ -7,14 +7,14 @@ $(function() {
   //Generic swipe handler for all directions
   swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
           
-  if (window.location.pathname.indexOf("test4.html")>0) {
+  if (window.location.pathname.indexOf("test4")>0) {
     if (direction=="left") {
       window.location="test2.html";
     } else if (direction=="right"){
       window.location="#";
     }
  
-  } else if (window.location.pathname.indexOf("test2.html")>0 {
+  } else if (window.location.pathname.indexOf("test2")>0 {
   	if (direction=="right") {
   		window.location="test4.html";
   	}
