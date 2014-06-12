@@ -18,6 +18,7 @@
 <!--Scripts-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="touchSwipe.js"></script>
+<script src="swipeNav.js"></script>
 
 </head>
 
@@ -103,35 +104,6 @@
 
 </div>
 
-
-
-<script>
- $(function() {      
-      //Enable swiping...
-      $(".content").swipe( {
-        //Generic swipe handler for all directions
-        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-          
-          if (window.location.pathname.indexOf("test4.html")>0) {
-            switch(direction) {
-              case "left":
-                window.location="../test2.html";
-                break;
-              case "right":
-                window.location="http://google.com";
-                break;
-              default:
-                break;
-            }
-
-          }
-
-        },
-        //Default is 75px, set to 0 for demo so any distance triggers swipe
-         threshold:5
-      });
-    });
- </script>
 
 <footer>
   <ul>
