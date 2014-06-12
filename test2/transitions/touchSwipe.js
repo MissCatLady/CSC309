@@ -3,7 +3,7 @@
 
 $(function() {      
   //Enable swiping...
-  $(".content").swipe( {
+  $(".navbar1").swipe( {
   //Generic swipe handler for all directions
   swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
           
