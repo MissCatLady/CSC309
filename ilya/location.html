@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Who do you want to meet? | Find Me</title>
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOkWAnSuU-z_DSWMy_dO3_H7TrZj0x9Dk&sensor=true&region=CA">
+    </script>
+    <script src="js/geolocation.js"></script>
+    <script src="js/detectbrowser.js"></script>
+    <script src="js/swipe.js"></script>
+
+
+
+</head>
+
+<body>
+<header>
+  <div class ="container">
+    <h1> Find Me </h1>
+  </div>
+</header>
+<nav>
+  <div class ="container">
+    <a href ="index.html">
+      <p> home</p>
+    </a>
+    <a href ="location.html">
+      <p> map</p>
+    </a>
+    <a href ="chat.html">
+      <p> chat</p>
+    </a>
+  </div>
+</nav>
+<div class="bodydiv">
+  <div id="mapcanvas" />
+</div>
+</body>
+</html>
