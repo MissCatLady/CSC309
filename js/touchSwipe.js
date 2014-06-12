@@ -10,37 +10,7 @@ $(function() {
   var page = window.location.pathname;
   page = location.substring(location.lastIndexOf("/")+1);
   if (direction == "left") {
-
-    switch (page) {
-      case "meet.html":
-        window.location = "chat.html";
-        break;
-      case "chat.html":
-        window.location = "games.html";
-        break;
-      case "games.html":
-        window.location = "settings.html";
-        break;
-      default:
-        break;
-    } 
-
-  } 
-
-  if (direction == "right") {
-    switch(page) {
-      case "settings.html":
-        window.location = "games.html";
-        break;
-      case "games.html":
-        window.location = "chat.html";
-        break;
-      case "chat.html":
-        window.location = "meet.html";
-        break;
-      default:
-        break;
-    } 
+    window.location = "settings.html"
 
   }
   
