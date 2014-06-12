@@ -112,15 +112,17 @@
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
           
-          switch(direction) {
-            case "left":
-              window.location="../test2.html";
-              break;
-            case "right":
-              window.location="#";
-              break;
-            default:
-              break;
+          if (window.location.href=="test4.html") {
+            switch(direction) {
+              case "left":
+                window.location="../test2.html";
+                break;
+              case "right":
+                window.location="http://google.com";
+                break;
+              default:
+                break;
+            }
 
           }
 
