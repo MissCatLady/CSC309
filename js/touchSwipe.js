@@ -7,9 +7,9 @@ $(function() {
   //Generic swipe handler for all directions
   swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
           
-  if (window.location.pathname.indexOf("test4")>0) {
+  if (window.location.pathname.indexOf("chat")>0) {
     if (direction=="left") {
-      window.location="test2.html";
+      window.location="index.html";
     } else if (direction=="right"){
       window.location="#";
     }
