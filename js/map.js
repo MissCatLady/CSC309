@@ -17,7 +17,7 @@ function initialize() {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
     }
   };
-  var map = new google.maps.Map(document.getElementById('mapcanvas'),
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
     mapOptions);
 
   //Associate the styled map with the MapTypeId and set it to display.
