@@ -25,6 +25,7 @@ a {
 nav {
 	width: 108%;
 	min-height: 50px;
+	max-height: 100px;
 	margin: -3% -4% 0px;
 	overflow: hidden;
 	background-color: #333;
@@ -148,7 +149,7 @@ footer a:visited {
 
 .content {
 	width: 77%;
-	margin: 25px auto 0;
+	margin-top: 25px;
 }
 
 nav {
