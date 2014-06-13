@@ -49,17 +49,14 @@ nav a {
 			text-transform: uppercase;
 		}
 
-nav > ul > li:hover {
+nav > ul > li:hover,
+nav > ul > li.current a{
           background-color: #1bc6a4;
         }
 
-        nav > ul > li:hover > a {
+nav > ul > li:hover > a {
           color: #333;
-        }
-
-        nav > ul > li:hover > a > .caret {
-          border-top-color: #fff;
-        }
+}
 
 .content {
 	background-color: #fafaf0;

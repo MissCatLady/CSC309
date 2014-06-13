@@ -188,3 +188,7 @@ input[type="places"] {
 input[type="places"]:hover {
   background: #545454;
 }
+
+footer {
+	margin-bottom: 60px;
+}
