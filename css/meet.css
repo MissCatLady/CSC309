@@ -1,5 +1,5 @@
 .map {
-	height: 90%;
+	height: 100%;
 	width: 450px;
 }
 
@@ -10,6 +10,18 @@
  	margin: 5% auto 3%;
  	border: 5px #1bc6a4 dashed;
  	
+ }
+
+ .friendnav {
+ 	height: 100%;
+ 	min-height: 60px;
+ 	
+ }
+
+ .friendnav li {
+ 	display: inline;
+ 	margin-right: 5%;
+ 	font-size: 2em;
  }
 
 
@@ -23,16 +35,15 @@
 
 .col-r {
 	width: 35%;
-
-
-
 }
 
+
  .chatsq {
+
  	position: relative;
  	height: 400px;
  	width: 90%;
- 	margin: 0 0 5px 0;
+ 	margin: 6% 0 5px 0;
  	padding-top: 0.2%;
  	background-color: #1bc6a4;
  	border-radius: 5px;
