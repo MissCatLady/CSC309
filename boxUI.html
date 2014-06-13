@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel = "stylesheet" type = "text/css" href = "UI.css">
+		<script type = "text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<!--<script src = "chatbox.js"></script>-->
+	</head>
+		<title>Legendary Chat box</title>
+		<body>
+		<script>
+	
+		
+			$(function(){
+				//askusername();
+					$("#textbox").keypress(function(event){
+						//event 13 refers to enter function
+						if ( event.which == 13){
+							if ( $("#enter").prop("checked") ){
+	
+								//console.log("enter pressed, checkbox is checked");
+								
+								//when send button is clicked and checked box is checked it will perform the same code as enter is clicked
+								$("#send").click();
+								event.preventDefault();
+								}
+			 
+							}
+						});
+						
+						
+				
+			$("#send").click(function(){
+			
+				var username = "<span class = 'username' = >You </span>";
+				
+				var newMessage = $("#textbox").val();
+				$("#textbox").val("");
+				var prevState = $("#container").html();
+				if(prevState.length > 4) {
+					prevState = prevState + "<br>";
+				}
+			
+				
+				$("#container").html(prevState + username+ newMessage);
+				//scroll to the top with fetched property scroll Height
+				$("#container").scrollTop($("#container").prop("scrollHeight"));
+				
+				});
+			});
+				
+			/*
+			function username(){
+				$("container").html("<span class = "bot">Chatbot: </span> Hellow, what is your name?");
+				
+				}*/
+		</script>
+			<div id = "header">
+				<h1>Chatbox</h1>
+			</div>
+			<div id = "container">
+			</div>
+		
+			<div id = "controls">
+		
+				<textarea id = "textbox" placeholder = "Enter your message here..."></textarea>
+			
+				<button id = "send">Send</button>
+				<div>
+				<label>
+				<!-- checked everytime the page is reloaded -->
+				<input checked type = "checkbox" id  = "enter"/>send on enter</label>
+				
+				</div>
+			</div>
+		
+		</body>
+
+</html>
