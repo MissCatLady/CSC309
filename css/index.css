@@ -10,6 +10,7 @@ body {
 	background-image: url(../imgs/cartographer.png);
 	font-family: "Open Sans";
 	width: 100%;
+	height: 100%;
 	margin: auto;
 	overflow-x:hidden;
 	overflow-y:auto;
@@ -53,13 +54,14 @@ nav a {
 			text-transform: uppercase;
 		}
 
-nav > ul > li:hover {
+nav > ul > li:hover,
+nav > ul > li.current a{
           background-color: #1bc6a4;
         }
 
-        nav > ul > li:hover > a {
+nav > ul > li:hover > a {
           color: #333;
-        }
+}
 
         
 header {

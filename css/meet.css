@@ -1,9 +1,4 @@
-body {
-	width: 100%;
-	margin: auto;
-	overflow-x:hidden;
-	overflow-y:auto;
-}
+
 
 .map {
 	height: 100%;
@@ -22,10 +17,8 @@ body {
 	width: 90%;
 	height: 90%;
 	text-align: left;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: 10px;
-	margin-bottom: 15px;
+	margin: auto;
+
 	font-family: 'Open Sans', sans-serif;
 	line-height: 1.5em;
 
@@ -34,7 +27,7 @@ body {
 .dotstyle ul {
 	position: relative;
 	display: inline-block;
-	margin: 25px auto 2px;
+	margin: 25px auto 0;
 	padding: 0;
 	list-style: none;
 	cursor: default;
@@ -97,8 +90,7 @@ body {
 }
 
 .dotstyle-puff li a:hover,
-.dotstyle-puff li a:focus, 
-.dotstyle-puff li.current a {
+.dotstyle-puff li a:focus{
 	background: #ccc;
 }
 
@@ -149,13 +141,4 @@ body {
 .panel:target{
 	margin-left: 0%;
 	background-color: transparent;
-}
-
-#mylocation:target ~ .content .dotstyle #link-mylocation,
-#benlocation:target ~ .content .dotstyle #link-benlocation,
-#addfriend:target ~ .content .dotstyle #link-addfriend,{
-	height:100%;
-	width: 300px;
-	background: #fff;
-	color: #fff;
 }
