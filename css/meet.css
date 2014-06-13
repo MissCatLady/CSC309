@@ -6,7 +6,7 @@
 }
 
 #map-canvas, #map-canvas1 { 
- 	min-height: 340px;
+ 	min-height: 310px;
  	max-height: 450px;
  	width: 90%;
  	margin: 8% auto 3%;
@@ -18,7 +18,6 @@
 	width: 90%;
 	height: 90%;
 	text-align: left;
-	padding-top: 5%;
 	margin:auto;
 
 	font-family: 'Open Sans', sans-serif;
