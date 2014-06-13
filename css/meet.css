@@ -183,6 +183,7 @@ input[type="places"] {
   border: none;
   color: #fff;
   z-index: 7;
+  -webkit-backface-visibility: hidden;
 }
 
 input[type="places"]:hover {

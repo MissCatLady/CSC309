@@ -33,6 +33,7 @@ nav {
 	font-weight: 300;
 	position: fixed;
 	z-index: 5;
+	-webkit-backface-visibility: hidden;
 }
 
 nav ul {
