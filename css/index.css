@@ -23,9 +23,10 @@ a {
 }
 
 nav {
-	width: 110%;
-	height: 50px;
-	margin: -3% -7% 0px;
+	width: 108%;
+	min-height: 50px;
+	max-height: 100px;
+	margin: -3% -4% 0px;
 	overflow: hidden;
 	background-color: #333;
 	text-align: center;
