@@ -33,7 +33,7 @@ nav {
 	line-height: 250%;
 	font-weight: 300;
 	position: fixed;
-	z-index: 1;
+	z-index: 3;
 }
 
 nav ul {
