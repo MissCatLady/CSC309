@@ -19,18 +19,24 @@
 	height: 90%;
 	text-align: left;
 	padding-top: 5%;
-	margin: 5px auto 0;
+	margin:auto;
 
 	font-family: 'Open Sans', sans-serif;
 	line-height: 1.5em;
 
 }
 
+.dotstyle {
+	min-width: 100px;
+	position: relative;
+	top: 30px;
+}
+
 .dotstyle ul {
 	position: relative;
 	display: inline-block;
-	margin: 25px auto 5px;
-	padding: 0;
+	margin: auto;
+	padding-top: 5px;
 	list-style: none;
 	cursor: default;
 	-webkit-touch-callout: none;
@@ -40,6 +46,7 @@
 	-ms-user-select: none;
 	user-select: none;
 }
+
 
 .dotstyle li {
 	position: relative;
@@ -98,10 +105,7 @@
 
 .content {
 	min-height: 530px;
-}
-
-.container {
-	height: 100%;
+	width: 100%;
 }
 
 .panel1{
@@ -111,7 +115,7 @@
 	position: relative;
 	background-color: #fafaf0;
 	margin-top: -24em;
-	padding-bottom: 10px;
+	padding-bottom: 12px;
 	margin-left: -200%;
 	z-index:2;
 	-webkit-transition: all .2s ease-in-out;
@@ -119,11 +123,6 @@
 	-ms-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 }
-
-.panel1:target{
-	margin-left: 0%;
-}
-
 
 .panel2{
 	float: center;
@@ -148,16 +147,23 @@
 
 
 @media only screen and (min-width:480px) {
+
+.panel1 {
+	margin-top: -26em;
+}
+
 .panel2 {
-	margin-top: -393px;
-}
+	margin-top: -26em;
 
 }
 
 
 
-/*Tablet Screens*/
-@media only screen and (min-width:600px) {
+}
+
+
+/* Desktop */
+@media only screen and (min-width:640px) {
 
 .col-l {
 	width: 65%;
@@ -168,37 +174,18 @@
 	width: 35%;
 }
 
-.panel2 {
-	margin-top: -390px;
-}
-
-}
-
-/* Desktop */
-@media only screen and (min-width:800px) {
-
-.dotstyle ul {
-	margin: auto;
-}
-
-
-
 
 }
 
 /* Large Format */
-@media only screen and (min-width:1000px) {
+@media only screen and (min-width:900px) {
 
-.col-l {
-	max-width: 600px;
+
 
 }
 
-.panel2 {
-	margin-top: -25em;
-}
-
-
+.panel1:target{
+	margin-left: 0%;
 }
 
 
