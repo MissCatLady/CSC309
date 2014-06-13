@@ -1,0 +1,147 @@
+.ch-item {
+	width: 100%;
+	height: 100%;
+	border-radius: 30%;
+	position: relative;
+	box-shadow: 0px 0px 0px rgba(0,0,0,0.1);
+	cursor: default;
+}
+
+.ch-info-wrap, 
+.ch-info{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	border-radius: 30%;
+}
+
+.ch-info-wrap {
+	top: 5px;
+	left: 5px;
+	background: #FEE5AC;
+	box-shadow: 
+		0 0 0 10px rgba(255,255,255,0.2), 
+		inset 0 0 0px rgba(115,114, 23, 0.8);
+
+}
+
+.ch-info > div {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 30%;
+	background-position: center center;
+	
+	-webkit-backface-visibility: hidden; /*Just for webkit to have a smooth font*/
+}
+
+.ch-info .ch-info-front {
+	-webkit-transition: all 0.6s ease-in-out;
+	-moz-transition: all 0.6s ease-in-out;
+	-o-transition: all 0.6s ease-in-out;
+	-ms-transition: all 0.6s ease-in-out;
+	transition: all 0.6s ease-in-out;
+}
+
+.ch-info .ch-info-back {
+	opacity: 0;
+
+	background: #FEE5AC;
+	pointer-events: none;
+	
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-o-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
+	
+	-webkit-transition: all 0.4s ease-in-out 0.2s;
+	-moz-transition: all 0.4s ease-in-out 0.2s;
+	-o-transition: all 0.4s ease-in-out 0.2s;
+	-ms-transition: all 0.4s ease-in-out 0.2s;
+	transition: all 0.4s ease-in-out 0.2s;
+}
+
+.ch-img-1 { 
+	background-image: url(../imgs/mapicon.png);
+	background-size: 75%;
+	background-position: center;
+	background-repeat:no-repeat;
+
+}
+
+.ch-img-2 { 
+	background-image: url(../imgs/chat.png);
+	background-size: 75%;
+	background-position: center;
+	background-repeat:no-repeat;
+
+}
+
+.ch-img-3 { 
+	background-image: url(../imgs/game.png);
+	background-size: 100%;
+	background-position: center;
+	background-repeat:no-repeat;
+}
+
+.ch-info h3 {
+	color: #333;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 18px;
+	margin: 0 0px;
+	padding: 38px 0 0 0;
+	height: 80px;
+	font-family: "Open Sans";
+	text-shadow: 
+		0 0 1px #333, 
+		0 1px 2px rgba(0,0,0,0.3);
+}
+
+.ch-info p {
+	color: #333;
+	padding: 10px 5px 0;
+	font-style: italic;
+	margin: 0 30px;
+	font-size: 12px;
+	border-top: 0px solid rgba(255,255,255,0.5);
+}
+
+.ch-info p a {
+	display: block;
+	color: #e7615e;
+	font-style: normal;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 9px;
+	letter-spacing: 1px;
+	padding-top: 4px;
+	font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.ch-info p a:hover {
+	color: #333333;
+}
+
+.ch-item:hover .ch-info-front {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	
+	opacity: 0;
+} 
+
+.ch-item:hover .ch-info-back {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	
+	opacity: 1;
+	pointer-events: auto;
+}

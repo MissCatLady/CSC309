@@ -1,0 +1,88 @@
+/*<!--Drop down registration code-->
+<!--Attribution: Miro Karilahti-->
+<!--Found: http://codepen.io/miroot/details/qwIgC-->
+<!--Status: Edited-->*/
+
+
+#chatbox{
+  width: 99%;
+  max-height: 350px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  font-size: 14px;
+  display: inline-block;
+  text-align: left;
+}
+#chatbox ul{
+  list-style-type: none;
+}
+#chatbox ul li{
+}
+#chatbox ul li p{
+  display: inline;
+  margin: auto;
+  width: 100px;
+  margin-left: 5px;
+}
+#chatbox ul li div{
+  display: inline;
+  border-radius: 10px;
+  text-align: center;
+  
+}
+#chatbox ul li div img{
+  width: 28px;
+  height: 32px;
+  border-radius:15px
+}
+#messagebox{
+  background-color: #fafaf0;
+  border-top: 2px solid #333;
+}
+
+#messagebox textarea{
+  background-color: #fafaf0;
+  resize: none;
+  font-size: 14px;
+  border: none;
+  width: 96%;
+  padding: 5px;
+  margin-bottom:auto;
+
+}
+#messagebox input[type="submit"] {
+  background-color: #fafaf0;
+  font-size: 20px;
+  width: 99%;
+  border: none;
+  padding: 5px;
+  color: #000;
+  border-radius: 5px;
+}
+#messagebox input[type="submit"]:hover {
+  background-color: #f0f0f0;
+}
+#smallchat{
+}
+
+@media only screen and (min-width: 540px) {
+{
+    {
+      visibility: hidden;
+    }
+  }
+.green {
+  color: #1abc9c;
+}
+
+
+a:hover {
+  color: #1abc9c;
+}
+
+#chat {
+  height: 100%;
+  border-radius: 5px;
+  border: 2px solid #333 ;
+
+}

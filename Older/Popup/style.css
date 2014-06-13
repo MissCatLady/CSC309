@@ -1,0 +1,106 @@
+@font-face
+{
+font-family: Seriffic;
+src: url(../fonts/Seriffic.otf);
+}
+
+@font-face
+{
+font-family: Shoecard;
+src: url(../fonts/Shoecard.ttf);
+}
+
+
+
+/*
+#popupClose - this is referring to the anchor tag inside the popup conatainer.
+We'll absolute position and style it here
+*/
+#popupClose{  
+	font-size:20px;  
+	line-height:20px;  
+	position:absolute;
+	right:6px;  
+	top:4px;  
+	font-weight:700; 
+	display:block;  
+}
+
+/*
+#bgPopup - this is referring to the element that will cover the whole page 
+behind the popup and above the rest of the page.
+NOTE: if you are using z-index on the same level in the DOM - 
+	#bgPopup z-index needs to have the second highest value (behind #Popup)
+*/
+#bgPopup{
+	display:none; 
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6*/  
+	height:100%;  
+	width:100%;  
+	top:0;  
+	left:0;  
+	background:#FFF0F5;   
+	z-index:1;  
+}  
+
+/*
+#Popup - The popup container
+NOTE: if you are using z-index on the same level in the DOM - 
+	#Popup z-index needs to have the highest value.
+*/
+#Popup{  
+	display:none;  
+	position:fixed;  
+	_position:absolute; /* hack for internet explorer 6 */ 
+	background:#FFFFFF;  
+	border:2px solid #4B0082;  
+	z-index:2;  
+	padding:12px;  
+	font:13px Seriffic, Arial; 
+} 
+
+#myButton{
+	display:block;
+	position:relative;
+	width:200px;
+	height:50px;
+	line-height:50px;
+	font-family:"Trebuchet MS";
+	font-size:14px
+	text-align:center;	
+
+	/*-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;*/
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #99CCCC), color-stop(1, #99FFCC) );
+	background:-moz-linear-gradient( center top, #99CCCC 5%, #99CCCC 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#99CCCC', endColorstr='#dfdfdf');
+	background-color:#99CCCC;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:2px dashed #003333;
+	display:inline-block;
+	color:#003333;
+	font-family:Shoecard;
+	font-size:25px;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:160px;
+	text-decoration:none;
+	text-align:center;
+	/*text-shadow:1px 1px 0px #ffffff;*/
+}

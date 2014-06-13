@@ -1,0 +1,59 @@
+html {
+	height:100%;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+
+}
+
+#bodydiv{
+	width: 100%;
+}
+
+.makemeet h1 {
+	width:90%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+
+
+.makemeet {
+
+	color: #141F1F;
+	font-size: 38px;
+	font-family: Arial, sans-serif;
+	font-variant: small-caps;
+	font-weight: bold;
+	width: 80%;
+	height: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	
+}
+
+.login {
+	text-align: center;
+}
+
+#box1 {
+	width:80%;
+	height:80%;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+#mapcanvas {
+	position: relative;
+	text-align: center;
+	height: 80%;
+	width: 80%;  	
+	margin-left: auto;
+	margin-right: auto;
+
+}
