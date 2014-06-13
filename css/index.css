@@ -57,10 +57,6 @@ nav > ul > li:hover {
           color: #333;
         }
 
-        nav > ul > li:hover > a > .caret {
-          border-top-color: #fff;
-        }
-
         
 header {
 	text-align: center;
@@ -87,7 +83,7 @@ form {
 .content {
 	background-color: #fafaf0;
 	width: 100%;
-	min-height: 500px;
+	min-height: 00px;
 	height: 100%;
 	margin-right: auto;
 	margin-left: auto;
@@ -105,19 +101,6 @@ form {
   content: "";
   display: table;
   clear: both;
-}
-
-.text {
-	width: 90%;
-	height: 90%;
-	text-align: justify;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: 3px;
-	margin-bottom: 15px;
-	font-family: 'Open Sans', sans-serif;
-	line-height: 1.5em;
-
 }
 
 .login {
