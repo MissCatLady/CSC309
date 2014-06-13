@@ -4,12 +4,12 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false">
-<link rel="shortcut icon" href="imgs/pin.ico"> 
+<link rel="shortcut icon" href="../imgs/pin.ico"> 
 
-<title> Find Me | Games </title>
+<title> Find Me | Setup Your Hunt!</title>
 
 <!--CSS Styles-->
-<link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" type="text/css" href="css/scavenger2.css" />
 <link rel="stylesheet" href="css/signup.css" media="screen" type="text/css" />
 
 <!--Fonts-->
@@ -25,30 +25,46 @@
 <body>
 <nav>
   <ul>
-    <li><a href="meet.html">Meet</a></li>
-    <li><a href="chat.html">Chat</a></li>
-    <li><a href="games.html">Games</a></li>
+      <li><a href="meet.html">Meet</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li><a href="games.html">Games</a></li>
     <li><a href="settings.html">Settings</a></li>
-  </ul>
+</ul>
 </nav>
 
 <div class="content">
-
 <div class="col-l">
 
 <header>
-  <p>Games</p>
+  <p id ="title">Games</p>
 </header>
-
+<div class="link">
+  <!-- Image Attribution: http://www.visualpharm.com-->
+  <a href="#"><img src="imgs/mapicon.png" width="50%">
+  </a>
 </div>
-
+</div>
 <div class="col-r">
-    
+
+<!--Drop down registration code-->
+<!--Attribution: Miro Karilahti-->
+<!--Found: http://codepen.io/miroot/details/qwIgC-->
+<!--Status: Edited-->
+
+<form action="./scavenger_main.html" method="get">
+
+  <div class="formholder">
+  <div class="randompad">
+    <fieldset>
+      <label name="text">Pick A Game</label>
+      <input type="submit" value="Scavenger Hunt"/>
+    </fieldset>
+  </div>
+  </div>
 
 
+</form>
 </div>
-
-
 </div>
 
 
@@ -58,11 +74,13 @@
     <li> <a href="meet.html"> Meet</a></li>
     <li> <a href="chat.html"> Chat</a></li>
     <li> <a href="games.html"> Games</a></li>
-    <li> <a href="index.html">2014 Find Me </a></li>
+    <li> 2014 Find Me </li>
   </ul>
     </footer>
 
+<script src="js/fb.js"></script>
+<script src="js/gplus.js"></script>
+<script src="js/signup.js"></script>
+
 </body>
-
-
 </html>
