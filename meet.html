@@ -43,25 +43,42 @@
 <div id="mylocation"class="container">
   <div class="map" id="map-canvas"></div>
   <div class="text"> My Location</div>
-</div>
 
-<div id="benlocation" class="panel1">
-  <div class="map" id="map-canvas1"></div>
-  <div class="text"> Ben's Location </div>
-</div>
-
-<div id="addfriend" class="panel2">
-    <div class="friendlist"></div>
-    <div class="text"> Add A Friend</div>
-</div>
-
-<div class="dotstyle dotstyle-puff">    
+  <div class="dotstyle dotstyle-puff">    
   <ul>
-    <li><a href="#mylocation">My Location</a></li>
+    <li class="current"><a href="#mylocation">My Location</a></li>
     <li><a href="#benlocation">Ben</a></li>
     <li><a href="#addfriend">Add A Friend</a></li>
   </ul>
 </div>
+</div>
+
+<div id="benlocation" class="panel">
+  <div class="map" id="map-canvas1"></div>
+  <div class="text"> Ben's Location </div>
+
+  <div class="dotstyle dotstyle-puff">    
+  <ul>
+    <li><a href="#mylocation">My Location</a></li>
+    <li class="current"><a href="#benlocation">Ben</a></li>
+    <li><a href="#addfriend">Add A Friend</a></li>
+  </ul>
+</div>
+</div>
+
+<div id="addfriend" class="panel">
+    <div class="friendlist"></div>
+    <div class="text"> Add A Friend</div>
+
+    <div class="dotstyle dotstyle-puff">    
+  <ul>
+    <li><a href="#mylocation">My Location</a></li>
+    <li><a href="#benlocation">Ben</a></li>
+    <li class="current"><a href="#addfriend">Add A Friend</a></li>
+  </ul>
+</div>
+</div>
+
 
 </div>
 
