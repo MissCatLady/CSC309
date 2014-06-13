@@ -6,7 +6,7 @@
 }
 
 #map-canvas, #map-canvas1 { 
- 	min-height: 310px;
+ 	min-height: 330px;
  	max-height: 450px;
  	width: 90%;
  	margin: 8% auto 3%;
