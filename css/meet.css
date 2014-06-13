@@ -28,7 +28,7 @@
 
 .dotstyle {
 	min-width: 100px;
-	position: relative;
+	text-align: center;
 	top: 30px;
 }
 
@@ -99,7 +99,7 @@
 }
 
 .dotstyle-puff li a:hover,
-.dotstyle-puff li a:focus, {
+.dotstyle-puff li a:focus{
 	background: #ccc;
 }
 
@@ -191,4 +191,8 @@
 
 .panel2:target{
 	margin-left: 0%;
+}
+
+.friendlist {
+	min-height:325px;
 }
