@@ -1,39 +1,49 @@
-
 @font-face
 {
 font-family: Cousine;
 src: url(../fonts/Cousine.ttf);
+}
+@font-face
+{
+font-family: Coco;
+src: url(../fonts/Cocogoose_trial.otf);
+}
+
+#title{
+	font-family: Coco;
+	font-size: 30px;
+	color: #1bc6a4;
+	
 }
 
 body {
 	background-color: #545454;
 	background-image: url(../imgs/cartographer.png);
 	font-family: "Open Sans";
-	width: 100%;
-	height: 100%;
-	margin: auto;
-	overflow-x:hidden;
-	overflow-y:auto;
 }
 
 a {
 	color: #1bc6a4;
 	text-decoration: none;
-	
+
+}
+.col-r {
+	border-top-color: #fff;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 nav {
-	width: 108%;
-	min-height: 50px;
-	max-height: 100px;
-	margin: -3% -4% 0px;
+	width: 110%;
+	height: 50px;
+	margin: -3% -7% 0px;
 	overflow: hidden;
 	background-color: #333;
 	text-align: center;
 	line-height: 250%;
 	font-weight: 300;
 	position: fixed;
-	z-index: 3;
+	z-index: 1;
 }
 
 nav ul {
@@ -45,6 +55,10 @@ nav ul li {
 	display: inline-block;
 	list-style-type: none;
 }
+select{
+	width : 100%;
+	height: 75px;
+}
 
 nav a {
 			color: #fff;
@@ -55,14 +69,17 @@ nav a {
 			text-transform: uppercase;
 		}
 
-nav > ul > li:hover,
-nav > ul > li.current a{
+nav > ul > li:hover {
           background-color: #1bc6a4;
         }
 
-nav > ul > li:hover > a {
+        nav > ul > li:hover > a {
           color: #333;
-}
+        }
+
+        nav > ul > li:hover > a > .caret {
+          border-top-color: #fff;
+        }
 
         
 header {
@@ -79,7 +96,7 @@ header {
 form {
 	height: 100%;
 	width: 100%;
-	margin-top: 3%;
+	margin-top: 15%;
 }
 
 .link {
@@ -90,7 +107,8 @@ form {
 .content {
 	background-color: #fafaf0;
 	width: 100%;
-	height: intrinsic;
+	min-height: 500px;
+	height: 100%;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 25px;
@@ -107,6 +125,19 @@ form {
   content: "";
   display: table;
   clear: both;
+}
+
+.text {
+	width: 90%;
+	height: 90%;
+	text-align: justify;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 3px;
+	margin-bottom: 15px;
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.5em;
+
 }
 
 .login {
@@ -176,7 +207,6 @@ nav {
 .col-r {
 	width: 50%;
 	margin-top: 25px;
+	border-top-color: #fff;
 
 }}
-
-

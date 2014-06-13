@@ -6,17 +6,16 @@ $(function() {
   $(".content").swipe( {
   //Generic swipe handler for all directions
   swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-          
-  if (window.location.pathname.indexOf("chat")>0) {
-    if (direction=="left") {
-      window.location="index.html";
-    } else if (direction=="right"){
-      window.location="#";
-    }
- 
-  } 
+
+  var page = window.location.pathname;
+  page = location.substring(location.lastIndexOf("/")+1);
+  if (direction == "left") {
+    window.location = "settings.html"
+
+  }
   
   },
+
   //Default is 75px, set to 0 for demo so any distance triggers swipe
   threshold:5
   });

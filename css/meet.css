@@ -1,0 +1,193 @@
+
+
+.map {
+	height: 100%;
+	width: 450px;
+}
+
+#map-canvas, #map-canvas1 { 
+ 	min-height: 300px;
+ 	max-height: 450px;
+ 	width: 90%;
+ 	margin: 5% auto 3%;
+ 	border: 5px #1bc6a4 dashed;
+ 	
+ }
+
+.text {
+	width: 90%;
+	height: 90%;
+	text-align: left;
+	margin: 5px auto 0;
+
+	font-family: 'Open Sans', sans-serif;
+	line-height: 1.5em;
+
+}
+
+.dotstyle ul {
+	position: relative;
+	display: inline-block;
+	margin: 25px auto 5px;
+	padding: 0;
+	list-style: none;
+	cursor: default;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.dotstyle li {
+	position: relative;
+	display: block;
+	float: left;
+	margin: 0 16px;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}
+
+.dotstyle li a {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border-radius: 50%;
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.3);
+	text-indent: -999em; /* make the text accessible to screen readers */
+	cursor: pointer;
+	position: absolute;
+}
+
+.dotstyle li a:focus {
+	outline: none;
+}
+
+
+/* Puff */
+
+.dotstyle-puff li a {
+	border: 4px solid #555;
+	box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.6);
+}
+
+.dotstyle-puff li a::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	background: #666;
+	border-radius: 50%;
+	opacity: 0;
+
+}
+
+.dotstyle-puff li a:hover,
+.dotstyle-puff li a:focus, {
+	background: #ccc;
+}
+
+.content {
+	min-height: 530px;
+}
+
+.panel1{
+	float: center;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-color: #fafaf0;
+	margin-top: -375px;
+	padding-bottom: 10px;
+	margin-left: -200%;
+	z-index:2;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+.panel1:target{
+	margin-left: 0%;
+}
+
+
+.panel2{
+	float: center;
+	width: 100%;
+	min-height: 400px;
+	position: relative;
+	background-color: #fafaf0;
+	margin-top: -383px;
+	margin-left: -200%;
+	z-index:2;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+
+.container {
+	white-space: nowrap;
+	margin-top: 25px;
+}
+
+
+
+/*Tablet Screens*/
+@media only screen and (min-width:600px) {
+
+.col-l {
+	width: 65%;
+
+}
+
+.col-r {
+	width: 35%;
+}
+
+
+}
+
+/* Desktop */
+@media only screen and (min-width:800px) {
+
+.dotstyle ul {
+	margin: auto;
+}
+
+.panel1 {
+	margin-top: -387px;
+}
+
+
+}
+
+/* Large Format */
+@media only screen and (min-width:1000px) {
+
+.col-l {
+	max-width: 600px;
+
+}
+
+.panel2 {
+	margin-top: -400px;
+}
+
+
+}
+
+
+.panel2:target{
+	margin-left: 0%;
+}
