@@ -83,7 +83,7 @@ nav > ul > li:hover > a {
 .accordion {   
      width:90%;  
      overflow:hidden;   
-     margin:10px auto;   
+     margin:30px auto 0;   
      color:#474747;   
      background:#414141;   
      padding:10px;   
@@ -96,7 +96,7 @@ nav > ul > li:hover > a {
           color:#333;   
           cursor:pointer;   
           background: #333;   
-          margin:3px; 
+          margin:3px auto 1px; 
 		border-radius:3%;
 		
     }  
