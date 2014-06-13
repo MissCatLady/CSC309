@@ -41,18 +41,26 @@
 <div class="col-l">
 
 
-<div class="dotstyle dotstyle-puff">
-      
+<div class="dotstyle dotstyle-puff">    
   <ul>
-    <li class="current"><a href="#">My Location</a></li>
-    <li><a href="#">Ben</a></li>
-    <li><a href="#">Add A Friend</a></li>
+    <li class="current"><a href="#mylocation">My Location</a></li>
+    <li><a href="#benlocation">Ben</a></li>
+    <li><a href="#addfriend">Add A Friend</a></li>
   </ul>
 </div>
 
-<div class="text"> My Location</div>
+<div id="mylocation" class="content">
+  <div class="text"> My Location</div>
+  <div class="map" id="map-canvas"></div>
+</div>
 
-<div class="map" id="map-canvas">
+<div id="benlocation" class="panel">
+  <div class="text"> Ben's Location </div>
+  <div class="map" id="map-canvas-ben"></div>
+</div>
+
+<div id="addfriend" class="panel">
+    <div class="text"> Add A Friend</div>
 </div>
 
 </div>
@@ -67,7 +75,7 @@
 </div>
 
 
-</div>
+
 
 
 <footer>

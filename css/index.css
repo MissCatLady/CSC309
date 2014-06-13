@@ -9,6 +9,10 @@ body {
 	background-color: #545454;
 	background-image: url(../imgs/cartographer.png);
 	font-family: "Open Sans";
+	width: 100%;
+	margin: auto;
+	overflow-x:hidden;
+	overflow-y:auto;
 }
 
 a {
