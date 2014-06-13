@@ -8,7 +8,7 @@
  	min-height: 300px;
  	max-height: 450px;
  	width: 90%;
- 	margin: 10% auto 3%;
+ 	margin: 8% auto 3%;
  	border: 5px #1bc6a4 dashed;
  	
  }
@@ -29,7 +29,7 @@
 	min-width: 100px;
 	text-align: center;
 	margin-right: 10%;
-	top: 30px;
+	top: 50px;
 }
 
 .dotstyle ul {
@@ -105,6 +105,7 @@
 
 .content {
 	min-height: 530px;
+	padding-top:30px;
 }
 
 .panel1{
@@ -114,7 +115,7 @@
 	position: relative;
 	background-color: #fafaf0;
 	margin-top: -24em;
-	padding-bottom: 12px;
+	padding-bottom: 30px;
 	margin-left: -200%;
 	z-index:2;
 	-webkit-transition: all .2s ease-in-out;
