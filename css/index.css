@@ -89,8 +89,7 @@ form {
 .content {
 	background-color: #fafaf0;
 	width: 100%;
-	min-height: 00px;
-	height: 100%;
+	height: intrinsic;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 25px;

@@ -5,8 +5,8 @@
 	width: 450px;
 }
 
-#map-canvas { 
- 	height: 400px;
+#map-canvas, #map-canvas1 { 
+ 	min-height: 400px;
  	width: 90%;
  	margin: 5% auto 3%;
  	border: 5px #1bc6a4 dashed;
@@ -17,7 +17,7 @@
 	width: 90%;
 	height: 90%;
 	text-align: left;
-	margin: auto;
+	margin: 5px auto 0;
 
 	font-family: 'Open Sans', sans-serif;
 	line-height: 1.5em;
@@ -27,7 +27,7 @@
 .dotstyle ul {
 	position: relative;
 	display: inline-block;
-	margin: 25px auto 0;
+	margin: 25px auto 5px;
 	padding: 0;
 	list-style: none;
 	cursor: default;
@@ -90,9 +90,57 @@
 }
 
 .dotstyle-puff li a:hover,
-.dotstyle-puff li a:focus{
+.dotstyle-puff li a:focus, {
 	background: #ccc;
 }
+
+.content {
+	min-height: 530px;
+}
+
+.panel1{
+	float: center;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-color: #fafaf0;
+	margin-top: -480px;
+	padding-bottom: 3px;
+	margin-left: -200%;
+	z-index:2;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+.panel1:target{
+	margin-left: 0%;
+}
+
+
+.panel2{
+	float: center;
+	width: 100%;
+	min-height: 500px;
+	position: relative;
+	background-color: #fafaf0;
+	margin-top: -485px;
+	margin-left: -200%;
+	z-index:2;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+
+.container {
+	white-space: nowrap;
+	margin-top: 25px;
+}
+
+
 
 /*Tablet Screens*/
 @media only screen and (min-width:640px) {
@@ -106,6 +154,7 @@
 	width: 35%;
 }
 
+
 }
 
 /* Desktop */
@@ -115,30 +164,21 @@
 	margin: auto;
 }
 
-}
-
-
-.content{
-	position: relative;
-	z-index: 0;
 
 }
 
-.panel{
-	width: 98%;
-	min-height: 100%;
-	position: relative;
-	background-color: #fff;
-	margin-left: -210%;
-	z-index:2;
-	-webkit-transition: all .6s ease-in-out;
-	-moz-transition: all .6s ease-in-out;
-	-o-transition: all .6s ease-in-out;
-	-ms-transition: all .6s ease-in-out;
-	transition: all .6s ease-in-out;
+/* Large Format */
+@media only screen and (min-width:1000px) {
+
+.col-l {
+	max-width: 600px;
+
 }
 
-.panel:target{
+
+}
+
+
+.panel2:target{
 	margin-left: 0%;
-	background-color: transparent;
 }
