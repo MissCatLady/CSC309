@@ -90,6 +90,7 @@ nav > ul > li:hover {
      color:#474747;   
      background:#414141;   
      padding:10px;   
+	 border-radius:2%;
 }  
 
 .accordion section{   
@@ -98,11 +99,14 @@ nav > ul > li:hover {
           color:#333;   
           cursor:pointer;   
           background: #333;   
-          margin:3px;   
+          margin:3px; 
+		border-radius:3%;
+		
     }  
 	
 .accordion section:hover {  
           background:#444;
+		  border-radius:3%;
     }  
 .accordion section p {   
       display:none;   
@@ -140,7 +144,8 @@ nav > ul > li:hover {
       font-size:16px;   
       font-weight:normal;  
       color:#eee;   
-      text-decoration:none;   
+      text-decoration:none; 
+		
 } 	
 .accordion section h2 a:hover{
 	color:#1bc6a4;
