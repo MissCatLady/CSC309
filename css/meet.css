@@ -18,7 +18,7 @@
 	width: 90%;
 	height: 90%;
 	text-align: left;
-	margin:auto;
+	margin: 1% auto -30px;
 
 	font-family: 'Open Sans', sans-serif;
 	line-height: 1.5em;
@@ -126,7 +126,6 @@
 @media only screen and (min-width:480px) {
 
 .container {
-	margin-top: -20px;
 	padding-bottom: 30px
 
 }
