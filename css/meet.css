@@ -1,9 +1,4 @@
 
-.content {
-	min-height: 530px;
-	padding-top:30px;
-}
-
 
 .map {
 	height: 100%;
@@ -123,8 +118,8 @@
 	min-height: 500px;
 	position: relative;
 	background-color: #fafaf0;
-	padding-top: 50px;
-	padding-bottom: 80px;
+	padding-top: 80px;
+	padding-bottom: 50px;
 	z-index:2;
 }
 
@@ -132,9 +127,16 @@
 
 @media only screen and (min-width:480px) {
 
+.container {
+	margin-top: -20px;
+	padding-bottom: 30px
 
+}
 
-
+.panel {
+	margin-top: -20px;
+	padding-bottom: 30px
+}
 
 
 }
