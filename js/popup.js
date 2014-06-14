@@ -43,6 +43,7 @@ function centerPopup(){
 }
 
 $(document).ready(function() {
+   $('places').focus();
    $("#bgPopup").data("state",0);
    $("#places").click(function(){
 		centerPopup();
