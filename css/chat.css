@@ -19,8 +19,10 @@
 
 }
 #chatbox{
-  background:#fafaf0;
-  width: 99%;
+  margin-top:3%;
+  background:rgba(50, 50, 50, 0.05);
+  border:1px solid #999;
+  width: 97%;
   height: 200px;
   overflow-y:scroll;
   overflow-x:hidden;
@@ -63,13 +65,13 @@
 }
 #messagebox{
   background:#fafaf0;
-  border-top: 5px solid #1bc6a4;
+  border-radius:5%;
 }
 
 #messagebox textarea{
-  top:0px;
   background:rgba(50, 50, 50, 0.05);
-  border:1px solid #dbdbdb;
+  border:1px solid #999;
+  border-radius: 5px;
   resize: none;
   font-size: 14px;
   width: 95%;
