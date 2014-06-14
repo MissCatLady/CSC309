@@ -1,36 +1,25 @@
+
 @font-face
 {
 font-family: Cousine;
 src: url(../fonts/Cousine.ttf);
-}
-@font-face
-{
-font-family: Coco;
-src: url(../fonts/Cocogoose_trial.otf);
-}
-
-#title{
-	font-family: Coco;
-	font-size: 30px;
-	color: #1bc6a4;
-	
 }
 
 body {
 	background-color: #545454;
 	background-image: url(../imgs/cartographer.png);
 	font-family: "Open Sans";
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	overflow-x:hidden;
+	overflow-y:scroll;
 }
 
 a {
 	color: #1bc6a4;
 	text-decoration: none;
-
-}
-.col-r {
-	border-top-color: #fff;
-	margin-left: auto;
-	margin-right: auto;
+	
 }
 
 nav {
@@ -56,10 +45,6 @@ nav ul li {
 	display: inline-block;
 	list-style-type: none;
 }
-select{
-	width : 100%;
-	height: 75px;
-}
 
 nav a {
 			color: #fff;
@@ -78,6 +63,7 @@ nav > ul > li.current a{
 nav > ul > li:hover > a {
           color: #333;
 }
+
         
 header {
 	text-align: center;
@@ -93,7 +79,7 @@ header {
 form {
 	height: 100%;
 	width: 100%;
-	margin-top: 15%;
+	margin-top: 3%;
 }
 
 .link {
@@ -104,8 +90,7 @@ form {
 .content {
 	background-color: #fafaf0;
 	width: 100%;
-	min-height: 410px;
-	height: 100%;
+	height: intrinsic;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 25px;
@@ -122,19 +107,6 @@ form {
   content: "";
   display: table;
   clear: both;
-}
-
-.text {
-	width: 90%;
-	height: 90%;
-	text-align: justify;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: 3px;
-	margin-bottom: 15px;
-	font-family: 'Open Sans', sans-serif;
-	line-height: 1.5em;
-
 }
 
 .login {
@@ -180,11 +152,11 @@ footer a:visited {
 	margin-top: 25px;
 }
 
-nav {
-	position: relative;
-	margin-top: -0.8%;
-
+nav { 
+	position: fixed;
+	margin-top: -25px;
 }
+
 }
 
 
@@ -198,12 +170,14 @@ nav {
 
 .col-l {
 	width: 50%;
-
+	
 }
 
 .col-r {
 	width: 50%;
 	margin-top: 25px;
-	border-top-color: #fff;
+
 
 }}
+
+

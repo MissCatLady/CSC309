@@ -22,7 +22,6 @@
 	margin: 1% auto -30px;
 
 	font-family: 'Open Sans', sans-serif;
-	line-height: 1.5em;
 
 }
 
@@ -284,7 +283,7 @@ input[class="place-button"] {
   line-height: 30px;
   border: none;
   color: #fff;
-  z-index: 7;
+  z-index: 6;
   -webkit-backface-visibility: hidden;
 }
 

@@ -1,19 +1,8 @@
 
-@font-face
-{
-font-family: Cousine;
-src: url(../fonts/Cousine.ttf);
-}
-
 body {
 	background-color: #545454;
 	background-image: url(../imgs/cartographer.png);
 	font-family: "Open Sans";
-	width: 100%;
-	height: 100%;
-	margin: auto;
-	overflow-x:hidden;
-	overflow-y:scroll;
 }
 
 a {
@@ -23,9 +12,9 @@ a {
 }
 
 nav {
-	width: 108%;
+	width: 110%;
 	height: 50px;
-	margin: -3% -4% 0px;
+	margin: -3.5% -7% 0px;
 	overflow: hidden;
 	background-color: #333;
 	text-align: center;
@@ -64,33 +53,10 @@ nav > ul > li:hover > a {
           color: #333;
 }
 
-        
-header {
-	text-align: center;
-	font-size: 30px;
-	margin-top: 10px;
-	color: #333333;
-	text-transform: uppercase;
-	line-height: 1.2em;
-	text-shadow: 1px 1px 1px #6C7B8B;
-}
-
-
-form {
-	height: 100%;
-	width: 100%;
-	margin-top: 3%;
-}
-
-.link {
-	text-align: center;
-}
-
-
 .content {
 	background-color: #fafaf0;
 	width: 100%;
-	height: intrinsic;
+	height: 100%;
 	margin-right: auto;
 	margin-left: auto;
 	margin-bottom: 25px;
@@ -106,31 +72,17 @@ form {
 .content:after {
   content: "";
   display: table;
-  clear: both;
+  padding-bottom: 25px;
 }
-
-.login {
-	text-align: center;
-	margin-left: -60px;
-
-}
-
-.login li {
-	display: block;
-	width:100%;
-	margin: 10px; 
-}
-
 
 footer {
 	text-align: center;
 	font-size: 0.9em;
 	color: #1abc9c;
-	z-index: 3;
 }
 
 footer li {
-	display: inline-block;
+	display: inline;
 	padding-right: 5%;
 }
 
@@ -143,8 +95,7 @@ footer a:visited {
 	color: #fafaf0;
 }
 
-
-/*PC Screens*/
+/*Desktop Screens*/
 @media only screen and (min-width:800px) {
 
 .content {
@@ -152,17 +103,15 @@ footer a:visited {
 	margin-top: 25px;
 }
 
-nav { 
-	position: fixed;
-	margin-top: -25px;
-}
+nav {
+	position: relative;
+	margin-top: -0.8%;
 
 }
+}
 
-
-
-/*Tablet*/
-@media only screen and (min-width: 640px){
+/*Tablet Screens*/
+@media only screen and (min-width: 540px){
 [class*='col-'] {
   float: left;
 }
@@ -170,13 +119,12 @@ nav {
 
 .col-l {
 	width: 50%;
-	
+
 }
 
 .col-r {
 	width: 50%;
 	margin-top: 25px;
-
 
 }}
 

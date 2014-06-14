@@ -4,6 +4,13 @@ font-family: Coco;
 src: url(../fonts/Cocogoose_trial.otf);
 }
 
+#title{
+	font-family: Coco;
+	font-size: 30px;
+	color: #1bc6a4;
+	
+}
+
 iframe{
 	height: 400px;
  	width: 90%;
