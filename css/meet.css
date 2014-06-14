@@ -158,7 +158,7 @@
 	min-height:325px;
 }
 
-input[type="places"] {
+input[type="place-button"] {
 
   position: fixed;
   margin: 0 -5% 0;
@@ -176,10 +176,117 @@ input[type="places"] {
   -webkit-backface-visibility: hidden;
 }
 
-input[type="places"]:hover {
+input[type="place-button"]:hover {
   background: #545454;
 }
 
 footer {
 	margin-bottom: 60px;
+}
+
+
+#popupClose{  
+	font-size:20px;  
+	line-height:20px;  
+	position:absolute;
+	right:6px;  
+	top:4px;  
+	font-weight:700; 
+	display:block;
+	color: #333;   
+}
+
+
+#bgPopup{
+	display:none; 
+	position:fixed;  
+	height:90%; 
+	width:100%;  
+	top:0;  
+	left:0;  
+	background:#FFF;
+	opacity: 0.05; 
+	z-index:5;  
+}  
+
+#places-popup{  
+	display:none;  
+	position:relative; 
+	width:90%; 
+	max-width: 400px;
+	margin-right: auto;
+	margin-right: auto;
+	background:#FFFFFF;  
+	border:5px solid #999;  
+	z-index:6; 
+
+} 
+
+.popup-container {
+	padding: 13px;
+}
+
+form {
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+
+input[type="text"]{
+	min-width: 180px;
+    padding:8px 15px;
+    background:rgba(50, 50, 50, 0.2);
+    border:0px solid #dbdbdb;
+}
+input[type="button"]{
+	height: 100%;
+    position:relative;
+    padding:6px 15px;
+    left:-8px;
+    border:2px solid #1bc6a4;
+    background-color:#1bc6a4;
+    color:#fafafa;
+}
+input[type="button"]:hover  {
+    background-color:#fafafa;
+    color:#1bc6a4;
+}
+
+h4 {
+	text-align: left;
+
+}
+.requesttext {
+	height: 50px;
+	margin-left: 70px;
+	margin-right: 10px;
+	margin-top: -50px;
+	margin-bottom: 25px;
+	font-size: 12px;
+}
+
+.requesttext li {
+	display: inline;
+}
+
+input[class="button-reject"] {
+	border:2px solid #999;
+    background-color:#999;
+
+}
+
+input[class="button-reject"]:hover  {
+    color:#999;
+}
+
+.displayimg {
+	background-image: url(../imgs/mash.jpg);
+	background-size: contain;
+	position: relative;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 2px #999 solid;
+
+
 }

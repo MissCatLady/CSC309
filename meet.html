@@ -20,6 +20,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOkWAnSuU-z_DSWMy_dO3_H7TrZj0x9Dk"></script>
 <script src="js/map.js"></script>
+<script src="js/popup.js"></script>
 
 
 
@@ -87,7 +88,39 @@
 
 
 </div>
- <input type="places" value="MEETING PLACE" />
+ <a href="#mylocation"><input type="place-button" id="places" value="MEETING PLACE" /></a>
+
+<div id="places-popup">
+<a id="popupClose">x</a>
+<div class="popup-container">
+<h4>Find A Place To Meet<h4>
+
+<form>
+  <input type="text" placeholder="Search..." required>
+  <input type="button" value="Search">
+</form>
+
+
+<h4>Pending Requests</h4>
+<div class="request">
+<div class="displayimg">
+</div>
+<div class="requesttext">
+Mashiyat would like to meet at <a href="#mylocation">Starbucks</a>!
+<ul>
+  <li><input type="button" value="Accept" class="button-accept"></li>
+<li><input type="button" value="Reject" class="button-reject"></li>
+</ul>
+</div>
+</div>
+
+<h4>Recent Places</h4>
+
+</div>
+
+</div> 
+
+<div id="bgPopup"></div> 
 
 <footer>
   <ul>
