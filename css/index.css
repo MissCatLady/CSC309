@@ -1,3 +1,9 @@
+@font-face
+{
+font-family: Cousine;
+src: url(../fonts/Cousine.ttf);
+}
+
 
 body {
 	background-color: #545454;
@@ -9,6 +15,16 @@ a {
 	color: #1bc6a4;
 	text-decoration: none;
 	
+}
+
+header {
+	text-align: center;
+	font-size: 30px;
+	margin-top: 10px;
+	color: #333333;
+	text-transform: uppercase;
+	line-height: 1.2em;
+	text-shadow: 1px 1px 1px #6C7B8B;
 }
 
 nav {

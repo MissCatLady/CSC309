@@ -65,16 +65,7 @@ nav > ul > li:hover > a {
           color: #333;
 }
 
-        
-header {
-	text-align: center;
-	font-size: 30px;
-	margin-top: 10px;
-	color: #333333;
-	text-transform: uppercase;
-	line-height: 1.2em;
-	text-shadow: 1px 1px 1px #6C7B8B;
-}
+
 
 
 form {
