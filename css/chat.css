@@ -9,25 +9,24 @@
 }
 
 #chat {
+  position:relative;
   height: 100%;
   width:90%;
   border-radius: 10px;
   border: 5px solid #1bc6a4 ;
   margin: 0px auto 25px;
-  background:#FFFFFF;
+  background:##fafaf0;
 
 }
 #chatbox{
-  background:#FFFFFF;
+  background:#fafaf0;
   width: 99%;
-  height: 130px;
+  height: 200px;
   overflow-y:scroll;
   overflow-x:hidden;
   font-size: 14px;
   display: inline-block;
   text-align: left;
-  margin: 50px auto 50px;
-
   border-radius: 5px;
 }
 #chatbox ul{
@@ -40,7 +39,6 @@
   min-width: 45px;
   position:absolute;
   text-align: center;
-  background-color: #fff;
   right:10px;
   margin-right: 10px;
   line-height: 1.8em;
@@ -48,7 +46,6 @@
 #chatbox ul li #text{
   height: 100%;
   position:relative;
-  background-color: #fff;
   margin-left: 10px;
 }
 #chatbox ul li div{
@@ -65,17 +62,17 @@
 
 }
 #messagebox{
-  background:#FFFFFF;
+  background:#fafaf0;
   border-top: 5px solid #1bc6a4;
 }
 
 #messagebox textarea{
+  top:0px;
   background:rgba(50, 50, 50, 0.05);
   border:1px solid #dbdbdb;
   resize: none;
   font-size: 14px;
   width: 95%;
-  min-height: 70px;
   padding: 5px;
   margin: 10px auto 0;
 
