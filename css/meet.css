@@ -6,11 +6,12 @@
 }
 
 #map-canvas, #map-canvas1 { 
- 	min-height: 320px;
+ 	min-height: 370px;
  	max-height: 450px;
  	width: 90%;
  	height: 100%;
  	margin: 5% auto 3%;
+ 	padding-bottom: 10px;
  	border: 5px #1bc6a4 dashed;
  	
  }
@@ -27,15 +28,16 @@
 
 .dotstyle {
 	min-width: 100px;
-	text-align: center;
 	margin-right: 10%;
-	top: 50px;
-	margin-bottom: 20px;
+	margin-top: -45px;
+	margin-right: -10px;
+	margin-bottom: 90px;
 }
 
 .dotstyle ul {
 	position: relative;
 	display: inline-block;
+	float: right;
 	margin: auto;
 	padding-top: 5px;
 	list-style: none;
@@ -107,7 +109,7 @@
 
 .container {
 	white-space: nowrap;
-	padding-top: 30px;
+	padding-top: 50px;
 	padding-bottom: 80px;
 }
 
