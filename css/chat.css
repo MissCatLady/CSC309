@@ -4,10 +4,23 @@
 <!--Status: Edited-->*/
 
 
+#smallchat{
+  margin-top:10px;
+}
+
+#chat {
+  height: 100%;
+  width:90%;
+  border-radius: 10px;
+  border: 5px solid #1bc6a4 ;
+  margin: 0px auto 25px;
+  background:#FFFFFF;
+
+}
 #chatbox{
   background:#FFFFFF;
   width: 99%;
-  max-height: 350px;
+  height: 150px;
   overflow-y:scroll;
   overflow-x:hidden;
   font-size: 14px;
@@ -53,7 +66,7 @@
 }
 #messagebox{
   background:#FFFFFF;
-  border-top: 2px solid #333;
+  border-top: 5px solid #1bc6a4;
 }
 
 #messagebox textarea{
@@ -82,8 +95,6 @@
   background-color:#fafafa;
   color:#1bc6a4;
 }
-#smallchat{
-}
 
 @media only screen and (min-width: 540px) {
 {
@@ -92,12 +103,3 @@
     }
   }
 
-#chat {
-  height: 100%;
-  width:90%;
-  border-radius: 15px;
-  border: 5px solid #666 ;
-  margin: 0px auto 25px;
-  background:#FFFFFF;
-
-}
