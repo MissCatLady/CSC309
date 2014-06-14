@@ -116,6 +116,7 @@ footer a:visited {
 
 .content {
 	width: 77%;
+	min-height: 1000px;
 	margin-top: 25px;
 }
 
@@ -144,4 +145,14 @@ nav {
 
 }}
 
+#features {
+	max-width: 800px;
+	margin: 10px auto;
+}
 
+#features li {
+	margin: 5px;
+}
+
+strong {
+	font-weight: bolder;}
