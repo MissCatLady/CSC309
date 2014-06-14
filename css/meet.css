@@ -158,27 +158,6 @@
 	min-height:325px;
 }
 
-input[type="place-button"] {
-
-  position: fixed;
-  margin: 0 -5% 0;
-  bottom: 0px;
-  background: #333;
-  padding: 10px;
-  text-align: center;
-  letter-spacing:  2.5px;
-  display: block;
-  width: 110%;
-  line-height: 30px;
-  border: none;
-  color: #fff;
-  z-index: 7;
-  -webkit-backface-visibility: hidden;
-}
-
-input[type="place-button"]:hover {
-  background: #545454;
-}
 
 footer {
 	margin-bottom: 60px;
@@ -288,5 +267,27 @@ input[class="button-reject"]:hover  {
 	border-radius: 50%;
 	border: 2px #999 solid;
 
+}
 
+input[class="place-button"] {
+
+  position: fixed;
+  max-height: 50px;
+  margin: 0 -5% 0;
+  bottom: 0px;
+  background: #333;
+  padding: 10px;
+  text-align: center;
+  letter-spacing:  2.5px;
+  display: block;
+  width: 110%;
+  line-height: 30px;
+  border: none;
+  color: #fff;
+  z-index: 7;
+  -webkit-backface-visibility: hidden;
+}
+
+input[class="place-button"]:hover {
+  background: #545454;
 }
