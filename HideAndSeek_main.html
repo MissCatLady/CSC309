@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false">
+<link rel="shortcut icon" href="../imgs/pin.ico"> 
+
+<title> Find Me | Hide and Seek,Bring back the childhood memory!</title>
+
+<!--CSS Styles-->
+<link rel="stylesheet" type="text/css" href="css/hideandseek.css" />
+<link rel="stylesheet" href="css/signup.css" media="screen" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/scavenger.css" />
+
+
+<!--Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+<!--Scripts-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+        $(document).ready(function() {
+			$('#content-2').hide();
+			
+			$('#loader').hide();
+		
+			$('#button-submit').click(function(e) {
+				e.preventDefault();
+			  //window.setTimeout(show_page2, 1500);
+				//hide_page1();
+			   //show_page2();
+			   //show_loader();
+			   
+				$('#content-1').hide();
+				/*$('#content-2').show();*/
+			  $('#loader').show();
+			  window.setTimeout(hide_loader, 1500); 
+			  window.setTimeout(show_page2, 1500);
+			  
+			   
+			});
+		 
+			
+			// place this within dom ready function
+			/*  function show_loader() {     
+				$('#loader').show();
+				
+			 }
+			*/
+			// place this within dom ready function
+			  function hide_loader() {     
+				$('#loader').hide();
+				
+			 }
+			  //$('#content-1').hide();
+			
+			 
+			
+			function show_page2(){
+			
+				$('#content-1').hide();
+				$('#content-2').show();
+			
+			}
+			/*window.setTimeout( hide_loader, 5000 ); // 5 seconds*/
+        });
+		</script>
+
+</head>
+
+
+<body>
+<nav>
+  <ul>
+      <li><a href="meet.html#mylocation">Meet</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li class="current"><a href="games.html">Games</a></li>
+    <li><a href="settings.html">Settings</a></li>
+</ul>
+</nav>
+
+<div class="content" id = "content-1">
+<div class="col-l">
+
+<header>
+  <p id ="title">Hide and Seek!</p>
+</header>
+<div class="link">
+  <!-- Image Attribution: http://www.visualpharm.com-->
+  <a href="#"><img src="imgs/mapicon.png" width="50%">
+  </a>
+</div>
+</div>
+<div class="col-r">
+
+<!--Drop down registration code-->
+<!--Attribution: Miro Karilahti-->
+<!--Found: http://codepen.io/miroot/details/qwIgC-->
+<!--Status: Edited-->
+
+<form>
+
+  <div class="formholder">
+  <div class="randompad">
+    <fieldset>
+    <label name="Add Users">Please Select the People that you would like to play the game with</label>
+    <select name="mydropdown" multiple="multiple">
+    <option value="Amit">Amit Prabhakar</option>
+    <option value="Vera">Vera Rizvi</option>
+    <option value="Ilya">Ilya Samsonov</option>
+    <option value="Will">Will Zhang</option>
+    <option value="Lia">Lia Zheng</option>
+
+    </select>
+    </br>
+	
+	
+	<div>
+      <label name="text">Number Of Players(including yourself)</label>
+		<select class = "player_select" required>
+		  <option value="2players">2</option>
+		  <option value="3players">3</option>
+		  <option value="4players">4</option>
+	  
+		</select>
+	</div>
+	
+	
+      <input type="submit" value="Submit" id = "button-submit"/>
+    </fieldset>
+      </div>
+  </div>
+    </form>
+  </div>
+  </div>
+<!--page #2 the actual game for hide and seek -->
+		  <div class="content" id ="content-2">
+		<div id="title_tag">
+		<p id="title">Hide and Seek!</p>
+		</div>
+		<div id="description">
+		<p>Welcome to the Hide and Seek! Your friend Vera is 200 meters away from you, find where she is!</p>
+		</div>
+		<div class="col-l">
+
+
+		<div class ="temp" id="map">
+		<iframe src="https://mapsengine.google.com/map/embed?mid=zCbruiZgL0GI.kKFL6-z3ipyo"></iframe>
+		</div>
+
+		</div>
+
+		<div class="col-r">
+		<div class="friendnav"></div>
+		<div class="chatsq">
+		  <div class="chat1">
+			<small><p><bold>Vera:</bold> Ima hunt you down!</p></small>
+			<small><p><bold>Lia:</bold> But you don't know where I am! Trololololo!</p></small>
+		  </div>
+		  <div class="chat2">
+		  </div>
+
+		</div>
+		</br>
+		</br>
+
+		</div>
+
+
+		</div>
+		
+		<div class = "content" id ="loader">
+			<img src = "jar_loading.gif">
+			<center><span>loading...</span></center>
+		</div>
+  
+		<footer>
+		  <ul>
+			<li> <a href="about.html"> About</a></li>
+			<li> <a href="meet.html"> Meet</a></li>
+			<li> <a href="chat.html"> Chat</a></li>
+			<li> <a href="games.html"> Games</a></li>
+			<li> <a href="index.html">2014 Find Me </a></li>
+		  </ul>
+			</footer>
+
+		<script src="js/fb.js"></script>
+		<script src="js/gplus.js"></script>
+		<script src="js/signup.js"></script>
+
+</body>
+</html>
