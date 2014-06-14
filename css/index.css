@@ -38,7 +38,7 @@ nav {
 	line-height: 250%;
 	font-weight: 300;
 	position: fixed;
-	z-index: 5;
+	z-index: 13;
 	-webkit-backface-visibility: hidden;
 }
 
@@ -166,6 +166,7 @@ src: url(../fonts/Cocogoose_trial.otf);
 }
 
 strong {
+<<<<<<< HEAD
 	font-weight: bolder;
 }
 
@@ -218,3 +219,6 @@ select {
   font-size: 1.5em;
   text-align: left;
 }
+=======
+	font-weight: bolder;}
+>>>>>>> FETCH_HEAD

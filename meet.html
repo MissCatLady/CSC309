@@ -23,6 +23,7 @@
 <script src="js/map.js"></script>
 <script src="js/popup.js"></script>
 <script src="js/chat.js"></script>
+<script src="js/meet.js"></script>
 
 
 
@@ -42,17 +43,22 @@
 <div class="content">
   <div id="smallchat"></div>
   <div class="col-l">
-    <div id="mylocation"class="container">
+    <div id="location" class="container">
       <div class="text"> <h4>My Location</h4>
 	<div class="dotstyle dotstyle-puff">    
 	  <ul>
-	    <li class="current"><a href="#mylocation">My Location</a></li>
-	    <li><a href="#benlocation">Ben</a></li>
-	    <li><a href="#addfriend">Add A Friend</a></li>
+	    <li class="current"><a id="mylocation">My Location</a></li>
+	    <li><a id="benlocation">Ben</a></li>
+	    <li><a id="addfriend">Add A Friend</a></li>
 	  </ul>
 	</div>
       </div>
-      <div class="map" id="map-canvas"></div>
+	<div class="map" id="map-canvas"></div>
+      </div>
+      
+      
+      
+     <!-- 
       <div id="benlocation" class="panel">
 	<div class="text"> <h4>Mashiyat's Location </h4>
 	  <div class="dotstyle dotstyle-puff">    
@@ -65,6 +71,8 @@
 	</div>
 	<div class="map" id="map-canvas1"></div>
       </div>
+      
+      
       <div id="addfriend" class="panel">
 	<div class="text"> <h4>Add A Friend</h4>
 	  <div class="dotstyle dotstyle-puff">    
@@ -77,7 +85,7 @@
 	</div>
 	<div class="friendlist"></div>
       </div>
-    </div>
+      -->
   </div>
   <div class="col-r">
     <div id="chat">
@@ -96,14 +104,8 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
 </div>
+
  <a href="#smallchat"><input type="button" class="place-button" id="places" value="MEETING PLACE" /></a>
 
 <div id="places-popup">
