@@ -17,14 +17,19 @@
   list-style-type: none;
 }
 #chatbox ul li{
+  position:relative;
 }
-#chatbox ul li p{
-  display: inline;
-  margin: auto;
-  width: 100px;
-  margin-left: 5px;
+#chatbox ul li #time{
+  position:absolute;
+  right:0px;
+  margin-left: 10px;
+}
+#chatbox ul li #text{
+  position:relative;
+  margin-left: 10px;
 }
 #chatbox ul li div{
+  position:relative;
   display: inline;
   border-radius: 10px;
   text-align: center;
