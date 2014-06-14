@@ -5,7 +5,7 @@
 
 
 #chatbox{
-  background-color: #1abc9c;
+  background:#FFFFFF;
   width: 99%;
   max-height: 350px;
   overflow-y:scroll;
@@ -52,15 +52,15 @@
 
 }
 #messagebox{
-  background-color: #1abc9c;
+  background:#FFFFFF;
   border-top: 2px solid #333;
 }
 
 #messagebox textarea{
-  background-color: #fff;
+  background:rgba(50, 50, 50, 0.05);
+  border:1px solid #dbdbdb;
   resize: none;
   font-size: 14px;
-  border: none;
   width: 95%;
   min-height: 70px;
   padding: 5px;
@@ -68,18 +68,19 @@
 
 }
 #messagebox input[type="submit"] {
-  background-color: #333;
+  border:2px solid #1bc6a4;
+  background-color:#1bc6a4;
+  color:#fafafa;
   font-size: 20px;
   width: 98%;
-  border: none;
   padding: 5px;
   color: #fff;
   border-radius: 5px;
   margin: 5px auto 10px;
 }
 #messagebox input[type="submit"]:hover {
-  background-color: #ccc;
-  color: #1abc9c;;
+  background-color:#fafafa;
+  color:#1bc6a4;
 }
 #smallchat{
 }
@@ -97,6 +98,6 @@
   border-radius: 15px;
   border: 5px solid #666 ;
   margin: 0px auto 25px;
-  background-color: #1abc9c;
+  background:#FFFFFF;
 
 }
