@@ -11,6 +11,7 @@ $(document).ready(function(){
 			      document.getElementById("message").value + '</span></li>');
     document.getElementById("message").value = "";
     id = id + 1;
+	$('#message').focus();
   });
 });
 $(document).ready(function(){
