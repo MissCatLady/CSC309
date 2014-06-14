@@ -145,4 +145,14 @@ nav {
 
 }}
 
+#features {
+	max-width: 800px;
+	margin: 10px auto;
+}
 
+#features li {
+	margin: 5px;
+}
+
+strong {
+	font-weight: bolder;}
