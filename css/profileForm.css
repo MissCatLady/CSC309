@@ -94,3 +94,15 @@ select {
         padding: 5px;
 		border-radius: 10px 0;
     }
+
+@media (min-width:0px) and (max-width:640px){
+
+#leftCol {
+	float:none;
+	width:100%;
+}
+
+#myDays, #myYears, #myMonth{
+	width:30%
+}
+
