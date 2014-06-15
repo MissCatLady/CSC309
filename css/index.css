@@ -191,8 +191,9 @@ iframe {
 
 .accordion {   
      width:90%;  
-     overflow:hidden;   
-     margin:10px auto;   
+     overflow:hidden;  
+     float: center; 
+     margin:10px auto 0;   
      color:#474747;   
      background:#414141;   
      padding:10px;   
@@ -200,12 +201,12 @@ iframe {
 }  
 
 .accordion section{   
-          float:left;  
+          float:center;  
           overflow:hidden;   
           color:#333;   
           cursor:pointer;   
           background: #333;   
-          margin:3px; 
+          margin:3px auto 5px; 
 		  border-radius:3%;
 		
     }  
@@ -288,8 +289,6 @@ iframe {
          left:0;   
          top:-15px;   
     }   
-
-
 
 /*Desktop Screens*/
 @media only screen and (min-width:800px) {
