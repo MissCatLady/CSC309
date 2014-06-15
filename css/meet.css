@@ -5,12 +5,12 @@
 	width: 450px;
 }
 
-#map-canvas, #map-canvas1 { 
+#map-canvas{ 
  	min-height: 330px;
- 	max-height: 450px;
+ 	max-height: 300px;
  	width: 90%;
  	height: 100%;
- 	margin: 2% auto 3%;
+ 	margin: 0% auto 3%;
  	padding-bottom: 10px;
  	border: 5px #1bc6a4 dashed;
  	
@@ -109,7 +109,6 @@
 
 .container {
 	white-space: nowrap;
-	padding-top: 50px;
 	padding-bottom: 80px;
 }
 
@@ -129,7 +128,7 @@
 @media only screen and (min-width:480px) {
 
 .container {
-	padding-bottom: 30px
+	padding-bottom: 0px
 
 }
 
