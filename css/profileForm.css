@@ -89,7 +89,14 @@ fieldset {
 option {
 	font-weight: bold;
 	
-	}
+}
+
+option:hover{
+	background-color: #1bc6a4;
+	border-radius: 10px 10px 10px 10px;
+	border-style:solid;
+}
+
 	
 select {
        
@@ -100,7 +107,7 @@ select {
         text-overflow: "";  /*Removes default arrow from firefox*/ 
         color: #333;
         padding: 5px;
-		border-radius: 10px 0;
+	border-radius: 10px 0;
     }
 
 @media (min-width:0px) and (max-width:640px){
