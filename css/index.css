@@ -166,9 +166,9 @@ src: url(../fonts/Cocogoose_trial.otf);
 }
 
 strong {
-<<<<<<< HEAD
 	font-weight: bolder;
 }
+
 
 .formholder {
 	width:90%;
@@ -219,6 +219,106 @@ select {
   font-size: 1.5em;
   text-align: left;
 }
-=======
-	font-weight: bolder;}
->>>>>>> FETCH_HEAD
+
+/* Settings CSS */
+
+.accordion {   
+     width:90%;  
+     overflow:hidden;   
+     margin:30px auto 0;   
+     color:#474747;   
+     background:#414141;   
+     padding:10px;   
+	 border-radius:2%;
+}  
+
+.accordion section{   
+          float:left;  
+          overflow:hidden;   
+          color:#333;   
+          cursor:pointer;   
+          background: #333;   
+          margin:3px auto 1px; 
+		border-radius:3%;
+		
+    }  
+	
+.accordion section:hover {  
+          background:#444;
+		  border-radius:3%;
+    }  
+.accordion section p {   
+      display:none;   
+} 
+
+.accordion section:after{  
+          position:relative;  
+          font-size:24px;  
+          color:#000;  
+          font-weight:bold;  
+}  
+.accordion section:target {   
+      background:#FFF;   
+      padding:10px;  
+}  
+.accordion section:target:hover {   
+      background:#FFF;
+	 
+}  
+.accordion section:target h2 {  
+      width:100%; 
+	 	  
+}  
+.accordion section:target h2 a{   
+      color:#333;   
+      padding:0; 
+	font-weight:bold;	  
+}  
+.accordion section:target p {  
+      display:block;  
+}  
+.accordion section h2 a{  
+      padding:8px 10px;  
+      display:block;   
+      font-size:16px;   
+      font-weight:normal;  
+      color:#eee;   
+      text-decoration:none; 
+		
+} 	
+.accordion section h2 a:hover{
+	color:#1bc6a4;
+}
+
+.accordion section:nth-child(1):after{content:'1';}
+.accordion section:nth-child(2):after{content:'2';}
+.accordion section:nth-child(3):after{content:'3';}
+
+
+.vertical section{   
+         width:100%;   
+         height:50px;   
+         -webkit-transition:height 0.2s ease-out;  
+         -moz-transition:height 0.2s ease-out;  
+         -o-transition:height 0.2s ease-out;  
+         transition:height 0.2s ease-out;  
+ }  
+      
+    /*Set height of the slide*/  
+    .vertical :target{   
+         height:500px;   
+         width:97%;  
+    }  
+    .vertical section h2 {   
+         position:relative;   
+         left:0;   
+         top:-15px;   
+    }  
+    /*Set position of the number on the slide*/  
+    .vertical section:after{   
+          top:-75px;  
+          right:-525px;  
+    }  
+    .vertical section:target:after{   
+          left:-7777px;  
+    }  
