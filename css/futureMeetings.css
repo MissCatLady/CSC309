@@ -40,5 +40,17 @@ label {
   text-align: left;
 }
 
+
+option {
+font-weight: bold;
+}
+
+option:hover{
+background-color: #1bc6a4;
+border-radius: 10px 10px 10px 10px;
+}
+
+
+
   
 }
