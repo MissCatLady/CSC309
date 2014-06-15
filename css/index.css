@@ -230,7 +230,7 @@ select {
 .accordion {   
      width:90%;  
      overflow:hidden;   
-     margin:30px auto 0;   
+     margin:10px auto;   
      color:#474747;   
      background:#414141;   
      padding:10px;   
@@ -243,8 +243,8 @@ select {
           color:#333;   
           cursor:pointer;   
           background: #333;   
-          margin:3px auto 1px; 
-		border-radius:3%;
+          margin:3px; 
+		  border-radius:3%;
 		
     }  
 	
@@ -275,9 +275,14 @@ select {
 	 	  
 }  
 .accordion section:target h2 a{   
-      color:#333;   
-      padding:0; 
-	font-weight:bold;	  
+    color:#333;   
+    padding:0; 
+	font-weight:bold;
+	background-color:#1bc6a4;
+	border-radius:4%;
+	height:50px;
+	font-size:30px;  
+	text-transform: uppercase;
 }  
 .accordion section:target p {  
       display:block;  
@@ -289,6 +294,7 @@ select {
       font-weight:normal;  
       color:#eee;   
       text-decoration:none; 
+	  text-transform: uppercase;
 		
 } 	
 .accordion section h2 a:hover{
@@ -298,6 +304,7 @@ select {
 .accordion section:target h2 a:hover{
 	color:#333;
 }
+
 .accordion section:nth-child(1):after{content:'1';}
 .accordion section:nth-child(2):after{content:'2';}
 .accordion section:nth-child(3):after{content:'3';}
@@ -323,10 +330,12 @@ select {
          top:-15px;   
     }  
     /*Set position of the number on the slide*/  
-    .vertical section:after{   
+     .vertical section:after{   
           top:-75px;  
-          right:-525px;  
-    }  
+          left:450px;
+		  
+    } 
     .vertical section:target:after{   
           left:-7777px;  
     }  
+
