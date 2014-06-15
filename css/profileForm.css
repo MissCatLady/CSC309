@@ -1,0 +1,87 @@
+fieldset {
+  border: none;
+}
+
+#profileForm {
+  background: #1bc6a4;
+  width: 100%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  padding-top: 5px;
+  border-style:solid;
+}
+
+#leftCol {
+ width: 50%;
+ float:left;
+ 
+}
+#rightCol{
+
+ float:auto;
+ padding-bottom:55px;
+
+}
+
+#profileForm label {
+  width: 100%;
+  text-align: left;
+  margin-left: 5px;
+
+}
+
+#leftCol input[type="firstName"], #leftCol  input[type="lastName"], #leftCol  input[type="birthday"], #rightCol input[type="email"], #rightCol  input[type="password"]  {
+
+  padding: 7px 5px;
+  margin-bottom: 10px;
+  width: 96%;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+#profileForm input[type="submit"] {
+  background: #333;
+  padding: 10px;
+  font-size: 20px;
+  display: block;
+  width: 60%;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+ margin-left: 20%;
+  
+}
+#profileForm input[type="submit"]:hover {
+  background: #545454;
+}
+
+.randompad {
+  padding: 10px;
+}
+
+#myMonth, #myDays, #myYears {
+	
+	width:25%;
+	margin-left: 5px;
+}
+
+option {font-weight: bold;}
+
+select {
+        border: 0 !important;  /*Removes border*/
+        -webkit-appearance: none;  /*Removes default chrome and safari style*/
+        -moz-appearance: none; /* Removes Default Firefox style*/
+        background: #fff url(img/select-arrow.png) no-repeat 90% center;
+        text-indent: 0.01px; /* Removes default arrow from firefox*/
+        text-overflow: "";  /*Removes default arrow from firefox*/ 
+        color: #333;
+        padding: 5px;
+		border-radius: 10px 0;
+    }
