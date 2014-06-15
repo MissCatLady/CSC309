@@ -3,10 +3,6 @@ fieldset {
 }
 #ProfileSettings {
   float: center;
-  width: 92%;
-  margin: 0 auto 0;
-
- 
 }
 
 #profileForm {
@@ -134,5 +130,11 @@ select {
 
 #myRadioButtons{
 	text-align:left;
+}
+
+#ProfileSettings {
+  width: 92%;
+  margin: 0 auto 0;
+
 }
 }
