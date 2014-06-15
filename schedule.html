@@ -11,7 +11,8 @@
 
 <!--CSS Styles-->
 
-<link rel="stylesheet" type="text/css" href="css/index.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" href="css/signup.css" media="screen" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/futureMeetings.css" media="screen"/>
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
@@ -39,10 +40,18 @@ $( "#datepicker" ).datepicker();
   </ul>
 </nav>
 
-<div class="content"> 
-	<div id="colLeft" class="column">
-		<h1>Invite Friends</h1>
-		<select id="friendsList" multiple="multiple" size="10">
+<div class="content">
+<header>
+ <p id ="title">Schedule A Meeting</p>
+</header>
+
+	<div class="col3">
+		<h4>Invite Friends</h4>
+
+		<div class="formholder">
+		<div class="randompad">
+		<fieldset>
+		<select name="mydropdown" multiple="multiple" size="10">
 			<option value="Amit">Amit Prabhakar</option>
 			<option value="Vera">Vera Rizvi</option>
 			<option value="Ilya">Ilya Samsonov</option>
@@ -54,33 +63,46 @@ $( "#datepicker" ).datepicker();
 			<option value="Will">Will Zhang</option>
 			<option value="Lia">Lia Zheng</option>
 		</select>
-		
-		<div id="newInvitees">
+			
 		<label name="newUsers">Add Friends</label>
 		<input type="newUsers" placeholder="abc@mail.com, xyy@mail.com" required/>
 		<input type="submit" value="Add">
-		<div class="randompad"></div>
-		</div>
+		</fieldset>
 	</div>
-	<div id="colMid" class="column">
-		<h1>Invitation</h1>
-		<form>
+</div>
+		</div>
+	
+
+
+	<div class="col2">
+		<h4>Invitation</h4>
+		<div class="formholder">
+		<div class="randompad">
 			<fieldset>
 				<label name="email">Email</label>
 				<input type="email" placeholder="abc@mail.com, xyy@mail.com, ...."/>
 				<label name="location">Location</label>
-				<input type="location" placeholder="40 St.George St." required/>
+				<input type="location" placeholder="40 St.George St." required />
 				<label name="time">Time</label>
-				<input type="time" placeholder="5 pm" required/>
+				<input type="time" placeholder="5 pm" required />
+				<input type="submit" value="Send Invites" />
 			</fieldset>
-			<input type="submit" value="Send Invites">
-			<div class="randompad"></div>
-		</form>
+		</div>
+		</div>
 	</div>	
-	<div id="colRight" class="column">
-		<h1>Pick A Date</h1>
+
+	<div class="col3">
+		<h4>Pick A Date</h4>
+		<div class="formholder">
+		<div class="randompad" id="datepick">
+			<fieldset>
+		<label name="date">Date</label>
 		<input type="text" id="datepicker" required>
+		</fieldset>
+		</div>
+		</div>
 	</div>	
+
 </div>
 
 
@@ -90,7 +112,7 @@ $( "#datepicker" ).datepicker();
     <li> <a href="meet.html"> Meet</a></li>
     <li> <a href="games.html"> Games</a></li>
     <li><a href="schedule.html">Schedule</a></li>
-    <li> <a href="index.html">2014 Find Me </a></li>
+    <li> <a href="index.html">Logout </a></li>
   </ul>
     </footer>
 

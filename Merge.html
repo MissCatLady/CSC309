@@ -6,21 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false">
 <link rel="shortcut icon" href="../imgs/pin.ico"> 
 
-<title> Find Me | Where are you? </title>
+<title> Find Me | Meet </title>
 
-<!--All CSS Files included in this assignment-->
 <!--CSS Styles For Index and pages in general -->
 <link rel="stylesheet" type="text/css" href="css/index.css" />
-<link rel="stylesheet" href="css/signup.css" media="screen" type="text/css" />
-<!--CSS Styles Just for About Us page -->
-<link rel="stylesheet" type="text/css" href="css/about.css" />
 <!--CSS Styles For Meet Page and Chat Page-->
-<link rel="stylesheet" type="text/css" href="css/index1.css" />
 <link rel="stylesheet" type="text/css" href="css/meet.css" />
 <link rel="stylesheet" href="css/chat.css" media="screen" type="text/css" />
-<!--CSS Styles For Game Page-->
-<link rel="stylesheet" type="text/css" href="css/scavenger2.css" />
-
 
 
 <!--Fonts-->
@@ -34,17 +26,21 @@
 <script src="js/snap.svg-min.js"></script>
 <!--Scripts for Meet Page And Chat Page-->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOkWAnSuU-z_DSWMy_dO3_H7TrZj0x9Dk"></script>
-<script src="js/map.js"></script>
-<script src="js/popup.js"></script>
+
 <script src="js/chat.js"></script>
 <script src="js/meet.js"></script>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 
 
 <!--Script for Displaying different content/pages on this website-->
 <script>
         $(document).ready(function() {
-			HideEverything();
-			$('#index-page').show();
+			$(".col-l").hide();
+			$("#location").hide();
 			
 			//hide all the pages when "Links", which is the bottom Navigation bar is clicked
 			$('.Links').click(function(e) {
@@ -52,19 +48,20 @@
 				HideEverything();
 			
 			});
-			$('.AboutUsLink').click(function(e){
-					e.preventDefault();
-					$('#About_Us').show();
-				
-			});
 			
 			$('.Meet_Link').click(function(e){
 					e.preventDefault();
+<<<<<<< HEAD
 					
 					$('#MeetAndGames').show();
 					$('#gameChild').hide();
 					$('.MeetTop').show();
 					$('#map-canvas, #chat').show();
+=======
+					$('#location').show();
+					$('#Meet').show();
+
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 				
 			});
 			$('.Games_Link').click(function(e){
@@ -75,12 +72,6 @@
 					$('#map-canvas').hide();
 					$('.MeetTop').hide();
 					
-			});
-			
-			$('.Index_Link').click(function(e){
-					e.preventDefault();
-					$('#index-page').show();
-				
 			});
         });
 		function HideEverything(){
@@ -96,196 +87,35 @@
 <body>
 <nav>
   <ul>
+<<<<<<< HEAD
       <li><a class = "Links Meet_Link">Meet</a></li>
       <li><a class="Links Games_Link">Games</a></li>
 	  <li><a href="settings.html">Settings</a></li>
 	  <li><a href="schedules.html">SCHEDULES</a></li>
+=======
+      <li><a class = "Meet_Link">Meet</a></li>
+      <li><a class="Games_Link">Games</a></li>
+    <li><a href="settings.html">Settings</a></li>
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 </ul>
 </nav>
 
 
-<!--the index page component-->
-<div class="content" id = "index-page">
-<div class="col-l">
 
 
+<div class="content">
 
-
-
-<header>
-  <p>Where are you?</p>
-</header>
-
-<div class="link">
-  <!-- Image Attribution: http://www.visualpharm.com-->
-  <a href="#"><img src="imgs/mapicon.png" width="50%">
-  <p> Find My Location</p></a>
-</div>
-
-
-</div>
-
-<div class="col-r">
-
-<!--Drop down registration code-->
-<!--Attribution: Miro Karilahti-->
-<!--Found: http://codepen.io/miroot/details/qwIgC-->
-<!--Status: Edited-->
-    
-<form>
-
-  <div class="formholder">
-  <div class="randompad">
-    <fieldset>
-      <label name="email">Email</label>
-      <input type="email" placeholder="ben.smith@mail.com" required/>
-      <label name="password">Password</label>
-      <input type="password" placeholder="******" required/>
-      <input type="submit" value="Log In" />
-    </fieldset>
-  </div>
-  </div>
-
-  <small><small>Need an account? <a href="#reg" id="regform"> Register</a></small></p>
- 
-  <a id="reg"><div class="register"></a>
-  <div class="arrow-up"></div>
-  <div class="formholder">
-  <div class="randompad">
-    <fieldset>
-      <label name="name">Name</label>
-      <input type="text" placeholder="Ben Smith" required/>
-      <label name="email">Email</label>
-      <input type="email" placeholder="ben.smith@mail.com" required/>
-      <label name="password">Password</label>
-      <input type="password" placeholder="******" required/>
-      <label name="password">Confirm Password</label>
-      <input type="password" placeholder="******" required/>
-      <input type="submit" value="Register" />
-    </fieldset>
-  </div>
-  </div>
-  </div>
-
-</form>
-
-<!--Attribution END-->
-
-
-Sign up with an existing account:</small>
-<div class="login">
-
-  <ul>
-    <li><a href="" onClick="FB.login()"><img src="imgs/fb.png"></a></li>
-    <li><a href=""><img src="imgs/google.png"></a></li>
-  </ul>
-</div>
-</div>
-
-</div>
-<!--End of Index page-->
-
-
-<!--The About Us page -->
-<div class="content" style = "text-align:left" id = "About_Us">
-	
-		<header>About Us</header>
-	
-	<section id="grid" class="grid clearfix" style ="left-padding:50px " center>
-				<a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-					<figure>
-						<img src="imgs/amit.jpg" style ="height:410px"/>
-						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-						<figcaption>
-							<h2>Crystalline</h2>
-							<p>Soko radicchio bunya nuts gram dulse.</p>
-						</figcaption>
-					</figure>
-				</a>
-				
-
-		<a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-					<figure>
-						<img src="imgs/vera.jpg" style = "height:410px"/>
-						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-						<figcaption>
-							<h2>Crystalline</h2>
-							<p>Soko radicchio bunya nuts gram dulse.</p>
-						</figcaption>
-					</figure>
-				</a>
-		<a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-					<figure>
-						<img src="imgs/will.jpg" style = "height:410px"/>
-						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-						<figcaption>
-							<h2>Crystalline</h2>
-							<p>Soko radicchio bunya nuts gram dulse.</p>
-						</figcaption>
-					</figure>
-				</a>
-			<a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-					<figure>
-						<img src="imgs/Ilya.jpg" style = "height:410px"/>
-						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-						<figcaption>
-							<h2>Crystalline</h2>
-							<p>Soko radicchio bunya nuts gram dulse.</p>
-						</figcaption>
-					</figure>
-				</a>
-			
-			<a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-					<figure>
-						<img src="imgs/lia.jpg" style = "height:410px"/>
-						<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-						<figcaption>
-							<h2>Crystalline</h2>
-							<p>Soko radicchio bunya nuts gram dulse.</p>
-						</figcaption>
-					</figure>
-				</a>
-				
-		</section>
-		
-		<script>
-			(function() {
-	
-				function init() {
-					var speed = 250,
-						easing = mina.easeinout;
-
-					[].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
-						var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
-							pathConfig = {
-								from : path.attr( 'd' ),
-								to : el.getAttribute( 'data-path-hover' )
-							};
-
-						el.addEventListener( 'mouseenter', function() {
-							path.animate( { 'path' : pathConfig.to }, speed, easing );
-						} );
-
-						el.addEventListener( 'mouseleave', function() {
-							path.animate( { 'path' : pathConfig.from }, speed, easing );
-						} );
-					} );
-				}
-
-				init();
-
-			})();
-		</script>
-</div>
-<!--end of "About Us" page -->
-
-
-
+<<<<<<< HEAD
 <!--The "Meet AND Games" page section-->
 <div class="content" id = "MeetAndGames">
 
 <!--the top part of meet page-->
   <div id="location" class="container MeetTop">
+=======
+<!--The "Meet" page section-->
+  <div id="smallchat"></div>
+  <div id="location" class="container">
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
       <div class="text"> <h4>My Location</h4>
 	    <div class="dotstyle dotstyle-puff">    
 	      <ul>
@@ -295,6 +125,7 @@ Sign up with an existing account:</small>
 	      </ul>
 	    </div>
       </div>
+<<<<<<< HEAD
   </div>
 <!--the end of top part of meet page-->
 
@@ -361,6 +192,43 @@ Sign up with an existing account:</small>
       <textarea id="message">Type your message here</textarea>
       <input type="submit" value="send"></input> 
     </div>
+=======
+  </div>
+
+  <div class="col-l" id="Meet">
+      <div class="map" id="map-canvas"></div>
+  </div>
+
+  <div class="col-r">
+    <div id="chat">
+    <div id="chatbox">
+	  <ul id="messageList">
+	    <li>
+	      <div><img src="imgs/mashiyat1.jpg"></img></div>
+	      <span id="time">12:32</span>
+	      <span id="text">Hey I'm here!</span>
+	    </li>
+    </ul>
+    </div>
+
+    <div id="messagebox">
+      <textarea id="message">Type your message here</textarea>
+      <input type="submit" value="send"></input> 
+    </div>
+
+    </div>
+  </div>
+
+<!--End of Meet page-->
+
+
+<!--Game Page -->
+<div class="col-l" id="Games">
+
+<header>
+  <p id ="title">Games</p>
+</header>
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 
     </div>
   </div>
@@ -368,13 +236,48 @@ Sign up with an existing account:</small>
 <!-- end of the left column of meet page, the map section -->
  </div> 
 
+<<<<<<< HEAD
  
  
  
 <!--end of the left column of both pages -->
+=======
+<div class="label"><h4>Select a game:</h4></div>
+  <div class="formholder">
+    
+  <form action="./scavenger.html" method="get">
+  <fieldset action="./scavenger.html" method="get">
+    <input type="submit" value="Treasure Hunt"></input>
+	</fieldset>
+  </form>
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 
+  <form action="./hidenseek.html" method="get">
+	<fieldset action="./hidenseek.html" method="get">
+      <input type="submit" value="Hide and Seek"></input>
+	</fieldset>
+  </form>
 
+  <form action="#" method="get">
+  <fieldset action="#" method="get">
+      <input type="submit" value="Game 3"></input>
+  </fieldset>
+  </form>
+	  
+  </div>
+
+<<<<<<< HEAD
  <a href="#smallchat"><input type="button" class="place-button" id="places" value="MEETING PLACE" /></a>
+=======
+</div>
+<!--End of Game Page-->
+
+</div>
+
+<!--Meeting Place Bottom Nav-->
+
+<a href="#smallchat"><input type="button" class="place-button" id="places" value="MEETING PLACE" /></a>
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 
 
  <!--popup box -->
@@ -404,19 +307,24 @@ Sign up with an existing account:</small>
     </div>
   </div> 
 <div id="bgPopup"></div> 
+<<<<<<< HEAD
 <!--end of popup box -->
+=======
+
+<!--End Bottom Nav-->
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 
 <!--End of Meet and Games page-->
 
 
 <footer>
   <ul>
-    <li> <a class ="Links AboutUsLink" onclick = "showAboutUs()"> About</a></li>
+    <li> <a href="about.html"> About</a></li>
     <li> <a class ="Links Meet_Link"> Meet</a></li>
     <li> <a class="Links Games_Link"> Games</a></li>
-    <li> <a class = "Links Index_Link"> 2014 Find Me </a> </li>
+    <li> <a href="index.html"> 2014 Find Me </a> </li>
   </ul>
-    </footer>
+</footer>
 
 <script src="js/fb.js"></script>
 <script src="js/gplus.js"></script>

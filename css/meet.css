@@ -29,7 +29,7 @@
 .dotstyle {
 	min-width: 100px;
 	margin-right: 10%;
-	margin-top: -45px;
+	margin-top: -35px;
 	margin-right: -10px;
 	margin-bottom: 90px;
 }
@@ -129,6 +129,10 @@
 
 .container {
 	padding-bottom: 0px
+
+}
+#friendAdd {
+	margin-top: 0px
 
 }
 
@@ -232,7 +236,8 @@ input[type="button"]:hover  {
 }
 
 h4 {
-	text-align: left;
+    font-size:12px;
+    text-align: left;
 
 }
 .requesttext {

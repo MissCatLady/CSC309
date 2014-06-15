@@ -1,16 +1,23 @@
 fieldset {
   border: none;
 }
+#ProfileSettings {
+  float: center;
+  width: 92%;
+  margin: 0 auto 0;
+
+ 
+}
 
 #profileForm {
-  background: #1bc6a4;
+  background: rgb(250,250,240);
   width: 100%;
   text-align: left;
   margin-left: auto;
   margin-right: auto;
   border-radius: 8px;
   padding-top: 5px;
-  border-style:solid;
+
 }
 
 #leftCol {
@@ -29,6 +36,7 @@ fieldset {
   width: 100%;
   text-align: left;
   margin-left: 5px;
+  background: rgba(50,50,50, 0.05);
 
 }
 
@@ -40,7 +48,8 @@ fieldset {
   width: 96%;
   font-size: 18px;
   border-radius: 5px;
-  border: none;
+  border: solid;
+ border-color:#1bc6a4;
   -webkit-transition: 0.3s linear;
   -moz-transition: 0.3s linear;
   -o-transition: 0.3s linear;
@@ -71,6 +80,8 @@ fieldset {
 	
 	width:25%;
 	margin-left: 5px;
+	border-style:solid;
+	border-color:#1bc6a4;
 }
 
 #myMonth option:hover, #myDays option:hover, #myYears option:hover {
@@ -78,13 +89,24 @@ fieldset {
 	border-radius: 10px 10px 10px 10px;
 	
 }
+
+#myThemes{
+	text-align:left;	
+}
 option {
 	font-weight: bold;
 	
-	}
+}
+
+option:hover{
+	background-color: #1bc6a4;
+	border-radius: 10px 10px 10px 10px;
+	border-style:solid;
+}
+
 	
 select {
-        border: 0 !important;  /*Removes border*/
+       
         -webkit-appearance: none;  /*Removes default chrome and safari style*/
         -moz-appearance: none; /* Removes Default Firefox style*/
         background: #fff url(img/select-arrow.png) no-repeat 90% center;
@@ -92,5 +114,25 @@ select {
         text-overflow: "";  /*Removes default arrow from firefox*/ 
         color: #333;
         padding: 5px;
-		border-radius: 10px 0;
+	border-radius: 10px 0;
     }
+
+@media (min-width:0px) and (max-width:640px){
+
+#leftCol {
+	float:none;
+	width:100%;
+}
+
+#myDays, #myYears, #myMonth{
+	width:30%
+}
+#myThemes{
+	width:75%;
+
+}
+
+#myRadioButtons{
+	text-align:left;
+}
+}
