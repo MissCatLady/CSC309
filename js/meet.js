@@ -15,7 +15,7 @@ $(document).ready(function(){
         break;
       case "addfriend":
         $("#location div h4").text("Add A Friend");
-	$("#map-canvas").hide();
+	//$("#map-canvas").hide();
         break;
       default:
         break;

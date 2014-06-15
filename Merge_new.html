@@ -60,21 +60,16 @@
 			
 			$('.Meet_Link').click(function(e){
 					e.preventDefault();
-					
-					$('#MeetAndGames').show();
-					$('#gameChild').hide();
-					$('.MeetTop').show();
-					$('#map-canvas, #chat').show();
+					$('#Meet').show();
+					//google.maps.event.trigger(map-canvas, "resize"); 
 				
 			});
+			
+			
 			$('.Games_Link').click(function(e){
 					e.preventDefault();
-					
-					$('#MeetAndGames').show();
-					$('#gameChild,#chat').show();
-					$('#map-canvas').hide();
-					$('.MeetTop').hide();
-					
+					$('#Games').show();
+				
 			});
 			
 			$('.Index_Link').click(function(e){
@@ -96,10 +91,10 @@
 <body>
 <nav>
   <ul>
-      <li><a class = "Links Meet_Link">Meet</a></li>
-      <li><a class="Links Games_Link">Games</a></li>
-	  <li><a href="settings.html">Settings</a></li>
-	  <li><a href="schedules.html">SCHEDULES</a></li>
+      <li><a class = "Links Meet_Link">MEET</a></li>
+      <li><a class="Links Games_Link">GAMES</a></li>
+    <li><a href="settings.html">SETTINGS</a></li>
+	<li><a href="schedule.html">SCHEDULE</a></li>
 </ul>
 </nav>
 
@@ -107,10 +102,6 @@
 <!--the index page component-->
 <div class="content" id = "index-page">
 <div class="col-l">
-
-
-
-
 
 <header>
   <p>Where are you?</p>
@@ -180,8 +171,6 @@ Sign up with an existing account:</small>
     <li><a href=""><img src="imgs/google.png"></a></li>
   </ul>
 </div>
-</div>
-
 </div>
 <!--End of Index page-->
 
@@ -281,11 +270,10 @@ Sign up with an existing account:</small>
 
 
 
-<!--The "Meet AND Games" page section-->
-<div class="content" id = "MeetAndGames">
-
-<!--the top part of meet page-->
-  <div id="location" class="container MeetTop">
+<!--The "Meet" page section-->
+<div class="content" id = "Meet">
+  <div id="smallchat"></div>
+  <div id="location" class="container">
       <div class="text"> <h4>My Location</h4>
 	    <div class="dotstyle dotstyle-puff">    
 	      <ul>
@@ -296,55 +284,11 @@ Sign up with an existing account:</small>
 	    </div>
       </div>
   </div>
-<!--the end of top part of meet page-->
 
-
-<!--The left column of both pages -->
-<div class="col-l">
-<!--  the left column of meet page, the Game UI section -->
-<div id = "gameChild">
-<header>
-  <p id ="title">Games</p>
-</header>
-
-
-<div class="label"><h4 style = "text-align:center;">Select a game:</h4></div>
-  <div class="formholder">
-    
-  <form action="./scavenger.html" method="get">
-  <fieldset action="./scavenger.html" method="get">
-    <input type="submit" value="Treasure Hunt"></input>
-	</fieldset>
-  </form>
-
-  <form action="./hidenseek.html" method="get">
-	<fieldset action="./hidenseek.html" method="get">
-      <input type="submit" value="Hide and Seek"></input>
-	</fieldset>
-  </form>
-
-  <form action="#" method="get">
-  <fieldset action="#" method="get">
-      <input type="submit" value="Game 3"></input>
-  </fieldset>
-  </form>
-	  
+  <div class="col-l">
+      <div class="map" id="map-canvas"></div>
   </div>
 
-	</div>
-	
-
-<!--end of the left column of meet page, the Game UI section -->
-
-
-<!-- the left column of meet page, the map section -->
-  
-      
-	<div class="map" id="map-canvas"></div>
-</div>
-
-
-<!-- the right column of both page, the chat section -->
   <div class="col-r">
     <div id="chat">
     <div id="chatbox">
@@ -364,19 +308,13 @@ Sign up with an existing account:</small>
 
     </div>
   </div>
-<!-- the end of the right column of both page, the chat section -->
-<!-- end of the left column of meet page, the map section -->
+  
+  
  </div> 
-
- 
- 
- 
-<!--end of the left column of both pages -->
-
 
  <a href="#smallchat"><input type="button" class="place-button" id="places" value="MEETING PLACE" /></a>
 
-
+ 
  <!--popup box -->
 <div id="places-popup">
   <a id="popupClose">x</a>
@@ -406,7 +344,75 @@ Sign up with an existing account:</small>
 <div id="bgPopup"></div> 
 <!--end of popup box -->
 
-<!--End of Meet and Games page-->
+<!--End of Meet page-->
+
+
+
+
+
+
+<!--Games Page -->
+<div class="content" id = "Games">
+<div id="smallchat"></div>
+<div class="col-l">
+
+<header>
+  <p id ="title">Games</p>
+</header>
+
+
+<div class="label"><h4>Select a game:</h4></div>
+  <div class="formholder">
+    
+  <form action="./scavenger.html" method="get">
+  <fieldset action="./scavenger.html" method="get">
+    <input type="submit" value="Treasure Hunt"></input>
+	</fieldset>
+  </form>
+
+  <form action="./hidenseek.html" method="get">
+	<fieldset action="./hidenseek.html" method="get">
+      <input type="submit" value="Hide and Seek"></input>
+	</fieldset>
+  </form>
+
+  <form action="#" method="get">
+  <fieldset action="#" method="get">
+      <input type="submit" value="Game 3"></input>
+  </fieldset>
+  </form>
+	  
+  </div>
+
+</div>
+<div class="col-r">  
+
+<header><a class="chatbutton"><p id="title">Chat<p></a></header>
+
+<!--Duplicate chat code, games and meet pages will eventually be combined-->
+    <div id="chat">
+    <div id="chatbox">
+    <ul id="messageList">
+      <li>
+        <div><img src="imgs/mashiyat1.jpg"></img></div>
+        <span id="time">12:32</span>
+        <span id="text">Ready to play?</span>
+      </li>
+    </ul>
+    </div>
+
+    <div id="messagebox">
+      <textarea id="message">Type your message here</textarea>
+      <input type="submit" value="send"></input> 
+    </div>
+
+    </div>
+<!--End Duplicate Code-->
+
+</div>
+</div>
+<!--End of Game Page-->
+
 
 
 <footer>
