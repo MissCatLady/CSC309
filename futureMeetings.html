@@ -42,14 +42,45 @@ $( "#datepicker" ).datepicker();
 
 <div class="content"> 
 	<div id="colLeft" class="column">
-		<p>Lorem ipsum....</p>
+		<h1>Invite Friends</h1>
+		<select id="friendsList" multiple="multiple" size="10">
+			<option value="Amit">Amit Prabhakar</option>
+			<option value="Vera">Vera Rizvi</option>
+			<option value="Ilya">Ilya Samsonov</option>
+			<option value="Will">Will Zhang</option>
+			<option value="Lia">Lia Zheng</option>
+			<option value="Amit">Amit Prabhakar</option>
+			<option value="Vera">Vera Rizvi</option>
+			<option value="Ilya">Ilya Samsonov</option>
+			<option value="Will">Will Zhang</option>
+			<option value="Lia">Lia Zheng</option>
+		</select>
+		
+		<div id="newInvitees">
+		<label name="newUsers">New Invitees</label>
+		<input type="newUsers" placeholder="abc@mail.com, xyy@mail.com" required/>
+		<input type="submit" value="Add Invitees">
+		<div class="randompad"></div>
+		</div>
 	</div>
 	<div id="colMid" class="column">
-	<p>Lorem ipsum...FDFHH.</p>
+		<h1>Invitation</h1>
+		<form>
+			<fieldset>
+				<label name="email">Email</label>
+				<input type="email" placeholder="abc@mail.com, xyy@mail.com, ...."/>
+				<label name="location">Location</label>
+				<input type="location" placeholder="40 St.George St." required/>
+				<label name="time">Time</label>
+				<input type="time" placeholder="5 pm" required/>
+			</fieldset>
+			<input type="submit" value="Send Invites">
+			<div class="randompad"></div>
+		</form>
 	</div>	
 	<div id="colRight" class="column">
-		<p>Pick a Date:</p>
-		<input type="text" id="datepicker">
+		<h1>Pick a Date</h1>
+		<input type="text" id="datepicker" required>
 	</div>	
 </div>
 

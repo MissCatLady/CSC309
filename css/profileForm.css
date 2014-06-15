@@ -32,7 +32,8 @@ fieldset {
 
 }
 
-#leftCol input[type="firstName"], #leftCol  input[type="lastName"], #leftCol  input[type="birthday"], #rightCol input[type="email"], #rightCol  input[type="password"]  {
+#leftCol input[type="firstName"], #leftCol  input[type="lastName"], #leftCol  input[type="birthday"],
+ #rightCol input[type="email"], #rightCol  input[type="password"]  {
 
   padding: 7px 5px;
   margin-bottom: 10px;
@@ -72,8 +73,16 @@ fieldset {
 	margin-left: 5px;
 }
 
-option {font-weight: bold;}
-
+#myMonth option:hover, #myDays option:hover, #myYears option:hover {
+	background-color: #1bc6a4;
+	border-radius: 10px 10px 10px 10px;
+	
+}
+option {
+	font-weight: bold;
+	
+	}
+	
 select {
         border: 0 !important;  /*Removes border*/
         -webkit-appearance: none;  /*Removes default chrome and safari style*/
