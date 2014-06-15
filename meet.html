@@ -34,7 +34,7 @@
 <nav>
   <ul>
     <li class="current"><a href="#">Meet</a></li>
-    <li><a id="chatbutton">Chat</a></li>
+    <li><a class="chatbutton">Chat</a></li>
     <li><a href="games.html">Games</a></li>
     <li><a href="settings.html#ProfileSettings">Settings</a></li>
   </ul>
@@ -42,68 +42,70 @@
 
 <div class="content">
   <div id="smallchat"></div>
-<div id="location" class="container">
+  <div id="location" class="container">
       <div class="text"> <h4>My Location</h4>
-	<div class="dotstyle dotstyle-puff">    
-	  <ul>
-	    <li class="current"><a id="mylocation">My Location</a></li>
-	    <li><a id="benlocation">Ben</a></li>
-	    <li><a id="addfriend">Add A Friend</a></li>
-	  </ul>
-	</div>
+	    <div class="dotstyle dotstyle-puff">    
+	      <ul>
+	        <li class="current"><a id="mylocation">My Location</a></li>
+	        <li><a id="benlocation">Ben</a></li>
+	        <li><a id="addfriend">Add A Friend</a></li>
+	      </ul>
+	    </div>
       </div>
-    </div>
+  </div>
+
   <div class="col-l">
       <div class="map" id="map-canvas"></div>
   </div>
+
   <div class="col-r">
     <div id="chat">
-      <div id="chatbox">
-	<ul id="messageList">
-	  <li>
-	    <div><img src="imgs/mashiyat1.jpg"></img></div>
-	    <span id="time">12:32</span>
-	    <span id="text">message</span>
-	  </li>
-	</ul>
-      </div>
+    <div id="chatbox">
+	  <ul id="messageList">
+	    <li>
+	      <div><img src="imgs/mashiyat1.jpg"></img></div>
+	      <span id="time">12:32</span>
+	      <span id="text">Hey I'm here!</span>
+	    </li>
+    </ul>
+    </div>
+
     <div id="messagebox">
-      <textarea id="message">Hi</textarea>
+      <textarea id="message">Type your message here</textarea>
       <input type="submit" value="send"></input> 
     </div>
+
+    </div>
   </div>
-</div>
-</div>
+  </div>
 
  <a href="#smallchat"><input type="button" class="place-button" id="places" value="MEETING PLACE" /></a>
 
 <div id="places-popup">
   <a id="popupClose">x</a>
   <div class="popup-container">
-    <h4>Find A Place To Meet<h4>
 
+    <h4>Find A Place To Meet<h4>
     <form>
       <input type="text" placeholder="Search..." required>
       <input type="button" value="Search">
     </form>
 
-
     <h4>Pending Requests</h4>
     <div class="request">
       <div class="displayimg"></div>
-	<div class="requesttext">
-	  Mashiyat would like to meet at <a href="#mylocation">Starbucks</a>!
-	    <ul>
-	      <li><input type="button" value="Accept" class="button-accept"></li>
-	      <li><input type="button" value="Reject" class="button-reject"></li>
-	    </ul>
-	</div>
-      </div>
+	    <div class="requesttext">
+	      Mashiyat would like to meet at <a href="#mylocation">Starbucks</a>!
+	      <ul>
+	        <li><input type="button" value="Accept" class="button-accept"></li>
+	        <li><input type="button" value="Reject" class="button-reject"></li>
+	      </ul>
+	    </div>
+    </div>
 
     <h4>Recent Places</h4>
-   </div>
- </div> 
-
+    </div>
+  </div> 
 <div id="bgPopup"></div> 
 
 <footer>

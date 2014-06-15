@@ -23,7 +23,8 @@ $(document).ready(function(){
     }
 });
 $(document).ready(function(){
-    $("#chatbutton").click(function(){
+    $(".chatbutton").click(function(){
     $("#smallchat").slideToggle("slow");
+
   });
 });

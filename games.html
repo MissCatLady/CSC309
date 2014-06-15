@@ -6,18 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false">
 <link rel="shortcut icon" href="imgs/pin.ico"> 
 
-<title> Find Me | Setup Your Hunt!</title>
+<title> Find Me | Games</title>
 
 <!--CSS Styles-->
 <link rel="stylesheet" type="text/css" href="css/index.css" />
 <link rel="stylesheet" href="css/signup.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="css/chat.css" media="screen" type="text/css" />
+
 
 <!--Fonts-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
 <!--Scripts-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+<script src="js/chat.js"></script>
+<script src="js/meet.js"></script>
 
 </head>
 
@@ -25,51 +28,72 @@
 <body>
 <nav>
   <ul>
-      <li><a href="meet.html#mylocation">Meet</a></li>
-      <li><a href="chat.html">Chat</a></li>
-      <li class="current"><a href="games.html">Games</a></li>
+    <li><a href="meet.html#mylocation">Meet</a></li>
+    <li><a class="chatbutton">Chat</a></li>
+    <li class="current"><a href="games.html">Games</a></li>
     <li><a href="settings.html#ProfileSettings">Settings</a></li>
+    <!--li><a href="meetings.html">Meetings</a></li-->
 </ul>
 </nav>
 
 <div class="content">
+<div id="smallchat"></div>
 <div class="col-l">
 
 <header>
   <p id ="title">Games</p>
 </header>
-<div class="link">
 
-  <a href="#"><img src="imgs/dice.png" width="55%">
-  </a>
-</div>
-</div>
-<div class="col-r">
 
 <div class="label"><h4>Select a game:</h4></div>
   <div class="formholder">
     
-  <form action="./scavenger1.html" method="get">
-  <fieldset action="./scavenger1.html" method="get">
-      <input type="submit" value="Treasure Hunt"/>
-	  </fieldset>
-</form>
-<form action="./hidenseek.html" method="get">
-	<fieldset action="./hidenseek.html" method="get">
-      <input type="submit" value="Hide and Seek"/>
-	  </fieldset>
+  <form action="./scavenger.html" method="get">
+  <fieldset action="./scavenger.html" method="get">
+    <input type="submit" value="Treasure Hunt"></input>
+	</fieldset>
+  </form>
 
-    <form action="#" method="get">
+  <form action="./hidenseek.html" method="get">
+	<fieldset action="./hidenseek.html" method="get">
+      <input type="submit" value="Hide and Seek"></input>
+	</fieldset>
+  </form>
+
+  <form action="#" method="get">
   <fieldset action="#" method="get">
-      <input type="submit" value="Game 3"/>
-    </fieldset>
-</form>
+      <input type="submit" value="Game 3"></input>
+  </fieldset>
+  </form>
 	  
   </div>
-  </div>
 
-<p></p>
+</div>
+<div class="col-r">  
 
+<header><a class="chatbutton"><p id="title">Chat<p></a></header>
+
+<!--Duplicate chat code, games and meet pages will eventually be combined-->
+    <div id="chat">
+    <div id="chatbox">
+    <ul id="messageList">
+      <li>
+        <div><img src="imgs/mashiyat1.jpg"></img></div>
+        <span id="time">12:32</span>
+        <span id="text">Ready to play?</span>
+      </li>
+    </ul>
+    </div>
+
+    <div id="messagebox">
+      <textarea id="message">Type your message here</textarea>
+      <input type="submit" value="send"></input> 
+    </div>
+
+    </div>
+<!--End Duplicate Code-->
+
+</div>
 </div>
 
 
