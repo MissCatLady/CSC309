@@ -10,19 +10,40 @@
 
 
 <!--CSS Styles-->
+<<<<<<< HEAD
+<link rel="stylesheet" type="text/css" href="css/settings.css"/>
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<link rel="stylesheet" type="text/css" href="css/profileForm.css" media="screen"/>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="css/index.css" media="screen"/>
 
 
 <!--Fonts-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-<!--Scripts-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
 </head>
 
+<script>
+function populateDays(){
+							var select = document.getElementById("myDays"); 
+							var options = [1, 2, 3, 4, 5]; 
 
+							for(var i = 0; i < options.length; i++) {
+							var opt = options[i];
+							var el = document.createElement("option");
+							el.textContent = opt;
+							el.value = opt;
+							select.appendChild(el);
+						}​
+}
+
+ $(function() {
+$( "myRadioButtons" ).buttonset();
+});						
+</script>
 <body>
 <nav>
   <ul>
@@ -37,8 +58,60 @@
 	<div class="accordion vertical">
 		  <section id="ProfileSettings">
 		      <h2><a href="#ProfileSettings">Profile</a></h2>
-		      <p>profile stuff.</p>
+			  <div id="profileForm">
+			  <div id="leftCol">
+					<form>
+					<fieldset>
+						<label name="firstName">First Name</label>
+						<input type="firstName" placeholder="Ben"/>
+						<label name="lasttName">Last Name</label>
+						<input type="lastName" placeholder="Smith"/>
+						<label name="birthday">Birthday</label>
+					</fieldset>
+					<form id="DOB">
+					<select id="myMonth" name="month" required>
+						<option>Month</option>
+						<option value="jan">January</option>
+						<option value="feb">February</option>
+						<option value="mar">March</option>
+						<option value="apr">April</option>
+						<option value="may">May</option>
+						<option value="june">June</option>
+						<option value="july">July</option>
+						<option value="aug">August</option>
+						<option value="sept">September</option>
+						<option value="oct">October</option>
+						<option value="nov">November</option>
+						<option value="dec">December</option>
+					</select>
+					<select id="myDays" name="Day" onClick="populateDays()" required>
+						<option>Day</option>
+					</select>
+					<select id="myYears" name="Year" required>
+						<option>Year</option>
+					</select> </form>
+					</form>
+				</div>
+			  <div id="rightCol">
+					<form>
+					<fieldset>
+						<label name="email">Email</label>
+						<input type="email" placeholder="ben.smith@mail.com" required/>
+						<label name="password">Password</label>
+						<input type="password" placeholder="******" required/>
+					</fieldset>
+					<div id="myRadioButtons">
+					<label name="gender">Gender</label>
+					<input type="radio" id="radio1" name="radio" >
+					<label for="radio1">Female</label>
+					<input type="radio" id="radio2" name="radio" checked="checked">
+					<label for="radio2">Male</label>
+					</div>
+					</form>
+			    </div>
+			  </div>
 		  </section>
+		  
 		  <section id="PrivacySettings">
 		      <h2><a href="#PrivacySettings">Privacy</a></h2>
 		      <p>privacy stuff.</p>
