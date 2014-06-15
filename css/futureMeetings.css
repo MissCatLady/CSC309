@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 .column { 
 	position: relative;
 	float: left;
@@ -85,6 +87,7 @@
 }
 
 
+>>>>>>> FETCH_HEAD
 label {
   width: 100%;
   text-align: left;
@@ -92,97 +95,28 @@ label {
   font-weight: bold;
 }
 .randompad {
-  padding: 10px;
+  padding: 5px;
 }
 
-
-option {
-	font-weight: bold;
-	}
-	
-option:hover{
-	background-color: #1bc6a4;
-	border-radius: 10px 10px 10px 10px;
+.content {
+  min-height: 500px;
 }
 
+@media only screen and (min-width:640px) {
 
-select {
-        -webkit-appearance: none;  /*Removes default chrome and safari style*/
-        -moz-appearance: none; /* Removes Default Firefox style*/
-        background: #fff url(img/select-arrow.png) no-repeat 90% center;
-        text-indent: 0.01px; /* Removes default arrow from firefox*/
-        text-overflow: "";  /*Removes default arrow from firefox*/ 
-        color: #333;
-        padding: 5px;
-		border-radius: 10px 10px 10px 10px;
-		border-style:solid;
-		border-color:#1bc6a4;
-    }
-fieldset {
-  border: none;
+[class*='col'] {
+  float: left;
 }
-
-@media (min-width:0px) and (max-width:640px) {
- .column{
-   float:none;
-   height:auto;
-   width:auto;
-   
-}
-
-
-#colLeft{
-  width:90%;
-  margin-left:auto;
-  margin-right:auto;
  
-}
+.col1{
+  position: fixed;
+} 
 
-#colMid{
-  width:90%;
-  margin-left:auto;
-  margin-right:auto;
-
-  
-}
-
-#colMid h1{
-  margin-left:15%;
-
-}
-#colRight{
-  width:90%;
-  margin-left:auto;
-  margin-right:auto;
- 
-}
-}
-
-
-@media (min-width:640px) and (max-width:900px) {
-  
-  .column{
-   float:none;
-   height:auto;
-   width:auto;
-   
-}
-
-
-#colLeft{
-  width:90%;
-  margin-left:auto;
-  margin-right:auto;
-
-  
-}
-
-#newInvitees{
- 
-  width:100%;
-  margin-top:5%;
-}
-
+<<<<<<< HEAD
+.col2{
+  width: 33%;
+} 
+=======
 #newInvitees label{
  
   margin-top:45%;
@@ -192,67 +126,18 @@ fieldset {
   width:90%;
   margin-left:auto;
   margin-right:auto;
+>>>>>>> FETCH_HEAD
 
-  
+.col3{
+  width: 33%;
+} 
+
+
+.col3 form {
+  width: 90%;
+  margin: 5% auto 0;
+  text-align: left;
 }
 
-#colMid h1{
-  margin-left:15%;
-
-}
-#colRight{
-  width:90%;
-  margin-left:auto;
-  margin-right:auto;
- 
-}
-  
-}
-
-
-@media (min-width:900px) and (max-width:1200px) {
-  
-  .column{
-   float:none;
-   height:auto;
-   width:auto;
-   
-}
-
-
-#colLeft{
-  width:75%;
-  margin-left:auto;
-  margin-right:auto;
- 
-  
-}
-
-#newInvitees{
- 
-  width:100%;
-  margin-top:5%;
-}
-
-#colMid{
-  width:75%;
-  margin-left:auto;
-  margin-right:auto;
-
-  
-}
-
-
-
-#colMid h1{
-  margin-left:15%;
-
-}
-#colRight{
-width:75%;
-  margin-left:auto;
-  margin-right:auto;
-
-}
   
 }
