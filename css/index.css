@@ -345,6 +345,11 @@ nav {
 	margin: 5px;
 }
 
+#screenshots li{
+	display: inline;
+	padding-top: 3px;
+}
+
 /*Games CSS*/
 
 @font-face
