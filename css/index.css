@@ -283,6 +283,7 @@ select {
 	height:50px;
 	font-size:30px;  
 	text-transform: uppercase;
+	border-style:solid;
 }  
 .accordion section:target p {  
       display:block;  
@@ -317,7 +318,7 @@ select {
       
     /*Set height of the slide*/  
     .vertical :target{   
-         height:500px;   
+         height:475px;   
          width:97%;  
     }  
     .vertical section h2 {   
