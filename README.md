@@ -1,6 +1,8 @@
 CSC309
 ======
 
+PLEASE REFER TO README.HTML FOR REPORT
+
 Repository for CSC309 Course Work
 
 http://misscatlady.github.io/CSC309
