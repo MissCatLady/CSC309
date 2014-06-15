@@ -295,6 +295,9 @@ select {
 	color:#1bc6a4;
 }
 
+.accordion section:target h2 a:hover{
+	color:#333;
+}
 .accordion section:nth-child(1):after{content:'1';}
 .accordion section:nth-child(2):after{content:'2';}
 .accordion section:nth-child(3):after{content:'3';}
