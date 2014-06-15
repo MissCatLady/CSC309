@@ -305,10 +305,6 @@ select {
 	color:#333;
 }
 
-.accordion section:nth-child(1):after{content:'1';}
-.accordion section:nth-child(2):after{content:'2';}
-.accordion section:nth-child(3):after{content:'3';}
-
 
 .vertical section{   
          width:100%;   
@@ -328,14 +324,5 @@ select {
          position:relative;   
          left:0;   
          top:-15px;   
-    }  
-    /*Set position of the number on the slide*/  
-     .vertical section:after{   
-          top:-75px;  
-          left:450px;
-		  
-    } 
-    .vertical section:target:after{   
-          left:-7777px;  
-    }  
+    }   
 
