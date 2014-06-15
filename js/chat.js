@@ -2,7 +2,7 @@
 var id = 0;
 var vis
 $(document).ready(function(){
-  $('input[type="submit"]').click(function(){
+  $("#submittext").click(function(){
     if (document.getElementById("message").value != "")
     var d = new Date()
     $("#messageList").append('<li id="'+ id + 
