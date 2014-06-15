@@ -52,7 +52,10 @@ fieldset {
   text-align: left;
 
 }
-.formholder input[type="email"], .formholder input[type="password"], .formholder input[type="text"] {
+.formholder input[type="email"], .formholder input[type="password"],
+.formholder input[type="text"], .formholder input[type="location"],
+.formholder input[type="time"], .formholder input[type="newUsers"]
+{
   padding: 7px 5px;
   margin-bottom: 10px;
   width: 96%;
