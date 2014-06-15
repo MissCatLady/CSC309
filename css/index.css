@@ -163,9 +163,10 @@ select {
 }
 
 iframe {
-	max-width: 450px;
-	height: 300px;
+	border: 5px #1bc6a4 dashed;
 }
+
+
 
 /* Report CSS */
 
@@ -295,7 +296,7 @@ iframe {
 
 .content {
 	width: 77%;
-	min-height: 500px;
+	min-height: 580px;
 	margin-top: 25px;
 }
 
