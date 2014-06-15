@@ -40,7 +40,10 @@ function populateDays(){
 }
 
 $(function() {
-$( "myRadioButtons" ).buttonset();
+$( "#q1" ).buttonset();
+$( "#q2" ).buttonset();
+$( "#q3" ).buttonset();
+$( "#q4" ).buttonset();
 });						
 </script>
 <body>
@@ -128,35 +131,39 @@ $( "myRadioButtons" ).buttonset();
 				<h2>Who can see my stuff?</h2>
 				<div id="q1">
 				<label name="q1">Contact information</label>
+				</br>
 				<input type="radio" id="radio1" name="radio" >
 				<label for="radio1">Everyone</label>
 				<input type="radio" id="radio2" name="radio" checked="checked">
-				<label for="radio2">Let Me Choose</label>
+				<label for="radio2">Filter</label>
 				</div>
 				</br>
 				<div id="q2">
 				<label name="q2">Location</label>
+				</br>
 				<input type="radio" id="radio3" name="radio" >
 				<label for="radio3">Everyone</label>
 				<input type="radio" id="radio4" name="radio" checked="checked">
-				<label for="radio4">Let Me Choose</label>
+				<label for="radio4">Filter</label>
 				</div>
 				</br></br>
 				<h2>Who can look me up</h2>
 				<div id="q3">
 				<label name="q3">Who can send me meeting invites?</label>
+				</br>
 				<input type="radio" id="radio5" name="radio" >
 				<label for="radio5">Everyone</label>
 				<input type="radio" id="radio6" name="radio" checked="checked">
-				<label for="radio6">Let Me Choose</label>
-				</br>
+				<label for="radio6">Filter</label>
 				</div>
+				</br>
 				<div id="q4">
 				<label name="q4">Who can send me game invites?</label>
+				</br>
 				<input type="radio" id="radio7" name="radio" >
 				<label for="radio7">Everyone</label>
 				<input type="radio" id="radio8" name="radio" checked="checked">
-				<label for="radio8">Let Me Choose</label>
+				<label for="radio8">Filter</label>
 				</div>
 				</br></br>
 				</div>
@@ -164,8 +171,9 @@ $( "myRadioButtons" ).buttonset();
 		  </section>
 		  <section id="Themes">
 		      <h2><a href="#Themes">Themes</a></h2>
+		      <div id="myThemes">
 		      <h2>Select A Theme</h2>
-			<input type="radio" id="radio9" name="radio" >
+			<input type="radio" id="radio9" name="radio" checked="checked">
 			<label for="radio9">Earth</label>
 			</br>
 			<input type="radio" id="radio10" name="radio" >
@@ -180,6 +188,7 @@ $( "myRadioButtons" ).buttonset();
 			<input type="radio" id="radio13" name="radio" >
 			<label for="radio13">SunSet</label>
 			</br>
+			</div>
 		  </section>
 		</div>
 </div>

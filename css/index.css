@@ -245,7 +245,7 @@ iframe {
 	height:50px;
 	font-size:30px;  
 	text-transform: uppercase;
-	border-style:solid;
+	
 }  
 .accordion section:target p {  
       display:block;  
@@ -257,7 +257,7 @@ iframe {
       font-weight:normal;  
       color:#eee;   
       text-decoration:none; 
-	  text-transform: uppercase;
+ text-transform: uppercase;
 		
 } 	
 .accordion section h2 a:hover{
@@ -479,7 +479,7 @@ iframe {
 	height:50px;
 	font-size:30px;  
 	text-transform: uppercase;
-	border-style:solid;
+	
 }  
 .accordion section:target p {  
       display:block;  
