@@ -1,10 +1,11 @@
 .column { 
-	position: relative; float: left;
+	position: relative;
+	float: left;
 	}
 	
 #colMid { 
 	background:#1bc6a4;
-	width: 34%;
+	width: 34% ;
 	text-align:left;
 	border-radius: 8px;
 	margin-left:15px;
@@ -19,7 +20,8 @@
 }
 
 #colRight { 
-  width: 20%; /* RC width */ 
+  width: 25%; /* RC width */ 
+
  
 }
 #colLeft input[type="newUsers"], #colMid input[type="email"], #colMid input[type="location"] , #colMid input[type="time"]{
@@ -81,6 +83,8 @@
 #colMid h1{
 	margin-left:30%;
 }
+
+
 label {
   width: 100%;
   text-align: left;
@@ -91,12 +95,6 @@ label {
   padding: 10px;
 }
 
-label {
-  width: 100%;
-  text-align: left;
-  margin-left: 5px;
-  font-weight: bold;
-}
 
 option {
 	font-weight: bold;
@@ -122,4 +120,134 @@ select {
     }
 fieldset {
   border: none;
+}
+
+@media (min-width:0px) and (max-width:640px) {
+ .column{
+   float:none;
+   height:auto;
+   width:auto;
+   
+}
+
+
+#colLeft{
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+ 
+}
+
+#colMid{
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+
+  
+}
+
+#colMid h1{
+  margin-left:15%;
+
+}
+#colRight{
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+ 
+}
+}
+
+
+@media (min-width:640px) and (max-width:900px) {
+  
+  .column{
+   float:none;
+   height:auto;
+   width:auto;
+   
+}
+
+
+#colLeft{
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+
+  
+}
+
+#newInvitees{
+ 
+  width:100%;
+  margin-top:5%;
+}
+
+#colMid{
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+
+  
+}
+
+#colMid h1{
+  margin-left:15%;
+
+}
+#colRight{
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+ 
+}
+  
+}
+
+
+@media (min-width:900px) and (max-width:1200px) {
+  
+  .column{
+   float:none;
+   height:auto;
+   width:auto;
+   
+}
+
+
+#colLeft{
+  width:75%;
+  margin-left:auto;
+  margin-right:auto;
+ 
+  
+}
+
+#newInvitees{
+ 
+  width:100%;
+  margin-top:5%;
+}
+
+#colMid{
+  width:75%;
+  margin-left:auto;
+  margin-right:auto;
+
+  
+}
+
+
+
+#colMid h1{
+  margin-left:15%;
+
+}
+#colRight{
+width:75%;
+  margin-left:auto;
+  margin-right:auto;
+
+}
+  
 }

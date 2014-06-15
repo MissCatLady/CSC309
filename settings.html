@@ -28,7 +28,7 @@
 <script>
 function populateDays(){
 							var select = document.getElementById("myDays"); 
-							var options = [1, 2, 3, 4, 5]; 
+							var options = ['1', '2', '3', '4', '5']; 
 
 							for(var i = 0; i < options.length; i++) {
 							var opt = options[i];
@@ -39,7 +39,7 @@ function populateDays(){
 						}​
 }
 
- $(function() {
+$(function() {
 $( "myRadioButtons" ).buttonset();
 });						
 </script>
@@ -85,8 +85,11 @@ $( "myRadioButtons" ).buttonset();
 						<option value="nov">November</option>
 						<option value="dec">December</option>
 					</select>
-					<select id="myDays" name="Day" onClick="populateDays()" required>
+					<select id="myDays" name="Day"  required>
 						<option>Day</option>
+						<script>
+						populateDays();
+						</script>
 					</select>
 					<select id="myYears" name="Year" required>
 						<option>Year</option>
