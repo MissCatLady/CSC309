@@ -355,7 +355,7 @@ strong {
 
 .formholder {
 	width:90%;
-	min-height: 200px;
+	min-height: 0px;
 	margin: 30px auto 0px;
 	font-family: "Open Sans";
 	font-size: 12px;
