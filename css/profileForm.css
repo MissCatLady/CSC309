@@ -1,6 +1,13 @@
 fieldset {
   border: none;
 }
+#ProfileSettings {
+  float: center;
+  width: 92%;
+  margin: 0 auto 0;
+
+ 
+}
 
 #profileForm {
   background: rgb(250,250,240);

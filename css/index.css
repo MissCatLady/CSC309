@@ -191,8 +191,9 @@ iframe {
 
 .accordion {   
      width:90%;  
-     overflow:hidden;   
-     margin:10px auto;   
+     overflow:hidden;  
+     float: center; 
+     margin:10px auto 0;   
      color:#474747;   
      background:#414141;   
      padding:10px;   
@@ -200,12 +201,12 @@ iframe {
 }  
 
 .accordion section{   
-          float:left;  
+          float:center;  
           overflow:hidden;   
           color:#333;   
           cursor:pointer;   
           background: #333;   
-          margin:3px; 
+          margin:3px auto 5px; 
 		  border-radius:3%;
 		
     }  
@@ -245,7 +246,7 @@ iframe {
 	height:50px;
 	font-size:30px;  
 	text-transform: uppercase;
-	
+
 }  
 .accordion section:target p {  
       display:block;  
@@ -257,7 +258,7 @@ iframe {
       font-weight:normal;  
       color:#eee;   
       text-decoration:none; 
- text-transform: uppercase;
+
 		
 } 	
 .accordion section h2 a:hover{
@@ -288,8 +289,6 @@ iframe {
          left:0;   
          top:-15px;   
     }   
-
-
 
 /*Desktop Screens*/
 @media only screen and (min-width:800px) {
@@ -479,7 +478,7 @@ iframe {
 	height:50px;
 	font-size:30px;  
 	text-transform: uppercase;
-	
+
 }  
 .accordion section:target p {  
       display:block;  
