@@ -1,0 +1,17 @@
+.column { 
+	position: relative; float: left;
+	}
+	
+#colMid { 
+	
+	width: 30%;
+	}
+	
+#colLeft {	
+  width: 30%; /* LC width */ 
+
+}
+#colRight { 
+  width: 30%; /* RC width */ 
+ 
+}
