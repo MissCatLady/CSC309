@@ -143,8 +143,19 @@ nav {
 .col-r {
 	width: 50%;
 
-}}
+}
 
+.accordion {
+	height:auto;
+}
+}
+/* cell phones*/
+@media (min-width:0px) and (max-width:540px){
+.accordion{
+	height:auto;
+}
+
+}
 /*Report CSS*/
 
 #features {
@@ -234,7 +245,8 @@ select {
      color:#474747;   
      background:#414141;   
      padding:10px;   
-	 border-radius:2%;
+     border-radius:2%;
+	
 }  
 
 .accordion section{   
@@ -244,7 +256,7 @@ select {
           cursor:pointer;   
           background: #333;   
           margin:3px; 
-		  border-radius:3%;
+	border-radius:3%;
 		
     }  
 	
@@ -318,7 +330,7 @@ select {
       
     /*Set height of the slide*/  
     .vertical :target{   
-         height:475px;   
+         height:auto;   
          width:97%;  
     }  
     .vertical section h2 {   
