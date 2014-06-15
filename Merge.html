@@ -29,8 +29,11 @@
 
 <script src="js/chat.js"></script>
 <script src="js/meet.js"></script>
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 
 
 <!--Script for Displaying different content/pages on this website-->
@@ -48,22 +51,32 @@
 			
 			$('.Meet_Link').click(function(e){
 					e.preventDefault();
+<<<<<<< HEAD
+					
+					$('#MeetAndGames').show();
+					$('#gameChild').hide();
+					$('.MeetTop').show();
+					$('#map-canvas, #chat').show();
+=======
 					$('#location').show();
 					$('#Meet').show();
 
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 				
 			});
-			
 			$('.Games_Link').click(function(e){
 					e.preventDefault();
-					$('#Games').show();
-				
+					
+					$('#MeetAndGames').show();
+					$('#gameChild,#chat').show();
+					$('#map-canvas').hide();
+					$('.MeetTop').hide();
+					
 			});
         });
 		function HideEverything(){
 			$(".content").hide();
 		}
-	
 		
 		</script>
 
@@ -74,9 +87,16 @@
 <body>
 <nav>
   <ul>
+<<<<<<< HEAD
+      <li><a class = "Links Meet_Link">Meet</a></li>
+      <li><a class="Links Games_Link">Games</a></li>
+	  <li><a href="settings.html">Settings</a></li>
+	  <li><a href="schedules.html">SCHEDULES</a></li>
+=======
       <li><a class = "Meet_Link">Meet</a></li>
       <li><a class="Games_Link">Games</a></li>
     <li><a href="settings.html">Settings</a></li>
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 </ul>
 </nav>
 
@@ -85,9 +105,17 @@
 
 <div class="content">
 
+<<<<<<< HEAD
+<!--The "Meet AND Games" page section-->
+<div class="content" id = "MeetAndGames">
+
+<!--the top part of meet page-->
+  <div id="location" class="container MeetTop">
+=======
 <!--The "Meet" page section-->
   <div id="smallchat"></div>
   <div id="location" class="container">
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
       <div class="text"> <h4>My Location</h4>
 	    <div class="dotstyle dotstyle-puff">    
 	      <ul>
@@ -97,6 +125,74 @@
 	      </ul>
 	    </div>
       </div>
+<<<<<<< HEAD
+  </div>
+<!--the end of top part of meet page-->
+
+
+<!--The left column of both pages -->
+<div class="col-l">
+<!--  the left column of meet page, the Game UI section -->
+<div id = "gameChild">
+<header>
+  <p id ="title">Games</p>
+</header>
+
+
+<div class="label"><h4 style = "text-align:center;">Select a game:</h4></div>
+  <div class="formholder">
+    
+  <form action="./scavenger.html" method="get">
+  <fieldset action="./scavenger.html" method="get">
+    <input type="submit" value="Treasure Hunt"></input>
+	</fieldset>
+  </form>
+
+  <form action="./hidenseek.html" method="get">
+	<fieldset action="./hidenseek.html" method="get">
+      <input type="submit" value="Hide and Seek"></input>
+	</fieldset>
+  </form>
+
+  <form action="#" method="get">
+  <fieldset action="#" method="get">
+      <input type="submit" value="Game 3"></input>
+  </fieldset>
+  </form>
+	  
+  </div>
+
+	</div>
+	
+
+<!--end of the left column of meet page, the Game UI section -->
+
+
+<!-- the left column of meet page, the map section -->
+  
+      
+	<div class="map" id="map-canvas"></div>
+</div>
+
+
+<!-- the right column of both page, the chat section -->
+  <div class="col-r">
+    <div id="chat">
+    <div id="chatbox">
+	  <ul id="messageList">
+	    <li>
+	      <div><img src="imgs/mashiyat1.jpg"></img></div>
+	      <span id="time">12:32</span>
+	      <span id="text">Hey I'm here!</span>
+	    </li>
+    </ul>
+    </div>
+
+    <div id="messagebox">
+      <textarea id="message">Type your message here</textarea>
+      <input type="submit" value="send"></input> 
+    </div>
+=======
   </div>
 
   <div class="col-l" id="Meet">
@@ -132,8 +228,20 @@
 <header>
   <p id ="title">Games</p>
 </header>
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 
+    </div>
+  </div>
+<!-- the end of the right column of both page, the chat section -->
+<!-- end of the left column of meet page, the map section -->
+ </div> 
 
+<<<<<<< HEAD
+ 
+ 
+ 
+<!--end of the left column of both pages -->
+=======
 <div class="label"><h4>Select a game:</h4></div>
   <div class="formholder">
     
@@ -142,6 +250,7 @@
     <input type="submit" value="Treasure Hunt"></input>
 	</fieldset>
   </form>
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 
   <form action="./hidenseek.html" method="get">
 	<fieldset action="./hidenseek.html" method="get">
@@ -157,6 +266,9 @@
 	  
   </div>
 
+<<<<<<< HEAD
+ <a href="#smallchat"><input type="button" class="place-button" id="places" value="MEETING PLACE" /></a>
+=======
 </div>
 <!--End of Game Page-->
 
@@ -165,7 +277,10 @@
 <!--Meeting Place Bottom Nav-->
 
 <a href="#smallchat"><input type="button" class="place-button" id="places" value="MEETING PLACE" /></a>
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 
+
+ <!--popup box -->
 <div id="places-popup">
   <a id="popupClose">x</a>
   <div class="popup-container">
@@ -192,9 +307,14 @@
     </div>
   </div> 
 <div id="bgPopup"></div> 
+<<<<<<< HEAD
+<!--end of popup box -->
+=======
 
 <!--End Bottom Nav-->
+>>>>>>> cf43d9e28d7d4cd43d36a1930a50ec63d06c6dda
 
+<!--End of Meet and Games page-->
 
 
 <footer>
