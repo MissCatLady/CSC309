@@ -89,6 +89,40 @@ fieldset {
 #myThemes{
 	text-align:left;	
 }
+
+.themeImg{
+	background-repeat:no-repeat;
+	background-size: contain;
+	background-position: right centre;
+	border-radius:15%;
+}
+#im1{
+	background-image:url(../imgs/earth.jpg);
+	width: 90px;
+	height: 56px
+}
+#im2{
+	background-image:url(../imgs/fire.jpg);
+	width: 90px;
+	height: 68px;
+}
+#im3{
+	background-image:url(../imgs/sea.jpg);
+	width: 90px;
+	height: 60px;
+}
+#im4{
+	background-image:url(../imgs/rain.jpg);
+	width: 90px;
+	height: 48px;
+}
+#im5{
+	background-image:url(../imgs/sunset.jpg);
+	width: 90px;
+	height: 58px;
+}	
+
+}
 option {
 	font-weight: bold;
 	
