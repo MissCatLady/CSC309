@@ -1,9 +1,16 @@
 CSC309
 ======
 
-Repository for CSC309 Course Work
-
+PLEASE REFER TO README.HTML FOR REPORT
+Site is hosted on GItHub Wiki 
 http://misscatlady.github.io/CSC309
+Navigation is found through links.
+Forms are not working elements.
+All other links are functional.
+Chat drop-down only works in mobile-view.
+Please reload page after scaling.
+
+Repository for CSC309 Course Work
 
 Attribution
 
