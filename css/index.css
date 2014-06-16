@@ -199,7 +199,7 @@ iframe {
      color:#474747;   
      background:#414141;   
      padding:10px;   
-	 border-radius:2%;
+	   border-radius:2%;
 }  
 
 .accordion section{   
@@ -209,7 +209,7 @@ iframe {
           cursor:pointer;   
           background: #333;   
           margin:3px auto 5px; 
-		  border-radius:3%;
+		       border-radius:3%;
 		
     }  
 	
@@ -297,7 +297,7 @@ iframe {
 
 .content {
 	width: 77%;
-	min-height: 580px;
+	min-height: 500px;
 	margin-top: 25px;
 }
 
@@ -316,6 +316,9 @@ nav {
 
 nav {
   font-size: 18px;
+}
+
+nav a {
   padding: 0 15px;
 }
 
