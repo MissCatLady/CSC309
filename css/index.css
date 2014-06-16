@@ -35,7 +35,8 @@ nav {
 	overflow: hidden;
 	background-color: #333;
 	text-align: center;
-	line-height: 250%;
+  font-size: 15px;
+	line-height: 200%;
 	font-weight: 300;
 	position: fixed;
 	z-index: 13;
@@ -312,6 +313,9 @@ nav {
   float: left;
 }
 
+nav {
+  font-size: 20px;
+}
 
 .col-l {
 	width: 50%;
