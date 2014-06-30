@@ -2,6 +2,7 @@
 Gets user's location
 finds 20 food places nearby
 
+
 -->
 
 <!DOCTYPE html>
@@ -42,15 +43,21 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-   var myicon = '../imgs/mashiyat1.jpg';
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'You are here!'
+      });
+
+      map.setCenter(pos);
+
+         var myicon = '../imgs/mashiyat1.jpg';
     var mymarker = new google.maps.Marker({
       map: map,
       position: pos,
       title: 'You are here!',
       icon: myicon,
     });
-    
-    map.setCenter(pos);
 
     var request = {
     location: pos,
