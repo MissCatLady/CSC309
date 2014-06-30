@@ -35,13 +35,10 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-var halfdistance = google.maps.geometry.spherical.computeDistanceBetween(pos,friendlocation, 8000);
-
-var string1=halfdistance.toString();
       var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-        content: string1
+        content: "You are here!"
       });
 //custom icon
    var myicon = '../imgs/mashiyat1.jpg';
@@ -62,7 +59,7 @@ var string1=halfdistance.toString();
       zIndex: google.maps.Marker.MAX_ZINDEX,
     });
 
-      map.setCenter(pos);
+  
 
 
 //get middle ground between 2 positions
@@ -70,10 +67,11 @@ var halfdistance = google.maps.geometry.spherical.computeDistanceBetween(pos,fri
 var myheading = google.maps.geometry.spherical.computeHeading(pos,friendlocation);
 var mid = google.maps.geometry.spherical.computeOffset(pos, halfdistance, myheading, 8000);
 
+  map.setCenter(mid);
 //places search fills an array of 20
     var request = {
     location: mid,
-    radius: 300,
+    radius: 100,
     types: ['food']
     };
 
