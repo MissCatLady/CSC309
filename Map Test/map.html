@@ -35,7 +35,7 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-var halfdistance = computeDistanceBetween(pos,friendlocation, 8000);
+var halfdistance = google.maps.geometry.spherical.computeDistanceBetween(pos,friendlocation, 8000);
 
 var string1=halfdistance.toString();
       var infowindow = new google.maps.InfoWindow({
