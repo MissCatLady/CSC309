@@ -56,7 +56,7 @@ function initialize() {
     types: ['store']
   };
 
-  service = new google.maps.places.PlacesService(map);
+  service = new google.maps.places.PlacesService('map-canvas');
   service.nearbySearch(request, callback);
 }
 
