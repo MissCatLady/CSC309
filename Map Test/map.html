@@ -35,17 +35,23 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-      var infowindow = new google.maps.InfoWindow({
+      var myinfowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
         content: "You are here!"
       });
+
+      var friendsinfowindow = new google.maps.InfoWindow({
+        map: map,
+        position: friendlocation,
+        content: "Your friend is here!"
+      });
+
 //custom icon
    var myicon = '../imgs/mashiyat1.jpg';
     var mymarker = new google.maps.Marker({
       map: map,
       position: pos,
-      title: 'You are here!',
       icon: myicon,
       zIndex: google.maps.Marker.MAX_ZINDEX + 1,
     });
@@ -54,7 +60,6 @@ function initialize() {
     var friendmarker = new google.maps.Marker({
       map: map,
       position: friendlocation,
-      title: 'Your friend is here!',
       icon: friendicon,
       zIndex: google.maps.Marker.MAX_ZINDEX,
     });
@@ -68,6 +73,11 @@ var myheading = google.maps.geometry.spherical.computeHeading(pos,friendlocation
 var mid = google.maps.geometry.spherical.computeOffset(pos, halfdistance, myheading, 8000);
 
   map.setCenter(mid);
+        var midinfowindow = new google.maps.InfoWindow({
+        map: map,
+        position: mid,
+        content: "Here are some food options!"
+      });
 //places search fills an array of 20
     var request = {
     location: mid,
