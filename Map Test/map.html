@@ -43,11 +43,12 @@ function initialize() {
 
       map.setCenter(pos);
 
-        var request = {
+    var request = {
     location: pos,
     radius: 500,
     types: ['food']
   };
+  var infowindow1 = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
 
@@ -96,8 +97,8 @@ function createMarker(place) {
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow.setContent(place.name);
-    infowindow.open(map, this);
+    infowindow1.setContent(place.name);
+    infowindow1.open(map, this);
   });
 }
 
