@@ -59,8 +59,6 @@ function initialize() {
       zIndex: google.maps.Marker.MAX_ZINDEX,
     });
 
-      map.setCenter(pos);
-
 
 //get middle ground between 2 positions
 
@@ -68,6 +66,7 @@ var halfdistance = computeDistanceBetween(pos,friendlocation)/2;
 var myheading = computeHeading(pos,friendlocation);
 var mid = computeOffset(myheading, pos, halfdistance);
 var midground = new google.maps.LatLng(mid);
+map.setCenter(midground);
 
 //places search fills an array of 20
     var request = {
