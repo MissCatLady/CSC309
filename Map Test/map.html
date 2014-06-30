@@ -38,7 +38,7 @@ function initialize() {
       var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-        content: 'Location found using HTML5.'
+        content: 'You are here!'
       });
 
       map.setCenter(pos);
@@ -56,7 +56,7 @@ function initialize() {
     types: ['food']
   };
 
-  service = new google.maps.places.PlacesService(map);
+  var service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
 }
 
