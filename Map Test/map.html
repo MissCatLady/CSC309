@@ -34,12 +34,6 @@ function initialize() {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
-
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'You are here!'
-      });
 //custom icon
    var myicon = '../imgs/mashiyat1.jpg';
     var mymarker = new google.maps.Marker({
@@ -67,6 +61,15 @@ var halfdistance = computeDistanceBetween(pos,friendlocation, 8000)/2;
 var myheading = computeHeading(pos,friendlocation);
 var mid = computeOffset(pos, halfdistance, myheading, 8000);
 map.setCenter(mid);
+
+var teststring = mid.toString();
+
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: teststring
+      });
+
 //places search fills an array of 20
     var request = {
     location: mid,
