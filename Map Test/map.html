@@ -82,7 +82,8 @@ function createMarker(place) {
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    details.setContent(place.website);
+    var info = place.name + '\n' + place.website;
+    details.setContent(info);
     details.open(map, this);
   });
 }
