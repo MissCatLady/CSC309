@@ -39,7 +39,7 @@ var halfdistance = computeDistanceBetween(pos,friendlocation, 8000)/2;
 var myheading = computeHeading(pos,friendlocation);
 var mid = computeOffset(pos, halfdistance, myheading, 8000);
 
-var string1= string(halfdistance);
+var string1= String(halfdistance);
       var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
