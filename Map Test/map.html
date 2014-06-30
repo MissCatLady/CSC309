@@ -22,11 +22,13 @@ var details;
 
 function initialize() {
   var mapOptions = {
+    //TODO: show full map to contain all users
     zoom: 16
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
 
+  //currently friendlocation is hardcoded
   var friendlocation = new google.maps.LatLng(43.649056, -79.396937);
 
   // Try HTML5 geolocation
@@ -41,6 +43,7 @@ function initialize() {
         content: "You are here!"
       });
 
+      //TODO: populate friend's infowindows
       var friendsinfowindow = new google.maps.InfoWindow({
         map: map,
         position: friendlocation,
@@ -64,11 +67,13 @@ function initialize() {
       zIndex: google.maps.Marker.MAX_ZINDEX,
     });
 
-  
-
 
 //get middle ground between 2 positions
 var halfdistance = google.maps.geometry.spherical.computeDistanceBetween(pos,friendlocation, 8000)/2;
+//TODO: 3 or more users
+//method1: find furthest away friends, get mid-ground between
+//or other ways are fine too
+//https://developers.google.com/maps/documentation/javascript/reference#spherical
 var myheading = google.maps.geometry.spherical.computeHeading(pos,friendlocation);
 var mid = google.maps.geometry.spherical.computeOffset(pos, halfdistance, myheading, 8000);
 
@@ -78,7 +83,7 @@ var mid = google.maps.geometry.spherical.computeOffset(pos, halfdistance, myhead
         position: mid,
         content: "Here are some food options!"
       });
-//places search fills an array of 20
+//places search fills an array of up to 20
     var request = {
     location: mid,
     radius: 100,
@@ -118,6 +123,7 @@ function createMarker(place) {
 
   google.maps.event.addListener(marker, 'click', function() {
     var info = place.name + "<br /> Rating: " + place.rating + "/5";
+    //TODO: info window needs more content
     details.setContent(info);
     details.open(map, this);
   });
