@@ -34,12 +34,8 @@ function initialize() {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
-//get middle ground between 2 positions
-var halfdistance = computeDistanceBetween(pos,friendlocation, 8000)/2;
-var myheading = computeHeading(pos,friendlocation);
-var mid = computeOffset(pos, halfdistance, myheading, 8000);
 
-var string1= String(halfdistance);
+var string1='test';
       var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
@@ -67,6 +63,11 @@ var string1= String(halfdistance);
       map.setCenter(pos);
 
 
+//get middle ground between 2 positions
+var halfdistance = computeDistanceBetween(pos,friendlocation, 8000)/2;
+var myheading = computeHeading(pos,friendlocation);
+var mid = computeOffset(pos, halfdistance, myheading, 8000);
+map.setCenter(mid);
 //places search fills an array of 20
     var request = {
     location: mid,
