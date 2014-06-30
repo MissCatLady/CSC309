@@ -50,11 +50,11 @@ function initialize() {
       zIndex: google.maps.Marker.MAX_ZINDEX + 1,
     });
 
-    var friendicon = '../imgs/vera.png';
+    var friendicon = 'http://upload.wikimedia.org/wikipedia/commons/c/ce/Train_icon_small.png';
     var friendmarker = new google.maps.Marker({
       map: map,
       position: friendlocation,
-      title: 'Vera is here!',
+      title: 'Your friend is here!',
       icon: friendicon,
       zIndex: google.maps.Marker.MAX_ZINDEX,
     });
@@ -66,7 +66,8 @@ function initialize() {
 
 var halfdistance = computeDistanceBetween(pos,friendlocation)/2;
 var myheading = computeHeading(pos,friendlocation);
-var midground = computeOffset(myheading, pos, halfdistance)
+var mid = computeOffset(myheading, pos, halfdistance);
+var midground = new google.maps.LatLng(mid);
 
 //places search fills an array of 20
     var request = {
