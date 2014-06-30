@@ -64,7 +64,7 @@ function initialize() {
 
 var halfdistance = computeDistanceBetween(pos,friendlocation)/2;
 var myheading = computeHeading(pos,friendlocation);
-var mid = computeOffset(myheading, pos, halfdistance);
+var mid = computeOffset(pos, halfdistance, myheading);
 var midground = new google.maps.LatLng(mid);
 map.setCenter(midground);
 
