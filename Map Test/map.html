@@ -63,16 +63,14 @@ function initialize() {
 
 
 //get middle ground between 2 positions
-
-var halfdistance = computeDistanceBetween(pos,friendlocation)/2;
+var halfdistance = computeDistanceBetween(pos,friendlocation, 8000)/2;
 var myheading = computeHeading(pos,friendlocation);
-var mid = computeOffset(myheading, pos, halfdistance);
-var midground = new google.maps.LatLng(mid.lat(), mid.lng());
+var mid = computeOffset(pos, halfdistance, myheading, 8000);
 
 //places search fills an array of 20
     var request = {
-    location: midground,
-    radius: 200,
+    location: mid,
+    radius: 300,
     types: ['food']
     };
 
