@@ -50,15 +50,6 @@ function initialize() {
     handleNoGeolocation(false);
   }
 
-  var request = {
-    location: pos,
-    radius: 500,
-    types: ['food']
-  };
-  var infowindow = new google.maps.InfoWindow();
-  var service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, callback);
-
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -76,6 +67,16 @@ function handleNoGeolocation(errorFlag) {
 
   var infowindow = new google.maps.InfoWindow(options);
   map.setCenter(options.position);
+
+
+  var request = {
+    location: pos,
+    radius: 500,
+    types: ['food']
+  };
+  var infowindow = new google.maps.InfoWindow();
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
 }
 
 function callback(results, status) {
