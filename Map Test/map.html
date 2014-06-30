@@ -13,7 +13,7 @@
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places,geometry"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,places"></script>
 
     <script>
 
@@ -59,14 +59,15 @@ function initialize() {
       zIndex: google.maps.Marker.MAX_ZINDEX,
     });
 
+      map.setCenter(pos);
+
 
 //get middle ground between 2 positions
-//8k as radius of toronto
-var halfdistance = computeDistanceBetween(pos,friendlocation, 8000)/2;
+
+var halfdistance = computeDistanceBetween(pos,friendlocation)/2;
 var myheading = computeHeading(pos,friendlocation);
-var mid = computeOffset(pos, halfdistance, myheading, 8000);
+var mid = computeOffset(myheading, pos, halfdistance);
 var midground = new google.maps.LatLng(mid);
-map.setCenter(pos);
 
 //places search fills an array of 20
     var request = {
