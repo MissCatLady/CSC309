@@ -21,8 +21,6 @@
 // is probably because you have denied permission for location sharing.
 
 var map;
-var service;
-var infowindow;
 
 function initialize() {
   var mapOptions = {
@@ -55,7 +53,7 @@ function initialize() {
     var request = {
     location: pos,
     radius: '400',
-    types: ['store']
+    types: ['food']
   };
 
   service = new google.maps.places.PlacesService(map);
