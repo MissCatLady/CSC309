@@ -3,6 +3,7 @@ Gets user's location
 finds 20 food places nearby
 
 
+
 -->
 
 <!DOCTYPE html>
@@ -50,14 +51,6 @@ function initialize() {
       });
 
       map.setCenter(pos);
-
-         var myicon = '../imgs/mashiyat1.jpg';
-    var mymarker = new google.maps.Marker({
-      map: map,
-      position: pos,
-      title: 'You are here!',
-      icon: myicon,
-    });
 
     var request = {
     location: pos,
