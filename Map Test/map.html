@@ -21,6 +21,8 @@
 // is probably because you have denied permission for location sharing.
 
 var map;
+var service;
+var infowindow;
 
 function initialize() {
   var mapOptions = {
@@ -56,7 +58,7 @@ function initialize() {
     types: ['store']
   };
 
-  service = new google.maps.places.PlacesService('map-canvas');
+  service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
 }
 
