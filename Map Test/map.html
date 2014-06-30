@@ -66,9 +66,9 @@ var string1=halfdistance.toString();
 
 
 //get middle ground between 2 positions
-var halfdistance = computeDistanceBetween(pos,friendlocation, 8000)/2;
-var myheading = computeHeading(pos,friendlocation);
-var mid = computeOffset(pos, halfdistance, myheading, 8000);
+var halfdistance = google.maps.geometry.spherical.computeDistanceBetween(pos,friendlocation, 8000)/2;
+var myheading = google.maps.geometry.spherical.computeHeading(pos,friendlocation);
+var mid = google.maps.geometry.spherical.computeOffset(pos, halfdistance, myheading, 8000);
 
 //places search fills an array of 20
     var request = {
