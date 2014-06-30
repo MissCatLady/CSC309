@@ -35,12 +35,6 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'Location found using HTML5.'
-      });
-
       map.setCenter(pos);
 
     var request = {
@@ -48,7 +42,7 @@ function initialize() {
     radius: 500,
     types: ['food']
   };
-  var infowindow1 = new google.maps.InfoWindow();
+  var infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
 
@@ -76,7 +70,6 @@ function handleNoGeolocation(errorFlag) {
     content: content
   };
 
-  var infowindow = new google.maps.InfoWindow(options);
   map.setCenter(options.position);
 
 }
@@ -97,8 +90,8 @@ function createMarker(place) {
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    infowindow1.setContent(place.name);
-    infowindow1.open(map, this);
+    infowindow.setContent(place.name);
+    infowindow.open(map, this);
   });
 }
 
