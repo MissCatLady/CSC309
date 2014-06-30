@@ -37,7 +37,9 @@ function initialize() {
       });
 
       map.setCenter(pos);
-    },
+    }, function() {
+      handleNoGeolocation(true);
+    });
   }
 
   var request = {
