@@ -67,7 +67,7 @@ function initialize() {
 var halfdistance = computeDistanceBetween(pos,friendlocation)/2;
 var myheading = computeHeading(pos,friendlocation);
 var mid = computeOffset(myheading, pos, halfdistance);
-var midground = new google.maps.LatLng(mid);
+var midground = new google.maps.LatLng(mid.lat(), mid.lng());
 
 //places search fills an array of 20
     var request = {
