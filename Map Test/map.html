@@ -48,7 +48,7 @@ function initialize() {
       position: pos,
       title: 'You are here!',
       icon: myicon,
-      zIndex: 21,
+      zIndex: google.maps.Marker.MAX_ZINDEX + 1,
     });
 
       map.setCenter(pos);
