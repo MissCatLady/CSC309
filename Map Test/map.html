@@ -35,7 +35,9 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-var string1='test';
+var halfdistance = computeDistanceBetween(pos,friendlocation, 8000);
+
+var string1=String(halfdistance);
       var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
@@ -67,7 +69,7 @@ var string1='test';
 var halfdistance = computeDistanceBetween(pos,friendlocation, 8000)/2;
 var myheading = computeHeading(pos,friendlocation);
 var mid = computeOffset(pos, halfdistance, myheading, 8000);
-map.setCenter(mid);
+
 //places search fills an array of 20
     var request = {
     location: mid,
