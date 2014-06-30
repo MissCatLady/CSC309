@@ -82,7 +82,7 @@ function createMarker(place) {
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    var info = place.name + "<br /> Rating: " + place.rating " / 5";
+    var info = place.name + "<br />" + place.id + "<br />" + place.rating;
     details.setContent(info);
     details.open(map, this);
   });
