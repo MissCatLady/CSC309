@@ -1,5 +1,6 @@
 <!-- 
 Gets user's location
+uses custom user icon
 finds 20 food places nearby
 
 -->
@@ -42,13 +43,18 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'You are here!'
-      });
 
-      map.setCenter(pos);
+    var myicon = '../imgs/mashiyat1.png';
+    var mymarker = new google.maps.Marker({
+      map: map;
+      position: pos;
+      title: 'You are here!'
+      icon: myicon;
+    })
+
+    mymarker.setMap(map);
+    
+    map.setCenter(pos);
 
     var request = {
     location: pos,
