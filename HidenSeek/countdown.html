@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  	<title>Countdown</title>
+  	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="jquery.countdown.css"> 
+    <script type="text/javascript" src="jquery.plugin.js"></script> 
+    <script type="text/javascript" src="jquery.countdown.js"></script>
+
+    <!--Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <script src="../js/popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/meet.css" />
+  </head>
+
+  <body>
+  	<script>
+  	$(function () {
+		$(".countdown").countdown({
+			until:'+10m',
+			expiryUrl:'http://google.com',
+			format: 'MS',
+			compact: true})
+  	});
+  	</script>
+
+<input type="button" id="places" value="Start Game" />
+
+<div id="places-popup">
+  <a id="popupClose">x</a>
+  <div class="popup-container">
+
+<p>You have 10 minutes to get to your positions:</p>
+<div class="countdown"></div>
+<p> Please remember to stay within your regions.</p>
+
+<p>Have you found your spot? Check-in!</p>
+<center><img src="../imgs/check-in.png" width="50%" href="#"></center>
+
+    </div>
+  </div> 
+<div id="bgPopup"></div> 
+
+  	
+
+
+  </body>
+
+ </html>
