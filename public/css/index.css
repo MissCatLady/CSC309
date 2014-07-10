@@ -1,0 +1,632 @@
+@font-face
+{
+font-family: Cousine;
+src: url(../fonts/Cousine.ttf);
+}
+
+/*Common CSS*/
+
+body {
+	background-color: #545454;
+	background-image: url(../imgs/cartographer.png);
+	font-family: "Open Sans";
+}
+
+a {
+	color: #1bc6a4;
+	text-decoration: none;
+	
+}
+
+header {
+	text-align: center;
+	font-size: 30px;
+	margin-top: 10px;
+	color: #333333;
+	text-transform: uppercase;
+	line-height: 1.2em;
+	text-shadow: 1px 1px 1px #6C7B8B;
+}
+
+nav {
+	width: 110%;
+	height: 50px;
+	margin: -3.5% -7% 0px;
+	overflow: hidden;
+	background-color: #333;
+	text-align: center;
+  font-size: 13px;
+	line-height: 200%;
+	font-weight: 300;
+	position: fixed;
+	z-index: 13;
+	-webkit-backface-visibility: hidden;
+}
+
+nav ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+nav ul li {
+	display: inline-block;
+	list-style-type: none;
+}
+
+nav a {
+			color: #fff;
+			display: block;
+			line-height: 50px;
+			padding-right:5px;
+      padding-left: 5px;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
+nav > ul > li:hover,
+nav > ul > li.current a{
+          background-color: #1bc6a4;
+        }
+
+nav > ul > li:hover > a {
+          color: #333;
+}
+
+.content {
+	background-color: #fafaf0;
+	width: 100%;
+	height: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 25px;
+	margin-top: 3%;
+	padding-top: 25px;
+	text-align: center;
+	box-shadow: 
+	0 0 0 10px rgba(255,255,255,0.2), 
+	inset 0 0 0px rgba(115,114, 23, 0.8);
+	z-index: 2;
+}
+
+.content:after {
+  content: "";
+  display: table;
+  padding-bottom: 25px;
+}
+
+footer {
+	text-align: center;
+	font-size: 0.9em;
+	color: #1abc9c;
+}
+
+footer li {
+	display: inline;
+	padding-right: 5%;
+}
+
+footer a {
+	font-size: 0.9em;
+	color: #fafaf0;
+}
+
+footer a:visited {
+	color: #fafaf0;
+}
+
+/*Games CSS*/
+
+@font-face
+{
+font-family: Coco;
+src: url(../fonts/Cocogoose_trial.otf);
+}
+
+strong {
+	font-weight: bolder;
+}
+
+.label {
+
+	margin-top: 50px;
+
+}
+
+.formholder {
+	width:90%;
+	min-height: 200px;
+	margin: 30px auto 0px;
+	font-family: "Open Sans";
+	font-size: 12px;
+	font-weight: bolder;
+	line-height: 1.5em;
+	color: #333;
+	-webkit-text-stroke: 1px transparent;
+}
+
+#title{
+	font-family: Coco;
+	font-size: 30px;
+	color: #1bc6a4;
+
+	
+}
+
+select {
+	width: 99%;
+	border-radius: 5px;
+	border:none;
+	margin-bottom: 10px;
+}
+
+.description {
+	text-align: left;
+	width: 80%;
+}
+
+iframe {
+	border: 5px #1bc6a4 dashed;
+}
+
+
+
+/* Report CSS */
+
+.text{
+
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 35px;
+  text-align: justify;
+}
+
+.text li{
+  text-align: left;
+}
+
+.text h3 {
+  font-size: 1.5em;
+  text-align: left;
+}
+
+/* Settings CSS */
+
+.accordion {   
+     width:90%;  
+     overflow:hidden;  
+     float: center; 
+     margin:10px auto 0;   
+     color:#474747;   
+     background:#414141;   
+     padding:10px;   
+	   border-radius:2%;
+}  
+
+.accordion section{   
+          float:center;  
+          overflow:hidden;   
+          color:#333;   
+          cursor:pointer;   
+          background: #333;   
+          margin:3px auto 5px; 
+		       border-radius:3%;
+		
+    }  
+	
+.accordion section:hover {  
+          background:#444;
+		  border-radius:3%;
+    }  
+.accordion section p {   
+      display:none;   
+} 
+
+.accordion section:after{  
+          position:relative;  
+          font-size:24px;  
+          color:#000;  
+          font-weight:bold;  
+}  
+.accordion section:target {   
+      background:#FFF;   
+      padding:10px;  
+}  
+.accordion section:target:hover {   
+      background:#FFF;
+	 
+}  
+.accordion section:target h2 {  
+      width:100%; 
+	 	  
+}  
+.accordion section:target h2 a{   
+    color:#333;   
+    padding:0; 
+	font-weight:bold;
+	background-color:#1bc6a4;
+	border-radius:4%;
+	height:50px;
+	font-size:30px;  
+	text-transform: uppercase;
+
+}  
+.accordion section:target p {  
+      display:block;  
+}  
+.accordion section h2 a{  
+      padding:8px 10px;  
+      display:block;   
+      font-size:16px;   
+      font-weight:normal;  
+      color:#eee;   
+      text-decoration:none; 
+
+		
+} 	
+.accordion section h2 a:hover{
+	color:#1bc6a4;
+}
+
+.accordion section:target h2 a:hover{
+	color:#333;
+}
+
+
+.vertical section{   
+         width:100%;   
+         height:50px;   
+         -webkit-transition:height 0.2s ease-out;  
+         -moz-transition:height 0.2s ease-out;  
+         -o-transition:height 0.2s ease-out;  
+         transition:height 0.2s ease-out;  
+ }  
+      
+    /*Set height of the slide*/  
+    .vertical :target{   
+         height:475px;   
+         width:97%;  
+    }  
+    .vertical section h2 {   
+         position:relative;   
+         left:0;   
+         top:-15px;   
+    }   
+
+/*Desktop Screens*/
+@media only screen and (min-width:800px) {
+
+.content {
+	width: 77%;
+	min-height: 500px;
+	margin-top: 25px;
+}
+
+nav {
+	position: relative;
+	margin-top: -0.8%;
+
+}
+}
+
+/*Tablet Screens*/
+@media only screen and (min-width: 540px){
+[class*='col-'] {
+  float: left;
+}
+
+nav {
+  font-size: 18px;
+}
+
+nav a {
+  padding: 0 15px;
+}
+
+.col-l {
+	width: 50%;
+
+}
+
+.col-r {
+	width: 50%;
+
+}
+
+.accordion {
+	height:auto;
+}
+}
+/* cell phones*/
+@media (min-width:0px) and (max-width:540px){
+.accordion{
+	height:auto;
+}
+
+}
+/*Report CSS*/
+
+#features {
+	max-width: 800px;
+	margin: 10px auto;
+}
+
+#features li {
+	margin: 5px;
+}
+
+.screenshots li{
+	display: inline;
+	padding-top: 3px;
+}
+
+/*Games CSS*/
+
+@font-face
+{
+font-family: Coco;
+src: url(../fonts/Cocogoose_trial.otf);
+}
+
+strong {
+	font-weight: bolder;
+}
+
+.label {
+
+	margin-top: 50px;
+
+}
+
+.formholder {
+	width:90%;
+	min-height: 0px;
+	margin: 30px auto 0px;
+	font-family: "Open Sans";
+	font-size: 12px;
+	font-weight: bolder;
+	line-height: 1.5em;
+	color: #333;
+	-webkit-text-stroke: 1px transparent;
+}
+
+#title{
+	font-family: Coco;
+	font-size: 30px;
+	color: #1bc6a4;
+
+	
+}
+
+select {
+	width: 99%;
+	border-radius: 5px;
+	border:none;
+	margin-bottom: 10px;
+}
+
+.description {
+	text-align: left;
+	width: 80%;
+}
+
+iframe {
+	max-width: 450px;
+	height: 300px;
+}
+
+/* Report CSS */
+
+.text{
+
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 35px;
+  text-align: justify;
+}
+
+.text li{
+  text-align: left;
+}
+
+.text h3 {
+  font-size: 1.5em;
+  text-align: left;
+}
+
+/* Settings CSS */
+
+.accordion {   
+     width:90%;  
+     overflow:hidden;   
+     margin:10px auto;   
+     color:#474747;   
+     background:#414141;   
+     padding:10px;   
+     border-radius:2%;
+	
+}  
+
+.accordion section{   
+          float:left;  
+          overflow:hidden;   
+          color:#333;   
+          cursor:pointer;   
+          background: #333;   
+          margin:3px; 
+	border-radius:3%;
+		
+    }  
+	
+.accordion section:hover {  
+          background:#444;
+		  border-radius:3%;
+    }  
+.accordion section p {   
+      display:none;   
+} 
+
+.accordion section:after{  
+          position:relative;  
+          font-size:24px;  
+          color:#000;  
+          font-weight:bold;  
+}  
+.accordion section:target {   
+      background:#FFF;   
+      padding:10px;  
+}  
+.accordion section:target:hover {   
+      background:#FFF;
+	 
+}  
+.accordion section:target h2 {  
+      width:100%; 
+	 	  
+}  
+.accordion section:target h2 a{   
+    color:#333;   
+    padding:0; 
+	font-weight:bold;
+	background-color:#1bc6a4;
+	border-radius:4%;
+	height:50px;
+	font-size:30px;  
+	text-transform: uppercase;
+
+}  
+.accordion section:target p {  
+      display:block;  
+}  
+.accordion section h2 a{  
+      padding:8px 10px;  
+      display:block;   
+      font-size:16px;   
+      font-weight:normal;  
+      color:#eee;   
+      text-decoration:none; 
+	  text-transform: uppercase;
+		
+} 	
+.accordion section h2 a:hover{
+	color:#1bc6a4;
+}
+
+.accordion section:target h2 a:hover{
+	color:#333;
+}
+
+
+.vertical section{   
+         width:100%;   
+         height:50px;   
+         -webkit-transition:height 0.2s ease-out;  
+         -moz-transition:height 0.2s ease-out;  
+         -o-transition:height 0.2s ease-out;  
+         transition:height 0.2s ease-out;  
+ }  
+      
+    /*Set height of the slide*/  
+    .vertical :target{   
+         height:auto;   
+         width:97%;  
+    }  
+    .vertical section h2 {   
+         position:relative;   
+         left:0;   
+         top:-15px;   
+    }   
+
+	
+	
+	
+/*Signup.css
+/*<!--Drop down registration code-->
+<!--Attribution: Miro Karilahti-->
+<!--Found: http://codepen.io/miroot/details/qwIgC-->
+<!--Status: Edited-->*/
+
+fieldset {
+  border: none;
+}
+
+.login {
+  text-align: center;
+  margin-left: -60px;
+
+}
+
+.login li {
+  display: block;
+  width:100%;
+  margin: 10px; 
+}
+
+
+.register {
+  position: relative;
+  width: 100%;
+  display: none;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 15px solid #1bc6a4;
+  left: 60%;
+  position: absolute;
+  top: -10px;
+}
+
+.formholder {
+  background: #1bc6a4;
+  width: 90%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  padding-top: 5px;
+}
+
+.formholder label {
+  width: 100%;
+  text-align: left;
+
+}
+.formholder input[type="email"], .formholder input[type="password"], .formholder input[type="text"] {
+  padding: 7px 5px;
+  margin-bottom: 10px;
+  width: 96%;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.formholder input[type="submit"] {
+  background: #333;
+  padding: 10px;
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+.formholder input[type="submit"]:hover {
+  background: #545454;
+}
+
+.randompad {
+  padding: 10px;
+}
+
+a:hover {
+  color: #1abc9c;
+}
+
+/* Signup End */

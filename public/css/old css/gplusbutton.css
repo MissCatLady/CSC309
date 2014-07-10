@@ -1,0 +1,13 @@
+ #customBtn {
+      display: inline-block;
+      background: url('imgs/google.png') transparent 5px 50% no-repeat;;
+      color: white;
+      width: 100%
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+    #customBtn:hover {
+      background: #e74b37;
+      cursor: hand;
+    }
+

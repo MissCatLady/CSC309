@@ -1,0 +1,56 @@
+
+
+
+label {
+  width: 100%;
+  text-align: left;
+  margin-left: 5px;
+  font-weight: bold;
+}
+.randompad {
+  padding: 5px;
+}
+
+.content {
+  min-height: 500px;
+}
+
+@media only screen and (min-width:640px) {
+
+[class*='col'] {
+  float: left;
+}
+ 
+.col1{
+  position: fixed;
+} 
+
+.col2{
+  width: 33%;
+} 
+
+.col3{
+  width: 33%;
+} 
+
+
+.col3 form {
+  width: 90%;
+  margin: 5% auto 0;
+  text-align: left;
+}
+
+
+option {
+font-weight: bold;
+}
+
+option:hover{
+background-color: #1bc6a4;
+border-radius: 10px 10px 10px 10px;
+}
+
+
+
+  
+}

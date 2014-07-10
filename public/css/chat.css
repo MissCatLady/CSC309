@@ -1,0 +1,108 @@
+/*<!--Drop down registration code-->
+<!--Attribution: Miro Karilahti-->
+<!--Found: http://codepen.io/miroot/details/qwIgC-->
+<!--Status: Edited-->*/
+
+
+#smallchat{
+  margin-top:15px;
+}
+
+#chat {
+  position:relative;
+  height: 100%;
+  width:90%;
+  border-radius: 10px;
+  border: 5px solid #1bc6a4 ;
+  margin: 0px auto 25px;
+  background:#fafaf0;
+
+}
+#chatbox{
+  margin-top:3%;
+  background:rgba(50, 50, 50, 0.05);
+  border:1px solid #999;
+  width: 97%;
+  height: 200px;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  font-size: 14px;
+  display: inline-block;
+  text-align: left;
+  border-radius: 5px;
+}
+#chatbox ul{
+  list-style-type: none;
+}
+#chatbox ul li{
+  position:relative;
+}
+#chatbox ul li #time{
+  min-width: 45px;
+  position:absolute;
+  text-align: center;
+  right:10px;
+  margin-right: 10px;
+  line-height: 1.8em;
+}
+#chatbox ul li #text{
+  height: 100%;
+  position:relative;
+  margin-left: 10px;
+}
+#chatbox ul li div{
+  position:relative;
+  display: inline;
+  border-radius: 10px;
+  text-align: center;
+  
+}
+#chatbox ul li div img{
+  width: 50px;
+  height: 50px;
+  border-radius:50px;
+
+}
+#messagebox{
+  background:#fafaf0;
+  border-radius:5%;
+}
+
+#messagebox textarea{
+  background:rgba(50, 50, 50, 0.05);
+  border:1px solid #999;
+  border-radius: 5px;
+  resize: none;
+  font-size: 14px;
+  width: 95%;
+  padding: 5px;
+  margin: 10px auto 0;
+
+}
+#messagebox input[type="submit"] {
+  border:2px solid #1bc6a4;
+  background-color:#1bc6a4;
+  color:#fafafa;
+  font-size: 20px;
+  width: 98%;
+  padding: 5px;
+  color: #fff;
+  border-radius: 5px;
+  margin: 5px auto 10px;
+}
+#messagebox input[type="submit"]:hover {
+  background-color:#fafafa;
+  color:#1bc6a4;
+}
+
+@media only screen and (min-width: 540px) {
+
+.content {
+
+  min-height: 600px;
+}
+  
+
+
+{
+    

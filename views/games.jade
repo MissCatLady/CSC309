@@ -1,0 +1,75 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=false")
+    link(rel="shortcut icon", href="imgs/pin.ico")
+    title  Find Me | Games
+    // CSS Styles
+    link(rel="stylesheet", type="text/css", href="css/index.css")
+    link(rel="stylesheet", href="css/chat.css", media="screen", type="text/css")
+    // Fonts
+    link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
+    // Scripts
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="js/chat.js")
+    script(src="js/meet.js")
+  body
+    nav
+      ul
+        li
+          a(href="/meet") Meet
+        li
+          a.chatbutton Chat
+        li.current
+          a(href="/games") Games
+        li
+          a(href="/settings") Settings
+        // li><a href="/meetings">Meetings</a></li
+    .content
+      #smallchat
+      .col-l
+        header
+          p#title Games
+        .label
+          h4 Select a game:
+        .formholder
+          form(action="/scavenger", method="get")
+            fieldset(action="/scavenger", method="get")
+              input(type="submit", value="Scavenger Hunt")
+          form(action="/hidenseek", method="get")
+            fieldset(action="/hidenseek", method="get")
+              input(type="submit", value="Hide and Seek")
+          form(action="#", method="get")
+            fieldset(action="#", method="get")
+              input(type="submit", value="Game 3")
+      .col-r
+        header
+          a.chatbutton
+            p#title Chat
+            p
+        // Duplicate chat code, games and meet pages will eventually be combined
+        #chat
+          #chatbox
+            ul#messageList
+              li
+                div
+                  img(src="imgs/mashiyat1.jpg")
+                span#time 12:32
+                span#text Ready to play?
+          #messagebox
+            textarea#message Type your message here
+            input#submittext(type="submit", value="send")
+        // End Duplicate Code
+    footer
+      ul
+        li
+          a(href="/about")  About
+        li
+          a(href="/meet")  Meet
+        li
+          a(href="/games")  Games
+        li
+          a(href="/schedule") Schedule
+        li
+          a(href="/index") 2014 Find Me 

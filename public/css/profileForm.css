@@ -1,0 +1,174 @@
+fieldset {
+  border: none;
+}
+#ProfileSettings {
+  float: center;
+}
+
+#profileForm {
+  background: rgb(250,250,240);
+  width: 100%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  padding-top: 5px;
+
+}
+
+#leftCol {
+ width: 50%;
+ float:left;
+ 
+}
+#rightCol{
+
+ float:auto;
+ padding-bottom:55px;
+
+}
+
+#profileForm label {
+  width: 100%;
+  text-align: left;
+  margin-left: 5px;
+  background: rgba(50,50,50, 0.05);
+
+}
+
+#leftCol input[type="firstName"], #leftCol  input[type="lastName"], #leftCol  input[type="birthday"],
+ #rightCol input[type="email"], #rightCol  input[type="password"]  {
+
+  padding: 7px 5px;
+  margin-bottom: 10px;
+  width: 96%;
+  font-size: 18px;
+  border-radius: 5px;
+  border: solid;
+ border-color:#1bc6a4;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+#profileForm input[type="submit"] {
+  background: #333;
+  padding: 10px;
+  font-size: 20px;
+  display: block;
+  width: 60%;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+ margin-left: 20%;
+  
+}
+#profileForm input[type="submit"]:hover {
+  background: #545454;
+}
+
+.randompad {
+  padding: 10px;
+}
+
+#myMonth, #myDays, #myYears {
+	
+	width:25%;
+	margin-left: 5px;
+	border-style:solid;
+	border-color:#1bc6a4;
+}
+
+#myMonth option:hover, #myDays option:hover, #myYears option:hover {
+	background-color: #1bc6a4;
+	border-radius: 10px 10px 10px 10px;
+	
+}
+
+#myThemes{
+	text-align:left;	
+}
+
+.themeImg{
+	background-repeat:no-repeat;
+	background-size: contain;
+	background-position: right centre;
+	border-radius:15%;
+}
+#im1{
+	background-image:url(../imgs/earth.jpg);
+	width: 90px;
+	height: 56px
+}
+#im2{
+	background-image:url(../imgs/fire.jpg);
+	width: 90px;
+	height: 68px;
+}
+#im3{
+	background-image:url(../imgs/sea.jpg);
+	width: 90px;
+	height: 60px;
+}
+#im4{
+	background-image:url(../imgs/rain.jpg);
+	width: 90px;
+	height: 48px;
+}
+#im5{
+	background-image:url(../imgs/sunset.jpg);
+	width: 90px;
+	height: 58px;
+}	
+
+}
+option {
+	font-weight: bold;
+	
+}
+
+option:hover{
+	background-color: #1bc6a4;
+	border-radius: 10px 10px 10px 10px;
+	border-style:solid;
+}
+
+	
+select {
+       
+        -webkit-appearance: none;  /*Removes default chrome and safari style*/
+        -moz-appearance: none; /* Removes Default Firefox style*/
+        background: #fff url(img/select-arrow.png) no-repeat 90% center;
+        text-indent: 0.01px; /* Removes default arrow from firefox*/
+        text-overflow: "";  /*Removes default arrow from firefox*/ 
+        color: #333;
+        padding: 5px;
+	border-radius: 10px 0;
+    }
+
+@media (min-width:0px) and (max-width:640px){
+
+#leftCol {
+	float:none;
+	width:100%;
+}
+
+#myDays, #myYears, #myMonth{
+	width:30%
+}
+#myThemes{
+	width:75%;
+
+}
+
+#myRadioButtons{
+	text-align:left;
+}
+
+#ProfileSettings {
+  width: 92%;
+  margin: 0 auto 0;
+
+}
+}

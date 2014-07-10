@@ -1,0 +1,9 @@
+
+body {
+	background: url(coffee.jpg);
+	background-size: ;
+	background-repeat: no-repeat;
+}
+.img {
+	filter: blur(5px) brightness(0.5);
+}

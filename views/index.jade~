@@ -1,0 +1,94 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=false")
+    link(rel="shortcut icon", href="/imgs/pin.ico")
+    title  Find Me | Where are you? 
+    // CSS Styles
+    link(rel='stylesheet', type='text/css', href='/css/index.css')
+    // Fonts
+    link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
+    // Scripts
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="js/fb.js")
+    script(src="js/gplus.js")
+    script(src="js/signup.js")
+  body
+    nav
+      ul
+        li
+          a(href="/meet") Meet
+        li
+          a(href="/games") Games
+        li
+          a(href="/settings") Settings
+        li
+          a(href="/schedule") Schedule
+    .content
+      .col-l
+        header
+          p Where are you?
+        .link
+          // Image Attribution: http://www.visualpharm.com
+          a(href="/meet")
+            img(src="../imgs/mapicon.png", width="50%")
+            p  Find My Location
+      .col-r
+        // Drop down registration code
+        // Attribution: Miro Karilahti
+        // Found: http://codepen.io/miroot/details/qwIgC
+        // Status: Edited
+        .formholder
+          .randompad
+           p #{message}
+            form(method="POST", action="/login")
+              fieldset
+                label(name="email") Email
+                input(type="email", name="email", placeholder="ben.smith@mail.com", required="")
+                label(name="password") Password
+                input(type="password", name="password", placeholder="******", required="")
+                input(type="submit", value="Log In")
+        small
+          small
+            | Need an account?
+            a#regform(href="#reg")  Register
+          p
+          a#reg
+            .register
+          .arrow-up
+          .formholder
+            .randompad
+              form(method="POST", action="/register")
+                fieldset
+                  label(name="name") Name
+                  input(type="text", placeholder="Ben Smith", required="")
+                  label(name="email") Email
+                  input(type="email", placeholder="ben.smith@mail.com", required="")
+                  label(name="password") Password
+                  input(type="password", placeholder="******", required="")
+                  label(name="password") Confirm Password
+                  input(type="password", placeholder="******", required="")
+                  input(type="submit", value="Register")
+      // Attribution END
+      | Sign up with an existing account:
+      .login
+        ul
+          li
+            a(href="", onclick="FB.login()")
+              img(src="../imgs/fb.png")
+          li
+            a(href="")
+              img(src="../imgs/google.png")
+    footer
+      ul
+        li
+          a(href="about.html")  About
+        li
+          a(href="meet.html")  Meet
+        li
+          a(href="games.html")  Games
+        li
+          a(href="schedule.html") Schedule
+        li
+          a(href="index.html") 2014 Find Me 
