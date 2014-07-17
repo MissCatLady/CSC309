@@ -4,16 +4,16 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=false">
-<link rel="shortcut icon" href="imgs/pin.ico"> 
+<link rel="shortcut icon" href="../imgs/pin.ico"> 
 
 <title> Find Me | Future Meetings </title>
 
 
 <!--CSS Styles-->
 
-<link rel="stylesheet" type="text/css" href="css/index.css" />
-<link rel="stylesheet" href="css/signup.css" media="screen" type="text/css" />
-<link rel="stylesheet" type="text/css" href="css/futureMeetings.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+<link rel="stylesheet" href="../css/signup.css" media="screen" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../css/futureMeetings.css" media="screen"/>
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -21,7 +21,7 @@
 
 <!--Fonts-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
+<script src="../js/meetingItem.js"></script>
 
 </head>
 
@@ -96,15 +96,21 @@ $( "#datepicker" ).datepicker();
 		<div class="formholder">
 		<div class="randompad" id="datepick">
 			<fieldset>
-		<label name="date">Date</label>
-		<input type="text" id="datepicker" required>
-		</fieldset>
+				<label name="date">Date</label>
+				<input type="text" id="datepicker" required>
+			</fieldset>
+		</div>
+		<div id="futureMeetings" class="randompad">
+			<ul id="meetings">
+			<li>item1</li>
+			<li>item2</li>
+			<li>item3</li>
+			</ul>
 		</div>
 		</div>
 	</div>	
 
 </div>
-
 
 <footer>
   <ul>

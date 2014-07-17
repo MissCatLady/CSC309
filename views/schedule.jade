@@ -1,0 +1,90 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=false")
+    link(rel="shortcut icon", href="../imgs/pin.ico")
+    title  Find Me | Future Meetings 
+    // CSS Styles
+    link(rel="stylesheet", type="text/css", href="../css/index.css")
+    link(rel="stylesheet", href="../css/signup.css", media="screen", type="text/css")
+    link(rel="stylesheet", type="text/css", href="../css/futureMeetings.css", media="screen")
+    link(rel="stylesheet", href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css")
+    script(type="text/javascript", src="http://code.jquery.com/jquery-1.10.2.js")
+    script(type="text/javascript", src="http://code.jquery.com/ui/1.10.4/jquery-ui.js")
+    // Fonts
+    link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
+    script(src="../js/meetingItem.js")
+  script
+    $(function() {
+    $( "#datepicker" ).datepicker();
+    });
+  body
+    nav
+      ul
+        li
+          a(href="meet") Meet
+        li
+          a(href="games") Games
+        li
+          a(href="settings#ProfileSettings") Settings
+        li
+          a(href="schedule") Schedule
+    .content
+      header
+        p#title Schedule A Meeting
+      .col3
+        h4 Invite Friends
+        .formholder
+          .randompad
+            fieldset
+              select(name="mydropdown", multiple="multiple", size="10")
+                option(value="Amit") Amit Prabhakar
+                option(value="Vera") Vera Rizvi
+                option(value="Ilya") Ilya Samsonov
+                option(value="Will") Will Zhang
+                option(value="Lia") Lia Zheng
+                option(value="Amit") Amit Prabhakar
+                option(value="Vera") Vera Rizvi
+                option(value="Ilya") Ilya Samsonov
+                option(value="Will") Will Zhang
+                option(value="Lia") Lia Zheng
+              label(name="newUsers") Add Friends
+              input(type="newUsers", placeholder="abc@mail.com, xyy@mail.com", required="")
+              input(type="submit", value="Add")
+      .col2
+        h4 Invitation
+        .formholder
+          .randompad
+            fieldset
+              label(name="email") Email
+              input(type="email", placeholder="abc@mail.com, xyy@mail.com, ....")
+              label(name="location") Location
+              input(type="location", placeholder="40 St.George St.", required="")
+              label(name="time") Time
+              input(type="time", placeholder="5 pm", required="")
+              input(type="submit", value="Send Invites")
+      .col3
+        h4 Pick A Date
+        .formholder
+          #datepick.randompad
+            fieldset
+              label(name="date") Date
+              input#datepicker(type="text", required="")
+          #futureMeetings.randompad
+            ul#meetings
+              li item1
+              li item2
+              li item3
+    footer
+      ul
+        li
+          a(href="about")  About
+        li
+          a(href="meet")  Meet
+        li
+          a(href="games")  Games
+        li
+          a(href="schedule") Schedule
+        li
+          a(href="index") Logout 

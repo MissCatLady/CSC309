@@ -4,6 +4,9 @@ ID serial NOT NULL,
 username varchar(30) NOT NULL,
 email varchar(30) NOT NULL,
 password varchar(30) NOT NULL,
+token varchar(255),
+gender varchar(2),
+dob date,
 PRIMARY KEY (ID)
 );
 
@@ -29,11 +32,13 @@ FOREIGN KEY (eid) REFERENCES Events(ID)
 
 CREATE TABLE Privacy
 (
-ID int NOT NULL,
+ID serial NOT NULL,
+uid int NOT NULL,
 content varchar(2) NOT NULL,
-invite varchar(2) NOT NULL,
 location varchar(2) NOT NULL,
-FOREIGN KEY (ID) REFERENCES Users(ID),
+ginvite varchar(2),
+finvite varchar(2),
+FOREIGN KEY (uid) REFERENCES Users(ID),
 PRIMARY KEY (ID)
 );
 
@@ -57,3 +62,21 @@ FOREIGN KEY (uid) REFERENCES Users(ID),
 FOREIGN KEY (eid) REFERENCES Events(ID)
 );
 
+CREATE TABLE Themes
+(
+ID serial NOT NULL,
+uid int NOT NULL,
+theme varchar(6) NOT NULL,
+PRIMARY KEY (ID),
+FOREIGN KEY (uid) REFERENCES Users(ID)
+);
+
+CREATE TABLE FutureMeetings
+(
+uid int NOT NULL,
+location varchar(200) NOT NULL,
+mtime varchar(15) NOT NULL,
+mdate date NOT NULL,
+PRIMARY KEY (location, mtime, mdate),
+FOREIGN KEY (uid) REFERENCES Users(ID)
+);

@@ -48,7 +48,8 @@ html
                 input(type="email", name="email", placeholder="ben.smith@mail.com", required="")
                 label(name="password") Password
                 input(type="password", name="password", placeholder="******", required="")
-                input(type="submit", value="Log In")
+                input(type="submit", value="Log In", id="login")
+
         small
           small
             | Need an account?
@@ -62,11 +63,11 @@ html
               form(method="POST", action="/register")
                 fieldset
                   label(name="name") Name
-                  input(type="text", placeholder="Ben Smith", required="")
+                  input(type="text", name="name", placeholder="Ben Smith", required="")
                   label(name="email") Email
-                  input(type="email", placeholder="ben.smith@mail.com", required="")
+                  input(type="email", name="email", placeholder="ben.smith@mail.com", required="")
                   label(name="password") Password
-                  input(type="password", placeholder="******", required="")
+                  input(type="password", name="password", placeholder="******", required="")
                   label(name="password") Confirm Password
                   input(type="password", placeholder="******", required="")
                   input(type="submit", value="Register")

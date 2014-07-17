@@ -68,7 +68,7 @@ fieldset {
   transition: 0.3s linear;
 }
 
-.formholder input[type="submit"] {
+.formholder input[type="submit"], .formholder input[type="button"] {
   background: #333;
   padding: 10px;
   font-size: 20px;

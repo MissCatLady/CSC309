@@ -48,8 +48,31 @@ $(document).ready(function() {
    $("#bgPopup").data("state",0);
    $("#places").click(function(){
 		centerPopup();
-		loadPopup();   
-   });
+		loadPopup();  
+		$.post("/getseeker", $('#selectplayers').serialize(), function(data){
+			if (data[0]) {
+        		$("#whoisseeker").append("You are the seeker.");
+        	}
+        	//check local storage
+    	    try {
+              (window.localStorage.getItem) // will throw in Firefox under some settings
+            } catch(e){
+              return; // quit because dom.storage.enabled is false
+            }
+
+            //old game is overridden
+            window.localStorage.setItem('game2token', data[1]);
+            window.localStorage.setItem('playersuid', data[2]);
+            window.localStorage.setItem('players', data[3])
+            window.localStorage.setItem('isseeker', data[0]);
+            window.localStorage.setItem('points', data[5]);
+            window.localStorage.setItem('mygameid', data[4]);
+
+      	});
+
+    });
+
+  
    $("#popupClose").click(function(){
 	   	disablePopup();
 	

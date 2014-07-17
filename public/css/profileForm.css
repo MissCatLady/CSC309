@@ -1,11 +1,15 @@
 fieldset {
   border: none;
 }
-#ProfileSettings {
+#ProfileSettings, #PrivacySettings, #ThemesSettings {
   float: center;
 }
 
-#profileForm {
+.randompad {
+  padding: 10px;
+}
+
+.Forms {
   background: rgb(250,250,240);
   width: 100%;
   text-align: left;
@@ -28,16 +32,19 @@ fieldset {
 
 }
 
-#profileForm label {
+#rightCol h2, #leftCol h2{
+  width: 100%;
+  margin-left: 5px;
+}
+
+#profileForm label, #privacyForm label {
   width: 100%;
   text-align: left;
   margin-left: 5px;
-  background: rgba(50,50,50, 0.05);
 
 }
 
-#leftCol input[type="firstName"], #leftCol  input[type="lastName"], #leftCol  input[type="birthday"],
- #rightCol input[type="email"], #rightCol  input[type="password"]  {
+#leftCol input[type="text"],#rightCol input[type="email"], #rightCol  input[type="password"]  {
 
   padding: 7px 5px;
   margin-bottom: 10px;
@@ -45,14 +52,19 @@ fieldset {
   font-size: 18px;
   border-radius: 5px;
   border: solid;
- border-color:#1bc6a4;
+  border-color:#1bc6a4;
   -webkit-transition: 0.3s linear;
   -moz-transition: 0.3s linear;
   -o-transition: 0.3s linear;
   transition: 0.3s linear;
 }
 
-#profileForm input[type="submit"] {
+#leftCol input[type="radio"], #rightCol input[type="radio"]{
+	margin-left: 15px;
+	padding: 7px 5px;
+}
+
+#profileForm input[type="submit"], #privacyForm input[type="submit"], #myThemes input[type="submit"] {
   background: #333;
   padding: 10px;
   font-size: 20px;
@@ -64,32 +76,43 @@ fieldset {
  margin-left: 20%;
   
 }
-#profileForm input[type="submit"]:hover {
+#profileForm input[type="submit"]:hover, , #privacyForm input[type="submit"]:hover, #myThemes input[type="submit"]:hover  {
   background: #545454;
 }
 
-.randompad {
-  padding: 10px;
+#DOB, #genderOptions{
+	margin-left: 15px;
 }
-
 #myMonth, #myDays, #myYears {
 	
+	-webkit-appearance: none;  /*Removes default chrome and safari style*/
+    -moz-appearance: none; /* Removes Default Firefox style*/
+	appearance:none;
+	cursor:pointer;
+	text-indent: 0.01px; /* Removes default arrow from firefox*/
+    text-overflow: '';  /*Removes default arrow from firefox */
+	background-image:none;
+	background: #fff;
 	width:25%;
 	margin-left: 5px;
+	padding: 5px;
 	border-style:solid;
 	border-color:#1bc6a4;
+	border-radius: 10px 5px;
+	color: #333;
+	
 }
 
 #myMonth option:hover, #myDays option:hover, #myYears option:hover {
 	background-color: #1bc6a4;
 	border-radius: 10px 10px 10px 10px;
 	
+	
 }
 
 #myThemes{
 	text-align:left;	
 }
-
 .themeImg{
 	background-repeat:no-repeat;
 	background-size: contain;
@@ -123,29 +146,6 @@ fieldset {
 }	
 
 }
-option {
-	font-weight: bold;
-	
-}
-
-option:hover{
-	background-color: #1bc6a4;
-	border-radius: 10px 10px 10px 10px;
-	border-style:solid;
-}
-
-	
-select {
-       
-        -webkit-appearance: none;  /*Removes default chrome and safari style*/
-        -moz-appearance: none; /* Removes Default Firefox style*/
-        background: #fff url(img/select-arrow.png) no-repeat 90% center;
-        text-indent: 0.01px; /* Removes default arrow from firefox*/
-        text-overflow: "";  /*Removes default arrow from firefox*/ 
-        color: #333;
-        padding: 5px;
-	border-radius: 10px 0;
-    }
 
 @media (min-width:0px) and (max-width:640px){
 
@@ -157,6 +157,7 @@ select {
 #myDays, #myYears, #myMonth{
 	width:30%
 }
+
 #myThemes{
 	width:75%;
 
@@ -166,8 +167,8 @@ select {
 	text-align:left;
 }
 
-#ProfileSettings {
-  width: 92%;
+#ProfileSettings , #PrivacySettings, #ThemesSettings{
+  width: 93%;
   margin: 0 auto 0;
 
 }

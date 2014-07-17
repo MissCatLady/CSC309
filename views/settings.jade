@@ -1,0 +1,167 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=false")
+    link(rel="shortcut icon", href="../imgs/pin.ico")
+    title  Find Me | Settings 
+    // CSS Styles
+    link(rel="stylesheet", type="text/css", href="../css/index.css")
+    link(rel="stylesheet", type="text/css", href="../css/profileForm.css", media="screen")
+    link#currTheme(rel="stylesheet", type="text/css", media="screen")
+    link(rel="stylesheet", href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css")
+    script(type="text/javascript", src="http://code.jquery.com/jquery-1.10.2.js")
+    script(type="text/javascript", src="http://code.jquery.com/ui/1.10.4/jquery-ui.js")
+    script
+      //	var fileref=document.createElement("link")
+      //  fileref.setAttribute("rel", "stylesheet")
+      // fileref.setAttribute("type", "text/css")
+      //  fileref.setAttribute("href", "css/theme1.css");
+      var theme = document.getElementById("currTheme");
+      theme.href = window.sessionStorage.getItem('th');
+      var y= document.getElementsByTagName("head");
+      //y.appendChild(fileref);
+    // Fonts
+    link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
+    script(src="../js/settings.js")
+  body
+    nav
+      ul
+        li
+          a(href="meet") Meet
+        li
+          a(href="games") Games
+        li
+          a(href="settings#ProfileSettings") Settings
+        li
+          a(href="schedule") Schedule
+    .content
+      .accordion.vertical
+        section#ProfileSettings
+          h2
+            a(href="#ProfileSettings") Profile
+          #profileForm.Forms
+            #leftCol
+              form
+                fieldset
+                  label(name="firstName") First Name
+                  input#FN(type="text", name="name", placeholder="John", required="")
+                  label(name="lasttName") Last Name
+                  input#LN(type="text", placeholder="Doe", required="")
+                  .randompad
+                #DOB
+                  label(name="birthday") Birthday
+                  .randompad
+                  select#myMonth(name="month")
+                  select#myDays(name="Day")
+                  select#myYears(name="Year")
+              .randompad
+            #rightCol
+              form
+                fieldset
+                  label(name="email") Email
+                  input#email(type="email", placeholder="john.doe@mail.com", required="")
+                  label(name="password") Password
+                  input#pswrd(type="password", placeholder="******", required="")
+                  .randompad
+                #genderOptions
+                  label(name="gender") Gender
+                  .randompad
+                  input#female(type="radio", name="gender")
+                  label(for="radio1") Female
+                  input#male(type="radio", name="gender", checked="true")
+                  label(for="radio2") Male
+            input#profileSave(type="submit", value="Save")
+            .randompad
+        section#PrivacySettings
+          h2
+            a(href="#PrivacySettings") Privacy
+          #privacyForm.Forms
+            #leftCol
+              form
+                h2 Who can see my stuff?
+                #q1
+                  form
+                    label(name="q1") Contact information is available to
+                    br
+                    br
+                    input#radio1(type="radio", name="stuff")
+                    label(for="radio1") Everyone
+                    input#radio2(type="radio", name="stuff", checked="true")
+                    label(for="radio2") Filter
+                br
+                #q2
+                  form
+                    label(name="q2") Location is visible to
+                    br
+                    br
+                    input#radio3(type="radio", name="stuff")
+                    label(for="radio3") Everyone
+                    input#radio4(type="radio", name="stuff", checked="true")
+                    label(for="radio4") Filter
+                .randompad
+                .randompad
+                .randompad
+            #rightCol
+              form
+                h2 Who can look me up
+                #q3
+                  form
+                    label(name="q3") Who can send me meeting invites?
+                    br
+                    br
+                    input#radio5(type="radio", name="lookup")
+                    label(for="radio5") Everyone
+                    input#radio6(type="radio", name="lookup", checked="true")
+                    label(for="radio6") Filter
+                br
+                #q4
+                  form
+                    label(name="q4") Who can send me game invites?
+                    br
+                    br
+                    input#radio7(type="radio", name="lookup")
+                    label(for="radio7") Everyone
+                    input#radio8(type="radio", name="lookup", checked="true")
+                    label(for="radio8") Filter
+            input#privacySave(type="submit", value="Save")
+            .randompad
+        section#ThemesSettings
+          h2
+            a(href="#ThemesSettings") Themes
+          #myThemes
+            h2 Select A Theme
+            #im1.themeImg
+            input#radio9(type="radio", name="radio")
+            label(for="radio9") Earth
+            br
+            #im2.themeImg
+            input#radio10(type="radio", name="radio")
+            label(for="radio10") Fire
+            br
+            #im3.themeImg
+            input#radio11(type="radio", name="radio")
+            label(for="radio11") Sea
+            br
+            #im4.themeImg
+            input#radio12(type="radio", name="radio")
+            label(for="radio12") Rain
+            br
+            #im5.themeImg
+            input#radio13(type="radio", name="radio")
+            label(for="radio13") SunSet
+            br
+            input#themeSave(type="submit", value="Save")
+            .randompad
+    footer
+      ul
+        li
+          a(href="about")  About
+        li
+          a(href="meet")  Meet
+        li
+          a(href="games")  Games
+        li
+          a(href="schedule") Schedule
+        li
+          a(href="index") Logout 

@@ -31,18 +31,20 @@ html
       .col-l
         header
           p#title Games
+        #inprogress 
         .label
-          h4 Select a game:
+          h4 Start a new game:
+          p|(Warning: This will override existing game data!)
         .formholder
           form(action="/scavenger", method="get")
-            fieldset(action="/scavenger", method="get")
+            fieldset
               input(type="submit", value="Scavenger Hunt")
           form(action="/hidenseek", method="get")
-            fieldset(action="/hidenseek", method="get")
+            fieldset
               input(type="submit", value="Hide and Seek")
-          form(action="#", method="get")
-            fieldset(action="#", method="get")
-              input(type="submit", value="Game 3")
+          form
+            fieldset
+              input(type="submit", value="Man Hunt")
       .col-r
         header
           a.chatbutton
@@ -72,4 +74,9 @@ html
         li
           a(href="/schedule") Schedule
         li
-          a(href="/index") 2014 Find Me 
+          a(href="/index" id="logout") Logout 
+    script(src="js/games.js")
+    script(src="js/logout.js")
+
+
+

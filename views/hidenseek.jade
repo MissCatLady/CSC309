@@ -27,57 +27,66 @@ html
     nav
       ul
         li
-          a(href="meet.html#mylocation") Meet
+          a(href="meet") Meet
         li
           a.chatbutton Chat
         li.current
-          a(href="games.html") Games
+          a(href="games") Games
         li
-          a(href="settings.html#ProfileSettings") Settings
+          a(href="settings") Settings
     #content-1.content
       #smallchat
       .col-l
         header
           p#title Hide and Seek!
-        form(method="POST", action="/getseeker")
-          .label
-            h4 Choose your players:
-          .formholder
-            .randompad
-              fieldset
-                select(name="mydropdown", multiple="multiple")
-                  each friend, i in friends
-                    option(value=friend) #{friend}
-                  option #{message}
-                input#places(type="submit", value="Start Game")
-          script.
-            $(function () {
-            $(".countdown").countdown({
-            until:'+10m',
-            expiryUrl:'http://google.com',
-            format: 'MS',
-            compact: true})
-            });
+        if newgame
+          script(src="js/hidenseek.js")
+          form(id="selectplayers")
+            .label
+              h4 Choose your players:
+            .formholder
+              .randompad
+                fieldset
+                  select(name="mydropdown", multiple="multiple")
+                    if friends
+                      each friend, i in friends
+                        option(value=friend) #{friend}
+                  input#places(type="button", value="Start Game")
           #places-popup
             a#popupClose x
             .popup-container
+              #whoisseeker
               p You have 10 minutes to get to your positions:
-              .countdown
+              #first.countdown
               p  Please remember to stay within your regions.
-              p Have you found your spot? Check-in!
-              center
-                img(src="imgs/check-in.png", width="50%", href="#")
+              p Have you found your spot?
+              #g2checkin
+                a(href="#")
+                  |Check-in!
+                  center
+                    img(src="imgs/check-in.png", width="50%")
           #bgPopup
 
 
 
-        //.game
-          //.text
-            //p
-              //| Welcome to the Hide and Seek! Your friend is 200 meters away
-              //| from you, find where she is!
-          //#map.temp
-            //iframe(src="https://mapsengine.google.com/map/embed?mid=zCbruiZgL0GI.kKFL6-z3ipyo")
+        .game
+          .points
+            ul
+              li
+                #gametext Points:
+          .gamebuttons
+            ul
+              li
+                input#refresh(type="button", value="Refresh")
+              li
+                input#checkin(type="button", value="Check In")
+            #map-canvas1
+            .text
+              p 
+                |WARNING! This button will erase all game data!
+              form
+                fieldset
+                  input#quit(type="button", value="End Game")
       .col-r
         header
           a.chatbutton
@@ -100,13 +109,20 @@ html
     footer
       ul
         li
-          a(href="about.html")  About
+          a(href="about")  About
         li
-          a(href="meet.html")  Meet
+          a(href="meet")  Meet
         li
-          a(href="games.html")  Games
+          a(href="games")  Games
         li
-          a(href="schedule.html") Schedule
+          a(href="schedule") Schedule
         li
-          a(href="index.html") Logout 
-    //script(src="js/hidepage.js")
+          a(href="/index" id="logout") Logout 
+
+    script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,places")
+    script(src="js/mapseek.js")
+    script(src="js/logout.js")
+   
+
+  
+
