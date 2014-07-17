@@ -140,6 +140,7 @@ function checkLocations() {
     if (isseeker == "true") {
       if (checkFound(coords)) {
         window.localStorage.setItem("Points", parseInt(points) + 5);
+        //send points back to database 
       } else {
         changeMSG("Hey Seeker! There's nobody here. \n Try somewhere else!");
       }
@@ -172,6 +173,7 @@ var game2token = window.localStorage.getItem("game2token");
 
 
 $("#refresh").click(function() {
+  //check if game is still in database
   console.log("clicked refresh");
   checkLocations();
   checkPoints();

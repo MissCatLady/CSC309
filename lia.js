@@ -57,22 +57,6 @@ app.post('/login', function(req, res){
 
 });
 
-
-app.get('/meet', function(req,res) {
-
-	validate(req,pg,db, function(data) {
-		var uid = data;
-		if(uid > 0){
-			res.render("meet.jade");
-		}else{
-			res.redirect('/index');
-		}
-	});
-
-
-});
-
-
 app.get('/games', function(req,res) {
 
 	validate(req,pg,db, function(data) {
@@ -113,29 +97,19 @@ app.get('/gameinprogress', function(req,res) {
 		return console.error('Problem fetching client from pool', err);
 	} 
 
-	if (req.query.game2token == null) {
-		
-	client.query("select * from games where game_token='" + req.query.game2token + "'", function(err,result){
-		if (result.rows.length != 0) {
-			games = result.rows[0].game_type;
-			console.log("game token still in local storage");
-			res.send([games]);
-		} else {
-			console.log("no game tokens");
-			res.send(false);
-		}
-
-	});
-	} else {
-
 		validate(req,pg,db, function(data) {
 		var uid = data;
 		client.query("select * from locations where userid=" + uid, function(err, result) {
 			if(result.rows.length != 0 ) {
 				//change for multiple games
 				console.log("game token still in database");
-				getGameInfo(result.rows[0].game_token);
-				res.send(["Hide & Seek",result.rows[0].game_token]);
+				getGameInfo(uid, result.rows[0].game_token, function(data) {
+					console.log("calling game info");
+					var data = data;
+					data.push("Hide & Seek");
+					console.log(data);
+					res.send(data);
+				});
 			} else {
 				console.log("no game token");
 				res.send(false);
@@ -143,25 +117,119 @@ app.get('/gameinprogress', function(req,res) {
 		});
 			
 
-	});
-
-	}
-
+		});
 
 	});
-	
-	
-
 });
 
-function getGameInfo(gametoken) {
-	//get isseeker, mygameid, players, playersuid
-	//this code is redundant, game needs to be refactored
+function getGameInfo(uid, gametoken, callback) {
+	//gets game info for the players that didn't start the game
 
-	var points = getPoints(gametoken);
+	isseeker(uid, function(isseeker) { 
+		getPoints(gametoken, function(points) {
+			getPlayers(gametoken, function(playeruid){
+			
+			findUsernames(playeruid, function(players) {
+			
+				console.log("does this run");
+				callback([isseeker,gametoken, playeruid, players, uid, points]);
+				
+			});
+
+			});
+		});
+	});
 }
 
-function getPoints(gametoken) {
+function isseeker(userid, callback) {
+	pg.connect(db, function(err,client,done) {
+		if(err) {
+				console.error("Problem with pool", err);
+			}
+		client.query("select * from locations where userid=" + userid, function(err, result){
+			if(err) {
+				console.error("Can't find userid", err);
+			} else {
+				if (result.rows.length != 0) {
+					callback(true);
+				} else {
+					callback(false);
+				}
+			}
+
+		});
+
+
+		done();
+	});
+}
+
+function findUsernames(playeruid, callback) {
+
+	var players = [];
+
+	var flag = 0;
+	for (var i in playeruid) {
+		findUsername(playeruid[i], function(username){
+			players.push(username);
+			flag = flag + 1;
+		
+			if (playeruid.length == flag) {
+			console.log("let's go");
+			callback(players);
+		}
+					
+		});
+	
+	}
+
+}
+function findUsername(userid, callback) {
+	pg.connect(db, function(err, client, done){
+		if (err) {
+			console.error("Problem fetching client from pool", err);
+		}
+		client.query("select * from users where id=" + userid, function(err, result) {
+			if (err) {
+				console.error("User doesn't exists", err);
+			} else {
+				if (result.rows.length != 0) {
+					callback(result.rows[0].username);
+				}
+			}
+		});
+		done();
+	});
+}
+
+function getPlayers(gametoken, callback) {
+	var players = [];
+
+	pg.connect(db, function(err, client, done) {
+	if (err) {
+		return console.error('Problem fetching client from pool', err);
+	}
+
+	client.query("select * from locations where game_token='" + gametoken + "'", function(err, result) {
+		if (err) {
+			return console.error('Cannot get game token from locations for point update', err);
+		} else {
+			if (result.rows.length != 0 ){
+				for (var i in result.rows) {
+					players.push(result.rows[i].userid);
+
+				}
+				callback(players);
+			}
+		}
+	});
+	done();
+});
+
+
+}
+
+function getPoints(gametoken, callback) {
 	var points = [];
 
 	pg.connect(db, function(err, client, done) {
@@ -178,10 +246,29 @@ function getPoints(gametoken) {
 						points.push(result.rows[i].points);
 
 					}
-					return points;
+					callback(points);
 				}
 			}
 		});
+		done();
+	});
+}
+
+function setPoints(gametoken, userid, points) {
+	pg.connect(db, function(err, client,done) {
+		if (err) {
+			return console.error("Problem fetching client from pool", err);
+		}
+
+		client.query("update locations set points=" + points + " where game_token='" + gametoken + "' and userid=" + userid,  function(err,result) {
+			if (err) {
+				return console.error("Problem updating points", err);
+			} else {
+				console.log("MORE POINTS " + points);
+				return points;
+			}
+		});
+
 	});
 }
 
@@ -243,6 +330,10 @@ app.post('/getseeker', function(req,res) {
 		var players = [uid];
 		if(uid > 0){
 
+			var currdate = new Date();
+			var gametoken = encrypt.createHash("sha1").update(uid + currdate.toString() + "HNS").digest("hex");
+			var points = [];
+
 			for (var i in req.body.mydropdown) {
 				players.push(req.body.mydropdown[i]);
 			}
@@ -251,9 +342,10 @@ app.post('/getseeker', function(req,res) {
 			var randnum = Math.floor(Math.random()*players.length);
 			var seeker = players[randnum];
 			console.log(seeker + " is the seeker.")
-			var currdate = new Date();
-			var gametoken = encrypt.createHash("sha1").update(uid + currdate.toString() + "HNS").digest("hex");
-			var points = getPoints(gametoken);
+			
+			
+
+
 			pg.connect(db, function(err, client, done) {
 				if (err) {
 					return console.error('Problem fetching client from pool', err);
@@ -285,6 +377,8 @@ app.post('/getseeker', function(req,res) {
 								if (result.rows.length != 0) {
 									var userid = result.rows[0].id;
 									playeruid.push(userid);
+									setPoints(gametoken, userid, 0);
+									points.push(0);
 									flag = flag + 1;
 
 								var player_type="hider";
@@ -407,7 +501,6 @@ app.get("/friendlocations", function(req,res) {
 app.get("/endgame", function(req,res) {
 	console.log("in /endgame");
  	var game2token = req.query.game2token;
- 	console.log(game2token);
 	pg.connect(db, function(err, client, done) {
 		client.query("delete from locations where game_token='" + game2token + "'", function(err, result){
 			if (err) {

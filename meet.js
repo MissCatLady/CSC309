@@ -16,8 +16,9 @@ app.get('/meet', function(req,res) {
 				} 
 
 				//assumes uid can be id1 or id2
-				client.query("SELECT username FROM users WHERE id in ((select id2 from friendships where id1=$1)" + 
-				      		    " union (select id1 from friendships where id2=$1))", [uid], function(err,result){
+				client.query("select * from users where id in((select id2 from friendships where id1=" 
+		+ uid + ") union (select id1 from friendships where id2=" + uid + "))", 
+		function(err,result){
 					if(result.rows.length != 0) {
 						var friends = [];
 						for (var i in result.rows) {
@@ -28,11 +29,12 @@ app.get('/meet', function(req,res) {
 						res.render('meet.jade');
 					}
 				});
+				done();
 			});
 		} else {
 			res.redirect('/index');
 		}
 	});
-	done();
+	
 });
 }

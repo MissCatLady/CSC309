@@ -48,10 +48,10 @@ html
         #friendAdd.formholder
           .randompad
             fieldset
-              select(name="mydropdown", multiple="multiple", size="10")
+              select(name="mydropdown", multiple="multiple")
                 if friends
-                      each friend, i in friends
-                        option(value=friend) #{friend}
+                  each friend, i in friends
+                    option(value=friend) #{friend}
               label(name="newUsers") Add Friends
               input(type="newUsers", placeholder="abc@mail.com, xyy@mail.com", required="")
               input(type="submit", value="Add")
