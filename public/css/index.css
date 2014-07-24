@@ -116,6 +116,30 @@ footer a:visited {
 
 /*Games CSS*/
 
+.gamebuttons ul{
+	height: 50px;
+	font-size: 16px;
+	list-style-type: none;
+	margin-right: 5px;
+}
+
+.gamebuttons ul li{
+
+	float: right;
+	display:inline;
+	position: relative;
+	text-align: right;
+	margin-bottom: -10px;
+
+}
+
+.points ul li {
+	float: left;
+	display: inline;
+	margin-left: -20px;
+	margin-bottom: -10px;
+}
+
 @font-face
 {
 font-family: Coco;
@@ -168,29 +192,6 @@ iframe {
 	border: 5px #1bc6a4 dashed;
 }
 
-.gamebuttons ul{
-	height: 50px;
-	font-size: 16px;
-	list-style-type: none;
-	margin-right: 5px;
-}
-
-.gamebuttons ul li{
-
-	float: right;
-	display:inline;
-	position: relative;
-	text-align: right;
-	margin-bottom: -10px;
-
-}
-
-.points ul li {
-	float: left;
-	display: inline;
-	margin-left: -20px;
-	margin-bottom: -10px;
-}
 
 #map-canvas1 {
 	margin-top: -30px;
@@ -204,6 +205,10 @@ iframe {
 }
 
 
+.text p {
+	font-size: 0.8em;
+	text-align: center;
+}
 
 /* Report CSS */
 
@@ -329,23 +334,36 @@ iframe {
 /*Desktop Screens*/
 @media only screen and (min-width:800px) {
 
-.content {
-	width: 77%;
-	min-height: 500px;
-	margin-top: 25px;
-}
-
 nav {
 	position: relative;
 	margin-top: -0.8%;
 
 }
+
+
+
 }
 
 /*Tablet Screens*/
-@media only screen and (min-width: 500px){
+@media only screen and (min-width: 600px){
 [class*='col-'] {
   float: left;
+}
+
+body {
+	text-align: center;
+}
+
+#gametext {
+ 	font-size: 0.5em;
+}
+
+.content {
+	width: 77%;
+	display: inline-block;
+	min-height: 500px;
+	margin-top: 25px;
+	padding-bottom: 10px;
 }
 
 nav {
@@ -373,7 +391,7 @@ nav a {
 }
 }
 /* cell phones*/
-@media (min-width:0px) and (max-width:500px){
+@media (min-width:0px) and (max-width:600px){
 .accordion{
 	height:auto;
 	padding-left: 5px;
@@ -563,3 +581,17 @@ a:hover {
 }
 
 /* Signup End */
+
+input:focus:invalid{ 
+	background-image: url(../imgs/invalid.png);
+	background-position: right top; 
+	background-repeat: no-repeat;
+	-moz-box-shadow: none;
+} 
+
+input :required { 
+	background-image: url(../imgs/valid.png);
+	background-position: right top;
+	background-repeat: no-repeat;
+	-moz-box-shadow: none;
+}

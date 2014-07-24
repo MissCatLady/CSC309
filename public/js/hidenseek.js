@@ -18,14 +18,7 @@ $(function () {
 
   //timer expiry action
   function startGame() {
-    $.get('/startgame', function(data) {
-      $('#selectplayers').hide();
-      $('.game').show();
-      
-      $("#bgPopup").fadeOut("medium");
-      $("#places-popup").fadeOut("medium");
-      google.maps.event.trigger(map, 'resize');
-    });
+    window.location.href="/startgame?token=" + window.localStorage.getItem('game2token');
   }
 
 });

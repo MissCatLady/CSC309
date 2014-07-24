@@ -31,10 +31,17 @@ html
       .col-l
         header
           p#title Games
-        #inprogress 
+        #inprogress
+          if games
+            each game, i in games
+              form(action="/startgame", method="get")
+                .formholder
+                  .randompad
+                    fieldset
+                      input(type="hidden", id="token", name="token", value=game.token)
+                      input(type="submit", value=game.type)
         .label
           h4 Start a new game:
-          p|(Warning: This will override existing game data!)
         .formholder
           form(action="/scavenger", method="get")
             fieldset
@@ -44,7 +51,7 @@ html
               input(type="submit", value="Hide and Seek")
           form
             fieldset
-              input(type="submit", value="Man Hunt")
+              input(type="submit", value="Man Hunt", id="manhunt")
       .col-r
         header
           a.chatbutton
@@ -75,8 +82,6 @@ html
           a(href="/schedule") Schedule
         li
           a(href="/index" id="logout") Logout 
-    script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,places")
-    script(src="js/mapseek.js")
     script(src="js/games.js")
     script(src="js/logout.js")
 

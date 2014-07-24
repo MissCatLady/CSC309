@@ -14,10 +14,10 @@ html
     link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
     // Scripts
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
-    script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOkWAnSuU-z_DSWMy_dO3_H7TrZj0x9Dk")
-    script(src="js/map.js")
+    script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOkWAnSuU-z_DSWMy_dO3_H7TrZj0x9Dk&libraries=places,directions")
     script(src="js/popup.js")
     script(src="js/chat.js")
+    script(src="js/map.js")
     script(src="js/meet.js")
   body
     nav
@@ -39,31 +39,29 @@ html
             ul
               li.current
                 a#mylocation My Location
-              li
-                a#benlocation Ben
+              if attendees 
+               for attendee in attendees
+                li
+                  a(id=attendee) #{attendee} Location
               li
                 a#addfriend Add A Friend
       .col-l
         #map-canvas.map
         #friendAdd.formholder
           .randompad
-            fieldset
-              select(name="mydropdown", multiple="multiple")
-                if friends
-                  each friend, i in friends
-                    option(value=friend) #{friend}
-              label(name="newUsers") Add Friends
-              input(type="newUsers", placeholder="abc@mail.com, xyy@mail.com", required="")
-              input(type="submit", value="Add")
+            form(method="POST", action="/invite")
+              fieldset
+                select(name="mydropdown", multiple="multiple")
+                  if friends
+                    for friend in friends
+                      option(value=friend) #{friend}
+                label(name="newUsers") Add Friends
+                input(type="newUsers", placeholder="abc@mail.com, xyy@mail.com")
+                input(type="submit", value="Add")
       .col-r
         #chat
           #chatbox
             ul#messageList
-              li
-                div
-                  img(src="imgs/mashiyat1.jpg")
-                span#time 12:32
-                span#text Hey I"m here!
           #messagebox
             textarea#message Type your message here
             input#submittext(type="submit", value="send")
@@ -75,23 +73,34 @@ html
       .popup-container
         h4
           | Find A Place To Meet
-          h4
-            form
-              input(type="text", placeholder="Search...", required="")
-              input(type="button", value="Search")
-            h4 Pending Requests
-            .request
+        h4
+            input(type="text", placeholder="Search...", required="", id ="search_text")
+            input(type="button", value="Search", id ="search_button")
+        if suggestions
+          h4 Pick a location
+          .friendrequest
+            form(method="POST", action="/locationvote")
+              select(name="location", required="")
+                for suggestion in suggestions
+                  option(value=suggestion.place_id) #{suggestion.location}
+              input(type="submit", value="VOTE!")
+        h4 Friends Requests
+        if friendreqs
+          for friendreq in friendreqs
+            .friendrequest
               .displayimg
               .requesttext
-                | Mashiyat would like to meet at 
-                a(href="#mylocation") Starbucks
-                | !
-                ul
-                  li
-                    input.button-accept(type="button", value="Accept")
-                  li
-                    input.button-reject(type="button", value="Reject")
-            h4 Recent Places
+                | #{friendreq} would like to be your friend!
+                form(method="POST", action="/friendresponse")
+                  input(type="hidden", value="#{friendreq}", name="name")
+                  ul
+                    li
+                      input.button-accept(type="submit", value="Accept",name = "submit")
+                    li
+                      input.button-reject(type="submit", value="Reject", name = "submit")
+        a(href="/leavemeet")
+          h4
+            | Leave meeting
     #bgPopup
     footer
       ul
@@ -104,4 +113,4 @@ html
         li
           a(href="/schedule") Schedule
         li
-          a(href="/index") 2014 Find Me 
+          a(href="/index") 2014 Find Me

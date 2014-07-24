@@ -1,0 +1,107 @@
+/*about */
+.grid figcaption h2 {
+	color: #8A2BE2;
+}
+
+/*chat */
+#chat {
+  border: 5px solid #8A2BE2 ;
+
+
+}
+
+#messagebox input[type="submit"] {
+  border:2px solid #8A2BE2;
+  background-color:#8A2BE2;
+
+}
+#messagebox input[type="submit"]:hover {
+  color:#8A2BE2;
+}
+
+/* future meet */
+option:hover{
+	background-color: #8A2BE2;
+
+}
+
+/* meet */
+input[type="button"]{
+    border:2px solid #8A2BE2;
+    background-color:#8A2BE2;
+}
+input[type="button"]:hover  {
+    color:#8A2BE2;
+}
+
+#map-canvas{ 
+ 	border: 5px #8A2BE2 dashed;
+ }
+    
+/* profile form */
+
+#myMonth, #myDays, #myYears {
+	border-color:#8A2BE2;
+}
+
+#myMonth option:hover, #myDays option:hover, #myYears option:hover {
+	background-color: #8A2BE2;
+}
+
+#profileForm  input[type="text"],#profileForm  input[type="email"], #profileForm   input[type="password"]  {
+
+  border-color:#8A2BE2;
+}
+
+/* sign up */
+
+.arrow-up {
+  border-bottom: 15px solid #8A2BE2;
+}
+
+.formholder {
+  background: #8A2BE2;
+}
+
+/*index */
+a {
+	color: #8A2BE2;
+}
+
+nav > ul > li:hover,
+nav > ul > li.current a{
+          background-color: #8A2BE2;
+        }
+		
+#title{
+	color: #8A2BE2;
+
+	
+}
+
+iframe {
+	border: 5px #8A2BE2 dashed;
+}
+
+#map-canvas1 {
+	border: 5px #8A2BE2 dashed;
+}
+
+.accordion section:target h2 a{   
+	background-color:#8A2BE2;
+}  
+
+.accordion section h2 a:hover{
+	color:#8A2BE2;
+}
+
+#fmeeting select{
+  border-color:#8A2BE2;
+	
+
+}
+
+#fmeeting input[type="time"],#fmeeting input[type="text"] , #fmeeting input[type="location"]  {
+
+  border-color:#8A2BE2;
+}

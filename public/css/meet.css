@@ -222,7 +222,7 @@ input[type="text"]{
     background:rgba(50, 50, 50, 0.2);
     border:0px solid #dbdbdb;
 }
-input[type="button"]{
+input[type="submit"]{
 	height: 100%;
     position:relative;
     padding:6px 15px;
@@ -231,7 +231,7 @@ input[type="button"]{
     background-color:#1bc6a4;
     color:#fafafa;
 }
-input[type="button"]:hover  {
+input[type="submit"]:hover  {
     background-color:#fafafa;
     color:#1bc6a4;
 }

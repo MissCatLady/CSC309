@@ -1,0 +1,102 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=false")
+    link(rel="shortcut icon", href="/imgs/pin.ico")
+    title  Find Me | Meet 
+    // CSS Styles
+    link(rel="stylesheet", type="text/css", href="/css/index.css")
+    link(rel="stylesheet", type="text/css", href="/css/signup.css", media="screen")
+    link(rel="stylesheet", type="text/css", href="/css/meet.css")
+    link(rel="stylesheet", href="/css/chat.css", media="screen", type="text/css")
+    // Fonts
+    link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
+    // Scripts
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOkWAnSuU-z_DSWMy_dO3_H7TrZj0x9Dk")
+    script(src="js/popup.js")
+    script(src="js/chat.js")
+  body
+    nav
+      ul
+        li.current
+          a(href="#") Meet
+        li
+          a.chatbutton Chat
+        li
+          a(href="/games") Games
+        li
+          a(href="/settings") Settings
+    .content
+      #smallchat
+      #location.container
+        .text
+          h4 Add Friends
+      .col-l
+        #friendAdd.formholder
+          .randompad
+            form(method="POST", action="/addfriend")
+              fieldset
+                select(name="mydropdown", multiple="multiple", size=10)
+                  for friend in friends
+                    option(value=friend) #{friend}
+                if message
+                  label(name="message") #{message}
+                else
+                  label(name="message") Add friend
+                input(type="email", name="email", placeholder="*****@mail.com", required="")
+                input(type="submit", value="Add", onclick)
+      .col-r
+        header
+          p Start a new meeting!
+        .link
+          // Image Attribution: http://www.visualpharm.com
+          a(href="/makemeet")
+            img(src="../imgs/mapicon.png", width="50%")
+            p  Find My Location
+    a
+      input#places.place-button(type="button", value="MEETING REQUESTS")
+    #places-popup
+      a#popupClose x
+      .popup-container
+        h4 Meet Requests
+        for request in requests
+          .request
+            .displayimg
+            .requesttext
+              | #{request} would like to invite you to meet!
+              form(method="POST", action="/requestresponse")
+                input(type="hidden", value="#{request}", name="name")
+                ul
+                  li
+                    input.button-accept(type="submit", value="Accept", name="submit")
+                  li
+                    input.button-reject(type="submit", value="Reject", name="submit")
+        h4 Friends Requests
+        for friendreq in friendreqs
+          .friendrequest
+            .displayimg
+            .requesttext
+              | #{friendreq} would like to be your friend!
+              form(method="POST", action="/friendresponse")
+                input(type="hidden", value="#{friendreq}", name="name")
+                ul
+                  li
+                    input.button-accept(type="submit", value="Accept", name="submit")
+                  li
+                    input.button-reject(type="submit", value="Reject", name="submit")
+    h4 Friend Requests
+    #bgPopup
+    footer
+      ul
+        li
+          a(href="/about")  About
+        li
+          a(href="/meet")  Meet
+        li
+          a(href="/games")  Games
+        li
+          a(href="/schedule") Schedule
+        li
+          a(href="/index") 2014 Find Me

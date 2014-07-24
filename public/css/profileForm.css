@@ -23,6 +23,7 @@ fieldset {
 #leftCol {
  width: 50%;
  float:left;
+ margin-left: 35px;
  
 }
 #rightCol{
@@ -37,18 +38,24 @@ fieldset {
   margin-left: 5px;
 }
 
+#myThemes h2{
+	margin-left: 25px;
+}
+
+
 #profileForm label, #privacyForm label {
   width: 100%;
   text-align: left;
-  margin-left: 5px;
+  margin-left: 14px;
 
 }
 
-#leftCol input[type="text"],#rightCol input[type="email"], #rightCol  input[type="password"]  {
+#profileForm  input[type="text"],#profileForm  input[type="email"], #profileForm   input[type="password"]  {
 
   padding: 7px 5px;
   margin-bottom: 10px;
-  width: 96%;
+  margin-left: 13px;
+  width: 87%;
   font-size: 18px;
   border-radius: 5px;
   border: solid;
@@ -59,11 +66,12 @@ fieldset {
   transition: 0.3s linear;
 }
 
-#leftCol input[type="radio"], #rightCol input[type="radio"]{
+#leftCol input[type="radio"]{
 	margin-left: 15px;
-	padding: 7px 5px;
 }
-
+#rightCol input[type="radio"]{
+	margin-left: 25px;
+}
 #profileForm input[type="submit"], #privacyForm input[type="submit"], #myThemes input[type="submit"] {
   background: #333;
   padding: 10px;
@@ -106,13 +114,12 @@ fieldset {
 #myMonth option:hover, #myDays option:hover, #myYears option:hover {
 	background-color: #1bc6a4;
 	border-radius: 10px 10px 10px 10px;
-	
-	
+}
+#myMonth option:selected, #myDays option:selected, #myYears option:selected {
+	background-color: #1bc6a4;
+	border-radius: 10px 10px 10px 10px;
 }
 
-#myThemes{
-	text-align:left;	
-}
 .themeImg{
 	background-repeat:no-repeat;
 	background-size: contain;
@@ -138,12 +145,20 @@ fieldset {
 	background-image:url(../imgs/rain.jpg);
 	width: 90px;
 	height: 48px;
+	margin-left:55%;
 }
 #im5{
 	background-image:url(../imgs/sunset.jpg);
 	width: 90px;
 	height: 58px;
+	margin-left:55%;
 }	
+#im6{
+	background-image:url(../imgs/sunset.jpg);
+	width: 90px;
+	height: 58px;
+	margin-left:55%;
+}
 
 }
 
@@ -163,9 +178,6 @@ fieldset {
 
 }
 
-#myRadioButtons{
-	text-align:left;
-}
 
 #ProfileSettings , #PrivacySettings, #ThemesSettings{
   width: 93%;

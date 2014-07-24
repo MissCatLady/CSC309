@@ -8,19 +8,15 @@ html
     // CSS Styles
     link(rel="stylesheet", type="text/css", href="../css/index.css")
     link(rel="stylesheet", type="text/css", href="../css/profileForm.css", media="screen")
-    link#currTheme(rel="stylesheet", type="text/css", media="screen")
+    if myTheme
+         link(id="currTheme", rel="stylesheet", type="text/css", media="screen", name="myTheme", href=myTheme)
+    link(rel="stylesheet", type="text/css", media="screen", id="tempThemeDisplay")
     link(rel="stylesheet", href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css")
     script(type="text/javascript", src="http://code.jquery.com/jquery-1.10.2.js")
     script(type="text/javascript", src="http://code.jquery.com/ui/1.10.4/jquery-ui.js")
     script
-      //	var fileref=document.createElement("link")
-      //  fileref.setAttribute("rel", "stylesheet")
-      // fileref.setAttribute("type", "text/css")
-      //  fileref.setAttribute("href", "css/theme1.css");
-      var theme = document.getElementById("currTheme");
-      theme.href = window.sessionStorage.getItem('th');
-      var y= document.getElementsByTagName("head");
-      //y.appendChild(fileref);
+        var theme = document.getElementById("tempThemeDisplay");
+        theme.href = window.localStorage.getItem('themeDisplay');
     // Fonts
     link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
     script(src="../js/settings.js")
@@ -41,117 +37,199 @@ html
           h2
             a(href="#ProfileSettings") Profile
           #profileForm.Forms
-            #leftCol
-              form
-                fieldset
-                  label(name="firstName") First Name
-                  input#FN(type="text", name="name", placeholder="John", required="")
-                  label(name="lasttName") Last Name
-                  input#LN(type="text", placeholder="Doe", required="")
-                  .randompad
+            form(method="POST", action="/settingsProfile", id= profForm)
+              fieldset
+                label(name="firstName") First Name
+                br
+                if fname
+                    input(id="FN", type="text", name="fname", value=fname, splaceholder="John", required="")
+                else
+                    input(id="FN", type="text", name="fname", placeholder="John", required="")
+                br
+                label(name="lasttName") Last Name
+                br
+                if lname
+                    input(id="LN", type="text", name="lname", value=lname, placeholder="Doe", required="")
+                else
+                    input(id="LN", type="text", name="lname", placeholder="Doe", required="")
+                br
+                .randompad
                 #DOB
                   label(name="birthday") Birthday
                   .randompad
-                  select#myMonth(name="month")
-                  select#myDays(name="Day")
-                  select#myYears(name="Year")
-              .randompad
-            #rightCol
-              form
-                fieldset
-                  label(name="email") Email
-                  input#email(type="email", placeholder="john.doe@mail.com", required="")
-                  label(name="password") Password
-                  input#pswrd(type="password", placeholder="******", required="")
-                  .randompad
+                  if monthV
+                    select(id="myMonth", name="month", value=monthV)
+                        input(id="mValue", type="hidden", name="mnothV", value=monthV)   
+                  else
+                    select(id="myMonth", name="month")
+                  if dayV
+                    select(id="myDays", name="Day")
+                        input(id="dValue", type="hidden", name="dayV", value=dayV)  
+                  else
+                    select(id="myDays", name="Day")
+                  if yearV
+                    select(id="myYears", name="Year")
+                         input(id="yValue", type="hidden", name="yearV", value=yearV)
+                  else
+                    select(id="myYears", name="Year")
+                .randompad
+                label(name="email") Email
+                br
+                if email
+                    input(id="useremail", type="email", name="email", value=email, placeholder="john.doe@mail.com", required="")
+                else
+                    input(id="useremail", type="email", name="email", placeholder="john.doe@mail.com", required="")
+                br
+                label(name="password") Password
+                br
+                if password
+                    input(id="pswrd", type="password", name="password", value=password, placeholder="******", required="")
+                else
+                    input(id="pswrd", type="password", name="password", placeholder="******", required="")
+                .randompad
                 #genderOptions
+                  input(id="hiddenGender", type="hidden", name="sex", form= profForm)
                   label(name="gender") Gender
                   .randompad
-                  input#female(type="radio", name="gender")
+                  if fem
+                      input(id="female", type="radio", name="gen", checked="true")
+                  else
+                      input(id="female", type="radio", name="gen")
                   label(for="radio1") Female
-                  input#male(type="radio", name="gender", checked="true")
+                  if mal
+                      input(id="male", type="radio", name="gen", checked="true")
+                  else
+                      input(id="male", type="radio", name="gen")
                   label(for="radio2") Male
-            input#profileSave(type="submit", value="Save")
-            .randompad
+                .randompad
+                .randompad
+                input#profileSave(type="submit", value="Save" , form= profForm)
+                .randompad
         section#PrivacySettings
           h2
             a(href="#PrivacySettings") Privacy
           #privacyForm.Forms
-            #leftCol
-              form
+            form(method="POST", action="/settingsPrivacy", id ="privForm")
+              #leftCol
                 h2 Who can see my stuff?
                 #q1
-                  form
+                  
+                    input(id="question1", type="hidden", name="ques1", form ="privForm")
                     label(name="q1") Contact information is available to
                     br
                     br
-                    input#radio1(type="radio", name="stuff")
+                    if q1E
+                        input(id="radio1", type="radio", name="q1", checked="true")
+                    else
+                        input(id="radio1", type="radio", name="q1")
                     label(for="radio1") Everyone
-                    input#radio2(type="radio", name="stuff", checked="true")
+                    if q1F
+                       input(id="radio2", type="radio", name="q1", checked="true")
+                    else
+                        input(id="radio2", type="radio", name="q1")
                     label(for="radio2") Filter
                 br
                 #q2
-                  form
+                  
+                    input(id="question2", type="hidden", name="ques2", form ="privForm")
                     label(name="q2") Location is visible to
                     br
                     br
-                    input#radio3(type="radio", name="stuff")
+                    if q2E
+                       input(id="radio3", type="radio", name="q2", checked="true")
+                    else
+                       input(id="radio3", type="radio", name="q2")
                     label(for="radio3") Everyone
-                    input#radio4(type="radio", name="stuff", checked="true")
+                    if q2F
+                       input(id="radio4", type="radio", name="q2", checked="true")
+                    else
+                       input(id="radio4", type="radio", name="q2")
                     label(for="radio4") Filter
                 .randompad
                 .randompad
                 .randompad
-            #rightCol
-              form
+              #rightCol
                 h2 Who can look me up
                 #q3
-                  form
+                  
+                    input(id="question3", type="hidden", name="ques3", form ="privForm")
                     label(name="q3") Who can send me meeting invites?
                     br
                     br
-                    input#radio5(type="radio", name="lookup")
+                    if q3E
+                        input(id="radio5", type="radio", name="q3", checked="true")
+                    else
+                        input(id="radio5", type="radio", name="q3") 
                     label(for="radio5") Everyone
-                    input#radio6(type="radio", name="lookup", checked="true")
+                    if q3F
+                        input(id="radio6", type="radio", name="q3", checked="true")
+                    else
+                       input(id="radio6", type="radio", name="q3")
                     label(for="radio6") Filter
                 br
                 #q4
-                  form
+                  
+                    input(id="question4", type="hidden", name="ques4", form ="privForm")
                     label(name="q4") Who can send me game invites?
                     br
                     br
-                    input#radio7(type="radio", name="lookup")
+                    if q4E
+                        input(id="radio7", type="radio", name="q4", checked="true")
+                    else
+                        input(id="radio7", type="radio", name="q4")
                     label(for="radio7") Everyone
-                    input#radio8(type="radio", name="lookup", checked="true")
+                    if q4F
+                        input(id="radio8", type="radio", name="q4", checked="true")
+                    else
+                        input(id="radio8", type="radio", name="q4")
                     label(for="radio8") Filter
-            input#privacySave(type="submit", value="Save")
-            .randompad
+                input#privacySave(type="submit", value="Save", form ="privForm")
         section#ThemesSettings
           h2
             a(href="#ThemesSettings") Themes
-          #myThemes
-            h2 Select A Theme
-            #im1.themeImg
-            input#radio9(type="radio", name="radio")
-            label(for="radio9") Earth
-            br
-            #im2.themeImg
-            input#radio10(type="radio", name="radio")
-            label(for="radio10") Fire
-            br
-            #im3.themeImg
-            input#radio11(type="radio", name="radio")
-            label(for="radio11") Sea
-            br
-            #im4.themeImg
-            input#radio12(type="radio", name="radio")
-            label(for="radio12") Rain
-            br
-            #im5.themeImg
-            input#radio13(type="radio", name="radio")
-            label(for="radio13") SunSet
-            br
-            input#themeSave(type="submit", value="Save")
+          #myThemes.Forms
+           form(method="POST", action="/settingsThemes" , id= themeForm)
+            h2 Select A Theme:
+            input(id="selectTheme", type="hidden", name="themeSelected", form= themeForm)
+            #leftCol
+              #im1.themeImg
+              if theme1
+                  input#radio9(type="radio", name="theme", checked="true")
+              else
+                   input#radio9(type="radio", name="theme")
+              label(for="radio9") Earth
+              #im2.themeImg
+              if theme2 
+                   input#radio10(type="radio", name="theme", checked="true")
+              else
+                   input#radio10(type="radio", name="theme")
+              label(for="radio10") Fire
+              #im3.themeImg
+              if theme3
+                   input#radio11(type="radio", name="theme", checked="true")
+              else
+                   input#radio11(type="radio", name="theme")
+              label(for="radio11") Sea
+            #rightCol
+              #im4.themeImg
+              if theme4
+                   input#radio12(type="radio", name="theme", checked="true")
+              else
+                   input#radio12(type="radio", name="theme")
+              label(for="radio12") Rain
+              #im5.themeImg
+              if theme5
+                   input#radio13(type="radio", name="theme", checked="true")
+              else
+                   input#radio13(type="radio", name="theme")
+              label(for="radio13") SunSet
+              #im6.themeImg
+              if theme6
+                   input#radio14(type="radio", name="theme", checked="true")
+              else
+                   input#radio14(type="radio", name="theme")
+              label(for="radio14") Default
+            input#themeSave(type="submit", value="Save", form= themeForm)
             .randompad
     footer
       ul

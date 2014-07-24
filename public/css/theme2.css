@@ -1,0 +1,107 @@
+/*about */
+.grid figcaption h2 {
+	color: #F08080;
+}
+
+/*chat */
+#chat {
+  border: 5px solid #F08080 ;
+
+
+}
+
+#messagebox input[type="submit"] {
+  border:2px solid #F08080;
+  background-color:#F08080;
+
+}
+#messagebox input[type="submit"]:hover {
+  color:#F08080;
+}
+
+/* future meet */
+option:hover{
+	background-color: #F08080;
+
+}
+
+/* meet */
+input[type="button"]{
+    border:2px solid #F08080;
+    background-color:#F08080;
+}
+input[type="button"]:hover  {
+    color:#F08080;
+}
+
+#map-canvas{ 
+ 	border: 5px #F08080 dashed;
+ }
+    
+/* profile form */
+
+#myMonth, #myDays, #myYears {
+	border-color:#F08080;
+}
+
+#myMonth option:hover, #myDays option:hover, #myYears option:hover {
+	background-color: #F08080;
+}
+
+#profileForm  input[type="text"],#profileForm  input[type="email"], #profileForm   input[type="password"]  {
+
+  border-color:#F08080;
+}
+
+/* sign up */
+
+.arrow-up {
+  border-bottom: 15px solid #F08080;
+}
+
+.formholder {
+  background: #F08080;
+}
+
+/*index */
+a {
+	color: #F08080;
+}
+
+nav > ul > li:hover,
+nav > ul > li.current a{
+          background-color: #F08080;
+        }
+		
+#title{
+	color: #F08080;
+
+	
+}
+
+iframe {
+	border: 5px #F08080 dashed;
+}
+
+#map-canvas1 {
+	border: 5px #F08080 dashed;
+}
+
+.accordion section:target h2 a{   
+	background-color:#F08080;
+}  
+
+.accordion section h2 a:hover{
+	color:#F08080;
+}
+
+#fmeeting select{
+  border-color:#F08080;
+	
+
+}
+
+#fmeeting input[type="time"],#fmeeting input[type="text"] , #fmeeting input[type="location"]  {
+
+  border-color:#F08080;
+}

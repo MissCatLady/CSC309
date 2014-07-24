@@ -1,0 +1,91 @@
+/*<!--Drop down registration code-->
+<!--Attribution: Miro Karilahti-->
+<!--Found: http://codepen.io/miroot/details/qwIgC-->
+<!--Status: Edited-->*/
+
+fieldset {
+  border: none;
+}
+
+.login {
+  text-align: center;
+  margin-left: -60px;
+
+}
+
+.login li {
+  display: block;
+  width:100%;
+  margin: 10px; 
+}
+
+
+.register {
+  position: relative;
+  width: 100%;
+  display: none;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 15px solid #1bc6a4;
+  left: 60%;
+  position: absolute;
+  top: -10px;
+}
+
+.formholder {
+  background: #1bc6a4;
+  width: 90%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  padding-top: 5px;
+}
+
+.formholder label {
+  width: 100%;
+  text-align: left;
+
+}
+.formholder input[type="email"], .formholder input[type="password"],
+.formholder input[type="text"], .formholder input[type="location"],
+.formholder input[type="time"], .formholder input[type="newUsers"]
+{
+  padding: 7px 5px;
+  margin-bottom: 10px;
+  width: 96%;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.formholder input[type="submit"], .formholder input[type="button"] {
+  background: #333;
+  padding: 10px;
+  font-size: 20px;
+  display: block;
+  width: 100%;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+.formholder input[type="submit"]:hover {
+  background: #545454;
+}
+
+.randompad {
+  padding: 10px;
+}
+
+a:hover {
+  color: #1abc9c;
+}

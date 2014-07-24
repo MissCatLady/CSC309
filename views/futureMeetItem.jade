@@ -1,0 +1,104 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=false")
+    link(rel="shortcut icon", href="../imgs/pin.ico")
+    title  Find Me | Scheduled Meeting 
+    // CSS Styles
+    link(rel="stylesheet", type="text/css", href="../css/index.css")
+    link(rel="stylesheet", href="../css/signup.css", media="screen", type="text/css")
+    link(rel="stylesheet", type="text/css", href="../css/meetItem.css", media="screen")
+    if myTheme
+        link(id="currTheme", rel="stylesheet", type="text/css", media="screen", name="myTheme", href=myTheme)
+    link(rel="stylesheet", href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css")
+    script(type="text/javascript", src="http://code.jquery.com/jquery-1.10.2.js")
+    script(type="text/javascript", src="http://code.jquery.com/ui/1.10.4/jquery-ui.js")
+    // Fonts
+    link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
+    script(src="../js/futureMeet.js")
+  script
+    $(function() {
+    $( "#datepicker" ).datepicker();
+    });
+  body
+    nav
+      ul
+        li
+          a(href="meet") Meet
+        li
+          a(href="games") Games
+        li
+          a(href="settings#ProfileSettings") Settings
+        li
+          a(href="schedule") Schedule
+    .content
+      header
+        p#title Scheduled Meeting
+      .formholder
+        .randompad
+          form.Forms(method="POST", action="/meetItemActions", id="fmeeting")
+            fieldset
+              input(id="buttonclicked", type="hidden",name="myMeetItem", value=myMeetItem, form="fmeeting")
+              input(id="mid", type="hidden", name="myID", value=myID, form="fmeeting")
+              label(name="location") Location:
+              br
+              br
+              input(type="location", placeholder="40 St.George St.", name="mylocation", value=mylocation, required="")
+              br
+              br
+              br
+              label(name="time") Time:
+              br
+              br
+              input(type="time", placeholder="5 pm", name="mytime", value=mytime, required="")
+              br
+              br
+              br
+              label(name="date") Date:
+              br
+              br
+              input#datepicker(type="text", name="mydate", value=mydate, required="")
+              br
+              br
+              br
+              label(name="invitees") Invited
+              br
+              br
+              select(name="invited", size="8")
+                 for invited in invitedlist
+                    option(value=invited) #{invited}
+              br
+              br
+              label(name="attendees") Attending
+              br
+              br
+              select(name="attend", size="8")
+                 for attendee in attendees
+                     option(value=attendee) #{attendee}
+              br
+              br
+              if owner
+                input(id="bt1", type="submit", name="up", value="Update", form="fmeeting")
+              br
+              br
+              if notOwner && notAC
+                input(id="bt2", type="submit", name="ac", value="Accept", form="fmeeting")
+                br
+                br
+                input(id="bt3", type="submit", name="rej", value="Reject", form="fmeeting")
+                .randompad
+          .randompad
+          
+    footer
+        ul
+          li
+            a(href="about")  About
+          li
+            a(href="meet")  Meet
+          li
+            a(href="games")  Games
+          li
+            a(href="schedule") Schedule
+          li
+            a(href="index") Logout 

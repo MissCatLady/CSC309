@@ -21,6 +21,7 @@
   "pg": "3.x",
   "jade": "*",
   "body-parser": "*",
-  "cookie-parser": "*"
+  "cookie-parser": "*",
+  "mongodb": "*"
   }
 }

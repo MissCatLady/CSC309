@@ -1,4 +1,107 @@
-.accordion {   
-   
-     background:#00ff00;  
+/*about */
+.grid figcaption h2 {
+	color: #1bc6a4;
+}
+
+/*chat */
+#chat {
+  border: 5px solid #1bc6a4 ;
+
+
+}
+
+#messagebox input[type="submit"] {
+  border:2px solid #1bc6a4;
+  background-color:#1bc6a4;
+
+}
+#messagebox input[type="submit"]:hover {
+  color:#1bc6a4;
+}
+
+/* future meet */
+option:hover{
+	background-color: #1bc6a4;
+
+}
+
+/* meet */
+input[type="button"]{
+    border:2px solid #1bc6a4;
+    background-color:#1bc6a4;
+}
+input[type="button"]:hover  {
+    color:#1bc6a4;
+}
+
+#map-canvas{ 
+ 	border: 5px #1bc6a4 dashed;
+ }
+    
+/* profile form */
+
+#myMonth, #myDays, #myYears {
+	border-color:#1bc6a4;
+}
+
+#myMonth option:hover, #myDays option:hover, #myYears option:hover {
+	background-color: #1bc6a4;
+}
+
+#profileForm  input[type="text"],#profileForm  input[type="email"], #profileForm   input[type="password"]  {
+
+  border-color:#1bc6a4;
+}
+
+/* sign up */
+
+.arrow-up {
+  border-bottom: 15px solid #1bc6a4;
+}
+
+.formholder {
+  background: #1bc6a4;
+}
+
+/*index */
+a {
+	color: #1bc6a4;
+}
+
+nav > ul > li:hover,
+nav > ul > li.current a{
+          background-color: #1bc6a4;
+        }
+		
+#title{
+	color: #1bc6a4;
+
+	
+}
+
+iframe {
+	border: 5px #1bc6a4 dashed;
+}
+
+#map-canvas1 {
+	border: 5px #1bc6a4 dashed;
+}
+
+.accordion section:target h2 a{   
+	background-color:#1bc6a4;
 }  
+
+.accordion section h2 a:hover{
+	color:#1bc6a4;
+}
+
+#meeting select{
+  border-color:#1bc6a4;
+	
+
+}
+
+#fmeeting input[type="time"],#fmeeting input[type="text"] , #fmeeting input[type="location"]  {
+
+  border-color:#1bc6a4;
+}

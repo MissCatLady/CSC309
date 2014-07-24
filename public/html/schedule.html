@@ -41,75 +41,55 @@ $( "#datepicker" ).datepicker();
 </nav>
 
 <div class="content">
-<header>
- <p id ="title">Schedule A Meeting</p>
-</header>
-
-	<div class="col3">
-		<h4>Invite Friends</h4>
-
-		<div class="formholder">
-		<div class="randompad">
-		<fieldset>
-		<select name="mydropdown" multiple="multiple" size="10">
-			<option value="Amit">Amit Prabhakar</option>
-			<option value="Vera">Vera Rizvi</option>
-			<option value="Ilya">Ilya Samsonov</option>
-			<option value="Will">Will Zhang</option>
-			<option value="Lia">Lia Zheng</option>
-			<option value="Amit">Amit Prabhakar</option>
-			<option value="Vera">Vera Rizvi</option>
-			<option value="Ilya">Ilya Samsonov</option>
-			<option value="Will">Will Zhang</option>
-			<option value="Lia">Lia Zheng</option>
-		</select>
+	<header>
+		<p id ="title">Schedule A Meeting</p>
+	</header>
+		<div class="col3">
+			<h4>Friend List</h4>
+			<form method="POST" action="/sendInvitation" id="futureInvitation">
+			<div class="formholder">
+				<div class="randompad"><fieldset>
+					<select name="mydropdown" multiple="multiple" size="10">
+					</select></fieldset>
+				</div>
+			</div>
+		</div>
+		<div class="col2">
+			<h4>Invitation</h4>
+			<div class="formholder">
+				<div class="randompad"><fieldset>
+					<label name="location">Location</label>
+					<input type="location" placeholder="40 St.George St." required />
+					<label name="time">Time</label>
+					<input type="time" placeholder="5 pm" required />
+					<input type="submit" value="Send Invites" />
+				</fieldset></div>
+			</div>
+		</div>	
+		<div class="col3">
+			<h4>Pick A Date</h4>
+			<div class="formholder">
+				<div class="randompad" id="datepick">
+				<fieldset>
+					<label name="date">Date</label>
+					<input type="text" id="datepicker" required>
+				</fieldset>
+				</div>
+			</div>
+	</form>
+			<div class="formholder">
+			<div id="futureMeetings" class="randompad">
+			<form method="GET" action="/futureMeeting" id="futureMeet">
+				<fieldset>
+					<label name="schedule">Scheduled Meetings</label>
+					<select name="futureMeets" size="4">
+					</select>
+					<input type="submit" value="View a meeting" />
+				</fieldset> 
+			</form>
+			</div>
 			
-		<label name="newUsers">Add Friends</label>
-		<input type="newUsers" placeholder="abc@mail.com, xyy@mail.com" required/>
-		<input type="submit" value="Add">
-		</fieldset>
-	</div>
-</div>
 		</div>
-	
-
-
-	<div class="col2">
-		<h4>Invitation</h4>
-		<div class="formholder">
-		<div class="randompad">
-			<fieldset>
-				<label name="email">Email</label>
-				<input type="email" placeholder="abc@mail.com, xyy@mail.com, ...."/>
-				<label name="location">Location</label>
-				<input type="location" placeholder="40 St.George St." required />
-				<label name="time">Time</label>
-				<input type="time" placeholder="5 pm" required />
-				<input type="submit" value="Send Invites" />
-			</fieldset>
-		</div>
-		</div>
-	</div>	
-
-	<div class="col3">
-		<h4>Pick A Date</h4>
-		<div class="formholder">
-		<div class="randompad" id="datepick">
-			<fieldset>
-				<label name="date">Date</label>
-				<input type="text" id="datepicker" required>
-			</fieldset>
-		</div>
-		<div id="futureMeetings" class="randompad">
-			<ul id="meetings">
-			<li>item1</li>
-			<li>item2</li>
-			<li>item3</li>
-			</ul>
-		</div>
-		</div>
-	</div>	
-
 </div>
 
 <footer>

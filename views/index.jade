@@ -11,8 +11,8 @@ html
     link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
     // Scripts
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
-    script(src="js/fb.js")
-    script(src="js/gplus.js")
+    //script(src="js/fb.js")
+    //script(src="js/gplus.js")
     script(src="js/signup.js")
   body
     nav
@@ -60,27 +60,28 @@ html
           .arrow-up
           .formholder
             .randompad
+              p #{regMsg}
               form(method="POST", action="/register")
                 fieldset
                   label(name="name") Name
-                  input(type="text", name="name", placeholder="Ben Smith", required="")
+                  input(id="userField" , type="text", name="name", placeholder="Ben Smith", title="Username contains only letters, numbers, underscores. They must contain at least 6 and at most 30 characters.", required pattern="[_0-9A-Za-z]{6,30}")
                   label(name="email") Email
                   input(type="email", name="email", placeholder="ben.smith@mail.com", required="")
                   label(name="password") Password
-                  input(type="password", name="password", placeholder="******", required="")
+                  input(id="pwd1", type="password", name="password", placeholder="******", title="Password must contain at least 6 and at most 30 characters, including UPPER/lowercase and numbers.", required pattern="[A-Za-z0-9]{6,30}")
                   label(name="password") Confirm Password
-                  input(type="password", placeholder="******", required="")
+                  input(id="pwd2", type="password", placeholder="******", title="Please enter the same Password as above.", required pattern="[A-Za-z0-9]{6,30}")
                   input(type="submit", value="Register")
       // Attribution END
-      | Sign up with an existing account:
-      .login
-        ul
-          li
-            a(href="", onclick="FB.login()")
-              img(src="../imgs/fb.png")
-          li
-            a(href="")
-              img(src="../imgs/google.png")
+      //| Sign up with an existing account:
+      //.login
+        //ul
+          //li
+            //a(href="", onclick="FB.login()")
+              //img(src="../imgs/fb.png")
+          //li
+            //a(href="")
+              //img(src="../imgs/google.png")
     footer
       ul
         li
