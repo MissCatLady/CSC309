@@ -12,7 +12,7 @@ html
     // Fonts
     link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
     // Scripts
-    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="js/jquery.min.js")
     script(src="js/chat.js")
     script(src="js/meet.js")
 
@@ -40,7 +40,7 @@ html
         header
           p#title Hide and Seek!
         if newgame
-          script(src="js/hidenseek.js")
+          script(src="js/hidenseeknew.js")
           form(id="selectplayers")
             .label
               h4 Choose your players:
@@ -119,8 +119,8 @@ html
         li
           a(href="/index" id="logout") Logout 
 
-    script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,places")
-    script(src="js/mapseek.js")
+
+    script(src="js/hidenseek.js")
     script(src="js/logout.js")
    
 

@@ -49,7 +49,7 @@ $(document).ready(function() {
    $("#places").click(function(){
 		centerPopup();
 		loadPopup();  
-		$.post("/getseeker", $('#selectplayers').serialize(), function(data){
+		$.post("/getseeker", $('#selectplayers').serializeArray(), function(data){
 			if (data[0]) {
         		$("#whoisseeker").append("You are the seeker.");
         	}
