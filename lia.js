@@ -92,6 +92,27 @@ app.get('/games', function(req,res) {
 
 
 
+//game 1: scavenger hunt in action
+app.get('/scavenger', function(req,res) {
+
+	console.log("Action /scavenger");
+
+	validate(req,pg,db, function(data) {
+        var uid = data;
+        console.log("UID "+ uid);
+        if (uid > 0) {
+		     pg.connect(db, function(err, client, done) {
+                        res.render('scavenger.jade');
+          
+				});
+
+		  });
+         }else{
+            console.log("redirected from games");
+            res.redirect('/index');
+        }
+		
+});
 
 
 //------------game2
