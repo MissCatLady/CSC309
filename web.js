@@ -13,7 +13,7 @@ app.use(cookieParser());
 
 
 //database URL server & locals
-var db = process.env.DATABASE_URL || "postgres://localhost:5432/FINDMEDB" || "postgres://cmrglpqggskkzm:0cHW2gJuje_TapEfKLBiRalp8h@ec2-54-225-101-60.compute-1.amazonaws.com:5432/dcls3gldouub19";
+var db = process.env.DATABASE_URL ||{ host: 'ec2-54-225-101-60.compute-1.amazonaws.com',user: 'cmrglpqggskkzm',password: '0cHW2gJuje_TapEfKLBiRalp8h',database: 'dcls3gldouub19',ssl: true }|| "postgres://localhost:5432/FINDMEDB" || "postgres://cmrglpqggskkzm:0cHW2gJuje_TapEfKLBiRalp8h@ec2-54-225-101-60.compute-1.amazonaws.com:5432/dcls3gldouub19";
 //{ host: 'ec2-54-225-101-60.compute-1.amazonaws.com',user: 'cmrglpqggskkzm',password: '0cHW2gJuje_TapEfKLBiRalp8h',database: 'dcls3gldouub19',ssl: true };
 //handles login cookie validations
 var validate = require('./validate.js');
