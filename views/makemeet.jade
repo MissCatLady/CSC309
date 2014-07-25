@@ -32,7 +32,7 @@ html
       #smallchat
       #location.container
         .text
-          h4 Add Friends
+          h4 Friends List
       .col-l
         #friendAdd.formholder
           .randompad
@@ -45,7 +45,7 @@ html
                   label(name="message") #{message}
                 else
                   label(name="message") Add friend
-                input(type="email", name="email", placeholder="*****@mail.com", required="")
+                input(type="email", name="email", placeholder="*****@mail.com")
                 input(type="submit", value="Add", onclick)
       .col-r
         header
@@ -73,7 +73,7 @@ html
                     input.button-accept(type="submit", value="Accept", name="submit")
                   li
                     input.button-reject(type="submit", value="Reject", name="submit")
-        h4 Friends Requests
+        h4 Friend Requests
         for friendreq in friendreqs
           .friendrequest
             .displayimg
@@ -86,7 +86,6 @@ html
                     input.button-accept(type="submit", value="Accept", name="submit")
                   li
                     input.button-reject(type="submit", value="Reject", name="submit")
-    h4 Friend Requests
     #bgPopup
     footer
       ul
@@ -99,4 +98,5 @@ html
         li
           a(href="/schedule") Schedule
         li
-          a(href="/index") 2014 Find Me
+          a(href="/index" id="logout") Logout 
+    script(src="js/logout.js")

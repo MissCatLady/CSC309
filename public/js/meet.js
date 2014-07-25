@@ -98,7 +98,7 @@ function getLocation(){
 			map.setZoom(16);
 			map.setCenter(pos);
 			$.get("/center", function(data) {
-				if (data[2] == "undefined") {
+				if (!data[2]) {
 					var marker = new google.maps.Marker({
 						map: map,
 						position: pos,

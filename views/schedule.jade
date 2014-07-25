@@ -16,11 +16,16 @@ html
     script(type="text/javascript", src="http://code.jquery.com/ui/1.10.4/jquery-ui.js")
     // Fonts
     link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
-    script(src="../js/meetingItem.js")
+
+    link(rel="stylesheet", type="text/css", href="jquery.timepicker.css")
+    script(type="text/javascript", src="jquery.timepicker.js")
+    script(src="../js/scheduleValidation.js")
   script
     $(function() {
-    $( "#datepicker" ).datepicker();
-    });
+    $( "#datepicker" ).datepicker({minDate:1});
+    $("#timeInput").timepicker({'step': 15 });
+    $('#timeInput').timepicker('option', { useSelect: true});
+    })
   body
     nav
       ul
@@ -46,7 +51,7 @@ html
                 br
                 if noFriends
                      label(name="msg") Please add friends first, to schedule a meeting
-                select(name="mydropdown", multiple="multiple", size="10")
+                select(name="mydropdown", multiple="multiple", size="10" , form="futureInvitation", required="")
                      for friend in friends
                          option(value=friend) #{friend}
       .col2
@@ -57,12 +62,12 @@ html
               label(name="location") Location
               br
               br
-              input(type="location", placeholder="40 St.George St.", required="")
+              input(id= "locInput", type="location", placeholder="40 St.George St.", name="mylocation", value=mylocation, form="futureInvitation", title="Name of location is at most 200 characters.", required pattern="[_0-9A-Za-z,#" "]{1,200}")
               .randompad
               label(name="time") Time
               br
               br
-              input(type="time", placeholder="5 pm", required="")
+              input(id="timeInput", type="text", name="mytime", value=mytime, form="futureInvitation", required="")
               br
               br
               input(type="submit", value="Send Invites", form="futureInvitation")
@@ -74,7 +79,7 @@ html
               label(name="date") Date
               br
               br
-              input#datepicker(type="text",  form="futureInvitation", required="")
+              input#datepicker(type="text",  form="futureInvitation",  name="mydate", value=mydate, required="")
         .formholder
           #futureMeetings.randompad
             form(method="GET", action="/futureMeeting" , id="futureMeet")
@@ -82,7 +87,7 @@ html
                 label(name="schedule") Scheduled Meetings, select an item to view
                 br
                 br
-                select(name="futureMeets", size="4", id="meetingOptions")
+                select(name="futureMeets", size="4", id="meetingOptions", required="")
                       for schedule in schedules
                          option(value=schedule) #{schedule}
                 input(type="submit", value="View a meeting" , form="futureMeet")
@@ -98,4 +103,5 @@ html
           li
             a(href="schedule") Schedule
           li
-            a(href="index") Logout 
+            a(href="/index" id="logout") Logout 
+      script(src="js/logout.js")

@@ -16,11 +16,16 @@ html
     script(type="text/javascript", src="http://code.jquery.com/ui/1.10.4/jquery-ui.js")
     // Fonts
     link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
+    link(rel="stylesheet", type="text/css", href="jquery.timepicker.css")
+    script(type="text/javascript", src="jquery.timepicker.js")
     script(src="../js/futureMeet.js")
+    script(src="../js/scheduleValidation.js")
   script
     $(function() {
-    $( "#datepicker" ).datepicker();
-    });
+    $("#datepicker" ).datepicker({minDate:1});
+    $("#timeInput").timepicker({'step': 15 });
+    $('#timeInput').timepicker('option', { useSelect: true});
+    })
   body
     nav
       ul
@@ -44,14 +49,14 @@ html
               label(name="location") Location:
               br
               br
-              input(type="location", placeholder="40 St.George St.", name="mylocation", value=mylocation, required="")
+              input(id= "locInput",type="location", placeholder="40 St.George St.", name="mylocation", value=mylocation, title="Name of location is at most 200 characters.", required pattern="[_0-9A-Za-z,#" "]{1,200}")
               br
               br
               br
               label(name="time") Time:
               br
               br
-              input(type="time", placeholder="5 pm", name="mytime", value=mytime, required="")
+              input(id="timeInput", name="mytime", value=mytime, required="")
               br
               br
               br
@@ -101,4 +106,5 @@ html
           li
             a(href="schedule") Schedule
           li
-            a(href="index") Logout 
+            a(href="/index" id="logout") Logout 
+    script(src="js/logout.js")

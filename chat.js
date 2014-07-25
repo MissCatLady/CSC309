@@ -19,7 +19,10 @@ app.get("/stream", function(req,res) {
 						res.send(false);
 					} else {
 					}
-					var eid = result.rows[0].eid
+					if (result.rows.length > 0) {
+						var eid = result.rows[0].eid
+					} 
+
 					req.socket.setTimeout(Infinity);
 				 
 					// send headers for event-stream connection
@@ -52,7 +55,7 @@ app.get("/chat", function(req,res) {
 				if (err) {
 					return console.error('Problem fetching client from pool', err);
 				} 
-				client.query("select content,username,time from messages,users where messages.uid = users.id and messages.eid in (select eid from goingto where uid =$1)",[uid], function(err,result) {
+				client.query("select content,username,time from messages,users where messages.uid = users.id and messages.eid in (select eid from goingto where uid =$1) order by time asc",[uid], function(err,result) {
 					if (err) {
 						console.log("Problem checking in",err);
 					} else {
@@ -101,5 +104,7 @@ app.post("/message", function(req,res) {
 			});
 		}
 	});
+
 });
+
 }

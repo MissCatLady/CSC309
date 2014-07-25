@@ -44,7 +44,7 @@ html
                 li
                   a(id=attendee) #{attendee} Location
               li
-                a#addfriend Add A Friend
+                a#addfriend Invite Friends to Meeting
       .col-l
         #map-canvas.map
         #friendAdd.formholder
@@ -55,7 +55,7 @@ html
                   if friends
                     for friend in friends
                       option(value=friend) #{friend}
-                label(name="newUsers") Add Friends
+                label(name="newUsers") Invite
                 input(type="newUsers", placeholder="abc@mail.com, xyy@mail.com")
                 input(type="submit", value="Add")
       .col-r
@@ -63,7 +63,7 @@ html
           #chatbox
             ul#messageList
           #messagebox
-            textarea#message Type your message here
+            textarea#message 
             input#submittext(type="submit", value="send")
   
     a(href="#smallchat")
@@ -98,7 +98,7 @@ html
                       input.button-accept(type="submit", value="Accept",name = "submit")
                     li
                       input.button-reject(type="submit", value="Reject", name = "submit")
-        a(href="/leavemeet")
+        a(href="/leavemeet" id="leavemeet")
           h4
             | Leave meeting
     #bgPopup
@@ -113,4 +113,5 @@ html
         li
           a(href="/schedule") Schedule
         li
-          a(href="/index") 2014 Find Me
+          a(href="/index" id="logout") Logout 
+    script(src="js/logout.js")

@@ -46,9 +46,14 @@ function centerPopup(){
 $(document).ready(function() {
    $('places').focus();
    $("#bgPopup").data("state",0);
-   $("#places").click(function(){
-		centerPopup();
-		loadPopup();  
+   $("#places").click(function(){ 
+   		centerPopup();
+		loadPopup(); 
+	});
+
+   	$("#checkingame").click(function() {
+   		centerPopup();
+		loadPopup(); 
 		$.post("/creategame", $('#selectplayers').serialize(), function(data){
 			if (data[0]) {
         		$("#whoisseeker").append("You are the seeker.");

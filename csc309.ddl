@@ -24,8 +24,7 @@ CREATE TABLE Events
 (
 ID serial NOT NULL,
 uid int NOT NULL,
-latitude double precision,
-longitude double precision,
+location varchar(30),
 PRIMARY KEY (ID),
 FOREIGN KEY (uid) REFERENCES Users(ID) ON DELETE CASCADE
 );
@@ -36,6 +35,7 @@ uid int NOT NULL,
 eid int NOT NULL,
 latitude double precision,
 longitude double precision,
+pref_loc varchar(30),
 PRIMARY KEY (uid,eid),
 FOREIGN KEY (uid) REFERENCES Users(ID) ON DELETE CASCADE,
 FOREIGN KEY (eid) REFERENCES Events(ID) ON DELETE CASCADE
@@ -58,7 +58,7 @@ from_uid int NOT NULL,
 to_uid int NOT NULL,
 PRIMARY KEY (to_uid,from_uid),
 FOREIGN KEY (from_uid) REFERENCES Users(ID) ON DELETE CASCADE,
-FOREIGN KEY (to_uid) REFERENCES Users(ID) ON DELETE CASCADE,
+FOREIGN KEY (to_uid) REFERENCES Users(ID) ON DELETE CASCADE
 );
 
 CREATE TABLE Messages
@@ -70,6 +70,16 @@ content varchar(200) NOT NULL,
 time time NOT NULL default current_time,
 PRIMARY KEY (ID),
 FOREIGN KEY (uid) REFERENCES Users(ID) ON DELETE CASCADE,
+FOREIGN KEY (eid) REFERENCES Events(ID) ON DELETE CASCADE
+);
+
+CREATE TABLE locationsuggestions
+(
+eid int NOT NULL,
+location varchar(30) NOT NULL,
+place_id varchar(30) NOT NULL,
+time time NOT NULL default current_time,
+PRIMARY KEY (eid,place_id),
 FOREIGN KEY (eid) REFERENCES Events(ID) ON DELETE CASCADE
 );
 
@@ -94,17 +104,6 @@ FOREIGN KEY (ID2) REFERENCES Users(ID) ON DELETE CASCADE,
 PRIMARY KEY (ID1,ID2)
 );
 
-CREATE TABLE Notes
-(
-ID serial NOT NULL,
-uid int NOT NULL,
-eid int NOT NULL,
-content varchar(200) NOT NULL,
-PRIMARY KEY (ID),
-FOREIGN KEY (uid) REFERENCES Users(ID) ON DELETE CASCADE,
-FOREIGN KEY (eid) REFERENCES Events(ID) ON DELETE CASCADE
-);
-
 CREATE TABLE Themes
 (
 ID serial NOT NULL,
@@ -119,7 +118,7 @@ CREATE TABLE FutureMeetings
 mid serial NOT NULL,
 moid int NOT NULL,
 location varchar(200) NOT NULL,
-time varchar(15) NOT NULL,
+time varchar(15),
 date date NOT NULL,
 PRIMARY KEY (mid),
 FOREIGN KEY (moid) REFERENCES Users(ID) ON DELETE CASCADE

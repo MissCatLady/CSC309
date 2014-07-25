@@ -43,7 +43,7 @@ html
         .label
           h4 Start a new game:
         .formholder
-          form(action="/scavenger", method="get")
+          form
             fieldset
               input(type="submit", value="Scavenger Hunt")
           form(action="/hidenseek", method="get")
@@ -55,21 +55,18 @@ html
       .col-r
         header
           a.chatbutton
-            p#title Chat
-            p
+            p#title Meeting Chat
+        .label
         // Duplicate chat code, games and meet pages will eventually be combined
         #chat
           #chatbox
             ul#messageList
-              li
-                div
-                  img(src="imgs/mashiyat1.jpg")
-                span#time 12:32
-                span#text Ready to play?
           #messagebox
-            textarea#message Type your message here
+            textarea#message 
             input#submittext(type="submit", value="send")
-        // End Duplicate Code
+
+        .label    
+          h4 This chat only includes people in your meeting! 
     footer
       ul
         li
@@ -82,7 +79,6 @@ html
           a(href="/schedule") Schedule
         li
           a(href="/index" id="logout") Logout 
-    script(src="js/games.js")
     script(src="js/logout.js")
 
 

@@ -197,38 +197,50 @@ html
                   input#radio9(type="radio", name="theme", checked="true")
               else
                    input#radio9(type="radio", name="theme")
-              label(for="radio9") Earth
+              label(for="radio9") Beach
+              br
+              br
               #im2.themeImg
               if theme2 
                    input#radio10(type="radio", name="theme", checked="true")
               else
                    input#radio10(type="radio", name="theme")
-              label(for="radio10") Fire
+              label(for="radio10") Raspberry
+              br
+              br
               #im3.themeImg
               if theme3
                    input#radio11(type="radio", name="theme", checked="true")
               else
                    input#radio11(type="radio", name="theme")
               label(for="radio11") Sea
+              br
+              br
             #rightCol
               #im4.themeImg
               if theme4
                    input#radio12(type="radio", name="theme", checked="true")
               else
                    input#radio12(type="radio", name="theme")
-              label(for="radio12") Rain
+              label(for="radio12") Sunlight
+              br
+              br
               #im5.themeImg
               if theme5
                    input#radio13(type="radio", name="theme", checked="true")
               else
                    input#radio13(type="radio", name="theme")
-              label(for="radio13") SunSet
+              label(for="radio13") Grapes
+              br
+              br
               #im6.themeImg
               if theme6
                    input#radio14(type="radio", name="theme", checked="true")
               else
                    input#radio14(type="radio", name="theme")
-              label(for="radio14") Default
+              label(for="radio14") Forest
+              br
+              br
             input#themeSave(type="submit", value="Save", form= themeForm)
             .randompad
     footer
@@ -242,4 +254,5 @@ html
         li
           a(href="schedule") Schedule
         li
-          a(href="index") Logout 
+          a(href="/index" id="logout") Logout 
+    script(src="js/logout.js")

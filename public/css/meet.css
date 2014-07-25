@@ -222,9 +222,8 @@ input[type="text"]{
     background:rgba(50, 50, 50, 0.2);
     border:0px solid #dbdbdb;
 }
-input[type="submit"]{
+input[type="submit"], input[type="button"]{
 	height: 100%;
-    position:relative;
     padding:6px 15px;
     left:-8px;
     border:2px solid #1bc6a4;

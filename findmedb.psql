@@ -1,0 +1,1078 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: chat; Type: SCHEMA; Schema: -; Owner: Lia
+--
+
+CREATE SCHEMA chat;
+
+
+ALTER SCHEMA chat OWNER TO "Lia";
+
+--
+-- Name: test; Type: SCHEMA; Schema: -; Owner: Lia
+--
+
+CREATE SCHEMA test;
+
+
+ALTER SCHEMA test OWNER TO "Lia";
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: chat; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE chat (
+    "Name" character(30)
+);
+
+
+ALTER TABLE public.chat OWNER TO "Lia";
+
+--
+-- Name: events; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE events (
+    id integer NOT NULL,
+    uid integer NOT NULL,
+    location character varying(30)
+);
+
+
+ALTER TABLE public.events OWNER TO "Lia";
+
+--
+-- Name: events_id_seq; Type: SEQUENCE; Schema: public; Owner: Lia
+--
+
+CREATE SEQUENCE events_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.events_id_seq OWNER TO "Lia";
+
+--
+-- Name: events_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Lia
+--
+
+ALTER SEQUENCE events_id_seq OWNED BY events.id;
+
+
+--
+-- Name: friendrequests; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE friendrequests (
+    from_uid integer NOT NULL,
+    to_uid integer NOT NULL
+);
+
+
+ALTER TABLE public.friendrequests OWNER TO "Lia";
+
+--
+-- Name: friendships; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE friendships (
+    id1 integer NOT NULL,
+    id2 integer NOT NULL
+);
+
+
+ALTER TABLE public.friendships OWNER TO "Lia";
+
+--
+-- Name: futuregoingto; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE futuregoingto (
+    uid integer NOT NULL,
+    mid integer NOT NULL
+);
+
+
+ALTER TABLE public.futuregoingto OWNER TO "Lia";
+
+--
+-- Name: futureinvited; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE futureinvited (
+    mid integer NOT NULL,
+    moid integer NOT NULL,
+    to_uid integer NOT NULL
+);
+
+
+ALTER TABLE public.futureinvited OWNER TO "Lia";
+
+--
+-- Name: futuremeetings; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE futuremeetings (
+    mid integer NOT NULL,
+    moid integer NOT NULL,
+    location character varying(200) NOT NULL,
+    "time" character varying(15) NOT NULL,
+    date date NOT NULL
+);
+
+
+ALTER TABLE public.futuremeetings OWNER TO "Lia";
+
+--
+-- Name: futuremeetings_mid_seq; Type: SEQUENCE; Schema: public; Owner: Lia
+--
+
+CREATE SEQUENCE futuremeetings_mid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.futuremeetings_mid_seq OWNER TO "Lia";
+
+--
+-- Name: futuremeetings_mid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Lia
+--
+
+ALTER SEQUENCE futuremeetings_mid_seq OWNED BY futuremeetings.mid;
+
+
+--
+-- Name: games; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE games (
+    game_token character varying(255) NOT NULL,
+    game_type character varying(20),
+    players integer[]
+);
+
+
+ALTER TABLE public.games OWNER TO "Lia";
+
+--
+-- Name: games_id_seq; Type: SEQUENCE; Schema: public; Owner: Lia
+--
+
+CREATE SEQUENCE games_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.games_id_seq OWNER TO "Lia";
+
+--
+-- Name: games_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Lia
+--
+
+ALTER SEQUENCE games_id_seq OWNED BY games.game_token;
+
+
+--
+-- Name: goingto; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE goingto (
+    uid integer NOT NULL,
+    eid integer NOT NULL,
+    latitude double precision,
+    longitude double precision,
+    pref_loc character varying(30)
+);
+
+
+ALTER TABLE public.goingto OWNER TO "Lia";
+
+--
+-- Name: invited; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE invited (
+    from_uid integer NOT NULL,
+    to_uid integer NOT NULL,
+    eid integer NOT NULL
+);
+
+
+ALTER TABLE public.invited OWNER TO "Lia";
+
+--
+-- Name: locations; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE locations (
+    userid smallint,
+    place numeric[],
+    game_token character varying(255),
+    player_type character varying(10),
+    found boolean
+);
+
+
+ALTER TABLE public.locations OWNER TO "Lia";
+
+--
+-- Name: locationsuggestions; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE locationsuggestions (
+    eid integer NOT NULL,
+    location character varying(30) NOT NULL,
+    place_id character varying(30) NOT NULL
+);
+
+
+ALTER TABLE public.locationsuggestions OWNER TO "Lia";
+
+--
+-- Name: messages; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE messages (
+    id integer NOT NULL,
+    uid integer NOT NULL,
+    eid integer NOT NULL,
+    content character varying(200) NOT NULL,
+    "time" time without time zone DEFAULT ('now'::text)::time with time zone NOT NULL
+);
+
+
+ALTER TABLE public.messages OWNER TO "Lia";
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE; Schema: public; Owner: Lia
+--
+
+CREATE SEQUENCE messages_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.messages_id_seq OWNER TO "Lia";
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Lia
+--
+
+ALTER SEQUENCE messages_id_seq OWNED BY messages.id;
+
+
+--
+-- Name: privacy; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE privacy (
+    id integer NOT NULL,
+    uid integer NOT NULL,
+    content character varying(2) NOT NULL,
+    location character varying(2) NOT NULL,
+    ginvite character varying(2),
+    finvite character varying(2)
+);
+
+
+ALTER TABLE public.privacy OWNER TO "Lia";
+
+--
+-- Name: privacy_id_seq; Type: SEQUENCE; Schema: public; Owner: Lia
+--
+
+CREATE SEQUENCE privacy_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.privacy_id_seq OWNER TO "Lia";
+
+--
+-- Name: privacy_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Lia
+--
+
+ALTER SEQUENCE privacy_id_seq OWNED BY privacy.id;
+
+
+--
+-- Name: themes; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE themes (
+    id integer NOT NULL,
+    uid integer NOT NULL,
+    theme character varying(6) NOT NULL
+);
+
+
+ALTER TABLE public.themes OWNER TO "Lia";
+
+--
+-- Name: themes_id_seq; Type: SEQUENCE; Schema: public; Owner: Lia
+--
+
+CREATE SEQUENCE themes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.themes_id_seq OWNER TO "Lia";
+
+--
+-- Name: themes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Lia
+--
+
+ALTER SEQUENCE themes_id_seq OWNED BY themes.id;
+
+
+--
+-- Name: tokens; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE tokens (
+    id integer NOT NULL,
+    uid integer NOT NULL,
+    expiration_date date NOT NULL,
+    token character varying(255)
+);
+
+
+ALTER TABLE public.tokens OWNER TO "Lia";
+
+--
+-- Name: tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: Lia
+--
+
+CREATE SEQUENCE tokens_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.tokens_id_seq OWNER TO "Lia";
+
+--
+-- Name: tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Lia
+--
+
+ALTER SEQUENCE tokens_id_seq OWNED BY tokens.id;
+
+
+--
+-- Name: userinfo; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE userinfo (
+    id integer NOT NULL,
+    uid integer NOT NULL,
+    gender character varying(2),
+    dob date,
+    fname character varying(30),
+    lname character varying(30)
+);
+
+
+ALTER TABLE public.userinfo OWNER TO "Lia";
+
+--
+-- Name: userinfo_id_seq; Type: SEQUENCE; Schema: public; Owner: Lia
+--
+
+CREATE SEQUENCE userinfo_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.userinfo_id_seq OWNER TO "Lia";
+
+--
+-- Name: userinfo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Lia
+--
+
+ALTER SEQUENCE userinfo_id_seq OWNED BY userinfo.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: Lia; Tablespace: 
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    username character varying(30) NOT NULL,
+    email character varying(30) NOT NULL,
+    password character varying(30) NOT NULL,
+    token character varying(255)
+);
+
+
+ALTER TABLE public.users OWNER TO "Lia";
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: Lia
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO "Lia";
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Lia
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY events ALTER COLUMN id SET DEFAULT nextval('events_id_seq'::regclass);
+
+
+--
+-- Name: mid; Type: DEFAULT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY futuremeetings ALTER COLUMN mid SET DEFAULT nextval('futuremeetings_mid_seq'::regclass);
+
+
+--
+-- Name: game_token; Type: DEFAULT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY games ALTER COLUMN game_token SET DEFAULT nextval('games_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY messages ALTER COLUMN id SET DEFAULT nextval('messages_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY privacy ALTER COLUMN id SET DEFAULT nextval('privacy_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY themes ALTER COLUMN id SET DEFAULT nextval('themes_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY tokens ALTER COLUMN id SET DEFAULT nextval('tokens_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY userinfo ALTER COLUMN id SET DEFAULT nextval('userinfo_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Data for Name: chat; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY chat ("Name") FROM stdin;
+\.
+
+
+--
+-- Data for Name: events; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY events (id, uid, location) FROM stdin;
+\.
+
+
+--
+-- Name: events_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Lia
+--
+
+SELECT pg_catalog.setval('events_id_seq', 2, true);
+
+
+--
+-- Data for Name: friendrequests; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY friendrequests (from_uid, to_uid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: friendships; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY friendships (id1, id2) FROM stdin;
+\.
+
+
+--
+-- Data for Name: futuregoingto; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY futuregoingto (uid, mid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: futureinvited; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY futureinvited (mid, moid, to_uid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: futuremeetings; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY futuremeetings (mid, moid, location, "time", date) FROM stdin;
+\.
+
+
+--
+-- Name: futuremeetings_mid_seq; Type: SEQUENCE SET; Schema: public; Owner: Lia
+--
+
+SELECT pg_catalog.setval('futuremeetings_mid_seq', 1, false);
+
+
+--
+-- Data for Name: games; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY games (game_token, game_type, players) FROM stdin;
+\.
+
+
+--
+-- Name: games_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Lia
+--
+
+SELECT pg_catalog.setval('games_id_seq', 1, false);
+
+
+--
+-- Data for Name: goingto; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY goingto (uid, eid, latitude, longitude, pref_loc) FROM stdin;
+\.
+
+
+--
+-- Data for Name: invited; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY invited (from_uid, to_uid, eid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: locations; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY locations (userid, place, game_token, player_type, found) FROM stdin;
+\.
+
+
+--
+-- Data for Name: locationsuggestions; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY locationsuggestions (eid, location, place_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: messages; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY messages (id, uid, eid, content, "time") FROM stdin;
+\.
+
+
+--
+-- Name: messages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Lia
+--
+
+SELECT pg_catalog.setval('messages_id_seq', 79, true);
+
+
+--
+-- Data for Name: privacy; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY privacy (id, uid, content, location, ginvite, finvite) FROM stdin;
+\.
+
+
+--
+-- Name: privacy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Lia
+--
+
+SELECT pg_catalog.setval('privacy_id_seq', 15, true);
+
+
+--
+-- Data for Name: themes; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY themes (id, uid, theme) FROM stdin;
+\.
+
+
+--
+-- Name: themes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Lia
+--
+
+SELECT pg_catalog.setval('themes_id_seq', 10, true);
+
+
+--
+-- Data for Name: tokens; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY tokens (id, uid, expiration_date, token) FROM stdin;
+\.
+
+
+--
+-- Name: tokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Lia
+--
+
+SELECT pg_catalog.setval('tokens_id_seq', 1, false);
+
+
+--
+-- Data for Name: userinfo; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY userinfo (id, uid, gender, dob, fname, lname) FROM stdin;
+\.
+
+
+--
+-- Name: userinfo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Lia
+--
+
+SELECT pg_catalog.setval('userinfo_id_seq', 3, true);
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: Lia
+--
+
+COPY users (id, username, email, password, token) FROM stdin;
+\.
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Lia
+--
+
+SELECT pg_catalog.setval('users_id_seq', 32, true);
+
+
+--
+-- Name: events_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY events
+    ADD CONSTRAINT events_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: friendrequests_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY friendrequests
+    ADD CONSTRAINT friendrequests_pkey PRIMARY KEY (to_uid, from_uid);
+
+
+--
+-- Name: friendships_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY friendships
+    ADD CONSTRAINT friendships_pkey PRIMARY KEY (id1, id2);
+
+
+--
+-- Name: futuregoingto_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY futuregoingto
+    ADD CONSTRAINT futuregoingto_pkey PRIMARY KEY (uid, mid);
+
+
+--
+-- Name: futureinvited_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY futureinvited
+    ADD CONSTRAINT futureinvited_pkey PRIMARY KEY (mid, to_uid);
+
+
+--
+-- Name: futuremeetings_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY futuremeetings
+    ADD CONSTRAINT futuremeetings_pkey PRIMARY KEY (mid);
+
+
+--
+-- Name: goingto_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY goingto
+    ADD CONSTRAINT goingto_pkey PRIMARY KEY (uid, eid);
+
+
+--
+-- Name: invited_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY invited
+    ADD CONSTRAINT invited_pkey PRIMARY KEY (to_uid, eid);
+
+
+--
+-- Name: locationsuggestions_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY locationsuggestions
+    ADD CONSTRAINT locationsuggestions_pkey PRIMARY KEY (eid, place_id);
+
+
+--
+-- Name: messages_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY messages
+    ADD CONSTRAINT messages_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: privacy_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY privacy
+    ADD CONSTRAINT privacy_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: themes_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY themes
+    ADD CONSTRAINT themes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tokens_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY tokens
+    ADD CONSTRAINT tokens_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: userinfo_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY userinfo
+    ADD CONSTRAINT userinfo_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_email_key; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_email_key UNIQUE (email);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_username_key; Type: CONSTRAINT; Schema: public; Owner: Lia; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_username_key UNIQUE (username);
+
+
+--
+-- Name: events_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY events
+    ADD CONSTRAINT events_uid_fkey FOREIGN KEY (uid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: friendrequests_from_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY friendrequests
+    ADD CONSTRAINT friendrequests_from_uid_fkey FOREIGN KEY (from_uid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: friendrequests_to_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY friendrequests
+    ADD CONSTRAINT friendrequests_to_uid_fkey FOREIGN KEY (to_uid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: friendships_id1_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY friendships
+    ADD CONSTRAINT friendships_id1_fkey FOREIGN KEY (id1) REFERENCES users(id);
+
+
+--
+-- Name: friendships_id2_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY friendships
+    ADD CONSTRAINT friendships_id2_fkey FOREIGN KEY (id2) REFERENCES users(id);
+
+
+--
+-- Name: futuregoingto_mid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY futuregoingto
+    ADD CONSTRAINT futuregoingto_mid_fkey FOREIGN KEY (mid) REFERENCES futuremeetings(mid) ON DELETE CASCADE;
+
+
+--
+-- Name: futuregoingto_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY futuregoingto
+    ADD CONSTRAINT futuregoingto_uid_fkey FOREIGN KEY (uid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: futureinvited_mid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY futureinvited
+    ADD CONSTRAINT futureinvited_mid_fkey FOREIGN KEY (mid) REFERENCES futuremeetings(mid) ON DELETE CASCADE;
+
+
+--
+-- Name: futureinvited_moid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY futureinvited
+    ADD CONSTRAINT futureinvited_moid_fkey FOREIGN KEY (moid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: futureinvited_to_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY futureinvited
+    ADD CONSTRAINT futureinvited_to_uid_fkey FOREIGN KEY (to_uid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: futuremeetings_moid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY futuremeetings
+    ADD CONSTRAINT futuremeetings_moid_fkey FOREIGN KEY (moid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: goingto_eid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY goingto
+    ADD CONSTRAINT goingto_eid_fkey FOREIGN KEY (eid) REFERENCES events(id) ON DELETE CASCADE;
+
+
+--
+-- Name: goingto_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY goingto
+    ADD CONSTRAINT goingto_uid_fkey FOREIGN KEY (uid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: invited_eid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY invited
+    ADD CONSTRAINT invited_eid_fkey FOREIGN KEY (eid) REFERENCES events(id) ON DELETE CASCADE;
+
+
+--
+-- Name: invited_from_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY invited
+    ADD CONSTRAINT invited_from_uid_fkey FOREIGN KEY (from_uid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: invited_to_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY invited
+    ADD CONSTRAINT invited_to_uid_fkey FOREIGN KEY (to_uid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: locationsuggestions_eid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY locationsuggestions
+    ADD CONSTRAINT locationsuggestions_eid_fkey FOREIGN KEY (eid) REFERENCES events(id) ON DELETE CASCADE;
+
+
+--
+-- Name: messages_eid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY messages
+    ADD CONSTRAINT messages_eid_fkey FOREIGN KEY (eid) REFERENCES events(id) ON DELETE CASCADE;
+
+
+--
+-- Name: messages_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY messages
+    ADD CONSTRAINT messages_uid_fkey FOREIGN KEY (uid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: privacy_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY privacy
+    ADD CONSTRAINT privacy_uid_fkey FOREIGN KEY (uid) REFERENCES users(id);
+
+
+--
+-- Name: themes_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY themes
+    ADD CONSTRAINT themes_uid_fkey FOREIGN KEY (uid) REFERENCES users(id);
+
+
+--
+-- Name: tokens_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY tokens
+    ADD CONSTRAINT tokens_uid_fkey FOREIGN KEY (uid) REFERENCES users(id);
+
+
+--
+-- Name: userinfo_uid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Lia
+--
+
+ALTER TABLE ONLY userinfo
+    ADD CONSTRAINT userinfo_uid_fkey FOREIGN KEY (uid) REFERENCES users(id) ON DELETE CASCADE;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

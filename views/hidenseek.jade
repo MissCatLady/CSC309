@@ -19,8 +19,8 @@ html
     //for popup
     link(rel="stylesheet", type="text/css", href="jquery.countdown.css")
     link(rel="stylesheet", type="text/css", href="css/meet.css")
-    script(type="text/javascript", src="jquery.plugin.js")
-    script(type="text/javascript", src="jquery.countdown.js")
+    script(type="text/javascript", src="js/jquery.plugin.js")
+    script(type="text/javascript", src="js/jquery.countdown.js")
     script(src="js/popup.js")
 
   body
@@ -42,8 +42,8 @@ html
         if newgame
           script(src="js/hidenseek.js")
           form(id="selectplayers")
-            .label
-              h4 Choose your players:
+            .text
+              p Choose your players:
             .formholder
               .randompad
                 fieldset
@@ -51,7 +51,7 @@ html
                     if friends
                       each friend, i in friends
                         option(value=friend.id) #{friend.username}
-                  input#places(type="button", value="Start Game")
+                  input#checkingame(type="button", value="Start Game")
           #places-popup
             a#popupClose x
             .popup-container
@@ -91,20 +91,17 @@ html
       .col-r
         header
           a.chatbutton
-            p#title Chat
-            p
+            p#title Meeting Chat
+        .text    
+          p Note: This is the same chat from the meet page.
         // Duplicate chat code, games and meet pages will eventually be combined
         #chat
           #chatbox
             ul#messageList
-              li
-                div
-                  img(src="imgs/mashiyat1.jpg")
-                span#time 12:32
-                span#text Ready to play?
           #messagebox
-            textarea#message Type your message here
+            textarea#message 
             input#submittext(type="submit", value="send")
+
         // End Duplicate Code
     // page #2 the actual game for hide and seek
     footer
@@ -121,6 +118,5 @@ html
           a(href="/index" id="logout") Logout
 
     script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,places")
-    script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry")
     script(src="js/mapseek.js")
     script(src="js/logout.js")

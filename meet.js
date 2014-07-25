@@ -158,12 +158,20 @@ app.post("/invite", function(req,res) {
 				if (err) {
 					return console.error('Problem fetching client from pool', err);
 				}
-				for (var i in req.body.mydropdown) {
-					client.query("insert into invited(from_uid,to_uid,eid) values($1,(select id from users where username=$2),(select eid from goingto where uid=$1))",[uid,req.body.mydropdown[i]], function(err,result){
+				if (Array.isArray(req.body.mydropdown)) {
+					for (var i in req.body.mydropdown) {
+						client.query("insert into invited(from_uid,to_uid,eid) values($1,(select id from users where username=$2),(select eid from goingto where uid=$1))",[uid,req.body.mydropdown[i]], function(err,result){
+							if (err) {
+								console.log("Problem checking in",err);
+							}	
+						});
+						done();
+					}
+				} else {
+					client.query("insert into invited(from_uid,to_uid,eid) values($1,(select id from users where username=$2),(select eid from goingto where uid=$1))",[uid,req.body.mydropdown], function(err,result){
 						if (err) {
 							console.log("Problem checking in",err);
-						} else {
-						}		
+						}	
 					});
 					done();
 				}
@@ -189,7 +197,7 @@ app.post("/friendresponse", function(req,res) {
 						}
 					});
 					done();
-					client.query("delete from friendrequests where from_uid=$1 and to_uid = (select id from users where username=$2))", [uid,req.body.name], function(err,result){
+					client.query("delete from friendrequests where to_uid=$1 and from_uid = (select id from users where username=$2))", [uid,req.body.name], function(err,result){
 						if (err) {
 							console.log("Problem checking in",err);
 						}
@@ -254,7 +262,7 @@ app.post("/requestresponse", function(req,res) {
 						}
 					});
 					done();
-					client.query("delete from invited where from_uid=$1 and to_uid = (select id from users where username=$2))", [uid,req.body.name], function(err,result){
+					client.query("delete from invited where to_uid=$1 and from_uid = (select id from users where username=$2))", [uid,req.body.name], function(err,result){
 						if (err) {
 							console.log("Problem checking in",err);
 						}
@@ -370,12 +378,16 @@ app.get("/center", function(req,res) {
 				if (err) {
 					return console.error('Problem fetching client from pool', err);
 				} 
-				client.query("select avg(latitude) as lat ,avg(longitude) as lon,events.location as loc from goingto,events where goingto.eid = events.id and events.id in(select eid from goingto where uid = $1) group by events.location",[uid], function(err,result) {
+				client.query("select avg(goingto.latitude) as lat ,avg(goingto.longitude) as lon,events.location as loc from goingto,events where goingto.eid = events.id and events.id in(select eid from goingto where uid = $1) group by events.location",[uid], function(err,result) {
 					if (err) {
 						console.log("Problem checking in",err);
 					} else {
-						console.log(name);
-						res.send([result.rows[0].lat,result.rows[0].lon,result.rows[0].loc]);
+						if (result.rows.length != 0) {
+							console.log(name);
+							res.send([result.rows[0].lat,result.rows[0].lon,result.rows[0].loc]);
+						} else {
+							res.send(false);
+						}
 					}
 				});
 				done();
