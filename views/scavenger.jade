@@ -21,13 +21,14 @@ html
     nav
       ul
         li
-          a(href="meet.html") Meet
+          a(href="meet") Meet
         li
           a.chatbutton Chat
         li.current
-          a(href="games.html") Games
+          a(href="games") Games
         li
-          a(href="settings.html#ProfileSettings") Settings
+          a(href="settings") Settings
+
     #content-1.content
       #smallchat
       .col-l
@@ -45,7 +46,7 @@ html
         .game
           .text
             | Welcome to the Scavenger Hunt! The blue dot on the map is your location. Once you think you are close enough to one of the pinned locations on the maps just click on it, if you are at that location it will be popped off the map but if you are still not close enough you"ll get some extra info on the place. have fun!
-          #map-canvas.scav_map(style="border: 5px dashed rgb(27, 198, 164);margin-left:20px;")
+          #map-canvas.scav_map(style="border: 5px dashed rgb(27, 198, 164);margin-left:20px;height:493px;")
       .col-r
         header
           a.chatbutton
@@ -67,13 +68,12 @@ html
     footer
       ul
         li
-          a(href="about.html")  About
+          a(href="about")  About
         li
-          a(href="meet.html")  Meet
+          a(href="meet")  Meet
         li
-          a(href="games.html")  Games
+          a(href="games")  Games
         li
-          a(href="schedule.html") Schedule
+          a(href="schedule") Schedule
         li
-          a(href="index.html") Logout 
-    script(src="js/hidepage.js")
+          a(href="/index" id="logout") Logout
