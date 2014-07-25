@@ -1,16 +1,19 @@
-module.exports =function(app, pg, db, validate){
+module.exports =function(app, pg, db, validate, fetchTheme, assignTheme){
 	
 var bodyParser = require('body-parser');
 //allows parsing of POST information
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+var cssFile;
 
 app.get('/meet', function(req,res) {
 
 	validate(req,pg,db, function(data) {
 		var uid = data;
 		if (uid > 0) {
+			 fetchTheme(req, pg, db, uid, function(data1){
+                cssFile = assignTheme(data1);
 			pg.connect(db, function(err, client, done) {
 				if (err) {
 					return console.error('Problem fetching client from pool', err);
@@ -41,7 +44,7 @@ app.get('/meet', function(req,res) {
 									for (var i in result.rows) {
 										requests[requests.length] = result.rows[i].username;
 									}
-									res.render("makemeet.jade", {friends: friends,requests: requests, friendreqs:friendreqs});
+									res.render("makemeet.jade", {myTheme:cssFile,friends: friends,requests: requests, friendreqs:friendreqs});
 								});
 								done();
 							} else {
@@ -57,7 +60,7 @@ app.get('/meet', function(req,res) {
 										for (var i in result.rows) {
 											suggestions[suggestions.length] = result.rows[i].username;
 										}
-										res.render("meet.jade", {friends: friends, attendees: attendees, friendreqs:friendreqs, suggestions:result.rows});
+										res.render("meet.jade", {myTheme:cssFile, friends: friends, attendees: attendees, friendreqs:friendreqs, suggestions:result.rows});
 									});
 									done();								
 								});
@@ -70,6 +73,7 @@ app.get('/meet', function(req,res) {
 				});
 				done();
 			});
+});
 		} else {
 			res.redirect('/index');
 		}

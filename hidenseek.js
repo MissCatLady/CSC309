@@ -1,4 +1,4 @@
-module.exports = function(app, pg, db, validate) {
+module.exports = function(app, pg, db, validate, fetchTheme, assignTheme) {
 
 var encrypt = require("crypto");
 
@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
+var cssFile;
 
 //index page
 app.get('/', function(req,res) {
@@ -69,21 +69,24 @@ app.get('/games', function(req,res) {
 	validate(req,pg,db, function(data) {
 		var uid = data;
 		if(uid > 0){
+            fetchTheme(req, pg, db, uid, function(data1){
+                cssFile = assignTheme(data1);
 
-            pg.connect(db, function(err, client, done) {
-                if (err) {
-                    return console.error('Problem fetching client from pool', err);
-                }
-
-                client.query("select * from games where " + uid + "= any (players)", function(err,result){
-                    done();
-                    var games = [];
-
-                    for (var i in result.rows) {
-                        games[games.length] = {type:result.rows[i].game_type, token:result.rows[i].game_token};
+                pg.connect(db, function(err, client, done) {
+                    if (err) {
+                        return console.error('Problem fetching client from pool', err);
                     }
 
-                    res.render("games.jade", {games: games});
+                    client.query("select * from games where " + uid + "= any (players)", function(err,result){
+                        done();
+                        var games = [];
+
+                        for (var i in result.rows) {
+                            games[games.length] = {type:result.rows[i].game_type, token:result.rows[i].game_token};
+                        }
+
+                        res.render("games.jade", {games: games, myTheme:cssFile});
+                    });
                 });
             });
 		}else{
@@ -92,7 +95,6 @@ app.get('/games', function(req,res) {
 	});
 
 });
-
 
 
 
@@ -107,34 +109,36 @@ app.get('/hidenseek', function(req,res) {
         var uid = data;
         
         if (uid > 0) {
+             fetchTheme(req, pg, db, uid, function(data1){
+                cssFile = assignTheme(data1);
 
-            pg.connect(db, function(err, client, done) {
-                if (err) {
-                    return console.error('Problem fetching client from pool', err);
-                }
-
-               client.query("select username, id from goingto, users where uid = id and eid in (select eid from goingto where uid=$1)",[uid], function(err, result) {
-                 if(result.rows.length != 0) {
-                        var friends = [];
-
-                        for (var i in result.rows) {
-                            if (result.rows[i].id != parseInt(uid)) {
-                            friends[friends.length] = {username:result.rows[i].username, id:result.rows[i].id};
-                            }
-                        }
-
-                        res.render("hidenseek.jade", {friends: friends, newgame:true, found:"No players found."});
-
-                    } else {
-                        res.locals.message = "Not in a meeting. Start a meeting!";
-                        res.redirect("/meet")
+                pg.connect(db, function(err, client, done) {
+                    if (err) {
+                        return console.error('Problem fetching client from pool', err);
                     }
 
-               });
+                   client.query("select username, id from goingto, users where uid = id and eid in (select eid from goingto where uid=$1)",[uid], function(err, result) {
+                     if(result.rows.length != 0) {
+                            var friends = [];
 
-                done();
+                            for (var i in result.rows) {
+                                if (result.rows[i].id != parseInt(uid)) {
+                                friends[friends.length] = {username:result.rows[i].username, id:result.rows[i].id};
+                                }
+                            }
+
+                            res.render("hidenseek.jade", {friends: friends, newgame:true, found:"No players found.", myTheme:cssFile});
+
+                        } else {
+                            res.locals.message = "Not in a meeting. Start a meeting!";
+                            res.redirect("/meet")
+                        }
+
+                   });
+
+                    done();
+                });
             });
-
         }else{
             
             res.redirect('/index');
@@ -266,14 +270,16 @@ app.get("/startgame", function(req,res) {
     validate(req,pg,db, function(data) {
         var uid = data;
 
-        
+         fetchTheme(req, pg, db, uid, function(data1){
+                cssFile = assignTheme(data1);
 
-        getGameInfo(uid, req.query.token, function(data) {
-            
-			var data = data;
-			data.push("Hide & Seek");
-			console.log(data);
-            res.render("hidenseek.jade", {newgame: false, token: req.query.token, gamedata: data});
+                getGameInfo(uid, req.query.token, function(data) {
+                    
+        			var data = data;
+        			data.push("Hide & Seek");
+        			console.log(data);
+                    res.render("hidenseek.jade", {newgame: false, token: req.query.token, gamedata: data, myTheme:cssFile});
+                });
         });
     });
 

@@ -8,6 +8,8 @@ html
     // CSS Styles
     link(rel="stylesheet", type="text/css", href="css/index.css")
     link(rel="stylesheet", href="css/chat.css", media="screen", type="text/css")
+    if myTheme
+      link(id="currTheme", rel="stylesheet", type="text/css", media="screen", name="myTheme", href=myTheme)
     // Fonts
     link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
     // Scripts
@@ -43,13 +45,13 @@ html
         .label
           h4 Start a new game:
         .formholder
-          form
+          form(action="/scavenger", method="get")
             fieldset
               input(type="submit", value="Scavenger Hunt")
           form(action="/hidenseek", method="get")
             fieldset
               input(type="submit", value="Hide and Seek")
-          form
+          form(action="/manhunt", method="get")
             fieldset
               input(type="submit", value="Man Hunt", id="manhunt")
       .col-r

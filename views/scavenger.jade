@@ -1,0 +1,76 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=false")
+    link(rel="shortcut icon", href="../imgs/pin.ico")
+    title  Find Me | Setup Your Hunt!
+    // CSS Styles
+    link(rel="stylesheet", type="text/css", href="../css/index.css")
+    link(rel="stylesheet", href="../css/signup.css", media="screen", type="text/css")
+    link(rel="stylesheet", href="../css/chat.css", media="screen", type="text/css")
+    if myTheme
+      link(id="currTheme", rel="stylesheet", type="text/css", media="screen", name="myTheme", href=myTheme)
+    // Fonts
+    link(href="http://fonts.googleapis.com/css?family=Open+Sans", rel="stylesheet", type="text/css")
+    // Scripts
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script(src="../js/chat.js")
+    script(src="../js/meet.js")
+    script(src="../js/scavenger.js")
+    script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")
+  body
+    nav
+      ul
+        li
+          a(href="meet") Meet
+        li
+          a.chatbutton Chat
+        li.current
+          a(href="games") Games
+        li
+          a(href="settings") Settings
+
+    #content-1.content
+      #smallchat
+      .col-l
+        header
+          p#title Scavenger Hunt!
+        form
+          .label
+            h4
+              | Welcome to the Scavenger Hunt! We"ve pin-pointed some places near Uoft that you should definitely check out. Just Click the pins on the map for more information on these spots.
+          .formholder
+            .randompad
+              fieldset
+                br
+                input#button-submit(type="submit", value="Start Game")
+        .game
+          .text
+            | Welcome to the Scavenger Hunt! The blue dot on the map is your location. Once you think you are close enough to one of the pinned locations on the maps just click on it, if you are at that location it will be popped off the map but if you are still not close enough you"ll get some extra info on the place. have fun!
+          #map-canvas.scav_map(style="border: 5px dashed rgb(27, 198, 164);margin-left:20px;height:493px;")
+      .col-r
+        header
+          a.chatbutton
+            p#title Chat
+            p
+        // Duplicate chat code, games and meet pages will eventually be combined
+        #chat
+          #chatbox
+            ul#messageList
+          #messagebox
+            textarea#message 
+            input#submittext(type="submit", value="send")
+        // End Duplicate Code
+    footer
+      ul
+        li
+          a(href="about")  About
+        li
+          a(href="meet")  Meet
+        li
+          a(href="games")  Games
+        li
+          a(href="schedule") Schedule
+        li
+          a(href="/index" id="logout") Logout

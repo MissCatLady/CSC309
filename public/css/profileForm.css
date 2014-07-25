@@ -127,12 +127,12 @@ fieldset {
 	border-radius:15%;
 }
 #im1{
-	background-image:url(../imgs/earth.jpg);
+	background-image:url(../imgs/stone1.jpg);
 	width: 90px;
 	height: 56px
 }
 #im2{
-	background-image:url(../imgs/fire.jpg);
+	background-image:url(../imgs/raspberrry.jpg);
 	width: 90px;
 	height: 68px;
 }
@@ -142,13 +142,13 @@ fieldset {
 	height: 60px;
 }
 #im4{
-	background-image:url(../imgs/rain.jpg);
+	background-image:url(../imgs/sunlight.jpg);
 	width: 90px;
 	height: 48px;
 	margin-left:55%;
 }
 #im5{
-	background-image:url(../imgs/sunset.jpg);
+	background-image:url(../imgs/tulips.jpg);
 	width: 90px;
 	height: 58px;
 	margin-left:55%;

@@ -16,7 +16,7 @@
 
 }
 #messagebox input[type="submit"]:hover {
-  color:#32CD32;
+  color:#FFF;
 }
 
 /* future meet */
@@ -26,9 +26,9 @@ option:hover{
 }
 
 /* meet */
-input[type="button"]{
+input[type="button"],input[type="submit"]{
     border:2px solid #32CD32;
-    background-color:#32CD32;
+    background-color:#32CD32 !important;
 }
 input[type="button"]:hover  {
     color:#32CD32;

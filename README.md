@@ -48,6 +48,3 @@ Testing Hide & Seek Game:
 > End game at the bottom of the screen deletes all game data
 > Multiple games are possible per meeting and per person
 
-
-Additional Notes:
-> 
