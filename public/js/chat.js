@@ -16,7 +16,13 @@ $(document).ready(function(){
 
 function submitmsg() {
 	if (document.getElementById("message").value != "") {
-	$.post("/message", {content:document.getElementById("message").value}, function(data) {
+	var csrf = $('#csrf').val();
+	if (csrf) {
+		var action = "/message?_csrf=" + csrf;
+	} else {
+		var action = "/message";
+	}
+	$.post(action, {content:document.getElementById("message").value}, function(data) {
 		if (data) {
 			console.log(document.getElementById("message").value);
 		}

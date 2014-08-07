@@ -44,7 +44,8 @@ $(document).ready(function(){
 $(document).ready(function(){
    $("#search_button").click(function () {
       $(".current").removeClass("current");
-		$.get("/center", function(data) {
+      	var csrf = $('#csrf').val();
+		$.get("/center?_csrf=" + csrf, function(data) {
 			var pos = new google.maps.LatLng(data[0], data[1])
 		   map = new google.maps.Map(document.getElementById("map-canvas"));
 		   map.setZoom(16);
@@ -64,7 +65,8 @@ $(document).ready(function(){
 		   				position: place.geometry.location,
 							title: place.name
 		 				});
-						var content = "<div><form method='POST' action='/suggest'><input type='submit' value='suggest'>" +
+		   				var csrf = $('#csrf').val();
+						var content = "<div><form method='POST' action='/suggest?_csrf=" + csrf + "'><input type='submit' value='suggest'>" +
 											"<input type='hidden' value=" + place.name + " name = 'location_name'>" +
 											"<input type='hidden' value=" + place.place_id + " name = 'place_id'></form></div>"
     					attachEvent(marker, content);
@@ -97,7 +99,8 @@ function getLocation(){
 			map = new google.maps.Map(document.getElementById("map-canvas"));
 			map.setZoom(16);
 			map.setCenter(pos);
-			$.get("/center", function(data) {
+			var csrf = $('#csrf').val();
+			$.get("/center?_csrf=" + csrf, function(data) {
 				if (!data[2]) {
 					var marker = new google.maps.Marker({
 						map: map,
@@ -135,14 +138,16 @@ function getLocation(){
 }
 
 function sendLocation(latitude,longitude) {
-  $.post("/location", {latitude:latitude, longitude:longitude}, function(data) {
+  var csrf = $('#csrf1').val();
+  $.post("/location?_csrf=" + csrf, {latitude:latitude, longitude:longitude}, function(data) {
     if (data) {;
     }
   });
 }
  
 function attendeeLocation(name) {
-  $.get("/location", {name:name}, function(data) {
+  var csrf = $('#csrf1').val();
+  $.get("/location?_csrf=" + csrf, {name:name}, function(data) {
 		var pos = new google.maps.LatLng(data[0], data[1]);
 		map = new google.maps.Map(document.getElementById("map-canvas")); 
 		map.setZoom(16);      // This will trigger a zoom_changed on the map

@@ -12,7 +12,7 @@ module.exports = function(req, pg, db, callback){
 			callback('Problem fetching client from pool', err);
 		} 
 
-		client.query("select * from users where token='" + req.cookies.token + "'", function(err, result){
+		client.query("select * from users where token=$1",[req.cookies.token], function(err, result){
 			if(result.rows.length == 0){
 				callback(-1);
 			}else{

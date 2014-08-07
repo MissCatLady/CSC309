@@ -102,6 +102,7 @@ html
             ul#messageList
           #messagebox
             textarea#message 
+            input(type="hidden", id="csrf", value="#{csrf}")
             input#submittext(type="submit", value="send")
 
         // End Duplicate Code
@@ -109,7 +110,7 @@ html
     footer
       ul
         li
-          a(href="about")  About
+          a(href="report")  Report
         li
           a(href="meet")  Meet
         li

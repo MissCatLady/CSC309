@@ -54,7 +54,8 @@ $(document).ready(function() {
    	$("#checkingame").click(function() {
    		centerPopup();
 		loadPopup(); 
-		$.post("/creategame", $('#selectplayers').serialize(), function(data){
+		var csrf = $('#csrf').val();
+		$.post("/creategame?_csrf=" + csrf, $('#selectplayers').serialize(), function(data){
 			if (data[0]) {
         		$("#whoisseeker").append("You are the seeker.");
         	}

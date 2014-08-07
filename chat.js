@@ -1,6 +1,6 @@
 module.exports =function(app, pg, db, validate){
-	
 var bodyParser = require('body-parser');
+var sanitizer = require('sanitizer');
 //allows parsing of POST information
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -9,6 +9,7 @@ var openConnections = [];
 var openConnectionsEvents = [];
 
 app.get("/stream", function(req,res) {
+console.log("streaming");
 	validate(req,pg,db, function(data) {
 		var uid = data;
 		if (uid > 0) {
@@ -69,6 +70,8 @@ app.get("/chat", function(req,res) {
 });
 
 app.post("/message", function(req,res) {
+	var message = sanitizer.sanitize(req.body.content);
+	console.log(message);
 	validate(req,pg,db, function(data) {
 		var uid = data;
 		if (uid > 0) {
@@ -76,7 +79,7 @@ app.post("/message", function(req,res) {
 				if (err) {
 					return console.error('Problem fetching client from pool', err);
 				} 
-				client.query("insert into messages(uid,eid,content) values($1,(select eid from goingto where uid=$1),$2)",[uid,req.body.content], function(err,result) {
+				client.query("insert into messages(uid,eid,content) values($1,(select eid from goingto where uid=$1),$2)",[uid,message], function(err,result) {
 					if (err) {
 						res.send(false);
 						console.log("Problem checking in",err);
@@ -92,9 +95,9 @@ app.post("/message", function(req,res) {
 						if (result.rows.length !=0) {
 							var eid = result.rows[0].eid;
 							for (var i in openConnectionsEvents) {
-								if (eid = openConnectionsEvents[i]) {
+								if (eid == openConnectionsEvents[i]) {
 									var d = Date();
-									openConnections[i].write('data:' + JSON.stringify({content:req.body.content,time:d,username:result.rows[0].username}) + '\n' + d + '\n\n'); // Note the extra newline
+									openConnections[i].write('data:' + JSON.stringify({content:message,time:d,username:result.rows[0].username}) + '\n' + d + '\n\n'); // Note the extra newline
     							}
 							}
 						}

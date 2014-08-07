@@ -1,0 +1,36 @@
+.text .pic {
+	text-align: center;
+}
+
+.text .description {
+	width: 100%;
+	text-align: justify;
+}
+
+.description ul {
+	list-style-type: none;
+}
+
+.description ul li{
+
+	position: relative;
+
+}
+
+@media only screen and (min-width: 840px){
+[class*='col-'] {
+  float: left;
+}
+
+.text .pic {
+	width: 25%;
+	height: 300px;
+	float: left;
+}
+
+.text .description {
+	width: 62%;
+	height: 300px;
+	float: right;
+}
+}

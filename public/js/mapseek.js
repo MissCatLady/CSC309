@@ -115,7 +115,8 @@ function handleNoGeolocation(errorFlag) {
 }
 
 function sendLocation(latitude,longitude) {
-    $.post("/gamecheckin", {game2token: window.localStorage.getItem("game2token"), latitude:latitude, longitude:longitude}, function(data) {
+    var csrf = $('#csrf').val();
+    $.post("/gamecheckin?_csrf=" + csrf, {game2token: window.localStorage.getItem("game2token"), latitude:latitude, longitude:longitude}, function(data) {
         if (data) {
             window.localStorage.setItem("mycoords", [latitude, longitude]);
             window.localStorage.setItem("myid", data[1]);
@@ -181,8 +182,8 @@ function checkLocations() {
 $("#refresh").click(function() {
 
     var game2token = window.localStorage.getItem("game2token");
-
-    $.get("/checkgame",{game2token:game2token}, function(data) {
+    var csrf = $('#csrf').val();
+    $.get("/checkgame?_csrf=" + csrf,{game2token:game2token}, function(data) {
 
       if (!data) {
 
@@ -218,7 +219,8 @@ $('#quit').click(function () {
 });
 
 function endGame() {
-  $.get("/endgame",{game2token:game2token}, function(data) {
+  var csrf = $('#csrf').val();
+  $.get("/endgame?_csrf=" + csrf,{game2token:game2token}, function(data) {
     //clear game related data
     window.localStorage.removeItem("game2token");
     window.localStorage.removeItem("isseeker");

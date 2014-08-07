@@ -36,7 +36,7 @@ html
         #inprogress
           if games
             each game, i in games
-              form(action="/startgame", method="get")
+              form(action="/startgame?_csrf=#{csrf}", method="get")
                 .formholder
                   .randompad
                     fieldset
@@ -45,17 +45,13 @@ html
         .label
           h4 Start a new game:
         .formholder
-<<<<<<< HEAD
-          form(action="/scavenger", method="get")
-=======
-          form(action="/scavenger", method = "get")
->>>>>>> FETCH_HEAD
+          form(action="/scavenger?_csrf=#{csrf}", method="get")
             fieldset
               input(type="submit", value="Scavenger Hunt")
-          form(action="/hidenseek", method="get")
+          form(action="/hidenseek?_csrf=#{csrf}", method="get")
             fieldset
               input(type="submit", value="Hide and Seek")
-          form(action="/manhunt", method="get")
+          form(action="/manhunt?_csrf=#{csrf}", method="get")
             fieldset
               input(type="submit", value="Man Hunt", id="manhunt")
       .col-r
@@ -69,12 +65,15 @@ html
             ul#messageList
           #messagebox
             textarea#message 
+            input(type="hidden", id="csrf", value="#{csrf}")
             input#submittext(type="submit", value="send")
 
         .label    
           h4 This chat only includes people in your meeting! 
     footer
       ul
+        li
+          a(href="/report") Report
         li
           a(href="/about")  About
         li

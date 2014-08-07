@@ -31,19 +31,21 @@ month[11] = "December";
 
 //register on index
 app.post('/register', function(req, res){
+	
+	res.locals.csrf = encodeURIComponent(req.csrfToken());
 	pg.connect(db, function(err, client, done) {
 		if (err) {
 			 return console.error("Register: Can't fetch client from server", err);
 		}else {
 			console.log("REGISTER: Connected to DB successfully!!!");
-			var validateUserName = "select username from users where username='"+ req.body.name +"'";
-			var validateEmail = "select email from users where email='"+ req.body.email +"'";
-			client.query(validateUserName, function(err, result){
+			var validateUserName = "select username from users where username=$1";
+			var validateEmail = "select email from users where email=$2";
+			client.query(validateUserName,[req.body.name], function(err, result){
 				if (err){
 					return console.log("problem validating user name",err);
 				}else {
 					if (result.rows.length == 0){
-						client.query(validateEmail, function(err, result){
+						client.query(validateEmail,[req.body.email], function(err, result){
 							if (err){
 								return console.log("problem validating email",err);
 							}else {
@@ -52,61 +54,70 @@ app.post('/register', function(req, res){
 								}else {
 									console.log("email uniqueness voilation");
 									res.locals.regMsg = "Email already exists";
-									res.render("index.jade");
+									res.render('/index');
 								}
 							}
-						});
+						});done();
 					}else {
 						console.log("username uniqueness voilation");
 						res.locals.regMsg = "Username already exists, Please choose another username";
-						res.render("index.jade");
+						res.render('/index');
 					}
 				}
-			});
-		}done();
+			}); done();
+		}
 	});
 });
 
 function registerUser(req, res, client, err){
 
-	client.query("insert into users (id, username,email,password,token) values (default,'"+req.body.name+"','"+req.body.email+"','"+req.body.password+"', null) returning id", function(err, result){
-			if(err){
-				return console.log("Register User function: insert failed", err);
-			}else{
-				console.log("REGISTER: User registered successfully");
-				if (result.rows.length != 0){
-					var uid = result.rows[0].id;
-					var privInsert = "insert into privacy (id, uid, content,location,ginvite,finvite) values(default,"+ uid+",'F','F','F','F')";
-					client.query(privInsert, function(err){
-						if(err){
-							return console.log("Register: privacy insert failed", err);}
-					});
-					var themeInsert = "insert into themes (id,uid,theme) values (default,"+uid+",'theme1')";
-					client.query (themeInsert,function(err){
-						if (err){
-							return console.log("Register: theme insert failed",err);
-						}
-					});
-					var profSettings = "insert into UserInfo (uid,gender,dob,fname,lname) values ("+uid+",null, null ,null, null)";
-					client.query (profSettings,function(err){
-						if (err){
-							return console.log("Register: insert for user info failed", err)}
-					});
+
+	var currdate = new Date();
+	//hash password with reg date salt
+	var date = currdate.toString();
+	var password = encrypt.createHash("sha1").update(req.body.password + date).digest("hex");
+
+	client.query("insert into users (id, username,email,password,token, regdate) values (default,$1,$2,$3, null, $4) returning id",[req.body.name,req.body.email,password,date], function(err, result){
+		if(err){
+			return console.log("Register User function: insert failed", err);
+		}else{
+			console.log("REGISTER: User registered successfully");
+			if (result.rows.length != 0){
+				var uid = result.rows[0].id;
+				var privInsert = "insert into privacy (id, uid, content,location,ginvite,finvite) values(default,$1,'F','F','F','F')";
+				client.query(privInsert,[uid], function(err){
+					if(err){
+						return console.log("Register: privacy insert failed", err);}
+				}); done();
+				var themeInsert = "insert into themes (id,uid,theme) values (default,$1,'theme1')";
+				client.query (themeInsert,[uid],function(err){
+					if (err){
+						return console.log("Register: theme insert failed",err);
+					}
+				}); done();
+				var profSettings = "insert into UserInfo (uid,gender,dob,fname,lname) values ($1,null, null ,null, null)";
+				client.query (profSettings,[uid],function(err){
+					if (err){
+						return console.log("Register: insert for user info failed", err)}
+				}); done();
 				var currdate = new Date();
 				var token = encrypt.createHash("sha1").update(req.body.email + currdate.toString()).digest("hex");
-				client.query("update users set token='" + token + "' where id=" + result.rows[0].id);
+				client.query("update users set token=$1 where id=$2",[token,result.rows[0].id]);
 				res.cookie('token', token);
-				}else {
-					return console.log("register failed, cant get user id", err);
-				}
+			}else {
+				return console.log("register failed, cant get user id", err);
 			}
-			res.redirect('/meet');
-		});
+		}
+		res.redirect('/meet');
+	});done();
 }
 
 // Get user specific settings page if the user exists
 app.get('/settings', function(req,res) {
-
+	
+	//prevents cross site scripting from form actions in meet
+	res.locals.csrf = encodeURIComponent(req.csrfToken());
+	
 	validate(req,pg,db, function(data) {
 		var uid = data;
 		console.log("UID", uid);
@@ -116,8 +127,8 @@ app.get('/settings', function(req,res) {
 					return console.error('Problem fetching client from pool', err);
 				}else{
 					console.log("SETTINGS: Connected to DB successfully!!!");
-					var myQuery = "select t1.email, t1.password, t4.gender, t4.dob, t4.fname, t4.lname, t2.content, t2.location,t2.finvite, t2.ginvite, t3.theme from users t1 join privacy t2 on t1.id = t2.uid join themes t3 on t1.id = t3.uid join userinfo t4 on t1.id = t4.uid where t1.id=" +uid;
-					client.query(myQuery, function(err, result){
+					var myQuery = "select t1.email, t1.password, t4.gender, t4.dob, t4.fname, t4.lname, t2.content, t2.location,t2.finvite, t2.ginvite, t3.theme from users t1 join privacy t2 on t1.id = t2.uid join themes t3 on t1.id = t3.uid join userinfo t4 on t1.id = t4.uid where t1.id=$1";
+					client.query(myQuery,[uid], function(err, result){
 						if (err) {
 							return console.log("Unable to get settings", err);
 						}
@@ -182,7 +193,7 @@ app.get('/settings', function(req,res) {
 							};
 							res.render('settings.jade', {myTheme:cssFile, fname:FN, lname:LN, email:uemail, password:upswrd, fem:fgen, mal:mgen, dayV:bday, monthV:bmonth, yearV:byear, q1F:Fq1, q1E:Eq1, q2F:Fq2, q2E:Eq2, q3F:Fq3, q3E:Eq3, q4F:Fq4, q4E:Eq4, theme1:utheme1, theme2:utheme2, theme3:utheme3,theme4:utheme4,theme5:utheme5,theme6:utheme6});
 						}
-					});
+					});done();
 				}
 				done();
 			});
@@ -203,9 +214,9 @@ app.post('/settingsProfile', function(req, res){
 					return console.error("Post Settings profile, Can't fetch client from server", err);
 				}else {
 					console.log("profile: Connected to DB successfully!!!");
-					var q1 = "select email, password from users where id=" + uid;
-					var q2 = "select * from userinfo where uid="+ uid;
-					client.query(q1, function(err, result){
+					var q1 = "select email, password from users where id=$1";
+					var q2 = "select * from userinfo where uid=$1";
+					client.query(q1,[uid], function(err, result){
 						if(err){
 							return console.log("post prof settings: q1 connection failed", err);
 						}else{
@@ -213,15 +224,15 @@ app.post('/settingsProfile', function(req, res){
 							if (result.rows.length != 0){
 								var password = req.body.password;
 								var email = req.body.email;
-								client.query("update users set email='" + email+ "' where id=" +uid);
-								client.query("update users set password='" + password+"' where id=" + uid);
+								client.query("update users set email=$2 where id=$1", [uid, email]);
+								client.query("update users set password=$2 where id=$1", [uid, password]);
 								console.log(" Users table updated successfully");
 							}else {
 								console.log("post profile setting, q1 result was zero rows", err);
 							}
 						}
-					});
-					client.query(q2, function(err, result){
+					});done();
+					client.query(q2,[uid],function(err, result){
 						if(err){
 							return console.log("post prof settings: q2 connection failed", err);
 						}else {
@@ -233,17 +244,18 @@ app.post('/settingsProfile', function(req, res){
 								var month = req.body.month;
 								var year = req.body.Year;
 								var gen = req.body.sex;
+								var myDob = year+"-" +month+"-"+ day;
 								console.log("gen", gen);
 								if (gen != ""){
 									if ( gen == "male")
 										{gen = 'M';}
 									else
 										{gen = "F"}
-								client.query("update userinfo set gender='" +gen+ "' where uid=" + uid);
+								client.query("update userinfo set gender=$2 where uid=$1",[uid, gen]);
 								}
-								client.query("update userinfo set fname='" + fname + "' where uid=" +uid);
-								client.query("update userinfo set lname='" + lname+ "' where uid=" +uid);
-								client.query("update userinfo set dob='" +year+"-" +month+"-"+ day+"' where uid=" + uid);
+								client.query("update userinfo set fname=$2 where uid=$1" ,[uid, fname]);
+								client.query("update userinfo set lname=$2 where uid=$1", [uid, lname]);
+								client.query("update userinfo set dob=$2 where uid=$1",[uid,myDob]);
 								//console.log(typeof day,"day", day);
 								//console.log (day instanceof String); console.log (month instanceof String);
 								console.log(" additional User info updated successfully");
@@ -251,8 +263,9 @@ app.post('/settingsProfile', function(req, res){
 								console.log("post profile setting, q2 result was zero rows", err);
 							}
 						}
-					});res.redirect('/settings');
-				}done();
+					});done();
+					res.redirect('/settings');
+				}
 			});
 		}else{
 			res.redirect('/index');
@@ -272,7 +285,7 @@ app.post('/settingsPrivacy', function(req, res){
 					return console.error("Can't fetch client from server", err);
 				}else {
 					console.log("Privacy: Connected to DB successfully!!!");
-					client.query("select * from privacy where uid="+ uid, function(err, result){
+					client.query("select * from privacy where uid=$1",[uid], function(err, result){
 						if(err){
 							return console.log("privacy, fetching failed",err);
 						}else{
@@ -290,28 +303,28 @@ app.post('/settingsPrivacy', function(req, res){
 										ans1 = 'F'; 
 									else
 										ans1 = "E"
-									client.query("update privacy set content='" + ans1 + "' where uid=" +uid);
+									client.query("update privacy set content=$2 where uid=$1",[uid, ans1]);
 								}
 								if (q2 != ""){
 									if (q2 == "F")
 										ans2 = 'F';
 									else
 										ans2 = "E"
-									client.query("update privacy set location='" + ans2 + "' where uid=" +uid);
+									client.query("update privacy set location=$2 where uid=$1",[uid, ans2]);
 								}
 								if (q3 != ""){
 									if (q3 == "F")
 										ans3 = 'F';
 									else
 										ans3 = "E"
-									client.query("update privacy set finvite='" + ans3 +"' where uid=" + uid);
+									client.query("update privacy set finvite=$2 where uid=$1", [uid,ans3]);
 								}
 								if (q4 != ""){
 									if (q4 == "F")
 										ans4 = 'F';
 									else
 										ans4 = "E"
-									client.query("update privacy set ginvite='" + ans4+"' where uid=" + uid);
+									client.query("update privacy set ginvite=$2 where uid=$1",[uid,ans4]);
 								}
 								console.log(" User privacy updated successfully "+ ans1+ " "+  ans2+ " "+ ans3+ " "+ans4);
 								res.redirect('/settings');
@@ -319,8 +332,8 @@ app.post('/settingsPrivacy', function(req, res){
 								return console.log("privacy resulting rows were empty",err);
 							}
 						}
-					});
-				}done();
+					});done();
+				}
 			});
 		}else{
 			res.redirect('/index');
@@ -341,24 +354,24 @@ app.post('/settingsThemes', function(req, res){
 					return console.error("Themes: Can't fetch client from server", err);
 				}else {
 					console.log("themes: Connected to DB successfully!!!");
-					client.query("select theme from themes where uid="+ uid, function(err, result){
+					client.query("select theme from themes where uid=$1",[uid], function(err, result){
 						if(err){
 							return console.log("themes, fetching failed",err);
 						}else{
 							console.log(" User theme fetched from server successfully");
 							if (result.rows.length != 0){
-								var theme = req.body.themeSelected;
-								console.log(theme, "selectedtheme");
+								var theme = req.body.theme;
+								console.log(req.body);
 								if (theme != ""){
-									client.query("update themes set theme='" + theme + "' where uid=" +uid);
+									client.query("update themes set theme=$2 where uid=$1",[uid, theme]);
 									console.log(" User theme updated successfully");
 								}res.redirect('/settings');
 							}else {
 								console.log("themes, resulting rows were zzero",err);
 							}
 						}
-					});
-				}done();
+					});done();
+				}
 			});
 		}else{
 			res.redirect('/index');

@@ -22,6 +22,12 @@
   "jade": "*",
   "body-parser": "*",
   "cookie-parser": "*",
-  "mongodb": "*"
+  "mongodb": "*",
+  "recaptcha": "*",
+  "sanitizer": "*",
+  "nodetime": "*",
+  "express-session": "*",
+  "csurf": "*",
+  "newrelic": "*"
   }
 }

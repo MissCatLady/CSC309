@@ -124,71 +124,15 @@ $(document).ready(function(){
 	});
 });
 // themes
-$(document).ready(function(){
-	$("#radio9").click(function(){
-		console.log("theme1");
-		var t = document.getElementById("selectTheme");
-		t.value = "theme1";
-		var theme = document.getElementById("tempThemeDisplay");
-		theme.href = "../css/theme1.css";
-		window.localStorage.themeDisplay = "../css/theme1.css";
-	});
-});
 
 $(document).ready(function(){
-	$("#radio10").click(function(){
-		console.log("theme2");
+	$(".theme").click(function(){
+		console.log($(this).id);
 		var t = document.getElementById("selectTheme");
-		t.value = "theme2";
+		t.value = $(this).id;
 		var theme = document.getElementById("tempThemeDisplay");
-		theme.href = "../css/theme2.css";
-		window.localStorage.themeDisplay = "../css/theme2.css";
-	});
-});
-
-$(document).ready(function(){
-	$("#radio11").click(function(){
-		console.log("theme3");
-		var t = document.getElementById("selectTheme");
-		t.value = "theme3";
-		var theme = document.getElementById("tempThemeDisplay");
-		theme.href = "../css/theme3.css";
-		window.localStorage.themeDisplay = "../css/theme3.css";
-	});
-});
-
-$(document).ready(function(){
-	$("#radio12").click(function(){
-		console.log("theme4");
-		var t = document.getElementById("selectTheme");
-		t.value = "theme4";
-		var theme = document.getElementById("tempThemeDisplay");
-		theme.href = "../css/theme4.css";
-		window.localStorage.themeDisplay = "../css/theme4.css";
-	});
-});
-$(document).ready(function(){
-	$("#radio13").click(function(){
-		console.log("theme5");
-		var t = document.getElementById("selectTheme");
-		t.value = "theme5";
-		
-		var theme = document.getElementById("tempThemeDisplay");
-		theme.href = "../css/theme5.css";
-		window.localStorage.themeDisplay = "../css/theme5.css";
-		
-	});
-});
-
-$(document).ready(function(){
-	$("#radio14").click(function(){
-		console.log("theme6");
-		var t = document.getElementById("selectTheme");
-		t.value = "theme6";
-		
-		var theme = document.getElementById("tempThemeDisplay");
-		theme.href = "../css/theme6.css";
-		window.localStorage.themeDisplay = "../css/theme6.css";
+		theme.href = "../css/"+$(this).id+".css";
+		window.localStorage.themeDisplay = "../css/"+$(this).id+".css";
 	});
 });
 
@@ -209,21 +153,6 @@ range=function(n,t,r){
 arguments.length<=1&&(t=n||0,n=0),r=arguments[2]||1;
 for(var e=Math.max(Math.ceil((t-n)/r),0),u=0,i=new Array(e);e>u;)i[u++]=n,n+=r;return i}
 
-
-
-/*$(document).ready(function(){
-	$("#profileSave").click(profileSave);
-	$("#privacySave").click(privacySave);
-	document.getElementById("radio9").addEventListener('click',function() {
-	console.log("fdf");
-
-	
-	});
-});*/
-profileSave=function(){
-var fn = document.getElementById("FN");
-console.log(fn.value);
-	window.localStorage.setItem('Fname', fn.value);}
 /*
 	var month = document.getElementById("myMonth")
 	month.value = "May";

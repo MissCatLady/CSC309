@@ -24,7 +24,8 @@ app.get('/schedule', function(req,res) {
 });
 
 function renderSchedule(pg, db, req, res, uid){
-
+	
+	res.locals.csrf = encodeURIComponent(req.csrfToken());
 	pg.connect(db, function(err, client, done) {
 		if (err){
 			return console.error('render Schedule: Problem fetching client from pool', err);
@@ -43,7 +44,7 @@ function renderSchedule(pg, db, req, res, uid){
 						} // got friend list now fetch future meet items three queries
 						
 						// query 1 meeting created by the user uid
-						client.query("select mid, date, time from FutureMeetings where moid=" + uid, function(err, result){
+						client.query("select mid, date, time from FutureMeetings where moid=$1",[uid], function(err, result){
 							if (err){
 								return console.log("render schedule: problem getting future meetings q1", err);
 							}else {// going to get meet items query 1
@@ -56,7 +57,7 @@ function renderSchedule(pg, db, req, res, uid){
 										scheduledMeetings[scheduledMeetings.length] = title;
 									}
 								}//query 2 meets he has been invited to but not accepted
-							client.query("select t1.mid, t1.date, t1.time from futuremeetings t1 join futureinvited t2 on t1.mid = t2.mid and t2.to_uid ="+ uid, function(err, result){
+							client.query("select t1.mid, t1.date, t1.time from futuremeetings t1 join futureinvited t2 on t1.mid = t2.mid and t2.to_uid =$1",[uid], function(err, result){
 							if (err){return console.log("render schedule: problem getting future meetings q2", err);
 							} else { // going to get invited to meetings
 								console.log("render schedule: query 2 was a success");
@@ -68,7 +69,7 @@ function renderSchedule(pg, db, req, res, uid){
 										scheduledMeetings[scheduledMeetings.length] = title;
 									}
 								}// query 3 meetings he has accepted, i.e goingto
-							client.query("select mid, date, time from futuremeetings where mid in(select mid from FutureGoingTo where uid=" +uid +")", function(err, result){
+							client.query("select mid, date, time from futuremeetings where mid in(select mid from FutureGoingTo where uid=$1)",[uid], function(err, result){
 							if (err){return console.log("render schedule: problem getting future meetings q3", err);}
 							else{
 								console.log("render schedule: query 3 was a success");
@@ -81,14 +82,14 @@ function renderSchedule(pg, db, req, res, uid){
 									}
 								}console.log("going to render");
 								res.render('schedule.jade', {myTheme:cssFile, friends:friends, schedules:scheduledMeetings});
-							}});	
-						}});
+							}});done();	
+						}});done();
 					}});
 						
 					}else {console.log("query successful but this person has no friends:( sad"); // render empty schedule page
 						res.render('schedule.jade', {noFriends:true,myTheme:cssFile, friends:friends, schedules:scheduledMeetings});
 					}
-				}});
+				}});done();
 		}done() 
 		});
 }									
@@ -110,6 +111,8 @@ app.post('/sendInvitation', function (req, res){
 						var date = req.body.mydate;
 						date = date.split("/")[2]+ "-" + date.split("/")[0]+ "-" + date.split("/")[1];
 						createFutureMeeting(client, err, uid, req.body.mylocation, req.body.mytime, date, req.body.mydropdown, res) ;
+						done();
+						done();
 					}
 				}
 			done();
@@ -121,8 +124,8 @@ app.post('/sendInvitation', function (req, res){
 });
 
 function createFutureMeeting(client, err, moid, location, time, date, friendlist, res){
-	var insertQ = "insert into futuremeetings(mid, moid, location, time, date) values (default,"+moid+",'"+location+"','"+time+"', '"+date+"') returning mid";
-	client.query (insertQ,function(err, result){
+	var insertQ = "insert into futuremeetings(mid, moid, location, time, date) values (default,$1, $2, $3, $4) returning mid";
+	client.query (insertQ,[moid, location,time,date],function(err, result){
 		if (err){
 			return console.log("new future meet insert failed",err);
 		}else {
@@ -138,7 +141,7 @@ function createFutureMeeting(client, err, moid, location, time, date, friendlist
 				} else {
 					var username = friendlist;
 					console.log("friend", username);
-					sendInvite(client, err, username, mid, moid)
+					sendInvite(client, err, username, mid, moid);
 				}
 				res.redirect('/schedule');
 			}
@@ -148,14 +151,14 @@ function createFutureMeeting(client, err, moid, location, time, date, friendlist
 
 
 function sendInvite(client, err, username, mid, moid){
-	client.query("select id from users where username ='"+ username+"'", function(err,result){
+	client.query("select id from users where username =$1",[username], function(err,result){
 		if (err){ return console.log("client connection failed in send invite function",err)}
 		else{
 			if (result.rows.length != 0){
 				var uid = result.rows[0].id;
 				console.log("username has id ", result.rows[0].id);
-				var insertQ = "insert into futureinvited(mid, moid, to_uid) values ("+mid+","+moid+","+uid+")";
-				client.query (insertQ,function(err){
+				var insertQ = "insert into futureinvited(mid, moid, to_uid) values ($1,$2,$3)";
+				client.query (insertQ,[mid, moid,uid],function(err){
 						if (err){
 							return console.log("send invite insert failed",err);
 						}
@@ -167,7 +170,7 @@ function sendInvite(client, err, username, mid, moid){
 
 /* FUTUURE MEET ITEM */
 app.get('/futureMeeting', function (req, res){
-
+	res.locals.csrf = encodeURIComponent(req.csrfToken());
 	validate(req,pg,db, function(data) {
 		var uid = data;
 		if(uid > 0){
@@ -185,7 +188,7 @@ app.get('/futureMeeting', function (req, res){
 						var finvited = []; var fgoingTo = [];
 						var myMid = parseInt(mid);
 						// query 1 
-						client.query("select * from futuremeetings where mid="+myMid, function(err, result){
+						client.query("select * from futuremeetings where mid=$1",[myMid], function(err, result){
 							if (err) {return console.log("future meetings:query failed", err);}
 							else{ console.log("future meetings:query successful",result.rows.length );
 								if (result.rows.length !=0){
@@ -199,7 +202,7 @@ app.get('/futureMeeting', function (req, res){
 									var newD = m +"-"+d.getDate() + "-"+ d.getFullYear();
 									console.log(newD);
 								}// query 2 to get  who is invited yet not has accepted
-								client.query("select username from users where id in(select to_uid from futureinvited where mid=" +myMid+")", function(err, result){
+								client.query("select username from users where id in(select to_uid from futureinvited where mid=$1)",[myMid], function(err, result){
 										if (err){ return console.log("future meet: problem getting future meetings", err);}
 										else {console.log("future meet: query was a success for invited ppl");
 												if (result.rows.length != 0){
@@ -208,7 +211,7 @@ app.get('/futureMeeting', function (req, res){
 													}
 												}
 								// query 3 to get ppl who are going to the meeting
-								client.query("select username from users where id in (select uid from futuregoingTo where mid="+ myMid+ ")",function(err, result){
+								client.query("select username from users where id in (select uid from futuregoingTo where mid=$1)", [ myMid],function(err, result){
 										if (err){return console.log("future meet: query 3 failed",err)}
 										else{console.log("future meet: query was a success for going t ppl");
 											if(result.rows.length !=0){
@@ -216,9 +219,9 @@ app.get('/futureMeeting', function (req, res){
 													fgoingTo[fgoingTo.length] = result.rows[i].username;
 												}
 											}decideFutureMeetLook(cssFile,loc,newD,t,finvited,fgoingTo, myMid, uid, res);// --> renders the page	
-										}});
-								}});
-							}});
+										}});done();
+								}});done();
+							}});done();
 					}done()
 					
 					});
@@ -230,13 +233,14 @@ app.get('/futureMeeting', function (req, res){
 
 function decideFutureMeetLook(cssFile,location, date, time, finvited,fgoingTo, mid, uid, res){
 
+	
 	pg.connect(db, function(err, client, done) {
 		if (err){return console.log("connection failed",err)}
 		else{
 			console.log("connection success");
 			// 3 queries to find the look 
 			// q1 to decide if the user is the creator of the meeting
-			client.query("select mid, moid from futuremeetings where moid="+uid + "and mid =" +mid, function(err, result){
+			client.query("select mid, moid from futuremeetings where moid=$1 and mid =$2",[uid,mid], function(err, result){
 				if (err) {return console.log("query failed", err)}
 				else{
 					console.log("query succes");
@@ -246,7 +250,7 @@ function decideFutureMeetLook(cssFile,location, date, time, finvited,fgoingTo, m
 					}else{ // find if user has accepted the invite or not since he is not the owner of this meeting
 						console.log("user was invited/going to this meeting");
 						// q2 to see if he is going to this meeting,
-						client.query("select uid from futuregoingTo where mid="+mid +" and uid ="+uid, function(err, result){
+						client.query("select uid from futuregoingTo where mid=$1 and uid =$2", [mid,uid], function(err, result){
 							if (err) {return console.log("query failed", err)}
 							else{ console.log("query succes");
 								if (result.rows.length != 0 ){
@@ -255,10 +259,10 @@ function decideFutureMeetLook(cssFile,location, date, time, finvited,fgoingTo, m
 								} else { //user is invited but has not accepted
 									res.render('futureMeetItem.jade', {myTheme:cssFile,mylocation:location, mytime:time, mydate:date, notOwner:true, notAC:true, invitedlist:finvited, attendees:fgoingTo, myID:mid});
 								}
-						}});
+						}});done();
 					}
 				}
-			});
+			});done();
 		}done();
 	});
 }
@@ -277,11 +281,14 @@ app.post('/meetItemActions', function (req, res){
 					else {
 						if (action == "update"){
 							update(client, req);
+							res.redirect('back')
 						}else if (action == "accept"){
 							accept(client, req, err, uid);
+							res.redirect('back')
 						}else if (action == "reject"){
 							reject(client, req, err, uid);
-						}res.redirect('back')//?futureMeets='+req.body.futureMeets); //futureMeeting?futureMeets=1%3A+Tue+Dec+09+2014+%4010+pm
+							res.redirect('/schedule')
+						}//?futureMeets='+req.body.futureMeets); //futureMeeting?futureMeets=1%3A+Tue+Dec+09+2014+%4010+pm
 					}
 				done();
 				});
@@ -298,26 +305,27 @@ function update(client, req){
 	if (date.indexOf("-") > -1){ date = date.split("-")[2]+ "-" + date.split("-")[0]+ "-" + date.split("-")[1]
 	}else {
 	date = date.split("/")[2]+ "-" + date.split("/")[0]+ "-" + date.split("/")[1]; }
-	client.query("update futuremeetings set location='"+ loc + "' where mid ="+mid);
-	client.query("update futuremeetings set time='" +time + "' where mid ="+mid);
-	client.query("update futuremeetings set date='" +date+ "' where mid ="+mid);
+	client.query("update futuremeetings set location=$1 where mid =$2",[loc,mid]);
+	client.query("update futuremeetings set time=$1 where mid =$2",[time, mid]);
+	client.query("update futuremeetings set date=$1 where mid =$2",[date,mid]);
 }
 
 function reject(client, req, err, uid){
 	
 	var mid = req.body.myID;
-	delRecord(client, err, "delete from futureinvited where mid="+ mid + "and to_uid ="+ uid);
+	delRecord(client, err, "delete from futureinvited where mid=$1 and to_uid =$2", mid, uid);
+	console.log("rejection");
 	
 }
 
 function accept(client, req, err, uid){
 
 	var mid = req.body.myID;
-	delRecord(client, err, "delete from futureinvited where mid="+ mid + "and to_uid ="+ uid);
+	delRecord(client, err, "delete from futureinvited where mid=$1 and to_uid =$2", mid, uid);
 	pg.connect(db, function(err, client, done){
 		if (err) {return console.log("connection failed",err)}
 		else{
-			client.query("insert into futuregoingto (uid, mid) values("+uid+","+mid+")", function(err){
+			client.query("insert into futuregoingto (uid, mid) values($1,$2)",[uid,mid], function(err){
 				if (err){
 					return console.log("accept query failed");
 				}
@@ -326,17 +334,17 @@ function accept(client, req, err, uid){
 	});
 }
 
-function delRecord(client, err, myQuery){
+function delRecord(client, err, myQuery, mid , uid){
 	pg.connect(db, function(err, client, done){
 		if (err) {return console.log("connection failed",err)}
 		else {
-			client.query(myQuery, function(err){
+			client.query(myQuery,[mid,uid] ,function(err){
 				if (err){
-					return console.log("delete record failed");
+					return console.log("delete record failed", err);
 				}else{
 					console.log("delete was successful");
 				}
-			});
+			});done();
 		}
 	done();
 	});

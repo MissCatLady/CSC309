@@ -37,7 +37,7 @@ html
           h2
             a(href="#ProfileSettings") Profile
           #profileForm.Forms
-            form(method="POST", action="/settingsProfile", id= profForm)
+            form(method="POST", action="/settingsProfile?_csrf=#{csrf}", id= profForm)
               fieldset
                 label(name="firstName") First Name
                 br
@@ -59,7 +59,7 @@ html
                   .randompad
                   if monthV
                     select(id="myMonth", name="month", value=monthV)
-                        input(id="mValue", type="hidden", name="mnothV", value=monthV)   
+                        input(id="mValue", type="hidden", name="monthV", value=monthV)   
                   else
                     select(id="myMonth", name="month")
                   if dayV
@@ -109,7 +109,7 @@ html
           h2
             a(href="#PrivacySettings") Privacy
           #privacyForm.Forms
-            form(method="POST", action="/settingsPrivacy", id ="privForm")
+            form(method="POST", action="/settingsPrivacy?_csrf=#{csrf}", id ="privForm")
               #leftCol
                 h2 Who can see my stuff?
                 #q1
@@ -188,57 +188,57 @@ html
           h2
             a(href="#ThemesSettings") Themes
           #myThemes.Forms
-           form(method="POST", action="/settingsThemes" , id= themeForm)
+           form(method="POST", action="/settingsThemes?_csrf=#{csrf}" , id= themeForm)
             h2 Select A Theme:
             input(id="selectTheme", type="hidden", name="themeSelected", form= themeForm)
             #leftCol
               #im1.themeImg
               if theme1
-                  input#radio9(type="radio", name="theme", checked="true")
+                  input#theme1.theme(type="radio", name="theme",value = "theme1", checked="true")
               else
-                   input#radio9(type="radio", name="theme")
-              label(for="radio9") Amazonite
+                   input#theme1.theme(type="radio", name="theme",value = "theme1")
+              label(for="theme1") Amazonite
               br
               br
               #im2.themeImg
               if theme2 
-                   input#radio10(type="radio", name="theme", checked="true")
+                   input#theme2.theme(type="radio", name="theme",value = "theme2", checked="true")
               else
-                   input#radio10(type="radio", name="theme")
-              label(for="radio10") Raspberry
+                   input#theme2.theme(type="radio", name="theme",value = "theme2")
+              label(for="theme") Raspberry
               br
               br
               #im3.themeImg
               if theme3
-                   input#radio11(type="radio", name="theme", checked="true")
+                   input#theme3.theme(type="radio", name="theme",value = "theme3", checked="true")
               else
-                   input#radio11(type="radio", name="theme")
-              label(for="radio11") Sea
+                   input#theme3.theme(type="radio", name="theme",value = "theme3")
+              label(for="theme3") Sea
               br
               br
             #rightCol
               #im4.themeImg
               if theme4
-                   input#radio12(type="radio", name="theme", checked="true")
+                   input#theme4.theme(type="radio", name="theme", value = "theme4", checked="true")
               else
-                   input#radio12(type="radio", name="theme")
-              label(for="radio12") Sunlight
+                   input#theme4.theme(type="radio", name="theme", value = "theme4")
+              label(for="theme4") Sunlight
               br
               br
               #im5.themeImg
               if theme5
-                   input#radio13(type="radio", name="theme", checked="true")
+                   input#theme5.theme(type="radio", name="theme",value = "theme5", checked="true")
               else
-                   input#radio13(type="radio", name="theme")
-              label(for="radio13") Tulips
+                   input#theme5.theme(type="radio", name="theme",value = "theme5")
+              label(for="theme5") Tulips
               br
               br
               #im6.themeImg
               if theme6
-                   input#radio14(type="radio", name="theme", checked="true")
+                   input#theme6.theme(type="radio", name="theme",value = "theme6", checked="true")
               else
-                   input#radio14(type="radio", name="theme")
-              label(for="radio14") Forest
+                   input#theme6.theme(type="radio", name="theme",value = "theme6")
+              label(for="theme6") Forest
               br
               br
             input#themeSave(type="submit", value="Save", form= themeForm)
@@ -246,7 +246,7 @@ html
     footer
       ul
         li
-          a(href="about")  About
+          a(href="report")  Report
         li
           a(href="meet")  Meet
         li

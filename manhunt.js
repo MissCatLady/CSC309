@@ -4,6 +4,8 @@ var cssFile;
 app.get('/manhunt', function(req,res) {
 
 	console.log("Action /manhunt");
+    //prevents cross site scripting from manhunt page
+    res.locals.csrf = encodeURIComponent(req.csrfToken());
 
 	validate(req,pg,db, function(data) {
         var uid = data;

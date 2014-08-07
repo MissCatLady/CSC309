@@ -38,7 +38,7 @@ html
       .col-l
         #friendAdd.formholder
           .randompad
-            form(method="POST", action="/addfriend")
+            form(method="POST", action="/addfriend?_csrf=#{csrf}")
               fieldset
                 select(name="mydropdown", multiple="multiple", size=10)
                   for friend in friends
@@ -68,7 +68,7 @@ html
             .displayimg
             .requesttext
               | #{request} would like to invite you to meet!
-              form(method="POST", action="/requestresponse")
+              form(method="POST", action="/requestresponse?_csrf=#{csrf}")
                 input(type="hidden", value="#{request}", name="name")
                 ul
                   li
@@ -81,7 +81,7 @@ html
             .displayimg
             .requesttext
               | #{friendreq} would like to be your friend!
-              form(method="POST", action="/friendresponse")
+              form(method="POST", action="/friendresponse?_csrf=#{csrf}")
                 input(type="hidden", value="#{friendreq}", name="name")
                 ul
                   li
@@ -92,7 +92,7 @@ html
     footer
       ul
         li
-          a(href="/about")  About
+          a(href="/report")  Report
         li
           a(href="/meet")  Meet
         li

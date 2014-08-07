@@ -42,7 +42,7 @@ html
         p#title Scheduled Meeting
       .formholder
         .randompad
-          form.Forms(method="POST", action="/meetItemActions", id="fmeeting")
+          form.Forms(method="POST", action="/meetItemActions?_csrf=#{csrf}", id="fmeeting")
             fieldset
               input(id="buttonclicked", type="hidden",name="myMeetItem", value=myMeetItem, form="fmeeting")
               input(id="mid", type="hidden", name="myID", value=myID, form="fmeeting")
@@ -98,7 +98,7 @@ html
     footer
         ul
           li
-            a(href="about")  About
+            a(href="report")  Report
           li
             a(href="meet")  Meet
           li

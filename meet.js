@@ -1,5 +1,6 @@
+
 module.exports =function(app, pg, db, validate, fetchTheme, assignTheme){
-	
+	var fs = require("fs");
 var bodyParser = require('body-parser');
 //allows parsing of POST information
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -7,13 +8,21 @@ app.use(bodyParser.json());
 
 var cssFile;
 
+var busboy = require('connect-busboy');
+//connect busyboy, used to upload images 
+app.use(busboy()); 
+
 app.get('/meet', function(req,res) {
+
+	//prevents cross site scripting from form actions in meet
+	res.locals.csrf = encodeURIComponent(req.csrfToken());
+	console.log(res.locals.csrf);
 
 	validate(req,pg,db, function(data) {
 		var uid = data;
 		if (uid > 0) {
-			 fetchTheme(req, pg, db, uid, function(data1){
-                cssFile = assignTheme(data1);
+		fetchTheme(req, pg, db, uid, function(data1){
+			cssFile = assignTheme(data1);
 			pg.connect(db, function(err, client, done) {
 				if (err) {
 					return console.error('Problem fetching client from pool', err);
@@ -24,10 +33,10 @@ app.get('/meet', function(req,res) {
 				var friendreqs =[];
 				var suggestions =[];
 				client.query("select username from users where id in((select id2 from friendships where id1=$1" + 
-					     ") union (select id1 from friendships where id2=$1))",[uid], function(err,result) {
-							if (err) {
-										return console.error('Problem fetching client from pool', err);
-							}
+							  ") union (select id1 from friendships where id2=$1))",[uid], function(err,result) {
+					if (err) {
+						return console.error('Problem fetching client from pool', err);
+					}
 					for (var i in result.rows) {
 						friends[friends.length] = result.rows[i].username;
 					}
@@ -35,50 +44,71 @@ app.get('/meet', function(req,res) {
 						for (var i in result.rows) {
 							friendreqs[friendreqs.length] = result.rows[i].username;
 						}
-						client.query("select eid from goingto where uid=$1",[uid], function(err,result){	
-							if(result.rows.length ==0) {
-								client.query("select username from users where id in(select from_uid from invited where to_uid=$1)" ,[uid], function(err,result){
-									if (err) {
-										return console.error('Problem fetching client from pool', err);
-									}
-									for (var i in result.rows) {
-										requests[requests.length] = result.rows[i].username;
-									}
-									res.render("makemeet.jade", {myTheme:cssFile,friends: friends,requests: requests, friendreqs:friendreqs});
-								});
-								done();
-							} else {
-								var eid = result.rows[0].eid
-								client.query("select username from users where id in (select uid from goingto where uid<>$1 and eid =$2)",[uid, eid], function(err,result){
-									for (var i in result.rows) {
-										attendees[attendees.length] = result.rows[i].username;
-									}
-									client.query("select place_id,location from locationsuggestions where eid = $1", [eid], function(err,result){ 
+							client.query("select eid from goingto where uid=$1",[uid], function(err,result){	
+								if(result.rows.length ==0) {
+									client.query("select username from users where id in(select from_uid from invited where to_uid=$1)" ,[uid], function(err,result){
 										if (err) {
 											return console.error('Problem fetching client from pool', err);
 										}
 										for (var i in result.rows) {
-											suggestions[suggestions.length] = result.rows[i].username;
+											requests[requests.length] = result.rows[i].username;
 										}
-										res.render("meet.jade", {myTheme:cssFile, friends: friends, attendees: attendees, friendreqs:friendreqs, suggestions:result.rows});
+										res.render("makemeet.jade", {myTheme:cssFile,friends: friends,requests: requests, friendreqs:friendreqs});
 									});
-									done();								
-								});
-								done();
-							}
+									done();
+								} else {
+									var eid = result.rows[0].eid
+									client.query("select username from users where id in (select uid from goingto where uid<>$1 and eid =$2)",[uid, eid], function(err,result){
+										for (var i in result.rows) {
+											attendees[attendees.length] = result.rows[i].username;
+										}
+										client.query("select place_id,location from locationsuggestions where eid = $1", [eid], function(err,result){ 
+											if (err) {
+												return console.error('Problem fetching client from pool', err);
+											}
+											for (var i in result.rows) {
+												suggestions[suggestions.length] = result.rows[i].username;
+											}
+											res.render("meet.jade", {myTheme:cssFile, friends: friends, attendees: attendees, friendreqs:friendreqs, suggestions:result.rows});
+										});
+										done();								
+									});
+									done();
+								}
+							});
+							done();
 						});
 						done();
 					});
 					done();
 				});
-				done();
 			});
-});
 		} else {
 			res.redirect('/index');
 		}
 	});
-	
+});
+
+app.post('/UpImg',function(req,res){
+		validate(req,pg,db, function(data) {
+		var uid = data;
+		if (uid > 0) {
+			var fstream;
+				req.pipe(req.busboy);
+				req.busboy.on('file', function (fieldname, file, filename) {
+					console.log("Uploading: " + filename); 
+					fstream = fs.createWriteStream(__dirname + '/uploads/' + filename);
+					file.pipe(fstream);
+					fstream.on('close', function () {
+						console.log('upload sucessfully');
+						res.redirect('/meet');
+					});
+				});
+			
+		}
+		
+		});
+		
 });
 app.get('/makemeet', function(req,res) {
 
@@ -201,7 +231,7 @@ app.post("/friendresponse", function(req,res) {
 						}
 					});
 					done();
-					client.query("delete from friendrequests where to_uid=$1 and from_uid = (select id from users where username=$2))", [uid,req.body.name], function(err,result){
+					client.query("delete from friendrequests where to_uid=$1 and from_uid = (select id from users where username=$2)", [uid,req.body.name], function(err,result){
 						if (err) {
 							console.log("Problem checking in",err);
 						}
@@ -266,7 +296,7 @@ app.post("/requestresponse", function(req,res) {
 						}
 					});
 					done();
-					client.query("delete from invited where to_uid=$1 and from_uid = (select id from users where username=$2))", [uid,req.body.name], function(err,result){
+					client.query("delete from invited where to_uid=$1 and from_uid = (select id from users where username=$2)", [uid,req.body.name], function(err,result){
 						if (err) {
 							console.log("Problem checking in",err);
 						}

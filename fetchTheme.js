@@ -11,7 +11,7 @@ module.exports = function(req, pg, db, uid, callback){
 				callback('Problem fetching client from pool', err);
 			} 
 			console.log("uid is ", uid);
-			client.query("select * from themes where uid="+ uid, function(err, result){
+			client.query("select * from themes where uid=$1", [uid], function(err, result){
 				if(result.rows.length == 0){
 					callback(-1);
 				}else{

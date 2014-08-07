@@ -42,7 +42,7 @@ html
         p#title Schedule A Meeting
       .col3
         h4 Friend List
-        form(method="POST", action="/sendInvitation", id="futureInvitation")
+        form(method="POST", action="/sendInvitation?_csrf=#{csrf}", id="futureInvitation")
           .formholder
             .randompad
               fieldset
@@ -82,7 +82,7 @@ html
               input#datepicker(type="text",  form="futureInvitation",  name="mydate", value=mydate, required="")
         .formholder
           #futureMeetings.randompad
-            form(method="GET", action="/futureMeeting" , id="futureMeet")
+            form(method="GET", action="/futureMeeting?_csrf=#{csrf}" , id="futureMeet")
               fieldset
                 label(name="schedule") Scheduled Meetings, select an item to view
                 br
@@ -95,7 +95,7 @@ html
    footer
         ul
           li
-            a(href="about")  About
+            a(href="report")  Report
           li
             a(href="meet")  Meet
           li

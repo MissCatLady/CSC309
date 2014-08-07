@@ -37,6 +37,7 @@ html
       #location.container
         .text
           h4 My Location
+          input(type="hidden", id="csrf1", value="#{csrf}")
           .dotstyle.dotstyle-puff
             ul
               li.current
@@ -51,7 +52,7 @@ html
         #map-canvas.map
         #friendAdd.formholder
           .randompad
-            form(method="POST", action="/invite")
+            form(method="POST", action="/invite?_csrf=#{csrf}")
               fieldset
                 select(name="mydropdown", multiple="multiple")
                   if friends
@@ -66,8 +67,11 @@ html
             ul#messageList
           #messagebox
             textarea#message 
+            input(type="hidden", id="csrf", value="#{csrf}")
             input#submittext(type="submit", value="send")
-  
+            form(action="UpImg?_csrf=#{csrf}", method="post", enctype="multipart/form-data")
+              input(type="file", name="displayImage")
+              input(type="submit", value="submit image")
     a(href="#smallchat")
       input#places.place-button(type="button", value="MEETING PLACE")
     #places-popup
@@ -81,7 +85,7 @@ html
         if suggestions
           h4 Pick a location
           .friendrequest
-            form(method="POST", action="/locationvote")
+            form(method="POST", action="/locationvote?_csrf=#{csrf}")
               select(name="location", required="")
                 for suggestion in suggestions
                   option(value=suggestion.place_id) #{suggestion.location}
@@ -93,7 +97,7 @@ html
               .displayimg
               .requesttext
                 | #{friendreq} would like to be your friend!
-                form(method="POST", action="/friendresponse")
+                form(method="POST", action="/friendresponse?_csrf=#{csrf}")
                   input(type="hidden", value="#{friendreq}", name="name")
                   ul
                     li
@@ -107,7 +111,7 @@ html
     footer
       ul
         li
-          a(href="/about")  About
+          a(href="/report")  Report
         li
           a(href="/meet")  Meet
         li

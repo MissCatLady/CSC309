@@ -1,280 +1,80 @@
-// Note: This example requires that you consent to location sharing when
+// Note: This script requires that you consent to location sharing when
 // prompted by your browser. If you see a blank space instead of the map, this
 // is probably because you have denied permission for location sharing.
 
 var map;
-
+var templat;
+var templong;
+//var mapcontent = "Level1: a big treasure lies in the legendary jesse ketchum park, go find it!";
+var playerrank=0;
+var csrf = $('#csrf').val();
+var mapcontent;
 function initialize() {
-  var mapOptions = {
-    zoom: 14,
-    center: new google.maps.LatLng(43.6617, -79.3950)
+  //get the player rank from previous record
+  var csrf = $('#csrf').val();
+  $.get("/startscav?_csrf="+csrf,function(data) {
+    playerrank = parseInt(data.level);
+    //display player's ranking based on his/her level
+      if(playerrank==1){
+        $("#user_rank").html("<strong>Hello my friend, your current ranking is 1, you are considered as a newbie adventurer</strong>");
+        mapcontent = "Level1: a big treasure lies in the legendary jesse ketchum park, go find it!";
+        templat = 43.6670302+0.005;
+        templong =  -79.3875667-0.005;
+      }
+      else if(playerrank==2){
+        $("#user_rank").html("<strong>Hello my friend, your current ranking is 2, you are considered as a intermediate adventurer</strong>");
+        templat = 43.6675;
+        templong = -79.3942;
+         mapcontent = "Level2: a big treasure lies in the legendary Royal Ontario Museum, go find it!";
+      }
+      else if(playerrank==3){
+        $("#user_rank").html("<strong>Hello my friend, your current ranking is 3, you are considered as a legendary adventurer</strong>");
+        templat = 43.6426;
+        templong = -79.3871;
+         mapcontent = "Level3: a big treasure lies in the legendary CN Tower, go find it!";
+      
+      }
+    setGameMap();
+  });
+  $("#button-submit").show();
+  $("#rules_text").hide();
+  $("#ruleshide").hide();
+  $("#button-check").hide();
+  $("#button-quit").hide();
+
+}
+
+function setGameMap(){
+
+      var mapOptions = {
+    zoom: 14
   };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-
+  map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
   // Try HTML5 geolocation
-
-  
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
-//Users location
-    var infowindow = new google.maps.InfoWindow({
+      var pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      var infowindow = new google.maps.InfoWindow({
         map: map,
         position: pos,
-       content: '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading"></h1>'+
-      '<div id="bodyContent">'+
-      'This is your Current Location </p>'+
-      '</div>'+
-      '</div>',
-
+        content: 'This is where you are young adventurer'
       });
+  //insert a marker on map
+
+  var aLatlng = new google.maps.LatLng(templat,templong);
   var marker = new google.maps.Marker({
-        position: pos,
+      position: aLatlng,
+      map: map,
+      title: 'a location'
+    });
+    
+  var infowindow1 = new google.maps.InfoWindow({
         map: map,
-        icon: 'http://www.geocodezip.com/mapIcons/small_blue_dot.png',
-        animation: google.maps.Animation.DROP,
-    });
-
-    google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map,marker);
-    });
-    
-    var myLatLng = new google.maps.LatLng(43.6617, -79.3950);
-    
-     var marker2 = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-    });
-      var infowindow2 = new google.maps.InfoWindow({
-      position: myLatLng,
-      content: '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Kings College Circle</h1>'+
-      '<div id="bodyContent">'+
-      'King’s College Circle is always bustling with activity, including athletics, events and ceremonies steeped in University tradition</p>'+
-      '</div>'+
-      '</div>',
-
-      animation: google.maps.Animation.DROP,
-  });
-      google.maps.event.addListener(marker2, 'click', function() {
-      
-      if ( (Math.abs(position.coords.latitude - marker2.getPosition().lat())) < 0.001 ){
-    alert("You are at King College Circle, Take a Picture and send it to your freinds");
-    marker2.setMap(null);
-    }
-    else{
-    infowindow2.open(map,marker2);
-    }
-    
-  });
-  
-  
-//UOFT
-    var myLatLng = new google.maps.LatLng(43.6656, -79.3958);
-     var marker3 = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-    });
-      var infowindow3 = new google.maps.InfoWindow({
-      position: myLatLng,
-      content: '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Trinity College</h1>'+
-      '<div id="bodyContent">'+
-      'Trinity College is a small academic college with a long and illustrious history within the University of Toronto, the largest university in Canada. A small, distinctive college at the heart of a great university</p>'+
-      '</div>'+
-      '</div>',
-
-      animation: google.maps.Animation.DROP,
-  });
-      google.maps.event.addListener(marker3, 'click', function() {
-      
-      if ( (Math.abs(position.coords.latitude - marker3.getPosition().lat())) < 0.001 ){
-    alert("You are at Trinity College, Take a Picture and send it to your freinds");
-    marker3.setMap(null);
-    }
-    else{
-    infowindow3.open(map,marker3);
-    }
-    
-  });
-  
-  
-  
-//UOFT
-    var myLatLng = new google.maps.LatLng(43.6669, -79.3919);
-     var marker4 = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-    });
-      var infowindow4 = new google.maps.InfoWindow({
-      position: myLatLng,
-      content: '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Victoria College</h1>'+
-      '<div id="bodyContent">'+
-      'Founded in 1836 in Cobourg, Ontario, by royal charter from King William IV, Victoria federated with the University of Toronto in 1890. It comprises Victoria College, an arts and science college of U of T, and Emmanuel College, a theological college associated with the United Church of Canada. </p>'+
-      '</div>'+
-      '</div>',
-
-      animation: google.maps.Animation.DROP,
-  });
-      google.maps.event.addListener(marker4, 'click', function() {
-     
-      if ( (Math.abs(position.coords.latitude - marker4.getPosition().lat())) < 0.001 ){
-    alert("You are at Victoria College, Take a Picture and send it to your freinds");
-    marker4.setMap(null);
-    }
-    else{
-    infowindow4.open(map,marker4);
-    }
-    
-  });
-  
-//UOFT
-    var myLatLng = new google.maps.LatLng(43.6644, -79.3994);
-     var marker5 = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-    });
-      var infowindow5 = new google.maps.InfoWindow({
-      position: myLatLng,
-      content: '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Robarts Library</h1>'+
-      '<div id="bodyContent">'+
-      'The John P. Robarts Research Library, commonly referred to as Robarts Library, is the main humanities and social sciences library of the University of Toronto Libraries and the largest individual library in the university</p>'+
-      '</div>'+
-      '</div>',
-
-      animation: google.maps.Animation.DROP,
-  });
-      google.maps.event.addListener(marker5, 'click', function() {
-      
-      if ( (Math.abs(position.coords.latitude - marker5.getPosition().lat())) < 0.001 ){
-    alert("You are at Robarts Library, Take a Picture and send it to your freinds");
-    marker5.setMap(null);
-    }
-    else{
-    infowindow5.open(map,marker5);
-    }
-    
-  });
-
-//UOFT
-    var myLatLng = new google.maps.LatLng(43.6596, -79.3972);
-     var marker6 = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-    });
-      var infowindow6 = new google.maps.InfoWindow({
-      position: myLatLng,
-      content: '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Bahen Center</h1>'+
-      '<div id="bodyContent">'+
-      'The Bahen Centre for Information Technology is a building at the St. George campus of the University of Toronto. The university website bills it as a "state of the art facility for education of information technology professionals in electrical and computer engineering, computer science and IT research</p>'+
-      '</div>'+
-      '</div>',
-
-      animation: google.maps.Animation.DROP,
-  });
-      google.maps.event.addListener(marker6, 'click', function() {
-      
-      if ( (Math.abs(position.coords.latitude - marker6.getPosition().lat())) < 0.001 ){
-    alert("You are at Bahen Center, Take a Picture and send it to your freinds");
-    marker6.setMap(null);
-    }
-    else{
-    infowindow6.open(map,marker6);
-    }
-    
-  });
-  
-//UOFT
-    var myLatLng = new google.maps.LatLng(43.6619, -79.4004);
-     var marker7 = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-    });
-      var infowindow7 = new google.maps.InfoWindow({
-      position: myLatLng,
-      content: '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">New College</h1>'+
-      '<div id="bodyContent">'+
-      'New College is one of the four constituent Colleges of the University of Toronto in Canada. One of the larger colleges with nearly 5000 students, it stands on Huron Street in the historic campus west-end, nestled alongside the Athletic Centre, the Earth Sciences Centre, Sidney Smith Hall and the Ramsey Wright Zoology Laboratory</p>'+
-      '</div>'+
-      '</div>',
-
-      animation: google.maps.Animation.DROP,
-  });
-      google.maps.event.addListener(marker7, 'click', function() {
-      
-      if ( (Math.abs(position.coords.latitude - marker7.getPosition().lat())) < 0.001 ){
-    alert("You are at New College, Take a Picture and send it to your freinds");
-    marker7.setMap(null);
-    }
-    else{
-    infowindow7.open(map,marker7);
-    }
-    
-  });
-    
+        position: aLatlng,
+        content: mapcontent
+      });
  
-//UOFT
-    var myLatLng = new google.maps.LatLng(43.6647, -79.3925);
-    
-     var marker8 = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-    });
-      var infowindow8 = new google.maps.InfoWindow({
-      position: myLatLng,
-      content: '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h1 id="firstHeading" class="firstHeading">Queens Park</h1>'+
-      '<div id="bodyContent">'+
-      'Queens Park is an urban park in Downtown Toronto, Ontario, Canada. Opened in 1860 by Edward, Prince of Wales, it was named in honour of Queen Victoria. The park is the site of the Ontario Legislative Building, which houses the Legislative Assembly of Ontario, and the phrase Queens Park is regularly used as a metonym for the Government of Ontario.</p>'+
-      '</div>'+
-      '</div>',
-
-      animation: google.maps.Animation.DROP,
-  });
-      google.maps.event.addListener(marker8, 'click', function() {
-      
-      if ( (Math.abs(position.coords.latitude - marker8.getPosition().lat())) < 0.001 ){
-    alert("You are at Queens Park, Take a Picture and send it to your freinds");
-    marker8.setMap(null);
-    }
-    else{
-    infowindow8.open(map,marker8);
-    }
-    
-  });
-    
-    
-     
+      map.setCenter(pos);
     }, function() {
       handleNoGeolocation(true);
     });
@@ -282,13 +82,15 @@ function initialize() {
     // Browser doesn't support Geolocation
     handleNoGeolocation(false);
   }
+
+
 }
 
 function handleNoGeolocation(errorFlag) {
   if (errorFlag) {
     var content = 'Error: The Geolocation service failed.';
   } else {
-    var content = 'Error: Your browser doesnt support geolocation.';
+    var content = 'Error: Your browser doesn\'t support geolocation.';
   }
 
   var options = {
@@ -298,8 +100,89 @@ function handleNoGeolocation(errorFlag) {
   };
 
   var infowindow = new google.maps.InfoWindow(options);
-
+  map.setCenter(options.position);
 }
+
 google.maps.event.addDomListener(window, 'load', initialize);
 
+//when user click the start game button, send a get request
+document.getElementById("button-submit").onclick=function(){startnewscav()};
+
+
+function startnewscav(){
+
+  navigator.geolocation.getCurrentPosition(function(position) {
+  var csrf = $('#csrf').val();
+
+    $("#button-submit").hide();
+    $("#button-quit").show();
+    $("#button-check").show();
+    var latitude = position.coords.latitude;
+    var longitude =position.coords.longitude;
+
+
+
+
+
   
+ 
+
+
+});
+
+}
+
+
+function checkgame(){
+  //check the status of the game, if the user has reached the destination
+  /*
+    var csrf = $('#csrf').val();
+  $.get("/checkscav?_csrf=" + csrf,function(data){
+
+  });*/
+  //alert(playerrank);
+  navigator.geolocation.getCurrentPosition(function(position) {
+
+    var distance = Math.pow(templat-position.coords.latitude,2)+Math.pow(templong-position.coords.longitude,2);
+    distance = Math.round(distance*10000000);
+
+    //convert the distance into meters
+    if(distance>100){
+      alert("keep trying young adventurer you are approximately "+(distance+300) +" meters away from getting the treasure");
+    }
+    else{
+      //the player has won the game by finding the treasure
+      //update the level 
+    playerrank = playerrank+1;
+    var csrf = $('#csrf').val();
+    alert("congratulation young adventurer, you have found the treasure!");
+    $.post("/winscav?_csrf=" + csrf,{rank:playerrank},function(data){
+
+    });
+    initialize();
+    }
+
+  });
+
+}
+
+
+
+function quitgame(){
+    $("#button-submit").show();
+    $("#button-quit").hide();
+    $("#button-check").hide();
+//delete the data of user who is playing the game right now
+
+}
+//show/hide game rules
+function showrule(){
+  $("#rules_text").show();
+  $("#rules").hide();
+  $("#ruleshide").show();
+}
+function hiderule(){
+  $("#rules_text").hide();
+  $("#ruleshide").hide();
+  $("#rules").show();
+}
